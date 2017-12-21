@@ -1,6 +1,5 @@
 import React from "react";
 import AlbumCover from "./components/albumCover/AlbumCover";
-import Marker from "./components/marker/marker";
 import TrackChart from "./components/PieChart/trackChart";
 import Palette from "./components/palette/Palette";
 import Timer from "./components/timer/timer";
@@ -8,14 +7,13 @@ import PlayButton from "./components/playButton/playButton";
 import BackCircle from "./components/playButton/BackCircle";
 import PlayerBackground from "./components/playerBackground";
 import ReactBodymovin from "react-bodymovin";
-import TrackInfo from "./components/trackInfo/trackInfo"
-import animation from "../../models/data.json";
-import animation1 from "../../models/data1.json";
+import animation from "../../models/animation/bodymovin/data.json";
+import animation1 from "../../models/animation/bodymovin/data1.json";
 
 export default class Player extends React.Component {
   constructor(props) {
     super(props);
-    this.db = this.props.db.child(this.props.index);
+    this.db = this.props.database.child(this.props.index);
     this.state = {
       slices: [],
       userNames: [],
@@ -91,31 +89,8 @@ export default class Player extends React.Component {
                   index={this.state.index}
                 />
 
-                <BackCircle size={"37.5%"} index={this.state.index} />
-
                 <AlbumCover index={this.state.index} />
 
-                <Timer
-                  time={this.state.timer}
-                  loop={this.state.loop}
-                  index={this.state.index}
-                />
-
-                <PlayButton
-                  color={palette.muted}
-                  opacity={"0.7"}
-                  size={"34%"}
-                  index={this.state.index}
-                />
-                <button
-                  onClick={this.handleClick.bind(this)}
-                  id="on"
-                  class={"on" + this.props.index}
-                >
-                  <ReactBodymovin options={this.bodymovinOptions} />
-                </button>
-                <Marker />
-                <TrackInfo />
               </div>
             </div>
           )}
@@ -141,32 +116,8 @@ export default class Player extends React.Component {
                   index={this.state.index}
                 />
 
-                <BackCircle size={"37.5%"} index={this.state.index} />
-
                 <AlbumCover index={this.state.index} />
 
-                <Timer
-                  time={this.state.timer}
-                  loop={this.state.loop}
-                  index={this.state.index}
-                />
-
-                <PlayButton
-                  color={palette.muted}
-                  opacity={"0.7"}
-                  size={"34%"}
-                  index={this.state.index}
-                />
-                <div />
-                <button
-                  onClick={this.handleClick.bind(this)}
-                  id="on"
-                  class={"on" + this.props.index}
-                >
-                  <ReactBodymovin options={this.bodymovinOptions1} />
-                </button>
-                <Marker />
-                <TrackInfo />
               </div>
             </div>
           )}

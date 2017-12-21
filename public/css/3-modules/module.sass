@@ -1,24 +1,25 @@
 #wrapper
   border-radius: 20px
-
-#player
   width: 100%
-  flex: 1 33%
-  border-right: 1px solid lightgrey
+  text-align: center
 
 #wrapper1, #wrapper
-  +Position(relative, 0px, 0px, 200px, 200px)
+  +Position(relative, 0px, 0px, 300px, 300px)
   position: relative
   width: 250px
   height: 400px
 
+#player
+  width: 100%
+  justify-content: center
+  display: flex
+
 #wrapper
   background: transparent
-
   border-radius: 0px
 
 #wrapper1
-  +Position(absolute, 30px, 20px, 200px, 200px)
+  +Position(absolute, 20px, -20px, 300px, 300px)
   opacity: 1
 
 #dot
@@ -28,8 +29,8 @@
   z-index: -1
 
 #circle
-  top: 0px
-  left: 0px
+  padding: 15px
+  left: -5px
 
 #timer
   top: 77%
@@ -37,7 +38,7 @@
   display: none
 
 #play
-  +Position(absolute, 46px, 36px, 160px, 160px)
+  +Position(absolute, 39px, -2px, 265px, 265px)
   +borderAndRadius(4px, solid, white, 200px)
   margin: 0px
   padding: 0px

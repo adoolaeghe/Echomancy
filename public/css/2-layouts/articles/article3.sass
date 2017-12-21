@@ -1,4 +1,95 @@
 .article3
-  border-bottom: 1px solid lightgrey
+  border-bottom: 1px solid $light-grey
   height: 500px
   position: relative
+
+  .article3-content-background
+    position: absolute
+    padding: 0px
+    height: 100%
+
+    &.layer-1
+      left: -556px
+      top: 0px
+      opacity: 1
+      transition: all 200ms
+      transition-timing-function: linear
+
+    &.layer-2
+      left: -296px
+      top: 0px
+      opacity: 1
+      transition: all 200ms
+      transition-timing-function: linear
+
+    &.layer-3
+      left: -201px
+      top: 0px
+      opacity: 1
+      transition: all 200ms
+      transition-timing-function: linear
+
+    &.layer-4
+      left: -186px
+      top: 0px
+      opacity: 1
+      transition: all 200ms
+      transition-timing-function: linear
+
+    &.layer-5
+      left: -150px
+      top: 0px
+      opacity: 1
+      transition: all 200ms
+      transition-timing-function: linear
+
+  .article3-text-content
+    display: flex
+    top: 0px
+    align-items: center
+    justify-content: center
+
+
+  .article3-header
+    margin-top: 190px
+    margin-left: 13%
+    font-family: 'Cardo', serif
+
+  .text-background
+    position: absolute
+    margin-top: 120px
+    margin-left: 45%
+
+  h1
+    opacity: 0
+    transition: all 1s
+    transition-timing-function: linear
+    font-size: 120px
+    font-weight: bolder
+
+  h2
+    opacity: 0
+    transition: all 500ms
+    transition-timing-function: linear
+    font-size: 40px
+    font-weight: lighter
+
+  .line-background-1
+    width: 1px
+    height: 0px
+    background-color: $light-grey
+    position: absolute
+    top: 0px
+    left: 66.66%
+    transition: all 1s
+    transition-timing-function: linear
+
+  .line-background-2
+    width: 1px
+    height: 0px
+    background-color: $light-grey
+    position: absolute
+    top: 0px
+    left: 83.33%
+    transition: all 1s
+    transition-timing-function: linear

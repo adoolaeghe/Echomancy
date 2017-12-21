@@ -1,3 +1,58 @@
 .article4
-  height: 500px
-  border-bottom: 1px solid lightgrey
+  height: 650px
+  border-bottom: 1px solid $light-grey
+  position: relative
+
+  .article4-slider
+    position: absolute
+    right: 0px
+    height: 100%
+
+    &.small
+      height: 85%
+
+  .slider-button
+    position: absolute
+    right: 0px
+    top: 400px
+    height: 25%
+
+
+  .text-background
+    position: absolute
+    left: 35%
+    top: 25%
+
+  .article4-text-content
+    display: flex
+    align-items: center
+    justify-content: center
+
+  .article4-header
+    margin-top: 220px
+    text-align: right
+    font-family: 'Cardo', serif
+
+  .article4-sub-header
+    margin-top: 380px
+    border-bottom: 1px solid $light-grey
+    z-index: 900
+
+  .header-line-left
+    height: 1px
+    margin-top: 18%
+    background-color: $light-grey
+
+  h1
+    opacity: 0
+    transition: all 1s
+    transition-timing-function: linear
+    font-size: 120px
+    font-weight: bolder
+
+  h2
+    opacity: 0
+    transition: all 1s
+    transition-timing-function: linear
+    font-size: 40px
+    font-weight: lighter
