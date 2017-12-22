@@ -27,7 +27,9 @@ export default class Arcticle1 extends React.Component {
         <div className="article1-grid-right col s2">
           <div className="dot-left" id="11"></div>
         </div>
-        <h4>PUBLISHING TOGETHER</h4>
+        <h4 className="row col s6 offset-s6">
+          <div className="col s12 header-word">murmur</div>
+        </h4>
       </section>
     )
   }

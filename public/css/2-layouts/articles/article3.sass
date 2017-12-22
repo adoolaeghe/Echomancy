@@ -4,92 +4,34 @@
   position: relative
 
   .article3-content-background
-    position: absolute
+    +Position(absolute, 0px, 0px, 100%, 0px)
     padding: 0px
-    height: 100%
-
-    &.layer-1
-      left: -556px
-      top: 0px
-      opacity: 1
-      transition: all 200ms
-      transition-timing-function: linear
-
-    &.layer-2
-      left: -296px
-      top: 0px
-      opacity: 1
-      transition: all 200ms
-      transition-timing-function: linear
-
-    &.layer-3
-      left: -201px
-      top: 0px
-      opacity: 1
-      transition: all 200ms
-      transition-timing-function: linear
-
-    &.layer-4
-      left: -186px
-      top: 0px
-      opacity: 1
-      transition: all 200ms
-      transition-timing-function: linear
-
-    &.layer-5
-      left: -150px
-      top: 0px
-      opacity: 1
-      transition: all 200ms
-      transition-timing-function: linear
 
   .article3-text-content
-    display: flex
+    +flex(null, center, center)
     top: 0px
-    align-items: center
-    justify-content: center
 
 
   .article3-header
     margin-top: 190px
     margin-left: 13%
-    font-family: 'Cardo', serif
 
   .text-background
-    position: absolute
     margin-top: 120px
     margin-left: 45%
+    position: absolute
 
   h1
-    opacity: 0
-    transition: all 1s
-    transition-timing-function: linear
-    font-size: 120px
-    font-weight: bolder
+    +configFont(120px, bolder, null)
 
   h2
-    opacity: 0
-    transition: all 500ms
-    transition-timing-function: linear
-    font-size: 40px
-    font-weight: lighter
+    +configFont(40px, lighter, null)
 
   .line-background-1
-    width: 1px
-    height: 0px
     background-color: $light-grey
-    position: absolute
-    top: 0px
-    left: 66.66%
-    transition: all 1s
-    transition-timing-function: linear
+    +Position(absolute, 0px, 66.66%, 0px, 1px)
+
 
   .line-background-2
-    width: 1px
-    height: 0px
     background-color: $light-grey
-    position: absolute
-    top: 0px
-    left: 83.33%
-    transition: all 1s
-    transition-timing-function: linear
+    +Position(absolute, 0px, 83.33%, 0px, 1px)

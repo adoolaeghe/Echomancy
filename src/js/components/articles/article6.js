@@ -12,6 +12,10 @@ export default class Arcticle6 extends React.Component {
              src={"./public/content/images/sliders/article-6-slider-blue.svg"}
              alt="Kiwi standing on oval">
         </img>
+        <img className="slider-button"
+             src={"./public/content/images/sliders/slider-button-1.svg"}
+             alt="Kiwi standing on oval">
+        </img>
         <div className="dot-left" id="21"></div>
         <div className="dot-right" id="22"></div>
         <div className="article5-main col s12"></div>

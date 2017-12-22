@@ -8,6 +8,9 @@ export default class Arcticle4 extends React.Component {
           <div className="header-line-left col s2"></div>
           <h1 className="article4-header col s4">Reveal</h1>
           <h2 className="article4-sub-header col s6">New songs</h2>
+          <div className="slider-btn">
+            <p>+</p>
+          </div>
         </div>
         <img className="article4-slider"
              src={"./public/content/images/sliders/article-4-slider-black.svg"}

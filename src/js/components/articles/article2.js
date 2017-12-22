@@ -7,7 +7,7 @@ export default class Arcticle2 extends React.Component {
         <div className="dot-left" id="12"></div>
         <div className="dot-right" id="13"></div>
         <div className="article2-main col s8">
-          <h3>We are new kind of music publication</h3>
+          <h3>We are a new kind of publisher</h3>
         </div>
         <div className="article2-grid-left col s2">
           <div className="dot-left" id="14"></div>

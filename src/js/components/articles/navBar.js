@@ -8,7 +8,7 @@ export default class NavBar extends React.Component {
         <div className="dot-right" id="2"></div>
         <div className="navBar-logo-title col s6">
           <h3>
-            murmur
+            Publishing Together
           </h3>
         </div>
         <div className="navBar-grid-left col s2">

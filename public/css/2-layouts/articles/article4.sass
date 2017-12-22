@@ -4,37 +4,28 @@
   position: relative
 
   .article4-slider
-    position: absolute
+    +Position(absolute, null, null, 100%, null)
     right: 0px
-    height: 100%
 
     &.small
       height: 85%
 
   .slider-button
-    position: absolute
-    right: 0px
-    top: 400px
-    height: 25%
-
+    +Position(absolute, 400px, null, 25%, null)
+    right: 0
 
   .text-background
-    position: absolute
-    left: 35%
-    top: 25%
+    +Position(absolute, 25%, 35%, null, null)
 
   .article4-text-content
-    display: flex
-    align-items: center
-    justify-content: center
+    +flex(null, center, center)
 
   .article4-header
     margin-top: 220px
     text-align: right
-    font-family: 'Cardo', serif
 
   .article4-sub-header
-    margin-top: 380px
+    margin-top: 420px
     border-bottom: 1px solid $light-grey
     z-index: 900
 
@@ -43,16 +34,16 @@
     margin-top: 18%
     background-color: $light-grey
 
+  .slider-btn
+    +flex(null, center, center)
+    +Position(absolute,320px, null, null, 100px)
+    color: white
+    font-size: 90px
+    right: 0px
+    z-index: 9999
+
   h1
-    opacity: 0
-    transition: all 1s
-    transition-timing-function: linear
-    font-size: 120px
-    font-weight: bolder
+    +configFont(120px, bolder, null)
 
   h2
-    opacity: 0
-    transition: all 1s
-    transition-timing-function: linear
-    font-size: 40px
-    font-weight: lighter
+    +configFont(40px, lighter, null)

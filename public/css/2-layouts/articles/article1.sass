@@ -1,12 +1,12 @@
 .article1
-  height: 550px
   border-bottom: 1px solid $light-grey
   position: relative
+  height: 550px
 
   .article1-main
     align-items: center
-    height: 100%
     display: flex
+    height: 100%
     justify-content: center
 
   .article1-grid-right,
@@ -18,13 +18,18 @@
     text-align: center
     width: 200px
 
-  h4
-    position: absolute
-    background-color: white
-    font-family: 'Pathway Gothic One', sans-serif
 
-    z-index: 999
-    width: 400px
-    left: 63%
-    top: 35%
+  h4
+    +configFont(48px, 700, null)
+    +Position(absolute, 35%, 53%, null, 400px)
+    background-color: white
     border: 40px solid white
+    z-index: 999
+
+    .header-word
+      text-align: center
+
+    .sub-header-word
+      +configFont(28px, lighter, null)
+      font-family: 'Chivo', sans-serif
+      text-align: center

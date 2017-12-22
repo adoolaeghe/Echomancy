@@ -9,8 +9,8 @@
 
     h3
       text-align: center
-      font-family: 'Cardo', serif
-      font-weight: bold
+      +configFont(28px, lighter, null)
+      font-family: 'Chivo', sans-serif
 
   .navBar-grid-right,
   .navBar-grid-center,
@@ -19,3 +19,6 @@
     height: 100px
     position: relative
     width: 200px
+
+  .navBar-grid-right
+    background-color: $murmur-primary-yellow
