@@ -1,14 +1,21 @@
 import React from "react";
+
 import AlbumCover from "./components/albumCover/AlbumCover";
-import TrackChart from "./components/PieChart/trackChart";
 import Palette from "./components/palette/Palette";
-import Timer from "./components/timer/timer";
+import PieChart from "./components/PieChart/pieChart";
 import PlayButton from "./components/playButton/playButton";
-import BackCircle from "./components/playButton/BackCircle";
 import PlayerBackground from "./components/playerBackground";
-import ReactBodymovin from "react-bodymovin";
-import animation from "../../models/animation/bodymovin/data.json";
-import animation1 from "../../models/animation/bodymovin/data1.json";
+import Timer from "./components/timer/timer";
+
+
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Link,
+  hashHistory,
+ withRouter
+} from 'react-router-dom'
 
 export default class Player extends React.Component {
   constructor(props) {
@@ -20,24 +27,11 @@ export default class Player extends React.Component {
       audioContext: this.props.audioContext,
       index: this.props.index,
       image: new Image(),
-      sometime: new Date().getTime(),
       timer: Math.round(new Date().getTime() / 1000),
       loop: 1,
       mute: 0,
       time: 0,
       autoPlay: true
-    };
-    this.bodymovinOptions = {
-      loop: false,
-      autoplay: false,
-      prerender: false,
-      animationData: animation1
-    };
-    this.bodymovinOptions1 = {
-      loop: false,
-      autoplay: true,
-      prerender: true,
-      animationData: animation
     };
   }
 
@@ -45,8 +39,10 @@ export default class Player extends React.Component {
     this.state.image.crossOrigin = "anonymous";
     this.state.image.src = this.props.imageSource;
 
-    setTimeInterval.bind(this)();
+    /// DEFINE NEW ROTATION ANGLE EVERY AMOUNT OF TIME
+    setPieRotationAngle.bind(this)();
 
+    /// LOAD ALL THE SLICE FROM DATABASE => SHOULD BE REFACTORED TO REDUX
     loadSlicesFromDatabase.bind(this)();
 
     updateLoopFromDatabase.bind(this)();
@@ -56,73 +52,49 @@ export default class Player extends React.Component {
     addSliceToDatabase.bind(this)(color, value);
   }
 
-  handleClick() {
-    if (this.state.autoPlay == true) {
-      this.setState({
-        autoPlay: false
-      });
-    } else {
-      this.setState({
-        autoPlay: true
-      });
-    }
+  /// ON/OFF SWITCH TRIGERED BY PLAY BUTTON PLUS ANIMATION
+  onOffSwitch() {
     playerSwitch.bind(this)();
+    browserHistory.push('/details1')
   }
 
   render() {
-    if (this.state.autoPlay) {
-      return (
-        <Palette image={this.state.image}>
-          {palette => (
-            <div id="player">
-              <div id="wrapper" class={"container" + this.state.index}>
-                <TrackChart
-                  addSlice={this.addSlice.bind(this)}
-                  storage={this.props.storage}
-                  db={this.db}
-                  slices={this.state}
-                  color={palette}
-                  loop={this.state.loop}
-                  mute={this.state.mute}
-                  audioContext={this.state.audioContext}
-                  time={this.state.time}
-                  index={this.state.index}
-                />
+    return (
+      <Palette image={this.state.image}>
+        {palette => (
+          <div className="player">
 
-                <AlbumCover index={this.state.index} />
-
-              </div>
+            <div className="btn"
+                 onClick={() => {this.onOffSwitch()}}>
+                hello
             </div>
-          )}
-        </Palette>
-      );
-    } else {
-      return (
-        <Palette image={this.state.image}>
-          {palette => (
-            <div id="player">
-              <div id="wrapper" class={"container" + this.state.index}>
 
-                <TrackChart
-                  addSlice={this.addSlice.bind(this)}
-                  storage={this.props.storage}
-                  db={this.db}
-                  slices={this.state}
-                  color={palette}
-                  loop={this.state.loop}
-                  mute={this.state.mute}
-                  audioContext={this.state.audioContext}
-                  time={this.state.time}
-                  index={this.state.index}
-                />
+            <div className="wrapper"
+                 id={"container" + this.state.index}>
+            <PieChart
+              addSlice={this.addSlice.bind(this)}
+              storage={this.props.storage}
+              db={this.db}
+              slices={this.state}
+              color={palette}
+              loop={this.state.loop}
+              mute={this.state.mute}
+              audioContext={this.state.audioContext}
+              time={this.state.time}
+              index={this.state.index}
+            />
 
-                <AlbumCover index={this.state.index} />
+            <PlayButton color={"white"}
+                        opacity={1}
+                        size={"40%"}
+                        index={this.state.index}/>
 
-              </div>
-            </div>
-          )}
-        </Palette>
-      );
-    }
+            <AlbumCover index={this.state.index} />
+
+          </div>
+        </div>
+      )}
+      </Palette>
+    );
   }
 }

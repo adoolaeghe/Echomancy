@@ -4,6 +4,18 @@ export default class Arcticle6 extends React.Component {
   render() {
     return(
       <section className="article6 row">
+        <div className="article6-text-content col s12">
+          <h1 className="article6-header col s12">Predict</h1>
+          <h2 className="article6-sub-header col s12">
+            The future popularity of songs
+          </h2>
+        </div>
+        <div className="article6-text-content col s12">
+          <h1 className="article6-header col s12">Earn</h1>
+          <h2 className="article6-sub-header col s12">
+            From your discoveries
+          </h2>
+        </div>
         <img className="article6-slider"
              src={"./public/content/images/sliders/article-6-slider-black.svg"}
              alt="Kiwi standing on oval">

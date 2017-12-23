@@ -13,12 +13,13 @@ export default class addSlice extends React.Component {
   }
 
   render() {
+    const background = 'linear-gradient('+this.state.color.muted+', '+this.state.color.lightMuted+')'
     return(
-      <div></div>
-      // <button id='add' style={{background: 'linear-gradient('+this.state.color.muted+', '+this.state.color.lightMuted+')'}}
-      // onClick={this.handleChangeAddButton.bind(this)}>
-      // Add
-      // </button>
+      <button className='add'
+              style={{background: background}}
+              onClick={this.handleChangeAddButton.bind(this)}>
+        Add
+      </button>
     )
   }
 }

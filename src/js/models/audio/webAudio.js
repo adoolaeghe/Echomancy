@@ -71,7 +71,7 @@ function updateAudioLoop() {
 }
 
 function muteSwitch() {
-  if(this.props.turnedOn === this.props.index){
+  if(this.state.mute === 0){
     this.setState({
       mute: 1,
     })

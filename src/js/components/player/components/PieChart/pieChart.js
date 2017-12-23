@@ -12,7 +12,7 @@ export default class TrackChart extends React.Component {
       source: this.props.audioContext.createBufferSource(),
       gainNode: this.props.audioContext.createGain(),
       time: this.props.time,
-      mute: 0
+      mute: this.props.mute
     };
   }
 
@@ -40,17 +40,14 @@ export default class TrackChart extends React.Component {
   }
 
   render() {
+    const rotation = "rotate(" + this.state.time.toString() + "deg)"
     if (this.props.loop !== null) {
       return (
         <div>
-          <div
-            id="wrapper1"
-            class={"wrapper" + this.props.index}
-            style={{
-              WebkitTransform: "rotate(" + this.state.time.toString() + "deg)"
-            }}
-          >
-            <div id="dot" />
+          <div className="wrapper1"
+               className={"wrapper" + this.props.index}
+               style={{WebkitTransform: rotation}}>
+            <div className="dot" />
             <PieChart slices={this.props.slices.slices} />
           </div>
           <AddSlice addSlice={this.props.addSlice} color={this.state.color} />

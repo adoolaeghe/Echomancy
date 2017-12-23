@@ -3,7 +3,10 @@ import React from "react";
 export default class BackCircle extends React.Component {
   render() {
     return (
-      <svg id="circle" expanded="true" height="280px" width="260px">
+      <svg className="circle"
+           expanded="true"
+           height="280px"
+           width="260px">
         <circle
           class={"largeCircleIndex" + this.props.index}
           cx="50%"

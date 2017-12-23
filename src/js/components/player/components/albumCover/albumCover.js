@@ -9,7 +9,6 @@ export default class AlbumCover extends React.Component {
           backgroundImage:
             "url('../../../../../../public/content/images/cover.png')"
         }}
-        class={"play" + this.props.index}
       />
     );
   }

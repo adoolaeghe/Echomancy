@@ -1,7 +1,13 @@
 import React from "react";
 import Player from "./player/player";
 import ReactBodymovin from "react-bodymovin";
-import { Doughnut } from "react-chartjs-2";
+
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Link
+} from 'react-router-dom'
 
 import Article1 from "./articles/article1"
 import Article2 from "./articles/article2"
@@ -36,6 +42,10 @@ export default class Main extends React.Component {
   }
 
   render() {
+
+    const Details1 = () => (
+      <div> Hello World </div>
+    )
     return (
       <div className="row">
         <div className="left-column col s1">
@@ -55,8 +65,10 @@ export default class Main extends React.Component {
         <div className="col s1">
           <SideArticles title={""} right={" align-right"}/>
         </div>
-        <div className="space-between">
+        <div className="space-between col s10"
+             onClick={() => {this.props.props.history.push('/details1')}}>
           <div className="space-between-line"></div>
+          <div className="playing-dot"></div>
         </div>
         <main className="col s10">
           <Article5 />
