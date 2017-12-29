@@ -66,7 +66,7 @@ export default class Main extends React.Component {
           <SideArticles title={""} right={" align-right"}/>
         </div>
         <div className="space-between col s10"
-             onClick={() => {this.props.props.history.push('/details1')}}>
+              onClick={() => {this.props.props.history.push('/details1')}}>
           <div className="space-between-line"></div>
           <div className="playing-dot"></div>
         </div>

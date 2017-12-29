@@ -3,7 +3,7 @@
   width: 100%
   text-align: center
 
-.wrapper1, .wrapper
+.wrapper1,
   +Position(relative, 0px, 0px, 300px, 300px)
   position: relative
   width: 250px
@@ -11,16 +11,26 @@
 
 .player
   width: 100%
-  justify-content: center
   display: flex
+  position: relative
+  align-items: center
+  justify-content: center
 
 .wrapper
+  margin-left: auto
+  margin-right: auto
+  margin-top: 8vh
+  position: relative
+  width: 530px
   background: transparent
   border-radius: 0px
 
 .wrapper1
+  margin-left: auto
+  margin-right: auto
   +Position(absolute, 20px, -20px, 300px, 300px)
   opacity: 1
+
 
 .dot
   +Position(absolute, -3px, 90px, 10px, 10px)

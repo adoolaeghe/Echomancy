@@ -47,10 +47,8 @@ export default class TrackChart extends React.Component {
           <div className="wrapper1"
                className={"wrapper" + this.props.index}
                style={{WebkitTransform: rotation}}>
-            <div className="dot" />
             <PieChart slices={this.props.slices.slices} />
           </div>
-          <AddSlice addSlice={this.props.addSlice} color={this.state.color} />
         </div>
       );
     }
