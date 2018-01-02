@@ -22,7 +22,28 @@ export default class Player extends React.Component {
     super(props);
     this.db = this.props.database.child(this.props.index);
     this.state = {
-      slices: [],
+      slices: [
+        {
+          color:"#F04043",
+          value: 0.5
+        },
+        {
+          color:"#4489CD",
+          value: 0.5
+        },
+        {
+          color:"#000000",
+          value: 0.5
+        },
+        {
+          color:"#FDE479",
+          value: 0.5
+        },
+        {
+          color:"#FFFFFF",
+          value: 0.5
+        },
+      ],
       userNames: [],
       audioContext: this.props.audioContext,
       index: this.props.index,
@@ -43,7 +64,7 @@ export default class Player extends React.Component {
     setPieRotationAngle.bind(this)();
 
     /// LOAD ALL THE SLICE FROM DATABASE => SHOULD BE REFACTORED TO REDUX
-    loadSlicesFromDatabase.bind(this)();
+    // loadSlicesFromDatabase.bind(this)();
 
     updateLoopFromDatabase.bind(this)();
   }
@@ -70,7 +91,7 @@ export default class Player extends React.Component {
               addSlice={this.addSlice.bind(this)}
               storage={this.props.storage}
               db={this.db}
-              slices={this.state}
+              slices={this.state.slices}
               color={palette}
               loop={this.state.loop}
               mute={this.state.mute}

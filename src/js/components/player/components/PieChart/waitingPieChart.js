@@ -47,7 +47,7 @@ export default class TrackChart extends React.Component {
           <div className="waitingWrapper1"
                className={"waitingWrapper" + this.props.index}
                style={{WebkitTransform: rotation}}>
-            <PieChart slices={this.props.slices.slices} />
+            <PieChart slices={this.props.slices} />
           </div>
         </div>
       );

@@ -59,6 +59,7 @@ export default class Player extends React.Component {
   }
 
   render() {
+    
     return (
       <Palette image={this.state.image}>
         {palette => (
