@@ -5,7 +5,7 @@ export default class SideArticles extends React.Component {
   render() {
     return(
       <div>
-        <div className="side-nav-bar">{this.props.title}</div>
+        <div className="side-nav-bar"></div>
         <div className="side-article1"></div>
         <div className="side-article2"></div>
         <div className="side-article3"></div>

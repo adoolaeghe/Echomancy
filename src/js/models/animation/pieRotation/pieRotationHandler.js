@@ -20,7 +20,7 @@ function setPieRotationAngle() {
     const currentTime = new Date().getTime();
     const pastTime = new Date('Novemeber 23, 1994 03:24:00').getTime();
     const timeDifference = currentTime - pastTime
-    const time = (((timeDifference)/1000)*360)/this.state.loop
+    const time = (((timeDifference)/1000)*360)/8.5
     this.setState({
       time : time
     })

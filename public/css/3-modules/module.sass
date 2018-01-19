@@ -17,20 +17,17 @@
   justify-content: center
 
 .wrapper
-  margin-left: auto
-  margin-right: auto
   margin-top: 8vh
   position: relative
-  width: 530px
+  width: 100vw
   background: transparent
   border-radius: 0px
 
 .wrapper1
   margin-left: auto
   margin-right: auto
-  +Position(absolute, 20px, -20px, 300px, 300px)
+  +Position(absolute, 20px, 0px, 300px, 300px)
   opacity: 1
-
 
 .dot
   +Position(absolute, -3px, 90px, 10px, 10px)
@@ -160,3 +157,21 @@
 
 .react-bodymovin-container
   +Position(absolute, 50px, 55px, " " , 54%)
+
+.bottom-info
+  +Position(absolute, null, 0, 80px, 100%)
+  +hash-background-45
+  +flex(column, center, center)
+  +configFont(22px,300,null)
+  font-family: "work-sans", sans-serif
+  bottom: 0
+
+.murWall-button
+  position: absolute
+  top: 700px
+  right: -100px
+  z-index: $z-xtop
+  right: 0
+  width: 120px
+  height: 200px
+  background-color: black

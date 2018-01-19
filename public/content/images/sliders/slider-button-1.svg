@@ -1,12 +1,12 @@
 
-<svg width="80px" height="133px" viewBox="0 0 80 133" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="232px" height="432px" viewBox="0 0 232 432" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Desktop-Main" transform="translate(-1247.000000, -1814.000000)" fill="#A3A3A3">
-            <g id="Article4" transform="translate(81.000000, 1496.000000)">
-                <polygon id="Path-6" points="1166 318 1246 343.464854 1246 450.299541 1166 422.837585"></polygon>
+        <g id="Desktop-Main" transform="translate(-1119.000000, -1531.000000)" fill="#000000">
+            <g id="Article4" transform="translate(75.000000, 1442.000000)">
+                <polygon id="Path-6" transform="translate(1160.494737, 304.867750) scale(-1, 1) translate(-1160.494737, -304.867750) " points="1044.98947 89 1276 324.208039 1276 520.735499 1044.98947 282.859347"></polygon>
             </g>
         </g>
     </g>

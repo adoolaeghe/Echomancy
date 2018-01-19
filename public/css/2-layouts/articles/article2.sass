@@ -9,6 +9,13 @@
     height: 100%
     justify-content: center
 
+    h3
+      +configFont(33px, 300, null)
+      font-family: "Work sans", sans-serif
+
+    &.hash-background
+      +hash-background-45
+        
   .article2-grid-right,
   .article2-grid-left
     +Position(relative, null,null, 100%, 200px)
@@ -24,11 +31,18 @@
     border-bottom: 1px solid $light-grey
     height: 50%
     position: relative
+    p
+      +configFont(33px, bolder, null)
+      font-family: "Work sans", sans-serif
+
 
   .article2-media-button-medium
     +flex(null, center, center)
     height: 50%
     position: relative
+    p
+      +configFont(33px, bolder, null)
+      font-family: "Work sans", sans-serif
 
   .social-media-logo
     height: 50px

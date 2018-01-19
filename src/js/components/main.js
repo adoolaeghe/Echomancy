@@ -63,7 +63,21 @@ export default class Main extends React.Component {
           <Article4 />
         </main>
         <div className="col s1">
-          <SideArticles title={""} right={" align-right"}/>
+          <div className="side-nav-bar"></div>
+          <div className="side-article1"></div>
+          <div className="side-article2">
+            <div className="col s12 side-auth top">
+              <div className="head"></div>
+              <div className="sub">in</div>
+            </div>
+            <div className="col s12 side-auth">
+              <div className="head"></div>
+              <div className="sub">up</div>
+            </div>
+          </div>
+          <div className="side-article3"></div>
+          <div className="side-article4"></div>
+          <div className="side-article5"></div>
         </div>
         <div className="space-between col s10"
               onClick={() => {this.props.props.history.push('/details1')}}>
