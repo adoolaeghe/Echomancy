@@ -43,8 +43,7 @@ export default class TrackChart extends React.Component {
     const rotation = "rotate(" + this.state.time.toString() + "deg)"
     if (this.props.loop !== null) {
       return (
-        <div className="wrapper1"
-             className={"wrapper" + this.props.index}
+        <div className="player-wrapper"
              style={{WebkitTransform: rotation}}>
           <PieChart slices={this.props.slices.slices} />
         </div>

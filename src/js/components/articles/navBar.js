@@ -3,7 +3,7 @@ import React from "react";
 export default class NavBar extends React.Component {
   render() {
     return(
-      <section className="navBar row">
+      <section className="nav-bar row">
         <div className="dot-left" id="1"></div>
         <div className="dot-right" id="2"></div>
         <div className="navBar-logo-title col s6">
@@ -12,7 +12,7 @@ export default class NavBar extends React.Component {
                alt="Kiwi standing on oval">
           </img>
         </div>
-        <div className="navBar-grid-left col s2 push-s6">
+        <div className="navBar-grid-left col s2">
           <div className="dot-left" id="3"></div>
         </div>
         <div className="navBar-grid-center col s2">

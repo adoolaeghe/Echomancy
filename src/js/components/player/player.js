@@ -64,18 +64,19 @@ export default class Player extends React.Component {
       <Palette image={this.state.image}>
         {palette => (
           <div className="player">
-              <PieChart
-                addSlice={this.addSlice.bind(this)}
-                storage={this.props.storage}
-                db={this.db}
-                slices={this.state}
-                color={palette}
-                loop={this.state.loop}
-                mute={this.state.mute}
-                audioContext={this.state.audioContext}
-                time={this.state.time}
-                index={this.state.index}
-              />
+            <PieChart
+              addSlice={this.addSlice.bind(this)}
+              storage={this.props.storage}
+              db={this.db}
+              slices={this.state}
+              color={palette}
+              loop={this.state.loop}
+              mute={this.state.mute}
+              audioContext={this.state.audioContext}
+              time={this.state.time}
+              index={this.state.index}
+            />
+            <div className="player-cover"></div>
         </div>
       )}
       </Palette>
