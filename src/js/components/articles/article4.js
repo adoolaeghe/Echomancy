@@ -9,7 +9,7 @@ export default class Arcticle4 extends React.Component {
         <div className="article4-text-content col s12">
           <div className="header-line-left col s2"></div>
           <h1 className="article4-header col s4">Reveal</h1>
-          <h2 className="article4-sub-header col s6">New songs</h2>
+          <h2 className="article4-sub-header col s5 pull-s1">New songs</h2>
           <button className="slider-btn">
             <p>+</p>
           </button>
@@ -22,7 +22,9 @@ export default class Arcticle4 extends React.Component {
         <div className="dot-left" id="21"></div>
         <div className="dot-right" id="22"></div>
         <div className="article4-main bottom-info col s12">
-          Content is first published with limited number of shares.
+          <div className="bottom-info-content">
+            Content is first published with limited number of shares.
+          </div>
         </div>
       </section>
     )

@@ -7,6 +7,7 @@ export default class Arcticle3 extends React.Component {
                style={{background: 'url(./public/content/images/article3-background.svg) no-repeat',
                        backgroundSize: 'cover'}}>
       <div className="article3-hash col s5">
+        <div className="article3-hash-line"></div>
         <img className="slider-button"
              src={"./public/content/images/article3-button.svg"}
              alt="Kiwi standing on oval">
@@ -20,8 +21,10 @@ export default class Arcticle3 extends React.Component {
       </div>
       <div className="dot-left" id="19"></div>
       <div className="dot-right" id="20"></div>
-      <div className="article3-main d col s12">
-        Content is first published with limited number of shares.
+      <div className="article3-main bottom-info col s12">
+        <div className="bottom-info-content">
+          Content is first published with limited number of shares.
+        </div>
       </div>
     </section>
     )

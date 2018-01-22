@@ -59,40 +59,23 @@ export default class Player extends React.Component {
   }
 
   render() {
-    
+
     return (
       <Palette image={this.state.image}>
         {palette => (
           <div className="player">
-
-            <div className="btn"
-                 onClick={() => {this.onOffSwitch()}}>
-                hello
-            </div>
-
-            <div className="wrapper"
-                 id={"container" + this.state.index}>
-            <PieChart
-              addSlice={this.addSlice.bind(this)}
-              storage={this.props.storage}
-              db={this.db}
-              slices={this.state}
-              color={palette}
-              loop={this.state.loop}
-              mute={this.state.mute}
-              audioContext={this.state.audioContext}
-              time={this.state.time}
-              index={this.state.index}
-            />
-
-            <PlayButton color={"white"}
-                        opacity={1}
-                        size={"40%"}
-                        index={this.state.index}/>
-
-            <AlbumCover index={this.state.index} />
-
-          </div>
+              <PieChart
+                addSlice={this.addSlice.bind(this)}
+                storage={this.props.storage}
+                db={this.db}
+                slices={this.state}
+                color={palette}
+                loop={this.state.loop}
+                mute={this.state.mute}
+                audioContext={this.state.audioContext}
+                time={this.state.time}
+                index={this.state.index}
+              />
         </div>
       )}
       </Palette>

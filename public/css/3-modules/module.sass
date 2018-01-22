@@ -3,30 +3,19 @@
   width: 100%
   text-align: center
 
-.wrapper1,
-  +Position(relative, 0px, 0px, 300px, 300px)
-  position: relative
-  width: 250px
-  height: 400px
-
 .player
   width: 100%
   display: flex
-  position: relative
+  text-align: center
   align-items: center
   justify-content: center
 
 .wrapper
-  margin-top: 8vh
-  position: relative
-  width: 100vw
   background: transparent
   border-radius: 0px
 
 .wrapper1
-  margin-left: auto
-  margin-right: auto
-  +Position(absolute, 20px, 0px, 300px, 300px)
+  +Position(relative, 20px, 0px, 300px, 300px)
   opacity: 1
 
 .dot
@@ -162,7 +151,12 @@
   +Position(absolute, null, 0, 80px, 100%)
   +hash-background-45
   +flex(column, center, center)
-  +configFont(22px,300,null)
+  +configFont(22px,500,null)
+  .bottom-info-content
+    background-color: rgba(255,255,255,0.7)
+    border-radius: 10px
+    padding: 10px
+  text-transform: uppercase
   font-family: "work-sans", sans-serif
   bottom: 0
 
