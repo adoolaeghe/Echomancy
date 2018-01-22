@@ -1,21 +1,7 @@
 import React from "react";
 
-import AlbumCover from "./components/albumCover/AlbumCover";
 import Palette from "./components/palette/Palette";
 import PieChart from "./components/PieChart/pieChart";
-import PlayButton from "./components/playButton/playButton";
-import PlayerBackground from "./components/playerBackground";
-import Timer from "./components/timer/timer";
-
-
-import {
-  BrowserRouter as Router,
-  Route,
-  Redirect,
-  Link,
-  hashHistory,
- withRouter
-} from 'react-router-dom'
 
 export default class Player extends React.Component {
   constructor(props) {
