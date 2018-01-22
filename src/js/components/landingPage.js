@@ -32,15 +32,26 @@ export default class LandingPage extends React.Component {
       />
     )
 
-    const Details1 = () => (
-      <div>Hello</div>
+    const SignIn = () => (
+      <div>
+        <div>Welcome to Murmur.fm</div>
+        <div>Sign In Now</div>
+      </div>
+    )
+
+    const SignUp = () => (
+      <div>
+        <div>Welcome to Murmur.fm</div>
+        <div>Sign Up Now</div>
+      </div>
     )
 
     return (
       <BrowserRouter>
         <Switch>
           <Route exact path="/" render={props => <Home {...props} />}/>
-          <Route exact path="/details1" component={Details1}/>
+          <Route exact path="/signin" component={SignIn}/>
+          <Route exact path="/signup" component={SignUp}/>
         </Switch>
       </BrowserRouter>
     );

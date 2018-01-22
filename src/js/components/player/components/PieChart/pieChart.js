@@ -1,6 +1,5 @@
 import React from "react";
 import PieChart from "react-simple-pie-chart";
-import AddSlice from "../addSlice/addSlice";
 
 export default class TrackChart extends React.Component {
   constructor(props) {

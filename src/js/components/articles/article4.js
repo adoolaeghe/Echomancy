@@ -1,4 +1,6 @@
 import React from "react";
+import Modal1 from "../modals/modal1"
+import {Modal, Button} from "react-materialize";
 
 export default class Arcticle4 extends React.Component {
   render() {
@@ -10,9 +12,12 @@ export default class Arcticle4 extends React.Component {
           <div className="header-line-left col s2"></div>
           <h1 className="article4-header col s4">Reveal</h1>
           <h2 className="article4-sub-header col s5 pull-s1">New songs</h2>
-          <button className="slider-btn">
-            <p>+</p>
-          </button>
+          <Modal
+            header='Modal Header'
+            fixedFooter
+            trigger={<Button className="slider-btn"><p>+</p></Button>}>
+            <Modal1 />
+          </Modal>
         </div>
         <div className="article4-slider"></div>
         <img className="slider-button"

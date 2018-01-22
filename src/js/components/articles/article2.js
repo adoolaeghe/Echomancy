@@ -12,12 +12,16 @@ export default class Arcticle2 extends React.Component {
         <div className="article2-grid-right col s2">
           <div className="dot-left" id="15"></div>
           <div className="article2-media-button-twitter cols12">
-            <p>TW</p>
+            <button>
+              <p>TW</p>
+            </button>
             <div className="dot-left" id="16"></div>
             <div className="dot-right" id="17"></div>
           </div>
           <div className="article2-media-button-medium cols12">
-            <p>FB</p>
+            <button>
+              <p>FB</p>
+            </button>
             <div className="dot-left" id="18"></div>
           </div>
         </div>

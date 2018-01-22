@@ -41,8 +41,11 @@ export default class Main extends React.Component {
     });
   }
 
-  render() {
+  browserRedirect(pathName) {
+    this.props.props.history.push(pathName)
+  }
 
+  render() {
     const Details1 = () => (
       <div> Hello World </div>
     )
@@ -67,12 +70,16 @@ export default class Main extends React.Component {
           <div className="side-article1"></div>
           <div className="side-article2">
             <div className="col s12 side-auth top">
-              <div className="head"></div>
-              <div className="sub">in</div>
+              <button onClick={() => {this.browserRedirect('/signin')}}>
+                <div className="head"></div>
+                <div className="sub">in</div>
+              </button>
             </div>
             <div className="col s12 side-auth">
-              <div className="head"></div>
-              <div className="sub">up</div>
+              <button onClick={() => {this.browserRedirect('signup')}}>
+                <div className="head"></div>
+                <div className="sub">up</div>
+              </button>
             </div>
           </div>
           <div className="side-article3"></div>
@@ -80,7 +87,7 @@ export default class Main extends React.Component {
           <div className="side-article5"></div>
         </div>
         <div className="space-between col s10"
-              onClick={() => {this.props.props.history.push('/details1')}}>
+             onClick={() => {this.props.props.history.push('/details1')}}>
           <div className="space-between-line"></div>
           <div className="playing-dot"></div>
         </div>
