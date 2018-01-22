@@ -65,10 +65,10 @@ export default class Main extends React.Component {
           <Article3 />
           <Article4 />
         </main>
-        <div className="col s1">
+        <div className="col s1 side-right">
           <div className="side-nav-bar"></div>
           <div className="side-article1"></div>
-          <div className="side-article2">
+          <div className="side-article2 auth" id="auth">
             <div className="col s12 side-auth top">
               <button onClick={() => {this.browserRedirect('/signin')}}>
                 <div className="head"></div>

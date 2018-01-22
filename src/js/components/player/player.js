@@ -28,14 +28,6 @@ export default class Player extends React.Component {
     /// DEFINE NEW ROTATION ANGLE EVERY AMOUNT OF TIME
     setPieRotationAngle.bind(this)();
 
-    /// LOAD ALL THE SLICE FROM DATABASE => SHOULD BE REFACTORED TO REDUX
-    loadSlicesFromDatabase.bind(this)();
-
-    updateLoopFromDatabase.bind(this)();
-  }
-
-  addSlice(color, value) {
-    addSliceToDatabase.bind(this)(color, value);
   }
 
   /// ON/OFF SWITCH TRIGERED BY PLAY BUTTON PLUS ANIMATION
@@ -50,8 +42,8 @@ export default class Player extends React.Component {
       <Palette image={this.state.image}>
         {palette => (
           <div className="player">
+
             <PieChart
-              addSlice={this.addSlice.bind(this)}
               storage={this.props.storage}
               db={this.db}
               slices={this.state}
