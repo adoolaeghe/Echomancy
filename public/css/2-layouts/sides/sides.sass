@@ -1,0 +1,49 @@
+.side-right
+  position: relative
+
+.side-nav-bar
+  height: 100px
+  border-bottom: 1px solid $light-grey
+  display: flex
+  justify-content: center
+  align-items: center
+  font-size: 100px
+  font-family: 'Cardo', serif
+
+.side-article1
+  height: 650px
+  border-bottom: 1px solid $light-grey
+
+.align-right
+  background-color: red
+
+.side-article2
+  height: 200px
+  border-bottom: 1px solid $light-grey
+  &.sticky
+    position: fixed
+    width: 8.3vw
+    left: 91.7vw
+    top: 0px
+
+.side-article3
+  height: 700px
+  border-bottom: 1px solid $light-grey
+
+.side-article4
+  height: 700px
+  border-bottom: 1px solid $light-grey
+
+.side-auth
+  height: 50%
+  +flex(column, center, center)
+  line-height: 25px
+  text-transform: uppercase
+  &.top
+    border-bottom: 1px solid $light-grey
+  button
+    .head
+        font-size: 18px
+    .sub
+      font-weight: 700
+      font-size: 33px

@@ -1,16 +1,31 @@
 .article1
-  height: 500px
-  border-bottom: 1px solid lightgrey
+  border-bottom: 1px solid $light-grey
   position: relative
+  height: 650px
 
   .article1-main
+    align-items: center
+    display: flex
     height: 100%
+    justify-content: center
 
   .article1-grid-right,
   .article1-grid-center,
   .article1-grid-left
-    border-left: 1px solid lightgrey
+    border-left: 1px solid $light-grey
     height: 100%
     position: relative
     text-align: center
     width: 200px
+
+  h4
+    +configFont(60px, 700, null)
+    +Position(absolute, 40%, 40%, null, 410px)
+    z-index: 999
+    padding-left: 1px !important
+
+    .header-word
+      height: 100px
+      background-color: white
+      +flex(null, center, center)
+      text-align: center

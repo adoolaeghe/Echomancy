@@ -1,4 +1,49 @@
 .article3
-  border-bottom: 1px solid lightgrey
-  height: 500px
+  border-bottom: 1px solid $light-grey
+  height: 700px
   position: relative
+
+  .article3-hash
+    height: 400px
+    margin-top: 300px
+    +hash-background-45bis
+
+    .article3-hash-line
+      width: 70%
+      position: absolute
+      top: 270px
+      border-top: 1px grey solid
+
+    img
+      +Position(absolute, 590px, 0px, null, null)
+      z-index: $z-xtop
+
+  .article3-content-background
+    +Position(absolute, 0px, 0px, 100%, 0px)
+    padding: 0px
+
+  .article3-text-content
+    +flex(null, center, center)
+    top: 0px
+
+  .article3-header
+    margin-top: 190px
+    position: relative
+    h1
+      +Position(absolute, 50px, 30px, 100%, auto)
+    h2
+      +Position(absolute, 0px, -190px, 100%, auto)
+
+  .text-background
+    margin-top: 120px
+    margin-left: 45%
+    position: absolute
+
+  h1
+    +configFont(88px, bolder, null)
+    text-transform: uppercase
+
+  h2
+    +configFont(44px, 700, null)
+    font-family: "Work sans", sans-serif
+    text-transform: uppercase
