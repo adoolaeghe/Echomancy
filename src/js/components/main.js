@@ -9,14 +9,14 @@ import {
   Link
 } from 'react-router-dom'
 
-import Article1 from "./articles/article1"
-import Article2 from "./articles/article2"
-import Article3 from "./articles/article3"
-import Article4 from "./articles/article4"
-import Article5 from "./articles/article5"
-import Article6 from "./articles/article6"
-import NavBar from "./articles/navBar"
-import SideArticles from "./articles/sides-articles"
+import Article1 from "./articles/article1";
+import Article2 from "./articles/article2";
+import Article3 from "./articles/article3";
+import Article4 from "./articles/article4";
+import Article5 from "./articles/article5";
+import Article6 from "./articles/article6";
+import NavBar from "./articles/navBar";
+import SideArticles from "./articles/sides-articles";
 
 export default class Main extends React.Component {
   constructor(props) {
@@ -52,7 +52,7 @@ export default class Main extends React.Component {
     return (
       <div className="row">
         <div className="left-column col s1">
-          <SideArticles title={"r"} right={""}/>
+          <SideArticles/>
         </div>
         <main className="col s10">
           <NavBar />
@@ -61,7 +61,7 @@ export default class Main extends React.Component {
                     storage={this.props.storage}
                     playingIndex={this.state.playingIndex}
                     autoPlay={this.state.autoPlay}/>
-          <Article2 />
+          <Article2 history = {this.props.props.history}/>
           <Article3 />
           <Article4 />
         </main>
