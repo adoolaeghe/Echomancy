@@ -8,7 +8,6 @@
     "deploy": "firebase deploy",
     "start": "node app.js"
   },
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/adoolaeghe/React-app.git"
