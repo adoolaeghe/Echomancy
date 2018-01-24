@@ -31,7 +31,7 @@ export default class LandingPage extends React.Component {
       //   database={this.database}
       //   storage={this.storage}
       // />
-      <MurWall />
+      <MurWall players={8}/>
     )
 
     const SignIn = () => (
