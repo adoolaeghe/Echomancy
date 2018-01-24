@@ -1,7 +1,7 @@
 import React from "react";
 import Player from "../player/player"
 
-export default class Arcticle1 extends React.Component {
+export default class Article1 extends React.Component {
   render() {
     return(
       <section className="article1 row">

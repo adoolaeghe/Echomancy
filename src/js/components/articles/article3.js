@@ -1,6 +1,6 @@
 import React from "react";
 
-export default class Arcticle3 extends React.Component {
+export default class Article3 extends React.Component {
   render() {
     return(
       <section className="article3 row"

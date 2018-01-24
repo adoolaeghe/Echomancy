@@ -1,6 +1,6 @@
 import React from "react";
 
-export default class Arcticle2 extends React.Component {
+export default class Article2 extends React.Component {
 
   browserRedirect(pathName) {
     this.props.history.push(pathName)

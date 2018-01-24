@@ -25,13 +25,13 @@ export default class LandingPage extends React.Component {
   render() {
 
     const Home = (props) => (
-      // <Main
-      //   props= {props}
-      //   audioContext={this.audioContext}
-      //   database={this.database}
-      //   storage={this.storage}
-      // />
-      <MurWall players={8}/>
+      <Main
+        props= {props}
+        audioContext={this.audioContext}
+        database={this.database}
+        storage={this.storage}
+      />
+      // <MurWall players={8}/>
     )
 
     const SignIn = () => (
@@ -49,7 +49,7 @@ export default class LandingPage extends React.Component {
     )
 
     const murmur = () => (
-      <MurWall />
+      <MurWall players={8}/>
     )
 
     return (

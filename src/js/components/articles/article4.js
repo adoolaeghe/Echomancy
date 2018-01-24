@@ -2,7 +2,7 @@ import React from "react";
 import Modal1 from "../modals/modal1"
 import {Modal, Button} from "react-materialize";
 
-export default class Arcticle4 extends React.Component {
+export default class Article4 extends React.Component {
   render() {
     return(
       <section className="article4 row"
