@@ -11,7 +11,8 @@ export default class Article2 extends React.Component {
       <section className="article2 row">
         <div className="dot-left" id="12"></div>
         <div className="dot-right" id="13"></div>
-        <div className="article2-main col s8 hash-background">
+        <div className="article2-main col s8 hash-background"
+            style={{backgroundImage: 'url(./public/content/images/hash-background.svg)'}}>
           <h3>We are a new kind of publisher</h3>
         </div>
         <div className="article2-grid-right col s2">

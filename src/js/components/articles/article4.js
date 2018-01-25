@@ -19,14 +19,16 @@ export default class Article4 extends React.Component {
             <Modal1 />
           </Modal>
         </div>
-        <div className="article4-slider"></div>
-        <img className="slider-button"
-             src={"./public/content/images/sliders/slider-button-1.svg"}
-             alt="Kiwi standing on oval">
-        </img>
+        <div className="article4-slider"
+             style={{backgroundImage: 'url(./public/content/images/hash-background.svg)'}}></div>
+          <img className="slider-button"
+               src={"./public/content/images/sliders/slider-button-1.svg"}
+               alt="Kiwi standing on oval">
+          </img>
         <div className="dot-left" id="21"></div>
         <div className="dot-right" id="22"></div>
-        <div className="article4-main bottom-info col s12">
+        <div className="article4-main bottom-info col s12"
+             style={{backgroundImage: 'url(./public/content/images/hash-background.svg)'}}>
           <div className="bottom-info-content">
             Content is first published with limited number of shares.
           </div>

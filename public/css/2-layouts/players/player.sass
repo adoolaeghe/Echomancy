@@ -1,10 +1,10 @@
 .player-main-wrapper
+  +border-bottom-dark
+  +flex(null,center,center)
   height: 500px
   width: 280px
   position: relative
-  +flex(null,center,center)
   border-right: 1px solid grey
-  border-bottom: 1px solid grey
 
   .player-wrapper
     +Position(relative, 0px, 0px, 210px, 210px)
@@ -18,9 +18,9 @@
     +configFont(22px, 700, "Cardo" sans-serif)
     +Position(absolute, 340px, null, auto, 100%)
     +flex(null,center,center)
+    +border-bottom-light
     right: 0
     text-align: center
-    border-bottom: 1px solid lightgrey
     p
       margin-bottom: 5px
 
@@ -28,7 +28,7 @@
     +configFont(14px, 400, null)
     +Position(absolute, 0, null, auto, 100%)
     +flex(null,center,center)
-    border-bottom: 1px solid lightgrey
+    +border-bottom-light
     font-family: "Work sans" sans-serif
     right: 0
     text-align: center
@@ -42,14 +42,14 @@
     .layer-frame-dot
       top: 10px
     .player-layer-line
+      +border-bottom-light
       position: absolute
       width: 100%
-      border-bottom: 1px solid lightgrey
       z-index: -1
     .player-layer-dot
       width: 10px
       height: 10px
-      box-shadow: 0 0 0pt 2pt rgba(205, 0, 0, 1), 0 0 0pt 2.2pt red 
+      box-shadow: 0 0 0pt 2pt rgba(205, 0, 0, 1), 0 0 0pt 2.2pt red
       background-color: red
       border-radius: 5px
       margin: 10px

@@ -6,8 +6,10 @@ export default class Article3 extends React.Component {
       <section className="article3 row"
                style={{background: 'url(./public/content/images/article3-background.svg) no-repeat',
                        backgroundSize: 'cover'}}>
-      <div className="article3-hash col s5">
-        <div className="article3-hash-line"></div>
+      <div className="article3-hash col s5"
+           style={{backgroundImage: 'url(./public/content/images/hash-background.svg)'}}>
+        <div className="article3-hash-line"
+             style={{backgroundImage: 'url(./public/content/images/hash-background.svg)'}}></div>
         <img className="slider-button"
              src={"./public/content/images/article3-button.svg"}
              alt="Kiwi standing on oval">
@@ -21,7 +23,8 @@ export default class Article3 extends React.Component {
       </div>
       <div className="dot-left" id="19"></div>
       <div className="dot-right" id="20"></div>
-      <div className="article3-main bottom-info col s12">
+      <div className="article3-main bottom-info col s12"
+           style={{backgroundImage: 'url(./public/content/images/hash-background.svg)'}}>
         <div className="bottom-info-content">
           Content is first published with limited number of shares.
         </div>
