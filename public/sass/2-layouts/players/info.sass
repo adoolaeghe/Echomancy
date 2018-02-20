@@ -1,0 +1,35 @@
+.player-main-wrapper
+  .player-song-name
+    +configFont(22px, 700, "Cardo" sans-serif)
+    +Position(absolute, 340px, null, auto, 100%)
+    +flex(null,center,center)
+    +border-bottom-light
+    right: 0
+    text-align: center
+    p
+      margin-bottom: 5px
+
+  .player-buy-info
+    +Position(absolute, 400px, null, 47px, 100%)
+    +flex(null,center,center)
+    right: 0
+    text-align: center
+    p
+      margin-bottom: 5px
+
+  .player-artist-name
+    +border-bottom-light
+    +configFont(14px, 400, null)
+    +flex(null,center,center)
+    +Position(absolute, 0, null, auto, 100%)
+    font-family: "Work sans" sans-serif
+    right: 0
+    text-align: center
+    p
+      margin-bottom: 5px
+
+  .player-price
+    +Position(absolute, 447px, null, 52px, 100%)
+    border-top: 1px solid lightgrey
+    display: none
+    right: 0

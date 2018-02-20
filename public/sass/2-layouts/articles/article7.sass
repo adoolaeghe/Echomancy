@@ -1,0 +1,90 @@
+.article7
+  height: 750px
+  position: relative
+  border-bottom: 1px solid lightgrey
+  +secondary-font-light
+  .article7-left
+    .article7-left-label
+      background-color: white
+      border-right: 1px solid lightgrey
+      height: 70px
+      width: 100%
+      &.drag
+        margin-top: 470px
+      &.param
+        margin-top: 210px
+        height: 140px
+
+  .article7-main
+    height: 100%
+    .article7-main-visual
+      background-color: white
+      +flex(null, center, center)
+      height: 400px
+    .article7-main-info1
+      .info-label
+        +secondary-font-light
+        +flex(null, center, center)
+        height: 70px
+        text-align: center
+      .info-val
+        +secondary-font-bold
+        +flex(null, center, center)
+        font-size: 22px
+        border-top: 1px solid lightgrey
+        border-bottom: 1px solid lightgrey
+        height: 70px
+    .article7-main-info2
+      height: 70px
+      background-color: white
+      position: relative
+      .article7-info2-content
+        top: 0px
+        position: absolute
+        display: flex
+        flex-direction: row
+        height: 100%
+        width: 100%
+        .article7-info2-content-element
+          height: 100%
+          width: 100%
+          border-right: 1px solid grey
+    .article7-main-info3
+      height: 70px
+      .info-label
+        +secondary-font-light
+        +flex(null, center, center)
+        height: 70px
+        text-align: center
+      .info-val
+        +secondary-font-bold
+        +flex(null, center, center)
+        font-size: 22px
+        border-top: 1px solid lightgrey
+        border-bottom: 1px solid lightgrey
+        height: 70px
+    .article7-main-info4
+      height: 140px
+      background-color: white
+
+    .article7-main-info5
+      .options
+        .options-label
+          +flex(null, center, center)
+          height: 70px
+          background-color: white
+        .options-button
+          height: 70px
+          .options-button
+            border-right: 1px solid lightgrey
+            +flex(null, center, center)
+            .button-dot
+              border: 1px solid lightgrey
+              height: 30px
+              width: 30px
+              border-radius: 15px
+      .options-val
+        +flex(null, center, center)
+        background-color: white
+        border-right: 1px solid lightgrey
+        height: 139px

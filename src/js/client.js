@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom"
-import LandingPage from './components/landingPage'
+import Main from './components/main'
 
 
-require('../../public/css/app.sass');
+require('../../public/sass/app.sass');
 
 const app = document.getElementById('app')
 
-ReactDOM.render(<LandingPage />, app);
+ReactDOM.render(<Main />, app);
