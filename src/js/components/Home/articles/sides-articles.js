@@ -5,7 +5,12 @@ export default class SideArticles extends React.Component {
   render() {
     return(
       <div>
-        <div className="side-nav-bar"></div>
+        <div className="side-nav-bar">
+          <img className=""
+               src={"./public/content/images/main/logo.svg"}
+               alt="Kiwi standing on oval">
+          </img>
+        </div>
         <div className="side-article1"></div>
         <div className="side-article2"></div>
         <div className="side-article3"></div>

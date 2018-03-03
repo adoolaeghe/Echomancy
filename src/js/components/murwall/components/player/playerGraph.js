@@ -9,7 +9,9 @@ export default class PlayerBuy extends React.Component {
             endRow: 17,
             endColumn: 7
         },
-
+        credits: {
+          enabled: false
+        },
         chart: {
             polar: true,
             type: 'column'

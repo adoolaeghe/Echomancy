@@ -5,6 +5,7 @@ import PlayerInfo from "./playerInfo.js";
 import PlayerGraph from "./playerMain.js";
 import PlayerMain from "./playerMain.js";
 import PlayerMainInfo from "./playerMainInfo.js";
+import RaisedButton from 'material-ui/RaisedButton';
 
 export default class Player extends React.Component {
 
@@ -46,7 +47,7 @@ export default class Player extends React.Component {
   handlePlayerMain() {
     if(this.state.playerStage === 'main') {
       return(<PlayerMain
-              style={this.state.style}
+              playingStyle={this.state.coverPlayinhStyle}
               handlePlayClick= {this.handlePlayClick.bind(this)}/>)
     } else if(this.state.playerStage === 'info') {
       return(<PlayerInfo />)
@@ -57,17 +58,28 @@ export default class Player extends React.Component {
     }
   }
 
+  handleWrapperClass() {
+    if((this.props.uKey % 2)===0) {
+      return "red"
+    } else if((this.props.uKey % 3)===0) {
+      return "green"
+    } else {
+      return "black"
+    }
+  }
+
   componentWillReceiveProps(nextProps) {
     if(nextProps.onKey === this.props.uKey) {
       this.setState({
+        mainInfoStyle: "main-info",
+        coverPlayinhStyle: "playing",
         style: {
-          backgroundColor: "red",
-          artistLayersTop: "82%",
           songPriceDisplay: "block"
         }
       })
     } else {
       this.setState({
+        coverPlayinhStyle: "default",
         playerStage: 'main',
         style: {}
       })
@@ -77,7 +89,7 @@ export default class Player extends React.Component {
   render() {
     const playerStage = this.state.playerStage;
     return (
-      <div className="player-main-wrapper col xl4 l4 m6 s12">
+      <div className={`player-main-wrapper ${this.props.color} col xl4 l4 m6 s12`}>
         {this.handlePlayerMain()}
         <div>
           <div className="player-artist-name">
@@ -85,28 +97,30 @@ export default class Player extends React.Component {
             <div className="dot-right small"></div>
           </div>
           {playerStage === 'main' ? (
-            <PlayerMainInfo style= {this.state.style}/>
+            <PlayerMainInfo mainInfoStyle= {this.state.mainInfoStyle}
+                            layersNb={5}/>
           ) : (
             <PlayerBuyInfo style= {this.state.style}/>
           )}
           {playerStage === 'main' ? (
             <div className="player-price"
-               style={{backgroundImage: 'url(./public/content/images/main/hash-background.svg)',
+               style={{background: "white",
                        display: this.state.style.songPriceDisplay}}>
+              <div>5.5</div>
             </div>
           ) : (
             <div></div>
           )}
-          <button className="player-redirect right"
-               style={{backgroundImage: 'url(./public/content/images/player/player-redirect-button-info.svg)',
-                       display: this.state.style.songPriceDisplay}}
+          <div className="player-redirect right"
+               style={{display: this.state.style.songPriceDisplay}}
                onClick={() => {this.handleRedirectClickRight()}}>
-          </button>
-          <button className="player-redirect left"
-               style={{backgroundImage: 'url(./public/content/images/player/player-redirect-button-buy.svg)',
-                       display: this.state.style.songPriceDisplay}}
+            <RaisedButton fullWidth={true} style={{height: "50px"}}/>
+          </div>
+          <div className="player-redirect left"
+               style={{display: this.state.style.songPriceDisplay}}
                onClick={() => {(this.handleRedirectClickLeft())}}>
-          </button>
+            <RaisedButton fullWidth={true}  style={{height: "50px"}}/>
+          </div>
       </div>
       <div className="dot-right"
            style={{backgroundColor: this.state.style.backgroundColor}}>

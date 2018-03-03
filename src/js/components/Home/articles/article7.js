@@ -41,36 +41,33 @@ export default class Article7 extends React.Component {
   componentDidMount() {
     Highcharts.chart('container', {
       chart: {
-        type: 'line',
+        type: 'areaspline'
       },
       title: {
-          text: 'Monthly Average Temperature'
+          text: ''
       },
       subtitle: {
-          text: 'Source: WorldClimate.com'
+          text: ''
       },
       xAxis: {
           categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
       },
       yAxis: {
           title: {
-              text: 'Temperature (°C)'
+              text: ''
           }
       },
       plotOptions: {
+        series: {
+          color: '#FF0000'
+        },
           line: {
-              dataLabels: {
-                  enabled: true
-              },
               enableMouseTracking: false
           }
       },
       series: [{
           name: 'Tokyo',
-          data: [7.0, 6.9, 9.5, 14.5, 18.4, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
-      }, {
-          name: 'London',
-          data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+          data: [0.0, 1, 2, 2.2, 3, 3.2, 4, 4.2, 5, 5.2, 6,6.2, 7, 7.2, 8,8.2, 9]
       }]
     })
   }
@@ -95,11 +92,11 @@ export default class Article7 extends React.Component {
         </div>
         <div className="article7-main col s10">
           <div className="article7-main-visual col s12" style={{position:"relative"}}>
-            <Player key={1}/>
-            <div id="container" style={{width: "600px"}}>
+            <div id="container" style={{width: "100%"}}>
             </div>
           </div>
-          <div className="article7-main-info1 col s12">
+          <div className="article7-main-info1 col s12"
+               style={{zIndex: "1"}}>
             <div className="col s6 info-content row">
               <div className="col s5 info-label">Total Amount</div>
               <div className="col s3 info-val">{this.state.slider}</div>

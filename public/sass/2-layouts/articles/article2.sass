@@ -11,7 +11,7 @@
 
     h3
       +configFont(33px, 300, null)
-      font-family: "Work sans", sans-serif
+      font-family: 'Inter UI', sans-serif
 
 
   .article2-grid-right,
@@ -21,8 +21,8 @@
     padding: 0px
 
   .article2-grid-left
-    background-color: lightgrey
-
+    +flex(null, center, center)
+    +configFont(33px, bolder, null)
 
   .article2-media-button-twitter
     +flex(null, center, center)
@@ -31,7 +31,11 @@
     position: relative
     p
       +configFont(33px, bolder, null)
-      font-family: "Work sans", sans-serif
+      font-family: 'Inter UI', sans-serif
+    &:hover
+      #dot17, #dot16
+        background-color: #E4E4E4
+
 
 
   .article2-media-button-medium
@@ -40,7 +44,7 @@
     position: relative
     p
       +configFont(33px, bolder, null)
-      font-family: "Work sans", sans-serif
+      font-family: 'Inter UI', sans-serif
 
   .social-media-logo
     height: 50px

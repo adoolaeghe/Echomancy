@@ -20,29 +20,33 @@
     +Position(absolute, 25%, 35%, null, null)
 
   .article4-text-content
-    +flex(null, center, center)
+    padding-left: 20px
+    margin-left: 20px
+    position: relative
 
   .article4-slider
-    +Position(absolute, -80px, null, 780px, 180px)
-    background: repeating-linear-gradient(-45deg,grey,lightgrey 1px,transparent 0.5px, transparent 10px, grey 1px)
+    +Position(absolute, -80px, null, 780px, 58.5%)
 
   .article4-header
-    margin-top: 220px
-    text-align: right
+    margin-top: 120px
+    margin-left: 20px
+    text-align: left
 
   .article4-sub-header
-    margin-top: 420px
-    border-bottom: 1px solid black
+    margin-top: 20px
+    margin-left: 20px
     z-index: 900
 
   .header-line-left
     height: 1px
     margin-top: 18%
     background-color: $light-grey
-
+  img
+    width: 100px
+    margin-top: 173px
   .slider-btn
     +flex(null, center, center)
-    +Position(absolute,350px, null, null, 170px)
+    +Position(absolute, 450px, null, null, 100px)
     background: none
     border: none
     box-shadow: none
@@ -60,5 +64,13 @@
 
   h2
     +configFont(44px, 700, null)
-    font-family: "Work sans", sans-serif
+    font-family: 'Inter UI', sans-serif
     text-transform: uppercase
+
+  p
+    +configFont(1.25rem, 400, null)
+    font-family: 'Inter UI', sans-serif
+
+  a
+    +configFont(1.25rem, 400, null)
+    font-family: 'Inter UI', sans-serif

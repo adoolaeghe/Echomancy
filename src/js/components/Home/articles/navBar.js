@@ -7,18 +7,12 @@ export default class NavBar extends React.Component {
         <div className="dot-left" id="1"></div>
         <div className="dot-right" id="2"></div>
         <div className="navBar-logo-title col s6">
-          <img className=""
-               src={"./public/content/images/main/logo.svg"}
-               alt="Kiwi standing on oval">
-          </img>
+
         </div>
-        <div className="navBar-grid-left col s2">
-          <div className="dot-left" id="3"></div>
+        <div className="navBar-grid-left col s4">
         </div>
-        <div className="navBar-grid-center col s2">
-          <div className="dot-left" id="4"></div>
-        </div>
-        <div className="navBar-grid-right col s2">
+        <div className="navBar-grid-right col s2"
+            style={{backgroundImage: 'url(./public/content/images/main/hash-background.svg),url(./public/content/images/main/hash-background-reverse.svg)'}}>
           <div>WHITE</div>
           <div>PAPER</div>
           <div className="dot-left" id="5"></div>

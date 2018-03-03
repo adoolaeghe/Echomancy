@@ -29,7 +29,13 @@
       margin-bottom: 5px
 
   .player-price
+    +configFont(28px, 400, null)
     +Position(absolute, 447px, null, 52px, 100%)
+    +flex(null,center,center)
+    animation: DisplayEaseFast 0.4s ease-in-out
+    text-align: center
     border-top: 1px solid lightgrey
     display: none
     right: 0
+    div
+      animation: DisplayEaseFast 0.8s ease-in-out

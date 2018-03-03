@@ -14,7 +14,7 @@
       border-top: 1px grey solid
 
     img
-      +Position(absolute, 590px, 0px, null, null)
+      +Position(absolute, 590px, 41.5%, null, null)
       z-index: $z-xtop
 
   .article3-content-background
@@ -31,7 +31,12 @@
     h1
       +Position(absolute, 50px, 30px, 100%, auto)
     h2
-      +Position(absolute, 0px, -190px, 100%, auto)
+      +Position(absolute, 0px, 30px, 100%, auto)
+    p
+      +Position(absolute, 180px, 30px, 100%, 70%)
+    a
+      +Position(absolute, 360px, 30px, 100%, 70%)
+      text-transform: uppercase
 
   .text-background
     margin-top: 120px
@@ -43,6 +48,14 @@
     text-transform: uppercase
 
   h2
-    +configFont(44px, 700, null)
-    font-family: "Work sans", sans-serif
+    +configFont(33px, 700, null)
+    font-family: 'Inter UI', sans-serif
     text-transform: uppercase
+
+  p
+    +configFont(1.25rem, 400, null)
+    font-family: 'Inter UI', sans-serif
+
+  a
+    +configFont(1.25rem, 400, null)
+    font-family: 'Inter UI', sans-serif

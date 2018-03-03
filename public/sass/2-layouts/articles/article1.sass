@@ -9,10 +9,18 @@
     height: 100%
     justify-content: center
 
+  .article1-bottom
+    +Position(absolute, 68%, 40%, 210px, 410px)
+    border-top: 1px solid grey
+    z-index: -1
+    img
+      +Position(absolute, null, null, 50px, 50px)
+      bottom: 0
+      right: 0
+
   .article1-grid-right,
   .article1-grid-center,
   .article1-grid-left
-    border-left: 1px solid $light-grey
     height: 100%
     position: relative
     text-align: center
@@ -20,12 +28,22 @@
 
   h4
     +configFont(60px, 700, null)
-    +Position(absolute, 40%, 40%, null, 410px)
-    padding-left: 1px !important
+    +Position(absolute, 30%, 40%, null, 410px)
+    padding-left: 20px !important
     z-index: 999
+    font-family: 'Inter UI', sans-serif
 
     .header-word
       height: 100px
-      background-color: white
-      +flex(null, center, center)
-      text-align: center
+      color: #333
+      margin-left: 20px
+      font-size: 4rem
+      text-align: left
+
+    .sub-header-word
+      height: 100px
+      color: #333
+      +configFont(1.75rem, 400, null)
+      text-align: left
+      line-height: 1.75
+      margin-top: 30px

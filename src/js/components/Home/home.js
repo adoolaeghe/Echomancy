@@ -71,18 +71,7 @@ export default class Demo extends React.Component {
           <div className="side-nav-bar"></div>
           <div className="side-article1"></div>
           <div className="side-article2 auth" id="auth">
-            <div className="col s12 side-auth top">
-              <button onClick={() => {this.browserRedirect('/signin')}}>
-                <div className="head"></div>
-                <div className="sub">in</div>
-              </button>
-            </div>
-            <div className="col s12 side-auth">
-              <button onClick={() => {this.browserRedirect('signup')}}>
-                <div className="head"></div>
-                <div className="sub">up</div>
-              </button>
-            </div>
+
           </div>
           <div className="side-article3"></div>
           <div className="side-article4"></div>
@@ -95,7 +84,6 @@ export default class Demo extends React.Component {
         </div>
         <main className="col s10">
           <Article5 />
-          <Article6 />
           <Article7 />
           <Article8 />
         </main>

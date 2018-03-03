@@ -13,6 +13,27 @@
     -o-transform: rotate(360deg)
     transform: rotate(360deg)
 
+@keyframes DisplayEaseFast
+  from
+    opacity: 0
+
+  to
+    opacity: 1
+
+@keyframes MainInfoLayerPosition
+  from
+    transform: translate3d(0px, 0px, 0px)
+
+  to
+    transform: translate3d(0px, -25px, 0px)
+
+@keyframes MainInfoLayerRePosition
+  from
+    transform: translate3d(0px, -25px, 0px)
+
+  to
+    transform: translate3d(0px, 0px, 0px)
+
 
 .rotating
   transform: translateX(400%)
@@ -21,4 +42,3 @@
   -moz-animation: rotating 15s linear infinite
   -ms-animation: rotating 15s linear infinite
   -o-animation: rotating 15s linear infinite
-  // animation: rotating 15s linear infinite

@@ -12,13 +12,11 @@ export default class Player extends React.Component {
 
   render() {
     return (
-      <div className="player">
+      <div className="player player-wrapper">
         <PieChart />
-        <div className="player-cover"></div>
-        <FloatingActionButton
-          disabled={true}
-          style={{position: "absolute", zIndex: "100"}}
-        />
+        <div className="player-cover large">
+          <div className={`player-btn-icon`}></div>
+        </div>
       </div>
     );
   }

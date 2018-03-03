@@ -1,5 +1,4 @@
 .player-cover
-  +Position(absolute, null, null, 280px, 280px)
   margin-top: auto
   margin-bottom: auto
   margin-left: auto
@@ -7,8 +6,30 @@
   border-radius: 200px
   background-color: white
   z-index: 9
+  animation: DisplayEaseFast 0.4s ease-in-out
 
-.player-main-wrapper
+.player-main-wrapper, .player-wrapper
+  &.primary
+    background-color: rgba(253,253,255,10)
+  &.secondary
+    background-color: rgba(255,253,253,10)
+  &.thirdly
+    background-color: rgba(253,255,253,10)
+  font-family: 'Inter UI', sans-serif
+  z-index: 0
   .player-cover
+    &.large
+      +Position(absolute, 20px, 15px, 270px, 270px)
     +Position(absolute, 110px, null, 200px, 200px)
+    +flex(column, center, center)
     margin-left: 5px
+    &.playing
+      +Position(absolute, 115px, null, 190px, 190px)
+      margin-left: 10px
+    .player-btn-icon
+      height: 40px
+      width: 40px
+      border-radius: 40px
+      border: 1px solid grey
+      &.playing
+        width: 4px
