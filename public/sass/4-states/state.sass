@@ -1,66 +1,20 @@
-.on
-  display: block
-
-.CircleReducer
+.CoverReducer
   animation: circleTransitionReducer 3s ease forwards
 
-.smallCircleReducer
-  animation: smallCircleTransitionReducer 3s ease forwards
-
-.CircleEnlarger
+.CoverEnlarger
   animation: circleTransitionEnlarger 0.5s ease forwards
-
-.smallCircleEnlarger
-  animation: smallCircleTransitionEnlarger 0.6s ease forwards
 
 @keyframes circleTransitionReducer
   from
-    opacity: 1
-    r: 37.5%
+    +Position(absolute, 15px, null, 240px, 240px)
 
   to
-    opacity: 0
-    r: 0%
+    +Position(absolute, 30px, null, 230px, 230px)
 
 
 @keyframes circleTransitionEnlarger
   from
-    opacity: 0
-    r: 0%
+    +Position(absolute, 20px, null, 230px, 230px)
 
   to
-    opacity: 1
-    r: 37.5%
-
-
-@keyframes smallCircleTransitionEnlarger
-  from
-    opacity: 0
-    r: 0%
-
-  to
-    opacity: 0.7
-    r: 34%
-
-
-@keyframes smallCircleTransitionReducer
-  from
-    r: 34%
-
-  to
-    r: 0%
-
-  0%
-    opacity: 0.5
-
-  25%
-    opacity: 0
-
-  50%
-    opacity: 0
-
-  60%
-    opacity: 0
-
-  100%
-    opacity: 0
+    +Position(absolute, 15px, null, 240px, 240px)

@@ -17,19 +17,44 @@
     background-color: rgba(253,255,253,10)
   font-family: 'Inter UI', sans-serif
   z-index: 0
+
   .player-cover
-    &.large
-      +Position(absolute, 20px, 15px, 270px, 270px)
     +Position(absolute, 110px, null, 200px, 200px)
-    +flex(column, center, center)
     margin-left: 5px
+
+    &.large
+      +Position(absolute, 10px, 5px, 290px, 290px)
+      &.playing
+        +Position(absolute, 20px, 10px, 270px, 270px)
+
     &.playing
       +Position(absolute, 115px, null, 190px, 190px)
       margin-left: 10px
+
     .player-btn-icon
-      height: 40px
-      width: 40px
-      border-radius: 40px
-      border: 1px solid grey
+      box-shadow: inset 0 0 10px #000000
+      border-radius: $spacer-xl
+      height: $spacer-xl
+      width: $spacer-xl
+      z-index: $z-middle
       &.playing
-        width: 4px
+        width: $spacer-xs
+
+    .player-cover-image
+      +flex(column, center, center)
+      border-radius: 300px
+      background-color: grey
+      opacity: 0.3
+      z-index: $z-low
+      &:hover
+        .player-btn-icon
+          box-shadow: 0 0 10px #000000
+          transition: box-shadow 1s
+        opacity: 0.4
+        transition: opacity 0.2s
+      &.large
+        +Position(absolute, 25px, 25px, 240px, 240px)
+        &.playing
+          +Position(absolute, 15px, 15px, 240px, 240px)
+          transition: opacity 1s
+          opacity: 1

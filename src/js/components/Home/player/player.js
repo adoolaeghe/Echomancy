@@ -1,5 +1,4 @@
 import React from "react";
-
 import Palette from "./components/palette/Palette";
 import PieChart from "./components/PieChart/pieChart";
 import FloatingActionButton from 'material-ui/FloatingActionButton';
@@ -29,14 +28,16 @@ export default class Player extends React.Component {
       this.state.audio.pause();
     }
   }
-  
+
   render() {
     return (
       <div className="player player-wrapper">
         <PieChart />
-        <div className="player-cover large"
+        <div className={`player-cover large ${this.state.playing}`}
              onClick={() => {this.handlePlayClick()}}>
-          <div className={`player-btn-icon ${this.state.playing}`}></div>
+          <div className={`player-cover-image large ${this.state.playing}`}>
+            <div className={`player-btn-icon ${this.state.playing}`}></div>
+          </div>
         </div>
       </div>
     );
