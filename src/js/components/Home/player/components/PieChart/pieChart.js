@@ -41,7 +41,7 @@ export default class TrackChart extends React.Component {
   render() {
     if (this.props.loop !== null) {
       return (
-        <div className="player-wrapper rotating">
+        <div className={`player-wrapper ${this.props.size} rotating`}>
           <PieChart slices={this.state.slices} />
         </div>
       );

@@ -9,7 +9,7 @@ export default class Article3 extends React.Component {
       <div className="article3-hash col s5"
            style={{backgroundImage: 'url(./public/content/images/main/hash-background.svg)'}}>
         <div className="article3-hash-line"
-             style={{backgroundImage: 'url(./public/content/images/main/hash-background.svg)'}}></div>
+             style={{backgroundImage: 'url(./public/content/images/main/article3-hashes.svg)'}}></div>
         <img className="slider-button"
              src={"./public/content/images/articles/article3-button.svg"}
              alt="Kiwi standing on oval">

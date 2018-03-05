@@ -17,6 +17,8 @@
     background-color: rgba(253,255,253,10)
   font-family: 'Inter UI', sans-serif
   z-index: 0
+  &.small
+    +Position(relative, 0px, 0px, 210px, 210px)
 
   .player-cover
     +Position(absolute, 110px, null, 200px, 200px)
@@ -26,6 +28,11 @@
       +Position(absolute, 10px, 5px, 290px, 290px)
       &.playing
         +Position(absolute, 20px, 10px, 270px, 270px)
+
+    &.small
+      +Position(absolute, 10px, 5px, 190px, 190px)
+      &.playing
+        +Position(absolute, 20px, 10px, 170px, 170px)
 
     &.playing
       +Position(absolute, 115px, null, 190px, 190px)

@@ -1,6 +1,8 @@
 import React from "react";
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
+import Player from "../player/player"
+
 import Paper from 'material-ui/Paper';
 import {
   Step,
@@ -146,37 +148,16 @@ export default class Article5 extends React.Component {
 
           <div className="main-images col s9 push-s2 row">
             <div className="main-image col s3 image-1">
-              <Paper className="image"
-                     zDepth={(this.state.selectedShadow === 0) ? 5 : 2}
-                     id={"square1"}
-                     style={{backgroundImage: 'url(./public/content/images/articles/article5-square1.svg)',
-                           backgroundRepeat: 'no-repeat',
-                           backgroundSize: 'cover'}}>
-              </Paper>
+              <Player size={"small"} key={1}/>
             </div>
             <div className="main-image col s3 image-2">
-              <Paper className="image"
-                     zDepth={(this.state.selectedShadow === 1) ? 5 : 2}
-                     style={{backgroundImage: 'url(./public/content/images/articles/article5-square2.svg)',
-                            backgroundRepeat: 'no-repeat',
-                            backgroundSize: 'cover'}}>
-              </Paper>
+              <Player size={"small"} key={2}/>
             </div>
             <div className="main-image col s3 image-3">
-              <Paper className="image"
-                     zDepth={(this.state.selectedShadow === 2) ? 5 : 2}
-                     style={{backgroundImage: 'url(./public/content/images/articles/article5-square2.svg)',
-                            backgroundRepeat: 'no-repeat',
-                            backgroundSize: 'cover'}}>
-              </Paper>
+              <Player size={"small"} key={3}/>
             </div>
             <div className="main-image col s3 image-4">
-              <Paper className="image"
-                     zDepth={(this.state.selectedShadow === 3) ? 5 : 2}
-                     style={{backgroundImage: 'url(./public/content/images/articles/article5-square2.svg)',
-                            backgroundRepeat: 'no-repeat',
-                            backgroundSize: 'cover'}}>
-              </Paper>
+              <Player size={"small"} key={4}/>
             </div>
           </div>
           <div className="main-images col s1">

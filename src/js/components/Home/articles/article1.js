@@ -5,8 +5,8 @@ export default class Article1 extends React.Component {
   render() {
     return(
       <section className="article1 row"
-      style={{background: 'url(./public/content/images/articles/article1-background.svg) no-repeat',
-              backgroundSize: 'cover'}}>
+        style={{background: 'url(./public/content/images/articles/article1-background.svg) no-repeat',
+                backgroundSize: 'cover'}}>
         <div className="dot-left" id="6"></div>
         <div className="dot-right" id="7"></div>
         <div className="article1-grid-left col s2">
@@ -16,7 +16,7 @@ export default class Article1 extends React.Component {
         <div className="article1-grid-right col s2">
         </div>
         <div className="article1-main col s6">
-        <Player />
+        <Player size={"large"}/>
         <div className="dot-left" id="8"></div>
         </div>
         <h4 className="row col s6">

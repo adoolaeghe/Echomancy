@@ -31,11 +31,11 @@ export default class Player extends React.Component {
 
   render() {
     return (
-      <div className="player player-wrapper">
-        <PieChart />
-        <div className={`player-cover large ${this.state.playing}`}
+      <div className={`player player-wrapper ${this.props.size}`}>
+        <PieChart size={this.props.size}/>
+        <div className={`player-cover ${this.props.size} ${this.state.playing}`}
              onClick={() => {this.handlePlayClick()}}>
-          <div className={`player-cover-image large ${this.state.playing}`}>
+          <div className={`player-cover-image ${this.props.size} ${this.state.playing}`}>
             <div className={`player-btn-icon ${this.state.playing}`}></div>
           </div>
         </div>

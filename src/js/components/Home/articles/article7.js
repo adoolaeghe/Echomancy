@@ -4,6 +4,7 @@ import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import ContentRemove from 'material-ui/svg-icons/content/remove';
 import Slider from 'material-ui/Slider';
+import Graph from '../graph/homeGraph';
 
 const min = 0;
 const max = 100;
@@ -38,40 +39,6 @@ export default class Article7 extends React.Component {
     this.setState({slider: transform(value)});
   };
 
-  componentDidMount() {
-    Highcharts.chart('container', {
-      chart: {
-        type: 'areaspline'
-      },
-      title: {
-          text: ''
-      },
-      subtitle: {
-          text: ''
-      },
-      xAxis: {
-          categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-      },
-      yAxis: {
-          title: {
-              text: ''
-          }
-      },
-      plotOptions: {
-        series: {
-          color: '#FF0000'
-        },
-          line: {
-              enableMouseTracking: false
-          }
-      },
-      series: [{
-          name: 'Tokyo',
-          data: [0.0, 1, 2, 2.2, 3, 3.2, 4, 4.2, 5, 5.2, 6,6.2, 7, 7.2, 8,8.2, 9]
-      }]
-    })
-  }
-
   handleSongPartRender() {
     let to_return = [];
     for(let i = 0; i < this.state.slider; i++) {
@@ -92,8 +59,7 @@ export default class Article7 extends React.Component {
         </div>
         <div className="article7-main col s10">
           <div className="article7-main-visual col s12" style={{position:"relative"}}>
-            <div id="container" style={{width: "100%"}}>
-            </div>
+            <Graph totalNbShares={this.state.shareIncrementor}/>
           </div>
           <div className="article7-main-info1 col s12"
                style={{zIndex: "1"}}>
