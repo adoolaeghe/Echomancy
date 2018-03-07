@@ -13,7 +13,61 @@ export default class Player extends React.Component {
       audio: createPlayer('public/content/images/songs/daft_punk.mp3')
     };
   }
-
+  componentDidMount(){
+        Highcharts.chart('container1', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            height:"400px",
+            backgroundColor: "transparent",
+            type: 'pie'
+        },
+        title: {
+            text: ''
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                size: 320,
+                dataLabels: {
+                    enabled: true,
+                    format: '',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            name: 'Brands',
+            colorByPoint: true,
+            data: [{
+                name: 'IE',
+                y: 1
+            }, {
+                name: 'Chrome',
+                y: 1,
+            }, {
+                name: 'Firefox',
+                y: 1
+            }, {
+                name: 'Safari',
+                y: 1
+            }, {
+                name: 'Opera',
+                y: 1
+            }, {
+                name: 'Other',
+                y: 1
+            }]
+        }]
+    });
+  }
   handlePlayClick() {
     if(this.state.playing === "pause"){
       this.setState({
@@ -32,7 +86,9 @@ export default class Player extends React.Component {
   render() {
     return (
       <div className={`player player-wrapper ${this.props.size}`}>
-        <PieChart size={this.props.size}/>
+        <div className={`player-wrapper ${this.props.size} rotating`}>
+          <div id="container1"></div>
+        </div>
         <div className={`player-cover ${this.props.size} ${this.state.playing}`}
              onClick={() => {this.handlePlayClick()}}>
           <div className={`player-cover-image ${this.props.size} ${this.state.playing}`}>

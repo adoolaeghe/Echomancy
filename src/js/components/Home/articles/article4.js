@@ -1,5 +1,4 @@
 import React from "react";
-import Modal1 from "../modals/modal1";
 import Popover from 'material-ui/Popover/Popover';
 import {Modal, Button} from "react-materialize";
 

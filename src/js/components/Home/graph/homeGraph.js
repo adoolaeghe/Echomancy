@@ -32,7 +32,6 @@ export default class HomeGraph extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log("here")
     Highcharts.chart('container', {
       chart: {
         type: 'areaspline'
@@ -68,7 +67,6 @@ export default class HomeGraph extends React.Component {
   }
 
   render() {
-    console.log(this.state.totalNbShares)
     return (
       <div id="container" style={{width: "100%"}}>
       </div>
