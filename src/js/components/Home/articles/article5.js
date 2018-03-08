@@ -105,7 +105,7 @@ export default class Article5 extends React.Component {
         <div className="article5-main col s12 row">
           <div className="main-options">
             <div style={contentStyle}>
-              <Stepper activeStep={stepIndex} orientation="vertical">
+              <Stepper activeStep={stepIndex} orientation="horizontal">
                 <Step>
                   <StepLabel>Division</StepLabel>
                   <StepContent>
@@ -148,7 +148,7 @@ export default class Article5 extends React.Component {
 
           <div className="main-images col s9 push-s2 row">
             <div className="main-image col s3 image-1">
-              <Player size={"small"} key={1}/>
+              <Player size={"small"} key={1}z/>
             </div>
             <div className="main-image col s3 image-2">
               <Player size={"small"} key={2}/>
@@ -171,7 +171,7 @@ export default class Article5 extends React.Component {
         <div className="bottom-info large col s12"
              style={{backgroundImage: 'url(./public/content/images/main/hash-background.svg)'}}>
           <div className="top-info-content">
-            Content is first published with limited number of shares.
+            Retreive your share at the end of the publication
           </div>
         </div>
 

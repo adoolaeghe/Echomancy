@@ -27,12 +27,67 @@ export default class Article7 extends React.Component {
       crtSharePrice: 1,
       crtShareValue: 1,
       totalValue: 4,
-      initialNbOfShare: 4,
+      initialNbOfShare: 3,
       initialSharePrice: 1,
-      priceIncrementor: 4,
+      priceIncrementor: 2,
       shareIncrementor: 2,
       slider: 1,
     }
+  }
+
+  handleTotPayout(layerNb, shareIncrementor, priceIncrementor){
+    let to_return = 0;
+    let nbOfShare = 4;
+    let price = 1;
+    let avg = 0;
+    let totNote = 4;
+    let totVal = 4 * price;
+    for(var i = 0; i < layerNb; i++) {
+      if(i === layerNb-1){to_return = totVal/2}
+      for(var j = 0; j < nbOfShare; j++) {
+        totNote++
+        totVal = totVal + price;
+      }
+      price = price * priceIncrementor
+      nbOfShare = nbOfShare * shareIncrementor
+    }
+    return to_return;
+  }
+
+  handleTotValue(layerNb, shareIncrementor, priceIncrementor){
+    let to_return = 0;
+    let nbOfShare = 4;
+    let price = 1;
+    let avg = 0;
+    let totNote = 4;
+    let totVal = 4 * price;
+    for(var i = 0; i < layerNb; i++) {
+
+      for(var j = 0; j < nbOfShare; j++) {
+        totNote++
+        totVal = totVal + price;
+      }
+      price = price * priceIncrementor
+      nbOfShare = nbOfShare * shareIncrementor
+    }
+    return totVal;
+  }
+
+  handleTotShare(layerNb, shareIncrementor, priceIncrementor){
+    let to_return = 0;
+    let nbOfShare = 4;
+    let price = 1;
+    let avg = 0;
+    let totNote = 4;
+    let totVal = 4 * price;
+    for(var i = 0; i < layerNb; i++) {
+      for(var j = 0; j < nbOfShare; j++) {
+        totNote++
+      }
+      price = price * priceIncrementor
+      nbOfShare = nbOfShare * shareIncrementor
+    }
+    return totNote;
   }
 
   handleSlider = (event, value) => {
@@ -55,17 +110,27 @@ export default class Article7 extends React.Component {
                style={{backgroundImage: 'url(./public/content/images/main/hash-background.svg)'}}>
         <div className="article7-left col s2">
           <div className="article7-left-label drag">
+            Drag to see the evolution from the track
           </div>
         </div>
         <div className="article7-main col s10">
           <div className="article7-main-visual col s12" style={{position:"relative"}}>
-            <Graph totalNbShares={this.state.shareIncrementor}/>
+            <div className="aarticle7-main-label"style={{position:"absolute"}}>
+              {this.handleTotPayout(this.state.initialNbOfShare, this.state.shareIncrementor, this.state.priceIncrementor)}
+            </div>
+            <Graph totalNbShares={this.state.shareIncrementor}
+                   maxNbShares= {this.state.maxNbShares}
+                   initialNbOfShare= {this.state.initialNbOfShare}
+                   initialSharePrice= {this.state.initialSharePrice}
+                   priceIncrementor= {this.state.priceIncrementor}
+                   shareIncrementor= {this.state.shareIncrementor}
+                   slideVal={this.state.slider}/>
           </div>
           <div className="article7-main-info1 col s12"
                style={{zIndex: "1"}}>
             <div className="col s6 info-content row">
               <div className="col s5 info-label">Total Amount</div>
-              <div className="col s3 info-val">{this.state.slider}</div>
+              <div className="col s3 info-val">{this.handleTotValue(this.state.initialNbOfShare, this.state.shareIncrementor, this.state.priceIncrementor)}</div>
               <div className="col s4"></div>
             </div>
             <div className="col s6 info-content row">
@@ -89,7 +154,9 @@ export default class Article7 extends React.Component {
           <div className="article7-main-info3 col s12">
             <div className="col s6 info-content row">
               <div className="col s5 info-label">Total Amount</div>
-              <div className="col s3 info-val">4.5</div>
+              <div className="col s3 info-val">
+              {this.handleTotShare(this.state.initialNbOfShare, this.state.shareIncrementor, this.state.priceIncrementor)}
+              </div>
               <div className="col s4"></div>
             </div>
             <div className="col s6 info-content row">
@@ -107,19 +174,37 @@ export default class Article7 extends React.Component {
               <div className="col s12 options-button">
                 <div className="col s6 options-button">
                   <FloatingActionButton mini={true}
-                                        backgroundColor="#eae4e1">
+                                        backgroundColor="#eae4e1"
+                                        disabled={(this.state.initialNbOfShare < 1) ? true : false}
+                                        onClick={
+                                          () => {
+                                            this.setState({
+                                              initialNbOfShare: this.state.initialNbOfShare - 1
+                                            })
+                                          }
+                                        }>
                     <ContentRemove />
                   </FloatingActionButton>
                 </div>
                 <div className="col s6 options-button">
                   <FloatingActionButton mini={true}
-                                        backgroundColor="#eae4e1">
+                                        backgroundColor="#eae4e1"
+                                        disabled={(this.state.initialNbOfShare > 6) ? true : false}
+                                        onClick={
+                                          () => {
+                                            this.setState({
+                                              initialNbOfShare: this.state.initialNbOfShare + 1
+                                            })
+                                          }
+                                        }>
                     <ContentAdd />
                   </FloatingActionButton>
                 </div>
               </div>
             </div>
-            <div className="col s1 options-val"></div>
+            <div className="col s1 options-val">
+              {this.state.initialNbOfShare}
+            </div>
             <div className="col s3 options">
               <div className="col s12 options-label">
                 Share incrementor
@@ -142,6 +227,7 @@ export default class Article7 extends React.Component {
                 <div className="col s6 options-button">
                   <FloatingActionButton mini={true}
                                         backgroundColor="#eae4e1"
+                                        disabled={(this.state.shareIncrementor > 4) ? true : false}
                                         onClick={
                                           () => {
                                             this.setState({
@@ -165,11 +251,11 @@ export default class Article7 extends React.Component {
                 <div className="col s6 options-button">
                   <FloatingActionButton mini={true}
                                         backgroundColor="#eae4e1"
-                                        disabled={(this.state.initialNbOfShare < 1) ? true : false}
+                                        disabled={(this.state.priceIncrementor < 1) ? true : false}
                                         onClick={
                                           () => {
                                             this.setState({
-                                              initialNbOfShare: this.state.initialNbOfShare - 1
+                                              priceIncrementor: this.state.priceIncrementor - 1
                                             })
                                           }
                                         }>
@@ -179,10 +265,11 @@ export default class Article7 extends React.Component {
                 <div className="col s6 options-button">
                   <FloatingActionButton mini={true}
                                         backgroundColor="#eae4e1"
+                                        disabled={(this.state.priceIncrementor > 10) ? true : false}
                                         onClick={
                                           () => {
                                             this.setState({
-                                              initialNbOfShare: this.state.initialNbOfShare + 1
+                                              priceIncrementor: this.state.priceIncrementor + 1
                                             })
                                           }
                                         }>
@@ -192,7 +279,7 @@ export default class Article7 extends React.Component {
               </div>
             </div>
             <div className="col s1 options-val">
-             {this.state.initialNbOfShare}
+             {this.state.priceIncrementor}
             </div>
           </div>
         </div>

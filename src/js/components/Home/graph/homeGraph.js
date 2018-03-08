@@ -17,24 +17,47 @@ export default class HomeGraph extends React.Component {
     }
   }
 
-  handleGraphData(initNbNotes, endNbNotes, initNbNote, noteIncrementor, priceIncrementor, verseNb){
+  handleGraphData(layerNb, shareIncrementor, priceIncrementor){
     let to_return = [];
-    let layersNb = 5;
-    let note = initNbNotes;
-    for(var i = 0; i < endNbNotes; i++) {
-      for(var j = 0; j < layersNb; j++) {
-        to_return.push(note)
+    let nbOfShare = 4;
+    let price = 1;
+    for(var i = 0; i < layerNb; i++) {
+      for(var j = 0; j < nbOfShare; j++) {
+        to_return.push(price)
       }
-      note = note * 2
-      layersNb = layersNb * 2
+      price = price * priceIncrementor
+      nbOfShare = nbOfShare * shareIncrementor
     }
     return to_return;
   }
 
-  componentDidUpdate() {
+  handleGraphData1(layerNb, shareIncrementor, priceIncrementor){
+    let to_return = [];
+    let nbOfShare = 4;
+    let price = 1;
+    let avg = 0;
+    let totNote = 4;
+    let totVal = 4 * price;
+    for(var i = 0; i < layerNb; i++) {
+      for(var j = 0; j < nbOfShare; j++) {
+        totNote++
+        totVal = totVal + price;
+        avg = totVal/totNote
+        to_return.push(avg)
+      }
+      price = price * priceIncrementor
+      nbOfShare = nbOfShare * shareIncrementor
+    }
+    return to_return;
+  }
+
+  componentDidMount() {
     Highcharts.chart('container', {
       chart: {
-        type: 'areaspline'
+        type: 'areaspline',
+        backgroundColor: "transparent",
+        spacingRight: 0,
+        spacingLeft: 0,
       },
       title: {
           text: ''
@@ -42,28 +65,54 @@ export default class HomeGraph extends React.Component {
       subtitle: {
           text: ''
       },
-      xAxis: {
-          categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-      },
-      yAxis: {
-          title: {
-              text: ''
-          }
-      },
       plotOptions: {
         series: {
-          color: '#FF0000',
-          animation: false
-        },
-        line: {
-            enableMouseTracking: false,
-            animation: false
+          animation: false,
         }
       },
       series: [{
-          data: this.handleGraphData(3,this.props.totalNbShares,4,4,4,2)
-      }]
+          data: this.handleGraphData(this.props.initialNbOfShare,this.props.totalNbShares,this.props.priceIncrementor)
+      },{
+        data: this.handleGraphData1(this.props.initialNbOfShare,this.props.totalNbShares,this.props.priceIncrementor)
+      }
+      ]
     })
+    var i = 0, j = 0;
+    var chart = $('#container').highcharts();
+    chart.series[0].data[this.props.slideVal].select(true, true);
+    chart.series[1].data[this.props.slideVal].select(true, true);
+  }
+
+  componentDidUpdate() {
+    Highcharts.chart('container', {
+      chart: {
+        type: 'areaspline',
+        backgroundColor: "transparent",
+        spacingRight: 0,
+        spacingLeft: 0,
+      },
+      title: {
+          text: ''
+      },
+      subtitle: {
+          text: ''
+      },
+      plotOptions: {
+        series: {
+          animation: false,
+        }
+      },
+      series: [{
+          data: this.handleGraphData(this.props.initialNbOfShare,this.props.totalNbShares,this.props.priceIncrementor)
+      },{
+        data: this.handleGraphData1(this.props.initialNbOfShare,this.props.totalNbShares,this.props.priceIncrementor)
+      }
+      ]
+    })
+    var i = 0, j = 0;
+    var chart = $('#container').highcharts();
+    chart.series[0].data[this.props.slideVal].select(true, true);
+    chart.series[1].data[this.props.slideVal].select(true, true);
   }
 
   render() {
