@@ -15,9 +15,7 @@ import Article4 from "./articles/article4";
 import Article5 from "./articles/article5";
 import Article6 from "./articles/article6";
 import Article7 from "./articles/article7";
-import Article8 from "./articles/article8";
 import NavBar from "./articles/navBar";
-import SideArticles from "./articles/sides-articles";
 
 export default class Demo extends React.Component {
   constructor(props) {
@@ -54,7 +52,6 @@ export default class Demo extends React.Component {
     return (
       <div className="row">
         <div className="left-column col s1">
-          <SideArticles/>
         </div>
         <main className="col s10">
           <NavBar />
@@ -84,8 +81,8 @@ export default class Demo extends React.Component {
         </div>
         <main className="col s10">
           <Article5 />
+          <Article6 />
           <Article7 />
-          <Article8 />
         </main>
       </div>
     );

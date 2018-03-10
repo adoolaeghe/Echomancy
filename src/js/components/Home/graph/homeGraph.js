@@ -17,10 +17,9 @@ export default class HomeGraph extends React.Component {
     }
   }
 
-  handleGraphData(layerNb, shareIncrementor, priceIncrementor){
+  /// TO BE REFATORED
+  handleGraphTotVal(layerNb, shareIncrementor, priceIncrementor, nbOfShare, price) {
     let to_return = [];
-    let nbOfShare = 4;
-    let price = 1;
     for(var i = 0; i < layerNb; i++) {
       for(var j = 0; j < nbOfShare; j++) {
         to_return.push(price)
@@ -31,13 +30,12 @@ export default class HomeGraph extends React.Component {
     return to_return;
   }
 
-  handleGraphData1(layerNb, shareIncrementor, priceIncrementor){
+  /// TO BE REFATORED
+  handleGraphAvgVal(layerNb, shareIncrementor, priceIncrementor, nbOfShare, price){
     let to_return = [];
-    let nbOfShare = 4;
-    let price = 1;
     let avg = 0;
-    let totNote = 4;
-    let totVal = 4 * price;
+    let totNote = nbOfShare;
+    let totVal = nbOfShare * price;
     for(var i = 0; i < layerNb; i++) {
       for(var j = 0; j < nbOfShare; j++) {
         totNote++
@@ -51,7 +49,14 @@ export default class HomeGraph extends React.Component {
     return to_return;
   }
 
-  componentDidMount() {
+  handleHighChart() {
+
+    let initialNbOfShare = this.props.initialNbOfShare;
+    let totalNbShares = this.props.totalNbShares;
+    let priceIncrementor = this.props.priceIncrementor;
+    let nbOfShare = this.props.initialNbOfShare;
+    let price = this.props.initialSharePrice;
+
     Highcharts.chart('container', {
       chart: {
         type: 'areaspline',
@@ -71,48 +76,24 @@ export default class HomeGraph extends React.Component {
         }
       },
       series: [{
-          data: this.handleGraphData(this.props.initialNbOfShare,this.props.totalNbShares,this.props.priceIncrementor)
+          data: this.handleGraphTotVal(initialNbOfShare, totalNbShares, priceIncrementor,nbOfShare, price)
       },{
-        data: this.handleGraphData1(this.props.initialNbOfShare,this.props.totalNbShares,this.props.priceIncrementor)
+        data: this.handleGraphAvgVal(initialNbOfShare, totalNbShares, priceIncrementor,nbOfShare, price)
       }
       ]
     })
-    var i = 0, j = 0;
-    var chart = $('#container').highcharts();
-    chart.series[0].data[this.props.slideVal].select(true, true);
-    chart.series[1].data[this.props.slideVal].select(true, true);
+  }
+
+  componentDidMount() {
+    this.handleHighChart()
   }
 
   componentDidUpdate() {
-    Highcharts.chart('container', {
-      chart: {
-        type: 'areaspline',
-        backgroundColor: "transparent",
-        spacingRight: 0,
-        spacingLeft: 0,
-      },
-      title: {
-          text: ''
-      },
-      subtitle: {
-          text: ''
-      },
-      plotOptions: {
-        series: {
-          animation: false,
-        }
-      },
-      series: [{
-          data: this.handleGraphData(this.props.initialNbOfShare,this.props.totalNbShares,this.props.priceIncrementor)
-      },{
-        data: this.handleGraphData1(this.props.initialNbOfShare,this.props.totalNbShares,this.props.priceIncrementor)
-      }
-      ]
-    })
-    var i = 0, j = 0;
+    this.handleHighChart()
+    let slideVal = this.props.slideVal;
     var chart = $('#container').highcharts();
-    chart.series[0].data[this.props.slideVal].select(true, true);
-    chart.series[1].data[this.props.slideVal].select(true, true);
+    chart.series[0].data[slideVal].select(true, true);
+    chart.series[1].data[slideVal].select(true, true);
   }
 
   render() {
