@@ -12,16 +12,16 @@ export default class Article2 extends React.Component {
         <div className="dot-right" id="13" />
         <div className="article2-main col s10 hash-background">
           <div className="col s3" style={{ textAlign: "center" }}>
-            hello
+            Reveal by
           </div>
           <div className="col s3" style={{ textAlign: "center" }}>
-            hello
+            Step
           </div>
           <div className="col s3" style={{ textAlign: "center" }}>
-            hello
+            Layer
           </div>
           <div className="col s3" style={{ textAlign: "center" }}>
-            hello
+            Layer
           </div>
         </div>
         <div

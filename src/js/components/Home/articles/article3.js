@@ -15,18 +15,18 @@ export default class Article3 extends React.Component {
           className="article3-hash col s5"
           style={{
             backgroundImage:
-              "url(./public/content/images/main/hash-background.svg)"
+              "url(./public/content/images/main/hash-background.svg)",
           }}
         >
-          <div
-            className="article3-hash-line"
-            style={{
-              backgroundImage:
-                "url(./public/content/images/main/article3-hashes.svg)"
-            }}
+
+          <img
+            className=""
+            style={{ width: "300px" }}
+            src={"./public/content/images/articles/article3-icon.svg"}
+            alt="Kiwi standing on oval"
           />
           <img
-            className="slider-button"
+            className="redirect"
             src={"./public/content/images/articles/article3-button.svg"}
             alt="Kiwi standing on oval"
           />
