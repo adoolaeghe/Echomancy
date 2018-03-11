@@ -25,27 +25,36 @@ export default class Article6 extends React.Component {
     this.state = {
       totalNbShares: 4,
       crtSharePrice: 1,
+      crtNbOfShare: 4,
       crtShareValue: 1,
       totalValue: 4,
       initialNbOfShare: 4,
       initialSharePrice: 1,
       priceIncrementor: 2,
       shareIncrementor: 2,
+      crtSharePrice: 0,
       slider: 4,
     }
   }
 
-  handleAddButton(value) {
-    this.setState({
-      value: value + 1
-    })
+  handleCrtShare(layerNb, shareIncrementor, priceIncrementor, nbOfShare, price, crtShare){
+    let totNote = 4;
+
+    for(var i = 0; i < layerNb; i++) {
+      for(var j = 0; j < nbOfShare; j++) {
+        totNote++
+        if(totNote === crtShare) {
+          this.setState({
+            crtNbOfShare: totNote,
+            crtSharePrice: price
+          })
+        }
+      }
+      price = price * priceIncrementor;
+      nbOfShare = nbOfShare * shareIncrementor;
+    }
   }
 
-  handleRemoveButton(value, string) {
-
-  }
-
-  /// TO BE REFACTORED
   handleTotPayout(layerNb, shareIncrementor, priceIncrementor, NbOfShare, price){
     let to_return = 0;
     let totVal = 4 * price;
@@ -60,20 +69,18 @@ export default class Article6 extends React.Component {
     return to_return;
   }
 
-  /// TO BE REFACTORED
   handleTotValue(layerNb, shareIncrementor, priceIncrementor, nbOfShare, price) {
     let totVal = 4 * price;
     for(var i = 0; i < layerNb; i++) {
       for(var j = 0; j < nbOfShare; j++) {
         totVal = totVal + price;
       }
-      price = price * priceIncrementor
-      nbOfShare = nbOfShare * shareIncrementor
+      price = price * priceIncrementor;
+      nbOfShare = nbOfShare * shareIncrementor;
     }
     return totVal;
   }
 
-  /// TO BE REFACTORED
   handleTotShare(layerNb, shareIncrementor, priceIncrementor, nbOfShare, price) {
     let totNote = 4;
     for(var i = 0; i < layerNb; i++) {
@@ -86,15 +93,25 @@ export default class Article6 extends React.Component {
   }
 
   handleSlider = (event, value) => {
+    console.log('herre')
     this.setState({slider: transform(value)});
+    this.handleCrtShare(this.state.initialNbOfShare,
+                          this.state.shareIncrementor,
+                          this.state.priceIncrementor,
+                          this.state.initialNbOfShare,
+                          this.state.initialSharePrice,
+                          value
+                          )
   };
 
   handleSongPartRender() {
     let to_return = [];
+    let key = 1;
     for(let i = 0; i < this.state.slider; i++) {
       to_return.push(
-        <div className="article7-info2-content-element"></div>
+        <div className="article7-info2-content-element" key={key}></div>
       )
+      key++
     }
     return to_return;
   }
@@ -119,8 +136,9 @@ export default class Article6 extends React.Component {
         <div className="article7-main col s10">
           <div className="article7-main-visual col s12"
                style={{position:"relative"}}>
-            <div className="aarticle7-main-label"
+            <div className="article7-main-label"
                  style={{position:"absolute"}}>
+              <span>Artist Payout: </span>
               {this.handleTotPayout(initialNbOfShare,
                                     shareIncrementor,
                                     priceIncrementor,
@@ -150,7 +168,9 @@ export default class Article6 extends React.Component {
             </div>
             <div className="col s6 info-content row">
               <div className="col s5 info-label">Current Share Price</div>
-              <div className="col s3 info-val">2.2</div>
+              <div className="col s3 info-val">
+                {this.state.crtNbOfShare}
+              </div>
               <div className="col s4"></div>
             </div>
           </div>
@@ -159,10 +179,13 @@ export default class Article6 extends React.Component {
               {this.handleSongPartRender()}
             </div>
             <Slider
-              min={min}
-              max={max}
+              min={initialNbOfShare}
+              max={this.handleTotShare(initialNbOfShare,
+                                   shareIncrementor,
+                                   priceIncrementor,
+                                   initialNbOfShare,
+                                   initialSharePrice)}
               step={max / 100}
-              value={4}
               onChange={this.handleSlider}
             />
           </div>
@@ -179,15 +202,15 @@ export default class Article6 extends React.Component {
               <div className="col s4"></div>
             </div>
             <div className="col s6 info-content row">
-              <div className="col s5 info-label">Current Share Price</div>
-              <div className="col s3 info-val">7.2</div>
+              <div className="col s5 info-label">Current Risk Price</div>
+              <div className="col s3 info-val">{this.state.crtSharePrice}</div>
               <div className="col s4"></div>
             </div>
           </div>
           <div className="article7-main-info5 col s12 row">
             <div className="col s3 options row">
               <div className="col s12 options-label">
-                Initial Number of Share
+                Layer number
               </div>
               <div className="col s12 options-button">
                 <div className="col s6 options-button">
@@ -205,7 +228,7 @@ export default class Article6 extends React.Component {
                 <div className="col s6 options-button">
                   <FloatingActionButton mini={true}
                                         backgroundColor="#eae4e1"
-                                        disabled={(initialNbOfShare > 6) ? true : false}
+                                        disabled={(initialNbOfShare > 9) ? true : false}
                                         onClick={() => {this.setState({
                                           initialNbOfShare: initialNbOfShare + 1
                                         })
@@ -220,15 +243,15 @@ export default class Article6 extends React.Component {
             </div>
             <div className="col s3 options">
               <div className="col s12 options-label">
-                Share incrementor
+                Initial Share Price
               </div>
               <div className="col s12 options-button">
                 <div className="col s6 options-button">
                   <FloatingActionButton mini={true}
                                         backgroundColor="#eae4e1"
-                                        disabled={(shareIncrementor < 1) ? true : false}
+                                        disabled={(initialSharePrice < 1) ? true : false}
                                         onClick={() => {this.setState({
-                                            shareIncrementor: shareIncrementor - 1
+                                            initialSharePrice: initialSharePrice - 1
                                           })
                                         }}>
                     <ContentRemove />
@@ -237,9 +260,9 @@ export default class Article6 extends React.Component {
                 <div className="col s6 options-button">
                   <FloatingActionButton mini={true}
                                         backgroundColor="#eae4e1"
-                                        disabled={(shareIncrementor > 4) ? true : false}
+                                        disabled={(initialSharePrice > 4) ? true : false}
                                         onClick={() => {this.setState({
-                                            shareIncrementor: shareIncrementor + 1
+                                            initialSharePrice: initialSharePrice + 1
                                           })
                                         }}>
                     <ContentAdd />
@@ -248,39 +271,7 @@ export default class Article6 extends React.Component {
               </div>
             </div>
             <div className="col s1 options-val">
-              {shareIncrementor}
-            </div>
-            <div className="col s3 options">
-              <div className="col s12 options-label">
-                Price incrementor
-              </div>
-              <div className="col s12 options-button">
-                <div className="col s6 options-button">
-                  <FloatingActionButton mini={true}
-                                        backgroundColor="#eae4e1"
-                                        disabled={(priceIncrementor < 1) ? true : false}
-                                        onClick={() => {this.setState({
-                                            priceIncrementor: priceIncrementor - 1
-                                          })
-                                        }}>
-                    <ContentRemove color="red"/>
-                  </FloatingActionButton>
-                </div>
-                <div className="col s6 options-button">
-                  <FloatingActionButton mini={true}
-                                        backgroundColor="#eae4e1"
-                                        disabled={(priceIncrementor > 10) ? true : false}
-                                        onClick={() => {this.setState({
-                                            priceIncrementor: priceIncrementor + 1
-                                          })
-                                        }}>
-                    <ContentAdd />
-                  </FloatingActionButton>
-                </div>
-              </div>
-            </div>
-            <div className="col s1 options-val">
-             {priceIncrementor}
+              {initialSharePrice}
             </div>
           </div>
         </div>

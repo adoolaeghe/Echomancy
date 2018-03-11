@@ -105,7 +105,7 @@ export default class Article5 extends React.Component {
         <div className="article5-main col s12 row">
           <div className="main-options">
             <div style={contentStyle}>
-              <Stepper activeStep={stepIndex} orientation="horizontal">
+              <Stepper activeStep={stepIndex} orientation="vertical">
                 <Step>
                   <StepLabel>Division</StepLabel>
                   <StepContent>
@@ -148,16 +148,16 @@ export default class Article5 extends React.Component {
 
           <div className="main-images col s9 push-s2 row">
             <div className="main-image col s3 image-1">
-              <Player size={"small"} key={1}z/>
+              <Player size={"small"} key={1} id={1} slices = {[1, 1, 1]}/>
             </div>
             <div className="main-image col s3 image-2">
-              <Player size={"small"} key={2}/>
+              <Player size={"small"} key={2} id={2} slices = {[1, 1, 1, 1, 1, 1]}/>
             </div>
             <div className="main-image col s3 image-3">
-              <Player size={"small"} key={3}/>
+              <Player size={"small"} key={3} id={3} slices = {[1, 1, 1, 1, 1, 1, 1, 1, 1]}/>
             </div>
             <div className="main-image col s3 image-4">
-              <Player size={"small"} key={4}/>
+              <Player size={"small"} key={4} id={4} slices = {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]}/>
             </div>
           </div>
           <div className="main-images col s1">

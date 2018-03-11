@@ -51,14 +51,14 @@ export default class Main extends React.Component {
 
     return (
       <BrowserRouter>
-        <Switch>
-          <MuiThemeProvider>
+        <MuiThemeProvider>
+          <Switch>
             <Route exact path="/" render={props => <HomePage {...props} />} />
             <Route exact path="/signin" component={SignIn} />
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/murwall" component={murmur} />
-          </MuiThemeProvider>
-        </Switch>
+          </Switch>
+        </MuiThemeProvider>
       </BrowserRouter>
     );
   }

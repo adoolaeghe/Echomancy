@@ -14,7 +14,7 @@ export default class Player extends React.Component {
     };
   }
   componentDidMount(){
-        Highcharts.chart('container1', {
+        Highcharts.chart(`container${this.props.id}`, {
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: null,
@@ -33,7 +33,7 @@ export default class Player extends React.Component {
             pie: {
                 allowPointSelect: true,
                 cursor: 'pointer',
-                size: 320,
+                size: this.props.size === "small" ? 180 : 320,
                 dataLabels: {
                     enabled: true,
                     format: '',
@@ -46,25 +46,7 @@ export default class Player extends React.Component {
         series: [{
             name: 'Brands',
             colorByPoint: true,
-            data: [{
-                name: 'IE',
-                y: 1
-            }, {
-                name: 'Chrome',
-                y: 1,
-            }, {
-                name: 'Firefox',
-                y: 1
-            }, {
-                name: 'Safari',
-                y: 1
-            }, {
-                name: 'Opera',
-                y: 1
-            }, {
-                name: 'Other',
-                y: 1
-            }]
+            data: this.props.slices
         }]
     });
   }
@@ -87,14 +69,16 @@ export default class Player extends React.Component {
     return (
       <div className={`player player-wrapper ${this.props.size}`}>
         <div className={`player-wrapper ${this.props.size} rotating`}>
-          <div id="container1"></div>
+          <div id={`container${this.props.id}`} className="player-container"></div>
         </div>
-        <div className={`player-cover ${this.props.size} ${this.state.playing}`}
-             onClick={() => {this.handlePlayClick()}}>
-          <div className={`player-cover-image ${this.props.size} ${this.state.playing}`}>
-            <div className={`player-btn-icon ${this.state.playing}`}></div>
+        {this.props.size != "small" &&
+          <div className={`player-cover ${this.props.size} ${this.state.playing}`}
+               onClick={() => {this.handlePlayClick()}}>
+            <div className={`player-cover-image ${this.props.size} ${this.state.playing}`}>
+              <div className={`player-btn-icon ${this.state.playing}`}></div>
+            </div>
           </div>
-        </div>
+        }
       </div>
     );
   }

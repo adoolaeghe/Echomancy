@@ -16,7 +16,7 @@ export default class Article1 extends React.Component {
         <div className="article1-grid-right col s2">
         </div>
         <div className="article1-main col s6">
-        <Player size={"large"}/>
+        <Player size={"large"} id={0}/>
         <div className="dot-left" id="8"></div>
         </div>
         <h4 className="row col s6">
