@@ -16,6 +16,7 @@ import Article5 from "./articles/article5";
 import Article6 from "./articles/article6";
 import Article7 from "./articles/article7";
 import NavBar from "./articles/navBar";
+import Footer from "./articles/footer";
 
 export default class Demo extends React.Component {
   constructor(props) {
@@ -74,16 +75,17 @@ export default class Demo extends React.Component {
           <div className="side-article4"></div>
           <div className="side-article5"></div>
         </div>
-        <div className="space-between col s10"
+        <div className="space-between col s10 push-s1"
              onClick={() => {this.props.props.history.push('/details1')}}>
           <div className="space-between-line"></div>
           <div className="playing-dot"></div>
         </div>
-        <main className="col s10">
+        <main className="col s10 push-s1">
           <Article5 />
           <Article6 />
           <Article7 />
         </main>
+        <Footer />
       </div>
     );
   }
