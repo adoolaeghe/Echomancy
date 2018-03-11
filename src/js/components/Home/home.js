@@ -53,6 +53,7 @@ export default class Demo extends React.Component {
     return (
       <div className="row">
         <div className="left-column col s1">
+
         </div>
         <main className="col s10">
           <NavBar />

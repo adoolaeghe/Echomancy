@@ -32,15 +32,14 @@ export default class Article1 extends React.Component {
             Publishing for Everyone
           </div>
           <div className="col s12 sub-header-word">
-            Eco est un tout nouveau type de monnaie que vous pouvez utiliser
-            partout dans le monde.
+            Murmur is a platform of <a href="#!"><u>micro-publication</u></a> where you can earn from your discoveries.
           </div>
         </h4>
         <div
           className="article1-bottom col s10 hash-background"
           style={{
             backgroundImage:
-              "url(./public/content/images/main/hash-background.svg)"
+              "url(./public/content/images/main/hash-background.svg)",
           }}
         >
           <img
