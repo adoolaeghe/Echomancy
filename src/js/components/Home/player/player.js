@@ -44,7 +44,6 @@ export default class Player extends React.Component {
             }
         },
         series: [{
-            name: 'Brands',
             colorByPoint: true,
             data: this.props.slices
         }]
@@ -68,17 +67,17 @@ export default class Player extends React.Component {
   render() {
     return (
       <div className={`player player-wrapper ${this.props.size}`}>
-        <div className={`player-wrapper ${this.props.size} rotating`}>
+        <div className={`player-wrapper ${this.props.size} ${this.props.rotation}`}>
           <div id={`container${this.props.id}`} className="player-container"></div>
         </div>
-        {this.props.size != "small" &&
           <div className={`player-cover ${this.props.size} ${this.state.playing}`}
                onClick={() => {this.handlePlayClick()}}>
-            <div className={`player-cover-image ${this.props.size} ${this.state.playing}`}>
-              <div className={`player-btn-icon ${this.state.playing}`}></div>
-            </div>
+            {this.props.size != "small" &&
+              <div className={`player-cover-image ${this.props.size} ${this.state.playing}`}>
+                <div className={`player-btn-icon ${this.state.playing}`}></div>
+              </div>
+            }
           </div>
-        }
       </div>
     );
   }

@@ -2,16 +2,16 @@ import React from "react";
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
 import Player from "../player/player"
-
+import ExpandTransition from 'material-ui/internal/ExpandTransition';
+import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
+import TextField from 'material-ui/TextField';
 import Paper from 'material-ui/Paper';
 import {
   Step,
   Stepper,
   StepLabel,
-  StepContent,
 } from 'material-ui/Stepper';
-import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
 
 export default class Article5 extends React.Component {
 
@@ -20,28 +20,40 @@ export default class Article5 extends React.Component {
     this.state = {
       finished: false,
       stepIndex: 0,
-      selectedShadow: 0
+      selectedShadow: 0,
+      loading: false,
+      finished: false,
+      stepIndex: 0,
     };
   }
 
-  handleNext() {
-    const {stepIndex, selectedShadow, finished} = this.state;
-    this.setState({
-      stepIndex: stepIndex + 1,
-      selectedShadow: selectedShadow + 1,
-      finished: finished >= 2,
+  dummyAsync = (cb) => {
+    this.setState({loading: true}, () => {
+      this.asyncTimer = setTimeout(cb, 500);
     });
   };
 
-  handlePrev() {
-    const {stepIndex, selectedShadow} = this.state;
-    if (stepIndex > 0) {
-      this.setState({
-        stepIndex: stepIndex - 1,
-        selectedShadow: selectedShadow - 1,
-      });
+  handleNext = () => {
+    const {stepIndex} = this.state;
+    if (!this.state.loading) {
+      this.dummyAsync(() => this.setState({
+        loading: false,
+        stepIndex: stepIndex + 1,
+        finished: stepIndex >= 2,
+      }));
     }
-  }
+  };
+
+  handlePrev = () => {
+    const {stepIndex} = this.state;
+    if (!this.state.loading) {
+      this.dummyAsync(() => this.setState({
+        loading: false,
+        stepIndex: stepIndex - 1,
+      }));
+    }
+  };
+
 
   renderStepActions(step) {
     const {stepIndex} = this.state;
@@ -68,29 +80,89 @@ export default class Article5 extends React.Component {
     );
   }
 
-  renderStepInformations() {
-    const {stepIndex} = this.state;
-    if(stepIndex === 0) {
+  renderContent() {
+    const {finished, stepIndex} = this.state;
+    const contentStyle = {margin: '0 16px', overflow: 'hidden'};
+
+    if (finished) {
       return (
-        <p> This is the step 1 information</p>
-      )
-    } else if(stepIndex === 1) {
-      return (
-        <p> This is the step 2 information</p>
-      )
-    } else if(stepIndex === 2) {
-      return (
-        <p> This is the step 3 information</p>
-      )
-    } else {
-      return (
-        <p> This is the step 4 information</p>
-      )
+        <div style={contentStyle}>
+          <p>
+            <a
+              href="#"
+              onClick={(event) => {
+                event.preventDefault();
+                this.setState({stepIndex: 0, finished: false});
+              }}
+            >
+              Click here
+            </a> to reset the example.
+          </p>
+        </div>
+      );
     }
+
+    return (
+      <div style={contentStyle}>
+        <div>{this.getStepContent(stepIndex)}</div>
+        <div style={{marginTop: 24, marginBottom: 12}}>
+          <FlatButton
+            label="Back"
+            disabled={stepIndex === 0}
+            onClick={this.handlePrev}
+            style={{marginRight: 12}}
+          />
+          <RaisedButton
+            label={stepIndex === 2 ? 'Finish' : 'Next'}
+            primary={true}
+            onClick={this.handleNext}
+          />
+        </div>
+      </div>
+    );
   }
 
+  getStepContent(stepIndex) {
+      switch (stepIndex) {
+        case 0:
+          return (
+            <div>
+              <p>Description: The content is revealed in layers</p>
+              <p>Song Length</p>
+              <p>Price</p>
+            </div>
+          );
+        case 1:
+          return (
+            <div>
+              <p>Description</p>
+              <p>Song Length</p>
+              <p>Price</p>
+            </div>
+          );
+        case 2:
+          return (
+            <div>
+              <p>Description</p>
+              <p>Song Length</p>
+              <p>Price</p>
+            </div>
+          );
+        case 3:
+          return (
+            <div>
+              <p>Song Length</p>
+              <p>Song Length</p>
+              <p>Price</p>
+            </div>
+          );
+        default:
+          return 'You\'re a long way from home sonny jim!';
+      }
+    }
+
   render() {
-    const {finished, stepIndex} = this.state;
+    const {finished, loading, stepIndex} = this.state;
     const contentStyle = {margin: '0 16px'};
     return(
       <section className="article5 row">
@@ -103,69 +175,42 @@ export default class Article5 extends React.Component {
         </div>
 
         <div className="article5-main col s12 row">
-          <div className="main-options">
-            <div style={contentStyle}>
-              <Stepper activeStep={stepIndex} orientation="vertical">
-                <Step>
-                  <StepLabel>Division</StepLabel>
-                  <StepContent>
-                    <p>
-                      The content is first divided in parts.
-                    </p>
-                    {this.renderStepActions(0)}
-                  </StepContent>
-                </Step>
-                <Step>
-                  <StepLabel>Buy a part</StepLabel>
-                  <StepContent>
-                    <p>One part reveal new parts.</p>
-                    {this.renderStepActions(1)}
-                  </StepContent>
-                </Step>
-                <Step>
-                  <StepLabel>Reveal New parts</StepLabel>
-                  <StepContent>
-                    <p>
-                      Try out different ad text to see what brings in the most customers,
-                      and learn how to enhance.
-                    </p>
-                    {this.renderStepActions(2)}
-                  </StepContent>
-                </Step>
-                <Step>
-                  <StepLabel>Create an ad</StepLabel>
-                  <StepContent>
-                    <p>
-                      Try out different ad text to see what brings in the most customers,
-                      and learn how to enhance.
-                    </p>
-                    {this.renderStepActions(3)}
-                  </StepContent>
-                </Step>
-              </Stepper>
-            </div>
-          </div>
 
-          <div className="main-images col s9 push-s2 row">
+          <div className="main-images col s12 row">
             <div className="main-image col s3 image-1">
-              <Player size={"small"} key={1} id={1} slices = {[1, 1, 1]}/>
+              <Player rotation={"rotating"} size={"small"} key={1} id={1} slices = {[1, 1, 1]}/>
             </div>
             <div className="main-image col s3 image-2">
-              <Player size={"small"} key={2} id={2} slices = {[1, 1, 1, 1, 1, 1]}/>
+              <Player rotation={"static"} size={"small"} key={2} id={2} slices = {[1, 1, 1, 1, 1, 1]}/>
             </div>
             <div className="main-image col s3 image-3">
-              <Player size={"small"} key={3} id={3} slices = {[1, 1, 1, 1, 1, 1, 1, 1, 1]}/>
+              <Player rotation={"static"} size={"small"} key={3} id={3} slices = {[1, 1, 1, 1, 1, 1, 1, 1, 1]}/>
             </div>
             <div className="main-image col s3 image-4">
-              <Player size={"small"} key={4} id={4} slices = {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]}/>
+              <Player rotation={"static"} size={"small"} key={4} id={4} slices = {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]}/>
             </div>
           </div>
-          <div className="main-images col s1">
-          </div>
-        </div>
 
-        <div className="main-step-info">
-        {this.renderStepInformations()}
+          <div className="main-options col s12 row">
+            <Stepper activeStep={stepIndex}>
+              <Step>
+                <StepLabel>Layer Nb 1</StepLabel>
+              </Step>
+              <Step>
+                <StepLabel>Layer Nb 2</StepLabel>
+              </Step>
+              <Step>
+                <StepLabel>Layer Nb 3</StepLabel>
+              </Step>
+              <Step>
+                <StepLabel>Layer Nb 4</StepLabel>
+              </Step>
+            </Stepper>
+            <ExpandTransition loading={loading} open={true}>
+              {this.renderContent()}
+            </ExpandTransition>
+          </div>
+
         </div>
 
         <div className="bottom-info large col s12"
