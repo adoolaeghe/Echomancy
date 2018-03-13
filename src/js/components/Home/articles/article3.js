@@ -1,7 +1,57 @@
 import React from "react";
+import ReactBodymovin from "react-bodymovin";
+import animation from "./data.json";
 
 export default class Article3 extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      animation: false
+    };
+  }
+
+  componentDidMount() {
+    window.addEventListener("scroll", this.handleScroll.bind(this));
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll.bind(this));
+  }
+
+  handleScroll(event) {
+    if ($(window).scrollTop() > 700) {
+      this.setState({
+        animation: true
+      });
+    } else {
+      this.setState({
+        animation: false
+      });
+    }
+  }
+
+  returnAnimation(a, b) {
+    console.log("here")
+    if(this.state.animation) {
+      return <ReactBodymovin key={1} options={b} />
+    } else {
+      return <ReactBodymovin key={2} options={a} />
+    }
+  }
+
   render() {
+    const bodymovinOptions = {
+      loop: false,
+      autoplay: false,
+      prerender: true,
+      animationData: animation
+    };
+    const bodymovinOptions1 = {
+      loop: false,
+      autoplay: true,
+      prerender: true,
+      animationData: animation
+    };
     return (
       <section
         className="article3 row"
@@ -18,13 +68,7 @@ export default class Article3 extends React.Component {
               "url(./public/content/images/main/hash-background.svg)",
           }}
         >
-
-          <img
-            className=""
-            style={{ width: "300px" }}
-            src={"./public/content/images/articles/article3-icon.svg"}
-            alt="Kiwi standing on oval"
-          />
+          {this.returnAnimation(bodymovinOptions, bodymovinOptions1)}
           <img
             className="redirect"
             src={"./public/content/images/articles/article3-button.svg"}

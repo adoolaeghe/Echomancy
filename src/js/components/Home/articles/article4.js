@@ -1,9 +1,44 @@
 import React from "react";
 import Popover from "material-ui/Popover/Popover";
 import { Modal, Button } from "react-materialize";
+import ReactBodymovin from "react-bodymovin";
+import animation from "./data1.json";
 
 export default class Article4 extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      animation: false
+    };
+  }
+
+  componentDidMount() {
+    window.addEventListener("scroll", this.handleScroll.bind(this));
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll.bind(this));
+  }
+
+  handleScroll(event) {
+    if ($(window).scrollTop() > 1300) {
+      this.setState({
+        animation: true
+      });
+    } else {
+      this.setState({
+        animation: false
+      });
+    }
+  }
+
   render() {
+    const bodymovinOptions = {
+      loop: false,
+      autoplay: true,
+      prerender: true,
+      animationData: animation
+    };
     return (
       <section
         className="article4 row"
@@ -39,12 +74,10 @@ export default class Article4 extends React.Component {
             alignItem: "center"
           }}
         >
-          <img
-            className=""
-            style={{ width: "300px" }}
-            src={"./public/content/images/articles/article3-icon.svg"}
-            alt="Kiwi standing on oval"
-          />
+          <div className="" style={{ width: "300px" }} id="bm" />
+          {this.state.animation && (
+            <ReactBodymovin options={bodymovinOptions} />
+          )}
         </div>
         <div className="dot-left" id="21" />
         <div className="dot-right" id="22" />

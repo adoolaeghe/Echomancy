@@ -11,9 +11,9 @@ export default class NavBar extends React.Component {
                 backgroundImage:
                   "url(./public/content/images/articles/article3-icon.svg)",
                   backgroundRepeat: "no-repeat",
-                  backgroundSize: "50px",
+                  backgroundSize: "40px",
                   backgroundPosition: "center",
-                  height: "100px"
+                  height: "70px"
               }}>
 
         </div>

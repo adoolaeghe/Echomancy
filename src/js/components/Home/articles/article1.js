@@ -48,6 +48,20 @@ export default class Article1 extends React.Component {
             alt="Kiwi standing on oval"
           />
         </div>
+
+        <a className="" href="#!" style={
+          {
+            height: "50px",
+            width: "50px",
+            backgroundImage:
+              "url(./public/content/images/articles/arrow-down.svg)",
+            position: "absolute",
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+            bottom: "65px",
+            right: "65px"
+          }
+        }></a>
       </section>
     );
   }

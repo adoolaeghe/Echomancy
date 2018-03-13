@@ -19,9 +19,6 @@
         <g id="Desktop-Main" transform="translate(-77.000000, -994.000000)">
             <g id="Group" transform="translate(77.000000, 994.000000)">
                 <g id="Group-2">
-                    <text id="P" opacity="0.054517663" font-family="WorkSans-Bold, Work Sans" font-size="288" font-weight="bold" fill="#000000">
-                        <tspan x="222.942847" y="337">P</tspan>
-                    </text>
                     <mask id="mask-2" fill="white">
                         <use xlink:href="#path-1"></use>
                     </mask>
