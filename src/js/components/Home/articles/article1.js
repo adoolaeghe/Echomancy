@@ -2,10 +2,14 @@ import React from "react";
 import Player from "../player/player";
 
 export default class Article1 extends React.Component {
+  componentDidMount() {
+    grained('#article1', {grainOpacity: 0.05,});
+  }
   render() {
     return (
       <section
         className="article1 row"
+        id="article1"
         style={{
           background:
             "url(./public/content/images/articles/article1-background.svg) no-repeat",

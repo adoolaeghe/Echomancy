@@ -31,7 +31,6 @@ export default class Article3 extends React.Component {
   }
 
   returnAnimation(a, b) {
-    console.log("here")
     if(this.state.animation) {
       return <ReactBodymovin key={1} options={b} />
     } else {
@@ -76,7 +75,7 @@ export default class Article3 extends React.Component {
           />
         </div>
         <div className="acticle3-text-content col s7">
-          <div className="article3-header">
+          <div className={`article3-header ${this.state.animation ? "animation" : ""}`}>
             <h2>Become a music</h2>
             <h1>Publisher</h1>
             <p>

@@ -49,11 +49,18 @@ export default class Demo extends React.Component {
     const Details1 = () => (
       <div> Hello World </div>
     )
-
     return (
       <div className="row">
         <div className="left-column col s1">
+          <div style={{
+            background:
+              "url(./public/content/images/articles/hamburger.svg) no-repeat",
+            backgroundSize: "cover",
+            width: "20%",
+            height: "25%"
 
+          }}>
+          </div>
         </div>
         <main className="col s10">
           <NavBar />
