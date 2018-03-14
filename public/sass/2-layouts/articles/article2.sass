@@ -17,7 +17,7 @@
 
     .article2-main-column
       text-align: left
-      margin-left: 50px
+      margin-left: 15px
 
 
     .article2-main-content
@@ -29,6 +29,19 @@
         animation: 1.5s animShow
       &#article2-4
         animation: 1.9s animShow
+
+      .article2-main-number
+        animation: 1.9s animShowHeight
+        +configFont(15px, bolder, null)
+        writing-mode: vertical-lr
+        width: 40px
+        height: 100px
+        border-left: 1px solid #8188E7
+
+      .article2-main-title
+        +configFont(15px, bolder, null)
+        p
+          +configFont(15px, lighter, null)
 
 
   .article2-grid-right,

@@ -12,28 +12,22 @@ export default class Article4 extends React.Component {
     };
   }
 
-  componentDidMount() {
-    window.addEventListener("scroll", this.handleScroll.bind(this));
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("scroll", this.handleScroll.bind(this));
-  }
-
-  handleScroll(event) {
-    if ($(window).scrollTop() > 1300) {
-      this.setState({
-        animation: true
-      });
+  returnAnimation(a, b) {
+    if(this.props.article4Anim) {
+      return <ReactBodymovin key={1} options={b} />
     } else {
-      this.setState({
-        animation: false
-      });
+      return <ReactBodymovin key={2} options={a} />
     }
   }
 
   render() {
     const bodymovinOptions = {
+      loop: false,
+      autoplay: false,
+      prerender: true,
+      animationData: animation
+    };
+    const bodymovinOptions1 = {
       loop: false,
       autoplay: true,
       prerender: true,
@@ -76,10 +70,8 @@ export default class Article4 extends React.Component {
             alignItem: "center"
           }}
         >
-          <div className="" style={{ width: "300px" }} id="bm" />
-          {this.state.animation && (
-            <ReactBodymovin options={bodymovinOptions} />
-          )}
+        <div className="" style={{ width: "300px" }} id="bm" />
+            {this.returnAnimation(bodymovinOptions, bodymovinOptions1)}
         </div>
         <div className="dot-left" id="21" />
         <div className="dot-right" id="22" />

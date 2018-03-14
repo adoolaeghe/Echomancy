@@ -38,8 +38,8 @@ export default class Article1 extends React.Component {
           </div>
           <div className="col s12 sub-header-word">
             Murmur is a platform of{" "}
-            <a href="#!">
-              <u>micro-publication</u>
+            <a href="#!" className="sub-header-link">
+              micro-publication
             </a>{" "}
             where you can earn from your discoveries.
           </div>
