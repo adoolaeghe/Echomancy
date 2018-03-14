@@ -10,7 +10,7 @@ export default class NavBar extends React.Component {
         <a className="navBar-logo-title wave-effect waves-light btn col s1 z-depth-1 push-s5"
               style={{
                 backgroundImage:
-                "url(./public/content/images/articles/article3-icon.svg)",
+                "url(./public/content/images/main/logo.svg)",
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "50px",
                 backgroundPosition: "center",

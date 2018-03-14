@@ -22,7 +22,7 @@ export default class Menu extends React.Component {
           className="menu-icon row col s12"
           style={{
             background:
-              "url(./public/content/images/articles/hamburger.svg) no-repeat"
+              "url(./public/content/images/icons/hamburger.svg) no-repeat"
           }}
         />
 

@@ -2,7 +2,6 @@ import React from "react";
 import Player from "../player/player";
 
 export default class Article1 extends React.Component {
-
   componentDidMount() {
     grained("#article1", { grainOpacity: 0.05 });
   }
@@ -59,22 +58,23 @@ export default class Article1 extends React.Component {
           />
         </div>
 
-        {this.props.article1Arrow &&
+        {this.props.article1Arrow && (
           <a
-          className="arrow-down"
-          href="#!"
-          style={{
-            height: "25px",
-            width: "25px",
-            backgroundImage:
-              "url(./public/content/images/articles/arrow-down.svg)",
-            position: "fixed",
-            backgroundSize: "contain",
-            backgroundRepeat: "no-repeat",
-            bottom: "25px",
-            right: "14%"
-          }}
-        />}
+            className="arrow-down"
+            href="#!"
+            style={{
+              height: "25px",
+              width: "25px",
+              backgroundImage:
+                "url(./public/content/images/icons/arrow-down.svg)",
+              position: "fixed",
+              backgroundSize: "contain",
+              backgroundRepeat: "no-repeat",
+              bottom: "25px",
+              right: "14%"
+            }}
+          />
+        )}
       </section>
     );
   }
