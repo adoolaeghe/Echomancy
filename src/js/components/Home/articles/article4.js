@@ -2,7 +2,7 @@ import React from "react";
 import Popover from "material-ui/Popover/Popover";
 import { Modal, Button } from "react-materialize";
 import ReactBodymovin from "react-bodymovin";
-import animation from "./data1.json";
+import animation from "../../../../../public/content/animation/data1.json";
 
 export default class Article4 extends React.Component {
   constructor(props) {

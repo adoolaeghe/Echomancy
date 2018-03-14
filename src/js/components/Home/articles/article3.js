@@ -1,6 +1,6 @@
 import React from "react";
 import ReactBodymovin from "react-bodymovin";
-import animation from "./data.json";
+import animation from "../../../../../public/content/animation/data.json";
 
 export default class Article3 extends React.Component {
   constructor(props) {

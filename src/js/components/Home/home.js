@@ -1,7 +1,5 @@
 import React from "react";
 import Player from "./player/player";
-import Drawer from "material-ui/Drawer";
-import { Tabs, Tab } from "material-ui/Tabs";
 
 import {
   BrowserRouter as Router,
@@ -19,6 +17,7 @@ import Article6 from "./articles/article6";
 import Article7 from "./articles/article7";
 import NavBar from "./articles/navBar";
 import Footer from "./articles/footer";
+import Menu from "./articles/menu";
 
 export default class Demo extends React.Component {
   constructor(props) {
@@ -95,39 +94,8 @@ export default class Demo extends React.Component {
     const Details1 = () => <div> Hello World </div>;
     return (
       <div className="row">
-        <a
-          href="#!"
-          id="menu"
-          onMouseOver={() => {grained('#menu', {grainOpacity: 0.09})}}
-          onMouseOut={() => {grained('#menu', {grainOpacity: 0.05})}}
-          onClick={() => {this.handleMenu()}}
-          className="left-column col s1"
-        >
-          <div
-            className="menu-icon row col s12"
-            style={{
-              background:
-                "url(./public/content/images/articles/hamburger.svg) no-repeat",
-            }}
-          />
-
-          <Drawer
-            width={240}
-            openSecondary={false}
-            zDepth={15}
-            open={this.state.menuDisplay}
-            containerStyle={{
-            zIndex: "100000",
-            backgroundColor: "transparent",
-            }}
-          >
-            <ul className="menu row col s12">
-              <li className="menu-item row col s12">About</li>
-              <li className="menu-item row col s12">Why</li>
-              <li className="menu-item row col s12">For</li>
-            </ul>
-          </Drawer>
-        </a>
+        <Menu menuDisplay= {this.state.menuDisplay}
+              handleMenu= {() => {this.handleMenu()}}/>
         <main className="col s10 push-s1" style={{ zIndex: 100001 }}>
           <NavBar />
           <Article1 article1Arrow={this.state.article1Arrow} />

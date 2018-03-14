@@ -8,8 +8,15 @@ import FlatButton from "material-ui/FlatButton";
 import TextField from "material-ui/TextField";
 import Paper from "material-ui/Paper";
 import { Step, Stepper, StepLabel } from "material-ui/Stepper";
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
-import Toggle from 'material-ui/Toggle';
+import {
+  Card,
+  CardActions,
+  CardHeader,
+  CardMedia,
+  CardTitle,
+  CardText
+} from "material-ui/Card";
+import Toggle from "material-ui/Toggle";
 
 export default class Article5 extends React.Component {
   constructor(props) {
@@ -21,24 +28,24 @@ export default class Article5 extends React.Component {
       loading: false,
       finished: false,
       stepIndex: 0,
-      expanded: false,
+      expanded: false
     };
   }
 
-  handleExpandChange = (expanded) => {
-    this.setState({expanded: expanded});
+  handleExpandChange = expanded => {
+    this.setState({ expanded: expanded });
   };
 
   handleToggle = (event, toggle) => {
-    this.setState({expanded: toggle});
+    this.setState({ expanded: toggle });
   };
 
   handleExpand = () => {
-    this.setState({expanded: true});
+    this.setState({ expanded: true });
   };
 
   handleReduce = () => {
-    this.setState({expanded: false});
+    this.setState({ expanded: false });
   };
 
   dummyAsync = cb => {
@@ -187,99 +194,99 @@ export default class Article5 extends React.Component {
     const { finished, loading, stepIndex } = this.state;
     const contentStyle = { margin: "0 16px" };
     return (
-      <section className="article5 row"
-               style={{
-                 height: "200px",
-                 marginBottom: "100px"
-               }}
+      <section
+        className="article5 row"
+        style={{
+          height: "200px",
+          marginBottom: "100px"
+        }}
       >
-
-      <Card expanded={this.state.expanded} onExpandChange={this.handleExpandChange}>
-        <CardHeader
-          title="URL Avatar"
-          subtitle="Subtitle"
-          avatar="images/ok-128.jpg"
-          actAsExpander={true}
-          showExpandableButton={true}
-        />
-        <CardText>
-          <Toggle
-            toggled={this.state.expanded}
-            onToggle={this.handleToggle}
-            labelPosition="right"
-            label="This toggle controls the expanded state of the component."
-          />
-        </CardText>
-        <CardText
-          expandable={true}
+        <Card
+          expanded={this.state.expanded}
+          onExpandChange={this.handleExpandChange}
         >
+          <CardHeader
+            title="URL Avatar"
+            subtitle="Subtitle"
+            avatar="images/ok-128.jpg"
+            actAsExpander={true}
+            showExpandableButton={true}
+          />
+          <CardText>
+            <Toggle
+              toggled={this.state.expanded}
+              onToggle={this.handleToggle}
+              labelPosition="right"
+              label="This toggle controls the expanded state of the component."
+            />
+          </CardText>
+          <CardText expandable={true}>
+            <div className="article5-main col s12 row">
+              <div className="main-images col s12 row">
+                <div className="main-image col s3 image-1">
+                  <Player
+                    rotation={"rotating"}
+                    size={"small"}
+                    key={1}
+                    id={1}
+                    slices={[1, 1, 1]}
+                  />
+                </div>
+                <div className="main-image col s3 image-2">
+                  <Player
+                    rotation={"static"}
+                    size={"small"}
+                    key={2}
+                    id={2}
+                    slices={[1, 1, 1, 1, 1, 1]}
+                  />
+                </div>
+                <div className="main-image col s3 image-3">
+                  <Player
+                    rotation={"static"}
+                    size={"small"}
+                    key={3}
+                    id={3}
+                    slices={[1, 1, 1, 1, 1, 1, 1, 1, 1]}
+                  />
+                </div>
+                <div className="main-image col s3 image-4">
+                  <Player
+                    rotation={"static"}
+                    size={"small"}
+                    key={4}
+                    id={4}
+                    slices={[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]}
+                  />
+                </div>
+              </div>
 
-        <div className="article5-main col s12 row">
-          <div className="main-images col s12 row">
-            <div className="main-image col s3 image-1">
-              <Player
-                rotation={"rotating"}
-                size={"small"}
-                key={1}
-                id={1}
-                slices={[1, 1, 1]}
-              />
+              <div className="main-options col s12 row">
+                <Stepper activeStep={stepIndex}>
+                  <Step>
+                    <StepLabel>Layer Nb 1</StepLabel>
+                  </Step>
+                  <Step>
+                    <StepLabel>Layer Nb 2</StepLabel>
+                  </Step>
+                  <Step>
+                    <StepLabel>Layer Nb 3</StepLabel>
+                  </Step>
+                  <Step>
+                    <StepLabel>Layer Nb 4</StepLabel>
+                  </Step>
+                </Stepper>
+                <ExpandTransition loading={loading} open={true}>
+                  {this.renderContent()}
+                </ExpandTransition>
+              </div>
             </div>
-            <div className="main-image col s3 image-2">
-              <Player
-                rotation={"static"}
-                size={"small"}
-                key={2}
-                id={2}
-                slices={[1, 1, 1, 1, 1, 1]}
-              />
-            </div>
-            <div className="main-image col s3 image-3">
-              <Player
-                rotation={"static"}
-                size={"small"}
-                key={3}
-                id={3}
-                slices={[1, 1, 1, 1, 1, 1, 1, 1, 1]}
-              />
-            </div>
-            <div className="main-image col s3 image-4">
-              <Player
-                rotation={"static"}
-                size={"small"}
-                key={4}
-                id={4}
-                slices={[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]}
-              />
-            </div>
-          </div>
-
-          <div className="main-options col s12 row">
-            <Stepper activeStep={stepIndex}>
-              <Step>
-                <StepLabel>Layer Nb 1</StepLabel>
-              </Step>
-              <Step>
-                <StepLabel>Layer Nb 2</StepLabel>
-              </Step>
-              <Step>
-                <StepLabel>Layer Nb 3</StepLabel>
-              </Step>
-              <Step>
-                <StepLabel>Layer Nb 4</StepLabel>
-              </Step>
-            </Stepper>
-            <ExpandTransition loading={loading} open={true}>
-              {this.renderContent()}
-            </ExpandTransition>
-          </div>
-        </div>
-        </CardText>
-        <CardActions>
-          <FlatButton label="Expand" onClick={this.handleExpand} />
-          <FlatButton label="Reduce" onClick={this.handleReduce} />
-        </CardActions>
-      </Card>
+          </CardText>
+          <CardActions>
+            <FlatButton label="Expand" onClick={this.handleExpand} />
+            <FlatButton label="Reduce" onClick={this.handleReduce} />
+          </CardActions>
+        </Card>
       </section>
     );
   }
