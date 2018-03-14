@@ -15,6 +15,21 @@
       +configFont(33px, 300, null)
       font-family: 'Inter UI', sans-serif
 
+    .article2-main-column
+      text-align: left
+      margin-left: 50px
+
+
+    .article2-main-content
+      &#article2-1
+        animation: .7s animShow
+      &#article2-2
+        animation: 1.2s animShow
+      &#article2-3
+        animation: 1.5s animShow
+      &#article2-4
+        animation: 1.9s animShow
+
 
   .article2-grid-right,
   .article2-grid-left
@@ -25,29 +40,3 @@
   .article2-grid-left
     +flex(null, center, center)
     +configFont(33px, bolder, null)
-
-  .article2-media-button-twitter
-    +flex(null, center, center)
-    +border-bottom-light
-    height: 50%
-    position: relative
-    p
-      +configFont(33px, bolder, null)
-      font-family: 'Inter UI', sans-serif
-    &:hover
-      #dot17, #dot16
-        background-color: #E4E4E4
-
-
-
-  .article2-media-button-medium
-    +flex(null, center, center)
-    height: 50%
-    position: relative
-    p
-      +configFont(33px, bolder, null)
-      font-family: 'Inter UI', sans-serif
-
-  .social-media-logo
-    height: 50px
-    width: 50px

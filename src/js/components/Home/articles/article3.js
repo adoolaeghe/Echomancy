@@ -55,6 +55,7 @@ export default class Article3 extends React.Component {
           />
         </div>
         <div className="acticle3-text-content col s7">
+        {this.props.article3Text &&
           <div className={`article3-header ${this.state.animation ? "animation" : ""}`}>
             <h2>Become a music</h2>
             <h1>Publisher</h1>
@@ -66,6 +67,7 @@ export default class Article3 extends React.Component {
             </p>
             <a>Read this link</a>
           </div>
+        }
         </div>
         <div className="dot-left" id="19" />
         <div className="dot-right" id="20" />

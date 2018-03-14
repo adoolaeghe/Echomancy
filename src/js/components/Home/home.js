@@ -30,8 +30,11 @@ export default class Demo extends React.Component {
       menuGrain: 0.05,
       menuDisplay: false,
       article3Anim: false,
+      article3Text: false,
       article4Anim: false,
+      article4Text: false,
       article1Arrow: true,
+      article2Main: false
     };
   }
 
@@ -61,27 +64,29 @@ export default class Demo extends React.Component {
   }
 
   handleScroll(event) {
-    if ($(window).scrollTop() > 200) {
+    const scroll = $(window).scrollTop();
+
+    if (scroll > 200) {
       this.setState({
-        article1Arrow: false
-      });
-    } else
-    if ($(window).scrollTop() > 700) {
-      this.setState({
-        article3Anim: true
-      });
-    } else
-    if ($(window).scrollTop() > 1300) {
-      this.setState({
-        article4Anim: true
-      });
-    } else {
-      this.setState({
-        article1Arrow: true,
-        article3Anim: false,
-        article4Anim: false
+        article1Arrow: false,
+        article2Main: true
       });
     }
+
+    if (scroll > 500) {
+      this.setState({
+        article3Anim: true,
+        article3Text: true
+      });
+    }
+
+    if (scroll > 1100) {
+      this.setState({
+        article4Anim: true,
+        article4Text: true
+      });
+    }
+
   }
 
   handleMenu() {
@@ -99,9 +104,11 @@ export default class Demo extends React.Component {
         <main className="col s10 push-s1" style={{ zIndex: 100001 }}>
           <NavBar />
           <Article1 article1Arrow={this.state.article1Arrow} />
-          <Article2/>
-          <Article3 article3Anim={this.state.article3Anim} />
-          <Article4 article4Anim={this.state.article4Anim} />
+          <Article2 article2Main={this.state.article2Main}/>
+          <Article3 article3Anim={this.state.article3Anim}
+                    article3Text={this.state.article3Text}/>
+          <Article4 article4Anim={this.state.article4Anim}
+                    article4Text={this.state.article4Text}/>
         </main>
         <div className="col s1 side-right">
           <div className="side-nav-bar" />

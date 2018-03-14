@@ -48,6 +48,7 @@ export default class Article4 extends React.Component {
           backgroundSize: "cover"
         }}
       >
+      {this.props.article4Text &&
         <div className="article4-text-content row col s5">
           <h1 className="article4-header">Reveal</h1>
           <h2 className="article4-sub-header">New songs</h2>
@@ -64,6 +65,7 @@ export default class Article4 extends React.Component {
             alt="Kiwi standing on oval"
           />
         </div>
+      }
         <div
           className="article4-slider"
           style={{
