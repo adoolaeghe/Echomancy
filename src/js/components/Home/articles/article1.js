@@ -2,9 +2,11 @@ import React from "react";
 import Player from "../player/player";
 
 export default class Article1 extends React.Component {
+
   componentDidMount() {
-    grained('#article1', {grainOpacity: 0.05,});
+    grained("#article1", { grainOpacity: 0.05 });
   }
+
   render() {
     return (
       <section
@@ -36,14 +38,18 @@ export default class Article1 extends React.Component {
             Publishing for Everyone
           </div>
           <div className="col s12 sub-header-word">
-            Murmur is a platform of <a href="#!"><u>micro-publication</u></a> where you can earn from your discoveries.
+            Murmur is a platform of{" "}
+            <a href="#!">
+              <u>micro-publication</u>
+            </a>{" "}
+            where you can earn from your discoveries.
           </div>
         </h4>
         <div
           className="article1-bottom col s10 hash-background"
           style={{
             backgroundImage:
-              "url(./public/content/images/main/hash-background.svg)",
+              "url(./public/content/images/main/hash-background.svg)"
           }}
         >
           <img
@@ -53,19 +59,22 @@ export default class Article1 extends React.Component {
           />
         </div>
 
-        <a className="" href="#!" style={
-          {
-            height: "50px",
-            width: "50px",
+        {this.props.article1Arrow &&
+          <a
+          className="arrow-down"
+          href="#!"
+          style={{
+            height: "25px",
+            width: "25px",
             backgroundImage:
               "url(./public/content/images/articles/arrow-down.svg)",
-            position: "absolute",
+            position: "fixed",
             backgroundSize: "contain",
             backgroundRepeat: "no-repeat",
-            bottom: "65px",
-            right: "65px"
-          }
-        }></a>
+            bottom: "25px",
+            right: "14%"
+          }}
+        />}
       </section>
     );
   }

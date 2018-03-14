@@ -8,6 +8,8 @@ import FlatButton from "material-ui/FlatButton";
 import TextField from "material-ui/TextField";
 import Paper from "material-ui/Paper";
 import { Step, Stepper, StepLabel } from "material-ui/Stepper";
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import Toggle from 'material-ui/Toggle';
 
 export default class Article5 extends React.Component {
   constructor(props) {
@@ -18,9 +20,26 @@ export default class Article5 extends React.Component {
       selectedShadow: 0,
       loading: false,
       finished: false,
-      stepIndex: 0
+      stepIndex: 0,
+      expanded: false,
     };
   }
+
+  handleExpandChange = (expanded) => {
+    this.setState({expanded: expanded});
+  };
+
+  handleToggle = (event, toggle) => {
+    this.setState({expanded: toggle});
+  };
+
+  handleExpand = () => {
+    this.setState({expanded: true});
+  };
+
+  handleReduce = () => {
+    this.setState({expanded: false});
+  };
 
   dummyAsync = cb => {
     this.setState({ loading: true }, () => {
@@ -174,21 +193,28 @@ export default class Article5 extends React.Component {
                  marginBottom: "100px"
                }}
       >
-        <div
-          className="top-info col s12"
-          style={{
-            position: "relative",
-            backgroundImage:
-              "url(./public/content/images/main/hash-background.svg)",
-            height: "80px"
-          }}
-        >
-          <div className="top-info-content">
-            How Murmur Works
-          </div>
-        </div>
 
-        <div className="article5-main col s12 row hide">
+      <Card expanded={this.state.expanded} onExpandChange={this.handleExpandChange}>
+        <CardHeader
+          title="URL Avatar"
+          subtitle="Subtitle"
+          avatar="images/ok-128.jpg"
+          actAsExpander={true}
+          showExpandableButton={true}
+        />
+        <CardText>
+          <Toggle
+            toggled={this.state.expanded}
+            onToggle={this.handleToggle}
+            labelPosition="right"
+            label="This toggle controls the expanded state of the component."
+          />
+        </CardText>
+        <CardText
+          expandable={true}
+        >
+
+        <div className="article5-main col s12 row">
           <div className="main-images col s12 row">
             <div className="main-image col s3 image-1">
               <Player
@@ -248,9 +274,12 @@ export default class Article5 extends React.Component {
             </ExpandTransition>
           </div>
         </div>
-
-        <div className="dot-left" id="21" />
-        <div className="dot-right" id="22" />
+        </CardText>
+        <CardActions>
+          <FlatButton label="Expand" onClick={this.handleExpand} />
+          <FlatButton label="Reduce" onClick={this.handleReduce} />
+        </CardActions>
+      </Card>
       </section>
     );
   }

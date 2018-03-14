@@ -19,7 +19,6 @@ export default class MurWall extends React.Component {
   }
 
   handleToggleRight() {
-    console.log('here')
     this.setState({drwRightOpen: !this.state.drwRightOpen});
   }
 

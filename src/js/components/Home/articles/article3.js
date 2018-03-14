@@ -10,28 +10,8 @@ export default class Article3 extends React.Component {
     };
   }
 
-  componentDidMount() {
-    window.addEventListener("scroll", this.handleScroll.bind(this));
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("scroll", this.handleScroll.bind(this));
-  }
-
-  handleScroll(event) {
-    if ($(window).scrollTop() > 700) {
-      this.setState({
-        animation: true
-      });
-    } else {
-      this.setState({
-        animation: false
-      });
-    }
-  }
-
   returnAnimation(a, b) {
-    if(this.state.animation) {
+    if(this.props.article3Anim) {
       return <ReactBodymovin key={1} options={b} />
     } else {
       return <ReactBodymovin key={2} options={a} />

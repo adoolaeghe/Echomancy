@@ -11,17 +11,21 @@ export default class Article2 extends React.Component {
         <div className="dot-left" id="12" />
         <div className="dot-right" id="13" />
         <div className="article2-main col s10 hash-background">
-          <div className="col s3" style={{ textAlign: "center" }}>
-            Reveal by
+          <div className="col s3" style={{ textAlign: "left", marginLeft: "50px" }}>
+            <p>01</p>
+            <p>Reveal</p>
           </div>
-          <div className="col s3" style={{ textAlign: "center" }}>
-            Step
+          <div className="col s3" style={{ textAlign: "left", marginLeft: "50px" }}>
+            <p>02</p>
+            <p>Reveal</p>
           </div>
-          <div className="col s3" style={{ textAlign: "center" }}>
-            Layer
+          <div className="col s3" style={{ textAlign: "left", marginLeft: "50px" }}>
+            <p>03</p>
+            <p>Reveal</p>
           </div>
-          <div className="col s3" style={{ textAlign: "center" }}>
-            Layer
+          <div className="col s3" style={{ textAlign: "left", marginLeft: "50px" }}>
+            <p>04</p>
+            <p>Reveal</p>
           </div>
         </div>
         <div
