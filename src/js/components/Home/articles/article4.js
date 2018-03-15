@@ -44,6 +44,8 @@ export default class Article4 extends React.Component {
       >
       {this.props.article4Text &&
         <div className="article4-text-content row col s5">
+          <div className="" style={{marginLeft: "20px",marginTop: "120px", textAlign: "left", height: "10px", width: "70px", backgroundColor: "#8188E7", marginBottom: "20px" }}>
+          </div>
           <h1 className="article4-header">Reveal</h1>
           <h2 className="article4-sub-header">New songs</h2>
           <p className="article4-content">
@@ -71,7 +73,7 @@ export default class Article4 extends React.Component {
           }}
         >
         <div className="" style={{ width: "300px" }} id="bm" />
-            {this.returnAnimation(bodymovinOptions, bodymovinOptions1)}
+          {this.returnAnimation(bodymovinOptions, bodymovinOptions1)}
         </div>
         <div className="dot-left" id="21" />
         <div className="dot-right" id="22" />

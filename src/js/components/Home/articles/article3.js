@@ -57,6 +57,8 @@ export default class Article3 extends React.Component {
         <div className="acticle3-text-content col s7">
         {this.props.article3Text &&
           <div className={`article3-header ${this.state.animation ? "animation" : ""}`}>
+            <div className="" style={{marginLeft: "30px", textAlign: "left", height: "10px", width: "70px", backgroundColor: "#8188E7", marginBottom: "20px" }}>
+            </div>
             <h2>Become a music</h2>
             <h1>Publisher</h1>
             <p>

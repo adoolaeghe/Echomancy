@@ -12,7 +12,7 @@ export default class NavBar extends React.Component {
                 backgroundImage:
                 "url(./public/content/images/main/logo.svg)",
                 backgroundRepeat: "no-repeat",
-                backgroundSize: "100px",
+                backgroundSize: "50px",
                 backgroundPosition: "center",
                 backgroundColor: "white",
                 height: "90px",

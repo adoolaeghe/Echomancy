@@ -4,7 +4,16 @@ import FloatingActionButton from "material-ui/FloatingActionButton";
 import ContentAdd from "material-ui/svg-icons/content/add";
 import ContentRemove from "material-ui/svg-icons/content/remove";
 import Slider from "material-ui/Slider";
+import FlatButton from "material-ui/FlatButton";
 import Graph from "../graph/homeGraph";
+import {
+  Card,
+  CardActions,
+  CardHeader,
+  CardMedia,
+  CardTitle,
+  CardText
+} from "material-ui/Card";
 
 /// SLIDER REFACTORING ///
 const min = 0;
@@ -20,6 +29,28 @@ function reverse(value) {
 }
 
 export default class Article6 extends React.Component {
+  handleExpandChange = expanded => {
+    this.setState({ expanded: expanded });
+  };
+
+  handleToggle = (event, toggle) => {
+    this.setState({ expanded: toggle });
+  };
+
+  handleExpand = () => {
+    this.setState({ expanded: true });
+  };
+
+  handleReduce = () => {
+    this.setState({ expanded: false });
+  };
+
+  dummyAsync = cb => {
+    this.setState({ loading: true }, () => {
+      this.asyncTimer = setTimeout(cb, 500);
+    });
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -33,7 +64,8 @@ export default class Article6 extends React.Component {
       priceIncrementor: 2,
       shareIncrementor: 2,
       crtSharePrice: 0,
-      slider: 4
+      slider: 4,
+      expanded: false
     };
   }
 
@@ -120,7 +152,6 @@ export default class Article6 extends React.Component {
   }
 
   handleSlider = (event, value) => {
-    console.log("herre");
     this.setState({ slider: transform(value) });
     this.handleCrtShare(
       this.state.initialNbOfShare,
@@ -151,68 +182,72 @@ export default class Article6 extends React.Component {
     let initialSharePrice = this.state.initialSharePrice;
 
     return (
+
+
       <section
         className="article7 row"
         style={{
           backgroundImage:
             "url(./public/content/images/main/hash-background.svg)",
-          height: "200px",
           marginBottom: "100px"
         }}
       >
-        <div
-          className="top-info large col s12"
-          style={{
+        <Card
+          expanded={this.state.expanded}
+          onExpandChange={this.handleExpandChange}
+          containerStyle={{
             backgroundImage:
-              "url(./public/content/images/main/hash-background.svg)",
-            display: "flex",
-            position: "relative",
-            justifyContent: "space-around",
-            flexDirection: "row",
+              "url(./public/content/images/main/hash-background.svg)"
           }}
         >
-          <div>
-            Micro-Publication
+          <div className="row"
+            style={{
+              backgroundColor:"white",
+              fontSize: "88px",
+              fontWeight: "bolder",
+            }}>
+            <div className="col s5">
+              SECTION
+            </div>
+            <div className="col s7"
+                style={{
+                  height: "250px",
+                  backgroundImage:
+                    "url(./public/content/images/main/hash-background.svg)"
+                }}>
+                <FlatButton label="Expand" onClick={this.handleExpand} />
+                <FlatButton label="Reduce" onClick={this.handleReduce} />
+            </div>
           </div>
-        </div>
-        <div className="article7-left col s2 hide">
-          <div className="article7-left-label drag">
-            Drag to see the evolution from the track
-          </div>
-        </div>
-        <div className="article7-main col s10 hide">
+          <CardText expandable={true}>
           <div
-            className="article7-main-visual col s12"
-            style={{ position: "relative" }}
+            className="top-info large col s12"
+            style={{
+              backgroundImage:
+                "url(./public/content/images/main/hash-background.svg)",
+              display: "flex",
+              position: "relative",
+              justifyContent: "space-around",
+              flexDirection: "row",
+            }}
           >
+          </div>
+          <div className="article7-left col s2">
+            <div className="article7-left-label drag">
+              Drag to see the evolution from the track
+            </div>
+          </div>
+          <div className="article7-main col s10">
             <div
-              className="article7-main-label"
-              style={{ position: "absolute" }}
+              className="article7-main-visual col s12"
+              style={{ position: "relative" }}
             >
-              <span>Artist Payout: </span>
-              {this.handleTotPayout(
-                initialNbOfShare,
-                shareIncrementor,
-                priceIncrementor,
-                initialNbOfShare,
-                initialSharePrice
-              )}
-            </div>
-            <Graph
-              totalNbShares={this.state.shareIncrementor}
-              maxNbShares={this.state.maxNbShares}
-              initialNbOfShare={initialNbOfShare}
-              initialSharePrice={initialSharePrice}
-              priceIncrementor={priceIncrementor}
-              shareIncrementor={shareIncrementor}
-              slideVal={this.state.slider}
-            />
-          </div>
-          <div className="article7-main-info1 col s12" style={{ zIndex: "1" }}>
-            <div className="col s6 info-content row">
-              <div className="col s5 info-label">Total Amount</div>
-              <div className="col s3 info-val">
-                {this.handleTotValue(
+              <div
+                className="article7-main-label"
+                style={{ position: "absolute" }}
+              >
+                <span>Artist Payout: </span>
+                {this.handleTotPayout(
                   initialNbOfShare,
                   shareIncrementor,
                   priceIncrementor,
@@ -220,124 +255,146 @@ export default class Article6 extends React.Component {
                   initialSharePrice
                 )}
               </div>
-              <div className="col s4" />
+              <Graph
+                totalNbShares={this.state.shareIncrementor}
+                maxNbShares={this.state.maxNbShares}
+                initialNbOfShare={initialNbOfShare}
+                initialSharePrice={initialSharePrice}
+                priceIncrementor={priceIncrementor}
+                shareIncrementor={shareIncrementor}
+                slideVal={this.state.slider}
+              />
             </div>
-            <div className="col s6 info-content row">
-              <div className="col s5 info-label">Current Share Price</div>
-              <div className="col s3 info-val">{this.state.crtNbOfShare}</div>
-              <div className="col s4" />
+            <div className="article7-main-info1 col s12" style={{ zIndex: "1" }}>
+              <div className="col s6 info-content row">
+                <div className="col s5 info-label">Total Amount</div>
+                <div className="col s3 info-val">
+                  {this.handleTotValue(
+                    initialNbOfShare,
+                    shareIncrementor,
+                    priceIncrementor,
+                    initialNbOfShare,
+                    initialSharePrice
+                  )}
+                </div>
+                <div className="col s4" />
+              </div>
+              <div className="col s6 info-content row">
+                <div className="col s5 info-label">Current Share Price</div>
+                <div className="col s3 info-val">{this.state.crtNbOfShare}</div>
+                <div className="col s4" />
+              </div>
             </div>
-          </div>
-          <div className="article7-main-info2 col s12">
-            <div className="article7-info2-content cols12">
-              {this.handleSongPartRender()}
-            </div>
-            <Slider
-              min={initialNbOfShare}
-              max={this.handleTotShare(
-                initialNbOfShare,
-                shareIncrementor,
-                priceIncrementor,
-                initialNbOfShare,
-                initialSharePrice
-              )}
-              step={max / 100}
-              onChange={this.handleSlider}
-            />
-          </div>
-          <div className="article7-main-info3 col s12">
-            <div className="col s6 info-content row">
-              <div className="col s5 info-label">Total Amount</div>
-              <div className="col s3 info-val">
-                {this.handleTotShare(
+            <div className="article7-main-info2 col s12">
+              <div className="article7-info2-content cols12">
+                {this.handleSongPartRender()}
+              </div>
+              <Slider
+                min={initialNbOfShare}
+                max={this.handleTotShare(
                   initialNbOfShare,
                   shareIncrementor,
                   priceIncrementor,
                   initialNbOfShare,
                   initialSharePrice
                 )}
-              </div>
-              <div className="col s4" />
+                step={max / 100}
+                onChange={this.handleSlider}
+              />
             </div>
-            <div className="col s6 info-content row">
-              <div className="col s5 info-label">Current Risk Price</div>
-              <div className="col s3 info-val">{this.state.crtSharePrice}</div>
-              <div className="col s4" />
+            <div className="article7-main-info3 col s12">
+              <div className="col s6 info-content row">
+                <div className="col s5 info-label">Total Amount</div>
+                <div className="col s3 info-val">
+                  {this.handleTotShare(
+                    initialNbOfShare,
+                    shareIncrementor,
+                    priceIncrementor,
+                    initialNbOfShare,
+                    initialSharePrice
+                  )}
+                </div>
+                <div className="col s4" />
+              </div>
+              <div className="col s6 info-content row">
+                <div className="col s5 info-label">Current Risk Price</div>
+                <div className="col s3 info-val">{this.state.crtSharePrice}</div>
+                <div className="col s4" />
+              </div>
+            </div>
+            <div className="article7-main-info5 col s12 row">
+              <div className="col s3 options row">
+                <div className="col s12 options-label">Layer number</div>
+                <div className="col s12 options-button">
+                  <div className="col s6 options-button">
+                    <FloatingActionButton
+                      mini={true}
+                      backgroundColor="#eae4e1"
+                      disabled={initialNbOfShare < 1 ? true : false}
+                      onClick={() => {
+                        this.setState({
+                          initialNbOfShare: initialNbOfShare - 1
+                        });
+                      }}
+                    >
+                      <ContentRemove />
+                    </FloatingActionButton>
+                  </div>
+                  <div className="col s6 options-button">
+                    <FloatingActionButton
+                      mini={true}
+                      backgroundColor="#eae4e1"
+                      disabled={initialNbOfShare > 9 ? true : false}
+                      onClick={() => {
+                        this.setState({
+                          initialNbOfShare: initialNbOfShare + 1
+                        });
+                      }}
+                    >
+                      <ContentAdd />
+                    </FloatingActionButton>
+                  </div>
+                </div>
+              </div>
+              <div className="col s1 options-val">{initialNbOfShare}</div>
+              <div className="col s3 options">
+                <div className="col s12 options-label">Initial Share Price</div>
+                <div className="col s12 options-button">
+                  <div className="col s6 options-button">
+                    <FloatingActionButton
+                      mini={true}
+                      backgroundColor="#eae4e1"
+                      disabled={initialSharePrice < 1 ? true : false}
+                      onClick={() => {
+                        this.setState({
+                          initialSharePrice: initialSharePrice - 1
+                        });
+                      }}
+                    >
+                      <ContentRemove />
+                    </FloatingActionButton>
+                  </div>
+                  <div className="col s6 options-button">
+                    <FloatingActionButton
+                      mini={true}
+                      backgroundColor="#eae4e1"
+                      disabled={initialSharePrice > 4 ? true : false}
+                      onClick={() => {
+                        this.setState({
+                          initialSharePrice: initialSharePrice + 1
+                        });
+                      }}
+                    >
+                      <ContentAdd />
+                    </FloatingActionButton>
+                  </div>
+                </div>
+              </div>
+              <div className="col s1 options-val">{initialSharePrice}</div>
             </div>
           </div>
-          <div className="article7-main-info5 col s12 row">
-            <div className="col s3 options row">
-              <div className="col s12 options-label">Layer number</div>
-              <div className="col s12 options-button">
-                <div className="col s6 options-button">
-                  <FloatingActionButton
-                    mini={true}
-                    backgroundColor="#eae4e1"
-                    disabled={initialNbOfShare < 1 ? true : false}
-                    onClick={() => {
-                      this.setState({
-                        initialNbOfShare: initialNbOfShare - 1
-                      });
-                    }}
-                  >
-                    <ContentRemove />
-                  </FloatingActionButton>
-                </div>
-                <div className="col s6 options-button">
-                  <FloatingActionButton
-                    mini={true}
-                    backgroundColor="#eae4e1"
-                    disabled={initialNbOfShare > 9 ? true : false}
-                    onClick={() => {
-                      this.setState({
-                        initialNbOfShare: initialNbOfShare + 1
-                      });
-                    }}
-                  >
-                    <ContentAdd />
-                  </FloatingActionButton>
-                </div>
-              </div>
-            </div>
-            <div className="col s1 options-val">{initialNbOfShare}</div>
-            <div className="col s3 options">
-              <div className="col s12 options-label">Initial Share Price</div>
-              <div className="col s12 options-button">
-                <div className="col s6 options-button">
-                  <FloatingActionButton
-                    mini={true}
-                    backgroundColor="#eae4e1"
-                    disabled={initialSharePrice < 1 ? true : false}
-                    onClick={() => {
-                      this.setState({
-                        initialSharePrice: initialSharePrice - 1
-                      });
-                    }}
-                  >
-                    <ContentRemove />
-                  </FloatingActionButton>
-                </div>
-                <div className="col s6 options-button">
-                  <FloatingActionButton
-                    mini={true}
-                    backgroundColor="#eae4e1"
-                    disabled={initialSharePrice > 4 ? true : false}
-                    onClick={() => {
-                      this.setState({
-                        initialSharePrice: initialSharePrice + 1
-                      });
-                    }}
-                  >
-                    <ContentAdd />
-                  </FloatingActionButton>
-                </div>
-              </div>
-            </div>
-            <div className="col s1 options-val">{initialSharePrice}</div>
-          </div>
-        </div>
-        <div className="dot-left" id="21" />
-        <div className="dot-right" id="22" />
+          </CardText>
+        </Card>
       </section>
     );
   }
