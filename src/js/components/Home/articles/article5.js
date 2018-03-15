@@ -190,35 +190,38 @@ export default class Article5 extends React.Component {
     }
   }
 
+
   render() {
     const { finished, loading, stepIndex } = this.state;
     const contentStyle = { margin: "0 16px" };
     return (
       <section
         className="article5 row"
+        id="article5"
         style={{
-          height: "200px",
           marginBottom: "100px"
         }}
       >
         <Card
           expanded={this.state.expanded}
           onExpandChange={this.handleExpandChange}
+          containerStyle={{
+            backgroundImage:
+              "url(./public/content/images/main/hash-background.svg)"
+          }}
         >
-          <CardHeader
-            title="URL Avatar"
-            subtitle="Subtitle"
-            avatar="images/ok-128.jpg"
-            actAsExpander={true}
-            showExpandableButton={true}
-          />
           <CardText>
-            <Toggle
-              toggled={this.state.expanded}
-              onToggle={this.handleToggle}
-              labelPosition="right"
-              label="This toggle controls the expanded state of the component."
-            />
+            How does it work ?
+          </CardText>
+          <CardText
+            style={{
+              backgroundColor:"white",
+              height: "150px",
+              fontSize: "88px",
+              fontWeight: "bolder",
+              textAlign: "right"
+            }}>
+            THIS CONTENT
           </CardText>
           <CardText expandable={true}>
             <div className="article5-main col s12 row">

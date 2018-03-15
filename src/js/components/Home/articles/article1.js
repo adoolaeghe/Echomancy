@@ -29,10 +29,13 @@ export default class Article1 extends React.Component {
             key={0}
             id={0}
             slices={[1, 1, 1, 1, 1, 1]}
+            slices1={[1]}
           />
           <div className="dot-left" id="8" />
         </div>
         <h4 className="row col s6">
+          <div className="" style={{ textAlign: "left", height: "10px", width: "70px", backgroundColor: "black", marginBottom: "20px" }}>
+          </div>
           <div className="col s12 header-word" style={{ textAlign: "left" }}>
             Publishing for Everyone
           </div>
