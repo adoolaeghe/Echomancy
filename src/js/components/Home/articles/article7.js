@@ -58,10 +58,10 @@ export default class Arcticle8 extends React.Component {
               fontSize: "88px",
               fontWeight: "bolder",
             }}>
-            <div className="col s5">
+            <div className="col s6">
               SECTION
             </div>
-            <div className="col s7"
+            <div className="col s6"
                 style={{
                   height: "250px",
                   backgroundImage:

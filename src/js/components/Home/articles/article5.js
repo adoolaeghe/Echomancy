@@ -17,6 +17,8 @@ import {
   CardText
 } from "material-ui/Card";
 import Toggle from "material-ui/Toggle";
+import returnArtcicle5Pie from "../graph/article5Pie";
+import Article5PieContent from "../graph/article5PieContent";
 
 export default class Article5 extends React.Component {
   constructor(props) {
@@ -191,63 +193,8 @@ export default class Article5 extends React.Component {
   }
 
   componentDidMount() {
-    Highcharts.chart("container", {
-      data: {
-        table: "freq",
-        startRow: 1,
-        endRow: 17,
-        endColumn: 7
-      },
-
-      chart: {
-        polar: true,
-        type: "column",
-        backgroundColor: "transparent"
-      },
-
-      title: {
-        text: ""
-      },
-
-      subtitle: {
-        text: ""
-      },
-
-      pane: {
-        size: "90%"
-      },
-
-      legend: {
-        enable: false
-      },
-
-      yAxis: {
-        min: 0,
-        endOnTick: false,
-        innerSize: "20%",
-        showLastLabel: true,
-
-        labels: {
-          formatter: function() {
-            return this.value + "%";
-          }
-        },
-        reversedStacks: false
-      },
-
-      tooltip: {
-        valueSuffix: "%"
-      },
-
-      plotOptions: {
-        series: {
-          stacking: "normal",
-          shadow: false,
-          groupPadding: 0,
-          pointPlacement: "on"
-        }
-      }
-    });
+    grained("#article5left", { grainOpacity: 0.07 });
+    returnArtcicle5Pie();
   }
 
   render() {
@@ -278,7 +225,8 @@ export default class Article5 extends React.Component {
             }}
           >
             <div
-              className="col s5"
+              className="col s3"
+              id="article5left"
               style={{
                 height: "250px",
                 backgroundImage:
@@ -288,250 +236,30 @@ export default class Article5 extends React.Component {
               <div
                 id="container"
                 style={{
-                  width: "400px",
+                  width: "250px",
                   top: "15px",
                   height: "250px",
-                  left: "5%",
+                  left: "0%",
                   position: "absolute"
                 }}
               />
-              <div style={{ display: "none" }}>
-                <table id="freq" cellSpacing="0" cellPadding="0">
-                  <tr nowrap="true" bgcolor="#CCCCFF">
-                    <td className="dir">NW</td>
-                    <td className="data">1</td>
-                    <td className="data">2</td>
-                    <td className="data">3</td>
-                    <td className="data">4</td>
-                    <td className="data">4</td>
-                    <td className="data">6</td>
-                    <td className="data">7</td>
-                    <td className="data">8</td>
-                  </tr>
-                  <tr nowrap="true">
-                    <td className="dir">NW</td>
-                    <td className="data">1</td>
-                    <td className="data">2</td>
-                    <td className="data">3</td>
-                    <td className="data">4</td>
-                    <td className="data">4</td>
-                    <td className="data">6</td>
-                    <td className="data">7</td>
-                    <td className="data">8</td>
-                  </tr>
-                  <tr nowrap="true" bgcolor="#DDDDDD">
-                    <td className="dir">NW</td>
-                    <td className="data">1</td>
-                    <td className="data">2</td>
-                    <td className="data">3</td>
-                    <td className="data">4</td>
-                    <td className="data">4</td>
-                    <td className="data">6</td>
-                    <td className="data">7</td>
-                    <td className="data">8</td>
-                  </tr>
-                  <tr nowrap="true" bgcolor="#DDDDDD">
-                    <td className="dir">NW</td>
-                    <td className="data">1</td>
-                    <td className="data">2</td>
-                    <td className="data">3</td>
-                    <td className="data">4</td>
-                    <td className="data">4</td>
-                    <td className="data">6</td>
-                    <td className="data">7</td>
-                    <td className="data">8</td>
-                  </tr>
-                  <tr nowrap="true" bgcolor="#DDDDDD">
-                    <td className="dir">NW</td>
-                    <td className="data">1</td>
-                    <td className="data">2</td>
-                    <td className="data">3</td>
-                    <td className="data">4</td>
-                    <td className="data">4</td>
-                    <td className="data">6</td>
-                    <td className="data">7</td>
-                    <td className="data">8</td>
-                  </tr>
-                  <tr nowrap="true" bgcolor="#DDDDDD">
-                    <td className="dir">NW</td>
-                    <td className="data">1</td>
-                    <td className="data">2</td>
-                    <td className="data">3</td>
-                    <td className="data">4</td>
-                    <td className="data">4</td>
-                    <td className="data">6</td>
-                    <td className="data">7</td>
-                    <td className="data">8</td>
-                  </tr>
-                  <tr nowrap="true" bgcolor="#DDDDDD">
-                    <td className="dir">NW</td>
-                    <td className="data">1</td>
-                    <td className="data">2</td>
-                    <td className="data">3</td>
-                    <td className="data">4</td>
-                    <td className="data">4</td>
-                    <td className="data">6</td>
-                    <td className="data">7</td>
-                    <td className="data">8</td>
-                  </tr>
-                  <tr nowrap="true" bgcolor="#DDDDDD">
-                    <td className="dir">NW</td>
-                    <td className="data">1</td>
-                    <td className="data">2</td>
-                    <td className="data">3</td>
-                    <td className="data">4</td>
-                    <td className="data">4</td>
-                    <td className="data">6</td>
-                    <td className="data">7</td>
-                    <td className="data">8</td>
-                  </tr>
-                  <tr nowrap="true" bgcolor="#DDDDDD">
-                    <td className="dir">NW</td>
-                    <td className="data">1</td>
-                    <td className="data">2</td>
-                    <td className="data">3</td>
-                    <td className="data">4</td>
-                    <td className="data">4</td>
-                    <td className="data">6</td>
-                    <td className="data">7</td>
-                    <td className="data">8</td>
-                  </tr>
-                  <tr nowrap="true" bgcolor="#DDDDDD">
-                    <td className="dir">NW</td>
-                    <td className="data">1</td>
-                    <td className="data">2</td>
-                    <td className="data">3</td>
-                    <td className="data">4</td>
-                    <td className="data">4</td>
-                    <td className="data">6</td>
-                    <td className="data">7</td>
-                    <td className="data">8</td>
-                  </tr>
-                  <tr nowrap="true" bgcolor="#DDDDDD">
-                    <td className="dir">NW</td>
-                    <td className="data">1</td>
-                    <td className="data">2</td>
-                    <td className="data">3</td>
-                    <td className="data">4</td>
-                    <td className="data">4</td>
-                    <td className="data">6</td>
-                    <td className="data">7</td>
-                    <td className="data">8</td>
-                  </tr>
-                  <tr nowrap="true" bgcolor="#DDDDDD">
-                    <td className="dir">NW</td>
-                    <td className="data">1</td>
-                    <td className="data">2</td>
-                    <td className="data">3</td>
-                    <td className="data">4</td>
-                    <td className="data">4</td>
-                    <td className="data">6</td>
-                    <td className="data">7</td>
-                    <td className="data">8</td>
-                  </tr>
-                  <tr nowrap="true" bgcolor="#DDDDDD">
-                    <td className="dir">NW</td>
-                    <td className="data">1</td>
-                    <td className="data">2</td>
-                    <td className="data">3</td>
-                    <td className="data">4</td>
-                    <td className="data">4</td>
-                    <td className="data">6</td>
-                    <td className="data">7</td>
-                    <td className="data">8</td>
-                  </tr>
-                  <tr nowrap="true" bgcolor="#DDDDDD">
-                    <td className="dir">NW</td>
-                    <td className="data">1</td>
-                    <td className="data">2</td>
-                    <td className="data">3</td>
-                    <td className="data">4</td>
-                    <td className="data">4</td>
-                    <td className="data">6</td>
-                    <td className="data">7</td>
-                    <td className="data">8</td>
-                  </tr>
-                  <tr nowrap="true" bgcolor="#DDDDDD">
-                    <td className="dir">NW</td>
-                    <td className="data">1</td>
-                    <td className="data">2</td>
-                    <td className="data">3</td>
-                    <td className="data">4</td>
-                    <td className="data">4</td>
-                    <td className="data">6</td>
-                    <td className="data">7</td>
-                    <td className="data">8</td>
-                  </tr>
-                  <tr nowrap="true" bgcolor="#DDDDDD">
-                    <td className="dir">NW</td>
-                    <td className="data">1</td>
-                    <td className="data">2</td>
-                    <td className="data">3</td>
-                    <td className="data">4</td>
-                    <td className="data">4</td>
-                    <td className="data">6</td>
-                    <td className="data">7</td>
-                    <td className="data">8</td>
-                  </tr>
-                  <tr nowrap="true" bgcolor="#DDDDDD">
-                    <td className="dir">NW</td>
-                    <td className="data">1</td>
-                    <td className="data">2</td>
-                    <td className="data">3</td>
-                    <td className="data">4</td>
-                    <td className="data">4</td>
-                    <td className="data">6</td>
-                    <td className="data">7</td>
-                    <td className="data">8</td>
-                  </tr>
-                  <tr nowrap="true" bgcolor="#DDDDDD">
-                    <td className="dir">NW</td>
-                    <td className="data">1</td>
-                    <td className="data">2</td>
-                    <td className="data">3</td>
-                    <td className="data">4</td>
-                    <td className="data">4</td>
-                    <td className="data">6</td>
-                    <td className="data">7</td>
-                    <td className="data">8</td>
-                  </tr>
-                  <tr nowrap="true" bgcolor="#DDDDDD">
-                    <td className="dir">NW</td>
-                    <td className="data">1</td>
-                    <td className="data">2</td>
-                    <td className="data">3</td>
-                    <td className="data">4</td>
-                    <td className="data">4</td>
-                    <td className="data">6</td>
-                    <td className="data">7</td>
-                    <td className="data">8</td>
-                  </tr>
-                  <tr nowrap="true" bgcolor="#DDDDDD">
-                    <td className="dir">NW</td>
-                    <td className="data">1</td>
-                    <td className="data">2</td>
-                    <td className="data">3</td>
-                    <td className="data">4</td>
-                    <td className="data">4</td>
-                    <td className="data">6</td>
-                    <td className="data">7</td>
-                    <td className="data">8</td>
-                  </tr>
-                  <tr nowrap="true" bgcolor="#DDDDDD">
-                    <td className="dir">NW</td>
-                    <td className="data">1</td>
-                    <td className="data">2</td>
-                    <td className="data">3</td>
-                    <td className="data">4</td>
-                    <td className="data">4</td>
-                    <td className="data">6</td>
-                    <td className="data">7</td>
-                    <td className="data">8</td>
-                  </tr>
-                </table>
+              <Article5PieContent />
+            </div>
+            <div id="article5main" className="col s7" style= {{textAlign: "right", height: "250px", position: "relative"}} >
+              <div style= {{position: "absolute", right: "0", width: "400Px", textAlign: "right"}}>
+              <div style={{left:"82%", position: "absolute", height: "5px", width: "70px", backgroundColor: "#8188E7", marginBottom: "20px" }}>
+              </div>
+              <div style={{}}></div>
+              <h2>SECTION</h2>
+              <p style={{backgroundColor: "white",fontSize: "1.25rem",fontWeight: "lighter"}}>
+              Eco is a global currency not controlled by any single individual, organization, or nation. Our mission is to distribute the majority of
+              </p>
+              </div>
+              <div style={{left:"90%",bottom:"0px", position: "absolute", height: "5px", width: "70px", backgroundColor: "#8188E7"}}>
               </div>
             </div>
-            <div className="col s7">STEPS LAYERS</div>
+            <div className="col s2" style={{height: "250px"}}>
+            </div>
           </div>
           <CardText expandable={true}>
             <div className="article5-main col s12 row">

@@ -14,9 +14,9 @@ export default class Menu extends React.Component {
 
   returnAnimation(a, b) {
     if(this.state.menuHover) {
-      return <ReactBodymovin key={1} options={b} />
+      return <ReactBodymovin style={{height: "70px"}} key={1} options={b} />
     } else {
-      return <ReactBodymovin key={2} options={a} />
+      return <ReactBodymovin style={{height: "70px"}} key={2} options={a} />
     }
   }
 
@@ -29,7 +29,7 @@ export default class Menu extends React.Component {
     };
     const bodymovinOptions1 = {
       loop: false,
-      autoplay: false,
+      autoplay: true,
       prerender: false,
       animationData: animation1
     };
@@ -63,9 +63,43 @@ export default class Menu extends React.Component {
           }}
         >
           <ul className="menu row col s12">
-            <li className="menu-item row col s12">About</li>
-            <li className="menu-item row col s12">Why</li>
-            <li className="menu-item row col s12">For</li>
+            <li className="menu-item row col s12">
+              CONTACT
+              <div className="dot-right" />
+            </li>
+            <li className="menu-item row col s12">
+              FAQ
+              <div className="dot-right" />
+            </li>
+            <li className="menu-item row col s12">
+              MEDIA
+              <div className="dot-right" />
+            </li>
+          </ul>
+        </Drawer>
+        <Drawer
+          width={120}
+          openSecondary={true}
+          zDepth={15}
+          open={this.props.menuDisplay}
+          containerStyle={{
+            zIndex: "100000",
+            backgroundColor: "transparent"
+          }}
+        >
+          <ul className="menu row col s12">
+            <li className="menu-item row col s12" style={{borderTop: "1px solid lightgrey"}}>
+              About
+              <div className="dot-left" />
+            </li>
+            <li className="menu-item row col s12">
+              Why
+              <div className="dot-left" />
+            </li>
+            <li className="menu-item row col s12">
+              For
+              <div className="dot-left" />
+            </li>
           </ul>
         </Drawer>
       </a>
