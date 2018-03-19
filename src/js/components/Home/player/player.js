@@ -47,48 +47,192 @@ export default class Player extends React.Component {
       },
       "series": [
           {
-              "name": "Browsers",
+              "name": "hello",
               "colorByPoint": true,
               "data": [
+
                   {
                       "name": "Chrome",
-                      "y": 62.74,
+                      "y": 1,
+                      "color": "blue",
+                      "drilldown": "Chrome"
+                  },
+                  {
+                      "name": "Chrome",
+                      "y": 1,
+                      "color": "blue",
                       "drilldown": "Chrome"
                   },
                   {
                       "name": "Firefox",
-                      "y": 10.57,
+                      "y": 1,
+                      "color": "lightred",
+                      "drilldown": "Firefox"
+                  },
+                  {
+                      "name": "Firefox",
+                      "y": 1,
+                      "color": "lightred",
+                      "drilldown": "Firefox"
+                  },
+                  {
+                      "name": "Firefox",
+                      "y": 1,
+                      "color": "lightred",
+                      "drilldown": "Firefox"
+                  },
+                  {
+                      "name": "Firefox",
+                      "y": 1,
+                      "color": "lightred",
                       "drilldown": "Firefox"
                   },
                   {
                       "name": "Internet Explorer",
-                      "y": 7.23,
+                      "y": 1,
+                      "color": "green",
+                      "drilldown": "Internet Explorer"
+                  },
+                  {
+                      "name": "Internet Explorer",
+                      "y": 1,
+                      "color": "green",
+                      "drilldown": "Internet Explorer"
+                  },
+                  {
+                      "name": "Internet Explorer",
+                      "y": 1,
+                      "color": "green",
+                      "drilldown": "Internet Explorer"
+                  },
+                  {
+                      "name": "Internet Explorer",
+                      "y": 1,
+                      "color": "green",
+                      "drilldown": "Internet Explorer"
+                  },
+                  {
+                      "name": "Internet Explorer",
+                      "y": 1,
+                      "color": "green",
+                      "drilldown": "Internet Explorer"
+                  },
+                  {
+                      "name": "Internet Explorer",
+                      "y": 1,
+                      "color": "green",
+                      "drilldown": "Internet Explorer"
+                  },
+                  {
+                      "name": "Internet Explorer",
+                      "y": 1,
+                      "color": "green",
+                      "drilldown": "Internet Explorer"
+                  },
+                  {
+                      "name": "Internet Explorer",
+                      "y": 1,
+                      "color": "green",
                       "drilldown": "Internet Explorer"
                   },
                   {
                       "name": "Safari",
-                      "y": 5.58,
+                      "y": 1,
+                      "color": "brown",
                       "drilldown": "Safari"
                   },
                   {
-                      "name": "Edge",
-                      "y": 4.02,
-                      "drilldown": "Edge"
+                      "name": "Safari",
+                      "y": 1,
+                      "color": "brown",
+                      "drilldown": "Safari"
+                  },{
+                      "name": "Safari",
+                      "y": 1,
+                      "color": "brown",
+                      "drilldown": "Safari"
+                  },{
+                      "name": "Safari",
+                      "y": 1,
+                      "color": "brown",
+                      "drilldown": "Safari"
+                  },{
+                      "name": "Safari",
+                      "y": 1,
+                      "color": "brown",
+                      "drilldown": "Safari"
+                  },{
+                      "name": "Safari",
+                      "y": 1,
+                      "color": "brown",
+                      "drilldown": "Safari"
+                  },{
+                      "name": "Safari",
+                      "y": 1,
+                      "color": "brown",
+                      "drilldown": "Safari"
+                  },{
+                      "name": "Safari",
+                      "y": 1,
+                      "color": "brown",
+                      "drilldown": "Safari"
+                  },{
+                      "name": "Safari",
+                      "y": 1,
+                      "color": "brown",
+                      "drilldown": "Safari"
+                  },{
+                      "name": "Safari",
+                      "y": 1,
+                      "color": "brown",
+                      "drilldown": "Safari"
+                  },{
+                      "name": "Safari",
+                      "y": 1,
+                      "color": "brown",
+                      "drilldown": "Safari"
+                  },{
+                      "name": "Safari",
+                      "y": 1,
+                      "color": "brown",
+                      "drilldown": "Safari"
+                  },{
+                      "name": "Safari",
+                      "y": 1,
+                      "color": "brown",
+                      "drilldown": "Safari"
+                  },{
+                      "name": "Safari",
+                      "y": 1,
+                      "color": "brown",
+                      "drilldown": "Safari"
+                  },{
+                      "name": "Safari",
+                      "y": 1,
+                      "color": "brown",
+                      "drilldown": "Safari"
+                  },{
+                      "name": "Safari",
+                      "y": 1,
+                      "color": "brown",
+                      "drilldown": "Safari"
+                  },{
+                      "name": "Safari",
+                      "y": 1,
+                      "color": "brown",
+                      "drilldown": "Safari"
                   },
-                  {
-                      "name": "Opera",
-                      "y": 1.92,
-                      "drilldown": "Opera"
-                  },
-                  {
-                      "name": "Other",
-                      "y": 7.62,
-                      "drilldown": null
-                  }
+
               ]
           }
       ],
       "drilldown": {
+        "drillUpButton": {
+          "position": {
+
+          },
+          "align": "left"
+        },
           "series": [
               {
                   "name": "Chrome",
@@ -96,75 +240,11 @@ export default class Player extends React.Component {
                   "data": [
                       [
                           "v65.0",
-                          0.1
+                          1
                       ],
                       [
                           "v64.0",
-                          1.3
-                      ],
-                      [
-                          "v63.0",
-                          53.02
-                      ],
-                      [
-                          "v62.0",
-                          1.4
-                      ],
-                      [
-                          "v61.0",
-                          0.88
-                      ],
-                      [
-                          "v60.0",
-                          0.56
-                      ],
-                      [
-                          "v59.0",
-                          0.45
-                      ],
-                      [
-                          "v58.0",
-                          0.49
-                      ],
-                      [
-                          "v57.0",
-                          0.32
-                      ],
-                      [
-                          "v56.0",
-                          0.29
-                      ],
-                      [
-                          "v55.0",
-                          0.79
-                      ],
-                      [
-                          "v54.0",
-                          0.18
-                      ],
-                      [
-                          "v51.0",
-                          0.13
-                      ],
-                      [
-                          "v49.0",
-                          2.16
-                      ],
-                      [
-                          "v48.0",
-                          0.13
-                      ],
-                      [
-                          "v47.0",
-                          0.11
-                      ],
-                      [
-                          "v43.0",
-                          0.17
-                      ],
-                      [
-                          "v29.0",
-                          0.26
+                          1
                       ]
                   ]
               },
@@ -174,44 +254,21 @@ export default class Player extends React.Component {
                   "data": [
                       [
                           "v58.0",
-                          1.02
+                          1
                       ],
                       [
                           "v57.0",
-                          7.36
+                          1
                       ],
                       [
                           "v56.0",
-                          0.35
+                          1
                       ],
                       [
                           "v55.0",
-                          0.11
+                          1
                       ],
-                      [
-                          "v54.0",
-                          0.1
-                      ],
-                      [
-                          "v52.0",
-                          0.95
-                      ],
-                      [
-                          "v51.0",
-                          0.15
-                      ],
-                      [
-                          "v50.0",
-                          0.1
-                      ],
-                      [
-                          "v48.0",
-                          0.31
-                      ],
-                      [
-                          "v47.0",
-                          0.12
-                      ]
+
                   ]
               },
               {
@@ -220,20 +277,35 @@ export default class Player extends React.Component {
                   "data": [
                       [
                           "v11.0",
-                          6.2
+                          1
                       ],
                       [
                           "v10.0",
-                          0.29
+                          1
                       ],
                       [
                           "v9.0",
-                          0.27
+                          1
                       ],
                       [
                           "v8.0",
-                          0.47
-                      ]
+                          1
+                      ],
+                      [
+                          "v10.0",
+                          1
+                      ],
+                      [
+                          "v9.0",
+                          1
+                      ],[
+                          "v10.0",
+                          1
+                      ],
+                      [
+                          "v9.0",
+                          1
+                      ],
                   ]
               },
               {
@@ -242,27 +314,27 @@ export default class Player extends React.Component {
                   "data": [
                       [
                           "v11.0",
-                          3.39
+                          1
                       ],
                       [
                           "v10.1",
-                          0.96
+                          1
                       ],
                       [
                           "v10.0",
-                          0.36
+                          1
                       ],
                       [
                           "v9.1",
-                          0.54
+                          1
                       ],
                       [
                           "v9.0",
-                          0.13
+                          1
                       ],
                       [
                           "v5.1",
-                          0.2
+                          1
                       ]
                   ]
               },
@@ -272,19 +344,19 @@ export default class Player extends React.Component {
                   "data": [
                       [
                           "v16",
-                          2.6
+                          1
                       ],
                       [
                           "v15",
-                          0.92
+                          1
                       ],
                       [
                           "v14",
-                          0.4
+                          1
                       ],
                       [
                           "v13",
-                          0.1
+                          1
                       ]
                   ]
               },
@@ -294,15 +366,15 @@ export default class Player extends React.Component {
                   "data": [
                       [
                           "v50.0",
-                          0.96
+                          1
                       ],
                       [
                           "v49.0",
-                          0.82
+                          1
                       ],
                       [
                           "v12.1",
-                          0.14
+                          1
                       ]
                   ]
               }
@@ -330,7 +402,7 @@ export default class Player extends React.Component {
     return (
       <div className={`player player-wrapper ${this.props.size}`}>
         <div
-          className={`player-wrapper ${this.props.size} ${this.props.rotation}`}
+          className={`player-wrapper ${this.props.size} `}
         >
           <div id={`container${this.props.id}`} className="player-container" />
         </div>

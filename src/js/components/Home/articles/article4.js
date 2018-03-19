@@ -3,6 +3,7 @@ import Popover from "material-ui/Popover/Popover";
 import { Modal, Button } from "react-materialize";
 import ReactBodymovin from "react-bodymovin";
 import animation from "../../../../../public/content/animation/data1.json";
+import returnArtcicle4Pie from "../graph/article4Pie";
 
 export default class Article4 extends React.Component {
   constructor(props) {
@@ -18,6 +19,10 @@ export default class Article4 extends React.Component {
     } else {
       return <ReactBodymovin key={2} options={a} />
     }
+  }
+
+  componentDidMount() {
+    returnArtcicle4Pie();
   }
 
   render() {
@@ -69,11 +74,16 @@ export default class Article4 extends React.Component {
               "url(./public/content/images/main/hash-background.svg)",
             display: "flex",
             justifyContent: "center",
-            alignItem: "center"
+            alignItems: "center"
           }}
         >
         <div className="" style={{ width: "300px" }} id="bm" />
-          {this.returnAnimation(bodymovinOptions, bodymovinOptions1)}
+        <div
+          id="container4"
+          style={{
+            position: "absolute"
+          }}
+        />
         </div>
         <div className="dot-left" id="21" />
         <div className="dot-right" id="22" />

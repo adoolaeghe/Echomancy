@@ -1,6 +1,7 @@
 import React from "react";
 import ReactBodymovin from "react-bodymovin";
 import animation from "../../../../../public/content/animation/data.json";
+import returnArtcicle3Pie from "../graph/article3Pie"
 
 export default class Article3 extends React.Component {
   constructor(props) {
@@ -16,6 +17,10 @@ export default class Article3 extends React.Component {
     } else {
       return <ReactBodymovin key={2} options={a} />
     }
+  }
+
+  componentDidMount() {
+    returnArtcicle3Pie();
   }
 
   render() {
@@ -47,7 +52,13 @@ export default class Article3 extends React.Component {
               "url(./public/content/images/main/hash-background.svg)",
           }}
         >
-          {this.returnAnimation(bodymovinOptions, bodymovinOptions1)}
+        <div
+          id="container3"
+          style={{
+          
+            position: "absolute"
+          }}
+        />
           <img
             className="redirect"
             src={"./public/content/images/articles/article3-button.svg"}

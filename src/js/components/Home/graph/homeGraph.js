@@ -1,105 +1,126 @@
 import React from "react";
 
 export default class HomeGraph extends React.Component {
-
-  constructor(props){
-    super(props)
+  constructor(props) {
+    super(props);
     this.state = {
       totalNbShares: this.props.totalNbShares
-    }
+    };
   }
 
   componentWillReceiveProps(nextProps) {
-    if(nextProps != this.props) {
+    if (nextProps != this.props) {
       this.setState({
         totalNbShares: nextProps.totalNbShares
-      })
+      });
     }
   }
 
   /// TO BE REFATORED
-  handleGraphTotVal(layerNb, shareIncrementor, priceIncrementor, nbOfShare, price) {
+  handleGraphTotVal(
+    layerNb,
+    shareIncrementor,
+    priceIncrementor,
+    nbOfShare,
+    price
+  ) {
     let to_return = [];
-    for(var i = 0; i < layerNb; i++) {
-      for(var j = 0; j < nbOfShare; j++) {
-        to_return.push(price)
+    for (var i = 0; i < layerNb; i++) {
+      for (var j = 0; j < nbOfShare; j++) {
+        to_return.push(price);
       }
-      price = price * priceIncrementor
-      nbOfShare = nbOfShare * shareIncrementor
+      price = price * priceIncrementor;
+      nbOfShare = nbOfShare * shareIncrementor;
     }
     return to_return;
   }
 
   /// TO BE REFATORED
-  handleGraphAvgVal(layerNb, shareIncrementor, priceIncrementor, nbOfShare, price){
+  handleGraphAvgVal(
+    layerNb,
+    shareIncrementor,
+    priceIncrementor,
+    nbOfShare,
+    price
+  ) {
     let to_return = [];
     let avg = 0;
     let totNote = nbOfShare;
     let totVal = nbOfShare * price;
-    for(var i = 0; i < layerNb; i++) {
-      for(var j = 0; j < nbOfShare; j++) {
-        totNote++
+    for (var i = 0; i < layerNb; i++) {
+      for (var j = 0; j < nbOfShare; j++) {
+        totNote++;
         totVal = totVal + price;
-        avg = totVal/totNote
-        to_return.push(avg)
+        avg = totVal / totNote;
+        to_return.push(avg);
       }
-      price = price * priceIncrementor
-      nbOfShare = nbOfShare * shareIncrementor
+      price = price * priceIncrementor;
+      nbOfShare = nbOfShare * shareIncrementor;
     }
     return to_return;
   }
 
   handleHighChart() {
-
     let initialNbOfShare = this.props.initialNbOfShare;
     let totalNbShares = this.props.totalNbShares;
     let priceIncrementor = this.props.priceIncrementor;
     let nbOfShare = this.props.initialNbOfShare;
     let price = this.props.initialSharePrice;
 
-    Highcharts.chart('container', {
+    Highcharts.chart("container", {
       chart: {
-        type: 'areaspline',
+        type: "areaspline",
         backgroundColor: "transparent",
         spacingRight: 0,
-        spacingLeft: 0,
+        spacingLeft: 0
       },
       title: {
-          text: ''
+        text: ""
       },
       subtitle: {
-          text: ''
+        text: ""
       },
       plotOptions: {
         series: {
-          animation: false,
+          animation: false
         }
       },
-      series: [{
-          data: this.handleGraphTotVal(initialNbOfShare, totalNbShares, priceIncrementor,nbOfShare, price)
-      },{
-        data: this.handleGraphAvgVal(initialNbOfShare, totalNbShares, priceIncrementor,nbOfShare, price)
-      }
+      series: [
+        {
+          data: this.handleGraphTotVal(
+            initialNbOfShare,
+            totalNbShares,
+            priceIncrementor,
+            nbOfShare,
+            price
+          )
+        },
+        {
+          data: this.handleGraphAvgVal(
+            initialNbOfShare,
+            totalNbShares,
+            priceIncrementor,
+            nbOfShare,
+            price
+          )
+        }
       ]
-    })
+    });
   }
 
   componentDidMount() {
-    this.handleHighChart()
+    this.handleHighChart();
   }
 
   componentDidUpdate() {
-    this.handleHighChart()
+    this.handleHighChart();
     let slideVal = this.props.slideVal;
-    var chart = $('#container').highcharts();
+    var chart = $("#container").highcharts();
     chart.series[0].data[slideVal].select(true, true);
     chart.series[1].data[slideVal].select(true, true);
   }
 
   render() {
-    return (
-      <div id="container" style={{width: "100%"}}>
-      </div>
-    );
+    return <div id="container" style={{ width: "100%" }} />;
   }
 }
