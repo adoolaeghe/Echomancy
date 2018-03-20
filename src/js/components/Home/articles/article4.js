@@ -22,8 +22,9 @@ export default class Article4 extends React.Component {
   }
 
   componentDidMount() {
-    returnArtcicle4Pie();
+    returnArtcicle4Pie(this.props.pieScroll);
   }
+
 
   render() {
     const bodymovinOptions = {

@@ -1,4 +1,8 @@
-export default function returnArtcicle3Pie() {
+export default function returnArtcicle3Pie(scroll) {
+  let pieScroll = [];
+  for(var x = 0; x < scroll/50; x++) {
+    pieScroll.push(1)
+  }
   Highcharts.chart(`container3`, {
     chart: {
       plotBackgroundColor: null,
@@ -6,7 +10,20 @@ export default function returnArtcicle3Pie() {
       plotShadow: false,
       height: "400px",
       backgroundColor: "transparent",
-      type: "pie"
+      type: "pie",
+      animation: Highcharts.svg, // don't animate in old IE
+      marginRight: 10,
+      events: {
+          load: function () {
+
+              // set up the updating of the chart each second
+              var series = this.series[0];
+              setInterval(function () { // current time
+                  var y = 1;
+                  series.addPoint([y], true, false, {duration: 1000});
+              }, 1000);
+          }
+      }
     },
     title: {
       text: ""
@@ -35,336 +52,22 @@ export default function returnArtcicle3Pie() {
             "name": "hello",
             "innerSize": "90%",
             "colorByPoint": true,
-            "data": [
+            "animation": false,
+            "data": (function () {
+            // generate an array of random data
+            var data = [],
+                time = (new Date()).getTime(),
+                i;
 
-                {
-                    "name": "Chrome",
-                    "y": 1,
-                    "color": "blue",
-                    "drilldown": "Chrome"
-                },
-                {
-                    "name": "Chrome",
-                    "y": 1,
-                    "color": "blue",
-                    "drilldown": "Chrome"
-                },
-                {
-                    "name": "Firefox",
-                    "y": 1,
-                    "color": "lightred",
-                    "drilldown": "Firefox"
-                },
-                {
-                    "name": "Firefox",
-                    "y": 1,
-                    "color": "lightred",
-                    "drilldown": "Firefox"
-                },
-                {
-                    "name": "Firefox",
-                    "y": 1,
-                    "color": "lightred",
-                    "drilldown": "Firefox"
-                },
-                {
-                    "name": "Firefox",
-                    "y": 1,
-                    "color": "lightred",
-                    "drilldown": "Firefox"
-                },
-                {
-                    "name": "Internet Explorer",
-                    "y": 1,
-                    "color": "green",
-                    "drilldown": "Internet Explorer"
-                },
-                {
-                    "name": "Internet Explorer",
-                    "y": 1,
-                    "color": "green",
-                    "drilldown": "Internet Explorer"
-                },
-                {
-                    "name": "Internet Explorer",
-                    "y": 1,
-                    "color": "green",
-                    "drilldown": "Internet Explorer"
-                },
-                {
-                    "name": "Internet Explorer",
-                    "y": 1,
-                    "color": "green",
-                    "drilldown": "Internet Explorer"
-                },
-                {
-                    "name": "Internet Explorer",
-                    "y": 1,
-                    "color": "green",
-                    "drilldown": "Internet Explorer"
-                },
-                {
-                    "name": "Internet Explorer",
-                    "y": 1,
-                    "color": "green",
-                    "drilldown": "Internet Explorer"
-                },
-                {
-                    "name": "Internet Explorer",
-                    "y": 1,
-                    "color": "green",
-                    "drilldown": "Internet Explorer"
-                },
-                {
-                    "name": "Internet Explorer",
-                    "y": 1,
-                    "color": "green",
-                    "drilldown": "Internet Explorer"
-                },
-                {
-                    "name": "Safari",
-                    "y": 1,
-                    "color": "brown",
-                    "drilldown": "Safari"
-                },
-                {
-                    "name": "Safari",
-                    "y": 1,
-                    "color": "brown",
-                    "drilldown": "Safari"
-                },{
-                    "name": "Safari",
-                    "y": 1,
-                    "color": "brown",
-                    "drilldown": "Safari"
-                },{
-                    "name": "Safari",
-                    "y": 1,
-                    "color": "brown",
-                    "drilldown": "Safari"
-                },{
-                    "name": "Safari",
-                    "y": 1,
-                    "color": "brown",
-                    "drilldown": "Safari"
-                },{
-                    "name": "Safari",
-                    "y": 1,
-                    "color": "brown",
-                    "drilldown": "Safari"
-                },{
-                    "name": "Safari",
-                    "y": 1,
-                    "color": "brown",
-                    "drilldown": "Safari"
-                },{
-                    "name": "Safari",
-                    "y": 1,
-                    "color": "brown",
-                    "drilldown": "Safari"
-                },{
-                    "name": "Safari",
-                    "y": 1,
-                    "color": "brown",
-                    "drilldown": "Safari"
-                },{
-                    "name": "Safari",
-                    "y": 1,
-                    "color": "brown",
-                    "drilldown": "Safari"
-                },{
-                    "name": "Safari",
-                    "y": 1,
-                    "color": "brown",
-                    "drilldown": "Safari"
-                },{
-                    "name": "Safari",
-                    "y": 1,
-                    "color": "brown",
-                    "drilldown": "Safari"
-                },{
-                    "name": "Safari",
-                    "y": 1,
-                    "color": "brown",
-                    "drilldown": "Safari"
-                },{
-                    "name": "Safari",
-                    "y": 1,
-                    "color": "brown",
-                    "drilldown": "Safari"
-                },{
-                    "name": "Safari",
-                    "y": 1,
-                    "color": "brown",
-                    "drilldown": "Safari"
-                },{
-                    "name": "Safari",
-                    "y": 1,
-                    "color": "brown",
-                    "drilldown": "Safari"
-                },{
-                    "name": "Safari",
-                    "y": 1,
-                    "color": "brown",
-                    "drilldown": "Safari"
-                },
-
-            ]
-        }
-    ],
-    "drilldown": {
-      "drillUpButton": {
-        "position": {
-
-        },
-        "align": "left"
-      },
-        "series": [
-            {
-                "name": "Chrome",
-                "id": "Chrome",
-                "data": [
-                    [
-                        "v65.0",
-                        1
-                    ],
-                    [
-                        "v64.0",
-                        1
-                    ]
-                ]
-            },
-            {
-                "name": "Firefox",
-                "id": "Firefox",
-                "data": [
-                    [
-                        "v58.0",
-                        1
-                    ],
-                    [
-                        "v57.0",
-                        1
-                    ],
-                    [
-                        "v56.0",
-                        1
-                    ],
-                    [
-                        "v55.0",
-                        1
-                    ],
-
-                ]
-            },
-            {
-                "name": "Internet Explorer",
-                "id": "Internet Explorer",
-                "data": [
-                    [
-                        "v11.0",
-                        1
-                    ],
-                    [
-                        "v10.0",
-                        1
-                    ],
-                    [
-                        "v9.0",
-                        1
-                    ],
-                    [
-                        "v8.0",
-                        1
-                    ],
-                    [
-                        "v10.0",
-                        1
-                    ],
-                    [
-                        "v9.0",
-                        1
-                    ],[
-                        "v10.0",
-                        1
-                    ],
-                    [
-                        "v9.0",
-                        1
-                    ],
-                ]
-            },
-            {
-                "name": "Safari",
-                "id": "Safari",
-                "data": [
-                    [
-                        "v11.0",
-                        1
-                    ],
-                    [
-                        "v10.1",
-                        1
-                    ],
-                    [
-                        "v10.0",
-                        1
-                    ],
-                    [
-                        "v9.1",
-                        1
-                    ],
-                    [
-                        "v9.0",
-                        1
-                    ],
-                    [
-                        "v5.1",
-                        1
-                    ]
-                ]
-            },
-            {
-                "name": "Edge",
-                "id": "Edge",
-                "data": [
-                    [
-                        "v16",
-                        1
-                    ],
-                    [
-                        "v15",
-                        1
-                    ],
-                    [
-                        "v14",
-                        1
-                    ],
-                    [
-                        "v13",
-                        1
-                    ]
-                ]
-            },
-            {
-                "name": "Opera",
-                "id": "Opera",
-                "data": [
-                    [
-                        "v50.0",
-                        1
-                    ],
-                    [
-                        "v49.0",
-                        1
-                    ],
-                    [
-                        "v12.1",
-                        1
-                    ]
-                ]
+            for (i = -19; i <= 0; i += 1) {
+                data.push({
+                    x: time + i * 1000,
+                    y: 1
+                });
             }
-        ]
-    }
+            return data;
+        }())
+        }
+    ]
   })
 }

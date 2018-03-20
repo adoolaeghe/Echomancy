@@ -3,7 +3,7 @@ import Player from "../player/player";
 
 export default class Article1 extends React.Component {
   componentDidMount() {
-    grained("#article1", { grainOpacity: 0.05 });
+    // grained("#article1", { grainOpacity: 0.05 });
   }
 
   render() {

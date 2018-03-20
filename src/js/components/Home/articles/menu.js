@@ -76,32 +76,7 @@ export default class Menu extends React.Component {
               <div className="dot-right" />
             </li>
           </ul>
-        </Drawer>
-        <Drawer
-          width={120}
-          openSecondary={true}
-          zDepth={15}
-          open={this.props.menuDisplay}
-          containerStyle={{
-            zIndex: "100000",
-            backgroundColor: "transparent"
-          }}
-        >
-          <ul className="menu row col s12">
-            <li className="menu-item row col s12" style={{borderTop: "1px solid lightgrey"}}>
-              About
-              <div className="dot-left" />
-            </li>
-            <li className="menu-item row col s12">
-              Why
-              <div className="dot-left" />
-            </li>
-            <li className="menu-item row col s12">
-              For
-              <div className="dot-left" />
-            </li>
-          </ul>
-        </Drawer>
+        </Drawer> 
       </a>
     );
   }

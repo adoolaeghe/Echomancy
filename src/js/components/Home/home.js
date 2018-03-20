@@ -34,7 +34,8 @@ export default class Demo extends React.Component {
       article4Anim: false,
       article4Text: false,
       article1Arrow: true,
-      article2Main: false
+      article2Main: false,
+      pieScroll: []
     };
   }
 
@@ -86,7 +87,7 @@ export default class Demo extends React.Component {
         article4Text: true
       });
     }
-
+    this.setState({pieScroll: scroll})
   }
 
   handleMenu() {
@@ -106,9 +107,11 @@ export default class Demo extends React.Component {
           <Article1 article1Arrow={this.state.article1Arrow} />
           <Article2 article2Main={this.state.article2Main}/>
           <Article3 article3Anim={this.state.article3Anim}
-                    article3Text={this.state.article3Text}/>
+                    article3Text={this.state.article3Text}
+                    pieScroll = {this.state.pieScroll}/>
           <Article4 article4Anim={this.state.article4Anim}
-                    article4Text={this.state.article4Text}/>
+                    article4Text={this.state.article4Text}
+                    pieScroll = {this.state.pieScroll}/>
         </main>
         <div className="col s1 side-right">
           <div className="side-nav-bar" />

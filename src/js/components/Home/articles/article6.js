@@ -14,8 +14,7 @@ import {
   CardTitle,
   CardText
 } from "material-ui/Card";
-import returnArtcicle6Pie from "../graph/article6Pie"
-
+// import Article6Pie from "../graph/article6Pie";
 
 /// SLIDER REFACTORING ///
 const min = 0;
@@ -178,8 +177,8 @@ export default class Article6 extends React.Component {
   }
 
   componentDidMount() {
-    grained("#article6right", { grainOpacity: 0.07 });
-    returnArtcicle6Pie();
+    // grained("#article6right", { grainOpacity: 0.07 });
+    // returnArtcicle6Pie();
   }
 
   render() {
@@ -205,48 +204,112 @@ export default class Article6 extends React.Component {
               "url(./public/content/images/main/hash-background.svg)"
           }}
         >
+        <a
+          className="card-header row"
+          href="#!"
+          style={{
+            backgroundColor: "white",
+            fontSize: "88px",
+            fontWeight: "bolder"
+          }}
+        >
           <div
-            className="row"
+            className="col s5"
+            id="article5left"
             style={{
-              backgroundColor: "white",
-              fontSize: "44px",
-              fontWeight: "bolder",
-              textAlign: "left"
+              height: "250px",
+              backgroundImage:
+                "url(./public/content/images/main/hash-background.svg)"
             }}
           >
-            <div className="col s2">
-            </div>
-            <div className="col s7" style= {{textAlign: "right", height: "250px", position: "relative"}} >
-              <div style= {{position: "absolute", left: "0", width: "400Px", textAlign: "left"}}>
-              <div style={{left: "Opx", position: "absolute", height: "5px", width: "70px", backgroundColor: "#8188E7", marginBottom: "20px" }}>
-              </div>
-              <h2>SECTION</h2>
-              <p style={{backgroundColor: "white",fontSize: "1.25rem",fontWeight: "lighter"}}>
-              Eco is a global currency not controlled by any single individual, organization, or nation. Our mission is to distribute the majority of
-              </p>
-              </div>
-              <div style={{left: "Opx", bottom: "0", position: "absolute", height: "5px", width: "70px", backgroundColor: "#8188E7" }}>
-              </div>
-            </div>
             <div
-              className="col s3"
-              id="article6right"
+              id="container"
               style={{
+                width: "250px",
+                top: "15px",
                 height: "250px",
-                backgroundImage:
-                  "url(./public/content/images/main/hash-background.svg)"
+                left: "0%",
+                position: "absolute"
+              }}
+            />
+
+          </div>
+          <div
+            id="article5main"
+            className="col s5"
+            style={{
+              textAlign: "right",
+              height: "250px",
+              position: "relative",
+              backgroundColor: "white"
+            }}
+          >
+            <div
+              style={{
+                position: "absolute",
+                borderRight: "1px solid #8188E7",
+                paddingRight: "20px",
+                width: "400Px",
+                right: "0px",
+                height: "100%",
+                textAlign: "right"
               }}
             >
               <div
-                id="container2"
                 style={{
-                  width: "290px",
-                  height: "290px",
-                  position: "absolute"
+                  left: "77%",
+                  position: "absolute",
+                  height: "5px",
+                  width: "70px",
+                  backgroundColor: "#8188E7",
+                  marginBottom: "20px"
                 }}
               />
+              <div style={{}} />
+              <h2>SECTION</h2>
+              <p
+                style={{
+                  backgroundColor: "white",
+                  fontSize: "1.25rem",
+                  fontWeight: "lighter"
+                }}
+              >
+                Eco is a global currency not controlled by any single
+                individual, organization, or nation. Our mission is to
+                distribute the majority of
+              </p>
             </div>
           </div>
+          <div
+            className="col s2"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              position: "relative",
+              alignItems: "center",
+              height: "250px",
+              backgroundColor: "white",
+              backgroundImage:
+                "url(./public/content/images/main/hash-background-reverse.svg)"
+            }}
+          >
+            <a
+              className="arrow-down"
+              href="#!"
+              style={{
+                height: "25px",
+                width: "25px",
+                backgroundImage:
+                  "url(./public/content/images/icons/chevron-down.svg)",
+                backgroundSize: "contain",
+                backgroundRepeat: "no-repeat"
+              }}
+            />
+            <div className="article6-number">
+             04.
+            </div>
+          </div>
+        </a>
           <CardText expandable={true}>
             <div
               className="top-info large col s12"

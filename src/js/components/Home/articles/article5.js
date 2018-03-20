@@ -193,7 +193,7 @@ export default class Article5 extends React.Component {
   }
 
   componentDidMount() {
-    grained("#article5left", { grainOpacity: 0.07 });
+    // grained("#article5left", { grainOpacity: 0.07 });
     returnArtcicle5Pie();
   }
 
@@ -216,8 +216,9 @@ export default class Article5 extends React.Component {
               "url(./public/content/images/main/hash-background.svg)"
           }}
         >
-          <div
-            className="row"
+          <a
+            className="card-header row"
+            href="#!"
             style={{
               backgroundColor: "white",
               fontSize: "88px",
@@ -225,7 +226,7 @@ export default class Article5 extends React.Component {
             }}
           >
             <div
-              className="col s3"
+              className="col s5"
               id="article5left"
               style={{
                 height: "250px",
@@ -245,22 +246,82 @@ export default class Article5 extends React.Component {
               />
               <Article5PieContent />
             </div>
-            <div id="article5main" className="col s7" style= {{textAlign: "right", height: "250px", position: "relative"}} >
-              <div style= {{position: "absolute", right: "0", width: "400Px", textAlign: "right"}}>
-              <div style={{left:"82%", position: "absolute", height: "5px", width: "70px", backgroundColor: "#8188E7", marginBottom: "20px" }}>
-              </div>
-              <div style={{}}></div>
-              <h2>SECTION</h2>
-              <p style={{backgroundColor: "white",fontSize: "1.25rem",fontWeight: "lighter"}}>
-              Eco is a global currency not controlled by any single individual, organization, or nation. Our mission is to distribute the majority of
-              </p>
-              </div>
-              <div style={{left:"90%",bottom:"0px", position: "absolute", height: "5px", width: "70px", backgroundColor: "#8188E7"}}>
+            <div
+              id="article5main"
+              className="col s5"
+              style={{
+                textAlign: "right",
+                height: "250px",
+                position: "relative",
+                backgroundColor: "white"
+              }}
+            >
+              <div
+                style={{
+                  position: "absolute",
+                  borderRight: "1px solid #8188E7",
+                  paddingRight: "20px",
+                  width: "400Px",
+                  right: "0px",
+                  height: "100%",
+                  textAlign: "right"
+                }}
+              >
+                <div
+                  style={{
+                    left: "77%",
+                    position: "absolute",
+                    height: "5px",
+                    width: "70px",
+                    backgroundColor: "#8188E7",
+                    marginBottom: "20px"
+                  }}
+                />
+                <div style={{}} />
+                <h2>SECTION</h2>
+                <p
+                  style={{
+                    backgroundColor: "white",
+                    fontSize: "1.25rem",
+                    fontWeight: "lighter"
+                  }}
+                >
+                  Eco is a global currency not controlled by any single
+                  individual, organization, or nation. Our mission is to
+                  distribute the majority of
+                </p>
               </div>
             </div>
-            <div className="col s2" style={{height: "250px"}}>
+            <div
+              className="col s2"
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                position: "relative",
+                alignItems: "center",
+                height: "250px",
+                backgroundColor: "white",
+                backgroundImage:
+                  "url(./public/content/images/main/hash-background-reverse.svg)"
+              }}
+            >
+              <a
+                className="arrow-down"
+                href="#!"
+                style={{
+                  height: "25px",
+                  width: "25px",
+                  backgroundImage:
+                    "url(./public/content/images/icons/chevron-down.svg)",
+                  backgroundSize: "contain",
+                  backgroundRepeat: "no-repeat"
+                }}
+              />
+              <div className="article5-number">
+               03.
+              </div>
             </div>
-          </div>
+          </a>
           <CardText expandable={true}>
             <div className="article5-main col s12 row">
               <div className="main-images col s12 row">

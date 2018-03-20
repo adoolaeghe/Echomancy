@@ -20,8 +20,9 @@ export default class Article3 extends React.Component {
   }
 
   componentDidMount() {
-    returnArtcicle3Pie();
+    returnArtcicle3Pie(this.props.pieScroll);
   }
+
 
   render() {
     const bodymovinOptions = {
@@ -55,7 +56,6 @@ export default class Article3 extends React.Component {
         <div
           id="container3"
           style={{
-          
             position: "absolute"
           }}
         />
