@@ -36,7 +36,8 @@ export default class Arcticle8 extends React.Component {
   constructor() {
     super();
     this.state = {
-      expanded: false
+      expanded: false,
+      shadow: 1
     }
   }
   render() {
@@ -47,30 +48,122 @@ export default class Arcticle8 extends React.Component {
         <Card
           expanded={this.state.expanded}
           onExpandChange={this.handleExpandChange}
+          onMouseOver = {() => this.setState({ cardShadow: 2 })}
+          onMouseOut = {() => this.setState({ cardShadow: 1 })}
+          zDepth={this.state.cardShadow}
           containerStyle={{
-            backgroundImage:
-              "url(./public/content/images/main/hash-background.svg)"
+
           }}
         >
-          <div className="row"
+        <a
+          className="card-header row"
+          href="#!"
+          style={{
+            backgroundColor: "white",
+            fontSize: "88px",
+            fontWeight: "bolder"
+          }}
+        >
+        <div
+          className="col s2"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            position: "relative",
+            alignItems: "center",
+            height: "250px",
+            backgroundColor: "white",
+            backgroundImage:
+              "url(./public/content/images/main/hash-background-reverse.svg)"
+          }}
+        >
+          <a
+            className="arrow-down"
+            href="#!"
             style={{
-              backgroundColor:"white",
-              fontSize: "88px",
-              fontWeight: "bolder",
-            }}>
-            <div className="col s6">
-              SECTION
-            </div>
-            <div className="col s6"
+              height: "25px",
+              width: "25px",
+              backgroundImage:
+                "url(./public/content/images/icons/chevron-down.svg)",
+              backgroundSize: "contain",
+              backgroundRepeat: "no-repeat"
+            }}
+          />
+        </div>
+          <div
+            id="article5main"
+            className="col s5"
+            style={{
+              textAlign: "Left",
+              height: "250px",
+              position: "relative",
+              backgroundColor: "white"
+            }}
+          >
+          <div className="article6-number" style={{position: "absolute",left:"-20px"}}>
+           04.
+          </div>
+            <div
+              style={{
+                position: "absolute",
+                borderLeft: "1px solid #8188E7",
+                paddingLeft: "20px",
+                width: "400Px",
+                left: "0px",
+                height: "100%",
+                textAlign: "left"
+              }}
+            >
+              <div
                 style={{
-                  height: "250px",
-                  backgroundImage:
-                    "url(./public/content/images/main/hash-background.svg)"
-                }}>
-                <FlatButton label="Expand" onClick={this.handleExpand} />
-                <FlatButton label="Reduce" onClick={this.handleReduce} />
+                  left: "5%",
+                  position: "absolute",
+                  height: "5px",
+                  width: "70px",
+                  backgroundColor: "#8188E7",
+                  marginBottom: "20px"
+                }}
+              />
+              <div style={{}} />
+              <h2>SECTION</h2>
+              <p
+                style={{
+                  backgroundColor: "white",
+                  fontSize: "1.25rem",
+                  fontWeight: "lighter"
+                }}
+              >
+                Eco is a global currency not controlled by any single
+                individual, organization, or nation. Our mission is to
+                distribute the majority of
+              </p>
             </div>
           </div>
+
+          <div
+            className="col s5"
+            id="article5left"
+            style={{
+              height: "250px",
+              backgroundImage:
+                "url(./public/content/images/main/hash-background.svg)",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center"
+            }}
+          >
+            <div
+              id="container"
+              style={{
+                width: "250px",
+                top: "15px",
+                height: "250px",
+                left: "0%",
+                position: "absolute"
+              }}
+            />
+          </div>
+        </a>
           <CardText expandable={true}>
           <div className="article8-main">
             <div className="article8-main-header">A NEW REGIME</div>

@@ -19,9 +19,9 @@ export default function returnArtcicle4Pie(scroll) {
               // set up the updating of the chart each second
               var series = this.series[0];
               var i = 0;
-              setInterval(function () { // current time
+              setInterval(function () {
                   var y =  Math.floor(Math.random() * Math.floor(10000));
-                  series.addPoint([y], true, false, {duration: 4000});
+                  if(i < 10){series.addPoint([y], true, false, {duration: 4000})};
                   i++
               }, 1000);
           }

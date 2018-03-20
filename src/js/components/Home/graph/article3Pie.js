@@ -18,9 +18,11 @@ export default function returnArtcicle3Pie(scroll) {
 
               // set up the updating of the chart each second
               var series = this.series[0];
+              var i = 0;
               setInterval(function () { // current time
                   var y = 1;
-                  series.addPoint([y], true, false, {duration: 1000});
+                  if (i < 10){series.addPoint([y], true, false, {duration: 1000})};
+                  i++
               }, 1000);
           }
       }

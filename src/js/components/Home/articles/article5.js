@@ -7,6 +7,8 @@ import RaisedButton from "material-ui/RaisedButton";
 import FlatButton from "material-ui/FlatButton";
 import TextField from "material-ui/TextField";
 import Paper from "material-ui/Paper";
+import ReactBodymovin from "react-bodymovin";
+import animation from "../../../../../public/content/animation/data.json";
 import { Step, Stepper, StepLabel } from "material-ui/Stepper";
 import {
   Card,
@@ -30,7 +32,8 @@ export default class Article5 extends React.Component {
       loading: false,
       finished: false,
       stepIndex: 0,
-      expanded: false
+      expanded: false,
+      cardShadow: 1
     };
   }
 
@@ -194,12 +197,24 @@ export default class Article5 extends React.Component {
 
   componentDidMount() {
     // grained("#article5left", { grainOpacity: 0.07 });
-    returnArtcicle5Pie();
+    // returnArtcicle5Pie();
   }
 
   render() {
     const { finished, loading, stepIndex } = this.state;
     const contentStyle = { margin: "0 16px" };
+    const bodymovinOptions = {
+      loop: false,
+      autoplay: false,
+      prerender: true,
+      animationData: animation
+    };
+    const bodymovinOptions1 = {
+      loop: false,
+      autoplay: true,
+      prerender: true,
+      animationData: animation
+    };
     return (
       <section
         className="article5 row"
@@ -211,6 +226,9 @@ export default class Article5 extends React.Component {
         <Card
           expanded={this.state.expanded}
           onExpandChange={this.handleExpandChange}
+          onMouseOver = {() => this.setState({ cardShadow: 2 })}
+          onMouseOut = {() => this.setState({ cardShadow: 1 })}
+          zDepth={this.state.cardShadow}
           containerStyle={{
             backgroundImage:
               "url(./public/content/images/main/hash-background.svg)"
@@ -231,7 +249,10 @@ export default class Article5 extends React.Component {
               style={{
                 height: "250px",
                 backgroundImage:
-                  "url(./public/content/images/main/hash-background.svg)"
+                  "url(./public/content/images/main/hash-background.svg)",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center"
               }}
             >
               <div
@@ -244,7 +265,7 @@ export default class Article5 extends React.Component {
                   position: "absolute"
                 }}
               />
-              <Article5PieContent />
+              <ReactBodymovin style={{width: "200Px"}} key={1} options={bodymovinOptions1} />
             </div>
             <div
               id="article5main"

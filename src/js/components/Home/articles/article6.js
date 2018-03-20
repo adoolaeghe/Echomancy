@@ -6,6 +6,8 @@ import ContentRemove from "material-ui/svg-icons/content/remove";
 import Slider from "material-ui/Slider";
 import FlatButton from "material-ui/FlatButton";
 import Graph from "../graph/homeGraph";
+import ReactBodymovin from "react-bodymovin";
+import animation from "../../../../../public/content/animation/data.json";
 import {
   Card,
   CardActions,
@@ -66,7 +68,8 @@ export default class Article6 extends React.Component {
       shareIncrementor: 2,
       crtSharePrice: 0,
       slider: 4,
-      expanded: false
+      expanded: false,
+      cardShadow: 1
     };
   }
 
@@ -182,6 +185,12 @@ export default class Article6 extends React.Component {
   }
 
   render() {
+    const bodymovinOptions1 = {
+      loop: false,
+      autoplay: true,
+      prerender: true,
+      animationData: animation
+    };
     let initialNbOfShare = this.state.initialNbOfShare;
     let shareIncrementor = this.state.shareIncrementor;
     let priceIncrementor = this.state.priceIncrementor;
@@ -199,6 +208,9 @@ export default class Article6 extends React.Component {
         <Card
           expanded={this.state.expanded}
           onExpandChange={this.handleExpandChange}
+          onMouseOver = {() => this.setState({ cardShadow: 2 })}
+          onMouseOut = {() => this.setState({ cardShadow: 1 })}
+          zDepth={this.state.cardShadow}
           containerStyle={{
             backgroundImage:
               "url(./public/content/images/main/hash-background.svg)"
@@ -219,7 +231,10 @@ export default class Article6 extends React.Component {
             style={{
               height: "250px",
               backgroundImage:
-                "url(./public/content/images/main/hash-background.svg)"
+                "url(./public/content/images/main/hash-background.svg)",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center"
             }}
           >
             <div
@@ -232,7 +247,7 @@ export default class Article6 extends React.Component {
                 position: "absolute"
               }}
             />
-
+            <ReactBodymovin style={{width: "200Px"}} key={1} options={bodymovinOptions1} />
           </div>
           <div
             id="article5main"
