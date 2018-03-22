@@ -51,7 +51,8 @@ export default class Article1 extends React.Component {
           className="article1-bottom col s10 hash-background"
           style={{
             backgroundImage:
-              "url(./public/content/images/main/hash-background.svg)"
+              "url(./public/content/images/main/hash-background.svg)",
+            zIndex: "1"
           }}
         >
           <img
@@ -59,6 +60,7 @@ export default class Article1 extends React.Component {
             src={"./public/content/images/articles/article4-button.svg"}
             alt="Kiwi standing on oval"
           />
+          <div className="dot-right" style={{zIndex:"1000000"}}/>
         </div>
 
         {this.props.article1Arrow && (
@@ -78,6 +80,7 @@ export default class Article1 extends React.Component {
             }}
           />
         )}
+
       </section>
     );
   }

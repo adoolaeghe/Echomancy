@@ -1,9 +1,10 @@
 import React from "react";
+import Card from "material-ui/Card";
 
 export default class NavBar extends React.Component {
   render() {
     return (
-      <section className="nav-bar row">
+      <Card className="nav-bar row" style={{top:"0px", zIndex: "9999999999"}}>
         <div classNameName="dot-left" id="1" />
         <div classNameName="dot-right" id="2" />
         <div className="col s1"
@@ -15,7 +16,7 @@ export default class NavBar extends React.Component {
               fontSize: "1.25rem",
               paddingLeft: "40px"
             }}>
-          RYME
+
         </div>
         <a
           className="navBar-logo-title wave-effect waves-light btn col s1 z-depth-1 push-s4"
@@ -28,10 +29,10 @@ export default class NavBar extends React.Component {
             height: "90px",
             marginLeft: "35px",
             width: "90px",
-            borderRadius: "0px 0px 10px 10px"
+            borderRadius: "0px 0px 5px 5px"
           }}
         />
-      </section>
+      </Card>
     );
   }
 }

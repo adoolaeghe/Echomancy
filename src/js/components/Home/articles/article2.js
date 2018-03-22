@@ -1,4 +1,5 @@
 import React from "react";
+import Card from 'material-ui/Card';
 
 export default class Article2 extends React.Component {
   browserRedirect(pathName) {
@@ -20,7 +21,7 @@ export default class Article2 extends React.Component {
                 </div>
                 <div className="col s9 article2-main-title">
                   <div>Reveal</div>
-                  <p>Some text to explain the first step</p>
+                  <p>Some text</p>
                 </div>
               </div>
             }
@@ -34,7 +35,7 @@ export default class Article2 extends React.Component {
                 </div>
                 <div className="col s9 article2-main-title">
                   <div>Reveal</div>
-                  <p>Some text to explain the first step</p>
+                  <p>Some text</p>
                 </div>
               </div>
             }
@@ -48,7 +49,7 @@ export default class Article2 extends React.Component {
                 </div>
                 <div className="col s9 article2-main-title">
                   <div>Reveal</div>
-                  <p>Some text to explain the first step</p>
+                  <p>Some text</p>
                 </div>
               </div>
             }
@@ -62,28 +63,29 @@ export default class Article2 extends React.Component {
                 </div>
                 <div className="col s9 article2-main-title">
                   <div>Reveal</div>
-                  <p>Some text to explain the first step</p>
+                  <p>Some text</p>
                 </div>
               </div>
             }
             </div>
           </div>
-        <div
+        <Card
           className="article2-grid-left col s2 gradient-animation"
           style={{
-            backgroundImage:
-              "url(./public/content/images/main/hash-background.svg),url(./public/content/images/main/hash-background-reverse.svg)"
+            backgroundColor: "white",
+            color: "black"
           }}
         >
-          <button
-            onClick={() => {
-              this.browserRedirect("/murwall");
-            }}
-          >
-            <p>BETA</p>
-          </button>
+            <button onClick={this.props.handleFaq}
+            style={{
+              height: "40px",
+              width: "30px",
+              background:
+                "url(./public/content/images/icons/paper.svg) no-repeat",
+              backgroundSize: "cover"
+            }}></button>
           <div className="dot-left" id="14" />
-        </div>
+        </Card>
       </section>
     );
   }

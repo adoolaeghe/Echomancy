@@ -388,13 +388,22 @@ export default class Player extends React.Component {
       this.setState({
         playing: "playing"
       });
-      this.state.audio.play();
-      this.state.audio.node.connect(this.state.audio.context.destination);
+      var context;
+      window.addEventListener('load', init, false);
+      function init() {
+        try {
+          // Fix up for prefixing
+          window.AudioContext = window.AudioContext||window.webkitAudioContext;
+          context = new AudioContext();
+        }
+        catch(e) {
+          alert('Web Audio API is not supported in this browser');
+        }
+      }
     } else {
       this.setState({
         playing: "pause"
       });
-      this.state.audio.pause();
     }
   }
 

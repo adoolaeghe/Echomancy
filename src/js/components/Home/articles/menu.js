@@ -3,12 +3,14 @@ import Drawer from "material-ui/Drawer";
 import ReactBodymovin from "react-bodymovin";
 import animation from "../../../../../public/content/animation/data2.json";
 import animation1 from "../../../../../public/content/animation/data2.json";
+import Card from "material-ui/Card";
 
 export default class Menu extends React.Component {
   constructor(){
     super();
     this.state = {
-      menuHover: false
+      menuHover: false,
+      faqDisplay: false
     }
   }
 
@@ -34,50 +36,85 @@ export default class Menu extends React.Component {
       animationData: animation1
     };
     return (
-      <a
+      <Card
         className="nav-menu col s1"
         href="#!"
-        id="menu"
-        onMouseOver={() => {
-          grained("#menu", { grainOpacity: 0.09 });
-          this.setState({menuHover: true})
-        }}
-        onMouseOut={() => {
-          grained("#menu", { grainOpacity: 0.05 });
-          this.setState({menuHover: false})
-        }}
-        onClick={() => {
-          this.props.handleMenu();
+        id=""
+        style={{
+          display:"flex",
+          justifyContent: "center",
+          alignItems: "center"
         }}
       >
-        {this.returnAnimation(bodymovinOptions, bodymovinOptions1)}
+        <div
+        onClick={() => {
+          this.props.handleMenu();
+        }}>
+          {this.returnAnimation(bodymovinOptions, bodymovinOptions1)}
+        </div>
+        <div>
+        <ul className="row col s12" style = {{top: "70px", position: "absolute"}}>
+          <li className="menu-item row col s12" style = {{textAlign: "center", height: "50px", fontWeight: "600", fontSize: "18px"}}>
+            Fb
+          </li>
+          <li className="menu-item row col s12" style = {{textAlign: "center", height: "50px", fontWeight: "600", fontSize: "18px"}}>
+            Fb
+          </li>
+          <li className="menu-item row col s12" style = {{textAlign: "center", height: "50px", fontWeight: "600", fontSize: "18px"}}>
+            Fb
+          </li>
+        </ul>
+        </div>
+        <div className="menu-drawer">
+          <Drawer
+            key={2}
+            width={240}
+            openSecondary={false}
+            zDepth={15}
+            open={this.props.menuDisplay}
+            containerStyle={{
+              zIndex: "100000",
+              backgroundColor: "transparent"
+            }}
+            style={{
+              backgroundColor: "white"
+            }}
+          >
+            <ul className="menu row col s12">
+              <li className="menu-item row col s12">
+                  <button onClick={this.props.handleFaq}
+                  style={{
+                    height: "40px",
+                    width: "30px",
+                    background:
+                      "url(./public/content/images/icons/paper.svg) no-repeat",
+                    backgroundSize: "cover"
+                  }}></button>
+              </li>
+              <li className="menu-item row col s12">
+                <button style={{
+                  height: "30px",
+                  width: "30px",
+                  background:
+                    "url(./public/content/images/icons/alerts.svg) no-repeat",
+                  backgroundSize: "cover"
+                }}></button>
+              </li>
+              <li className="menu-item row col s12">
+                <button onClick={this.props.handleFaq}
+                style={{
+                  height: "30px",
+                  width: "30px",
+                  background:
+                    "url(./public/content/images/icons/info.svg) no-repeat",
+                  backgroundSize: "cover"
+                }}></button>
+              </li>
+            </ul>
+          </Drawer>
+        </div>
 
-        <Drawer
-          width={240}
-          openSecondary={false}
-          zDepth={15}
-          open={this.props.menuDisplay}
-          containerStyle={{
-            zIndex: "100000",
-            backgroundColor: "transparent"
-          }}
-        >
-          <ul className="menu row col s12">
-            <li className="menu-item row col s12">
-              CONTACT
-              <div className="dot-right" />
-            </li>
-            <li className="menu-item row col s12">
-              FAQ
-              <div className="dot-right" />
-            </li>
-            <li className="menu-item row col s12">
-              MEDIA
-              <div className="dot-right" />
-            </li>
-          </ul>
-        </Drawer> 
-      </a>
+      </Card>
     );
   }
 }

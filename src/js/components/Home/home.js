@@ -1,5 +1,15 @@
 import React from "react";
 import Player from "./player/player";
+import LazyLoad from 'react-lazyload';
+import Drawer from "material-ui/Drawer";
+import {List, ListItem} from 'material-ui/List';
+import ActionGrade from 'material-ui/svg-icons/action/grade';
+import ContentInbox from 'material-ui/svg-icons/content/inbox';
+import ContentDrafts from 'material-ui/svg-icons/content/drafts';
+import ContentSend from 'material-ui/svg-icons/content/send';
+import Subheader from 'material-ui/Subheader';
+import Toggle from 'material-ui/Toggle';
+import Card from 'material-ui/Card';
 
 import {
   BrowserRouter as Router,
@@ -35,7 +45,8 @@ export default class Demo extends React.Component {
       article4Text: false,
       article1Arrow: true,
       article2Main: false,
-      pieScroll: []
+      pieScroll: [],
+      faqDisplay: false
     };
   }
 
@@ -96,30 +107,39 @@ export default class Demo extends React.Component {
     })
   }
 
+  handleFaq() {
+    console.log("here")
+    this.setState({faqDisplay: !this.state.faqDisplay})
+  }
+
   render() {
     const Details1 = () => <div> Hello World </div>;
     return (
       <div className="row">
-        <Menu menuDisplay= {this.state.menuDisplay}
-              handleMenu= {() => {this.handleMenu()}}/>
-        <main className="col s10 push-s1" style={{ zIndex: 100001 }}>
+        <div className="col s1 side-right">
+          <Menu menuDisplay= {this.state.menuDisplay}
+                handleMenu= {() => {this.handleMenu()}}
+                handleFaq = {() => {this.handleFaq()}}/>
+        </div>
+        <Card className="col s10" style={{ zIndex: 100001 }}>
           <NavBar />
           <Article1 article1Arrow={this.state.article1Arrow} />
-          <Article2 article2Main={this.state.article2Main}/>
-          <Article3 article3Anim={this.state.article3Anim}
-                    article3Text={this.state.article3Text}
-                    pieScroll = {this.state.pieScroll}/>
-          <Article4 article4Anim={this.state.article4Anim}
-                    article4Text={this.state.article4Text}
-                    pieScroll = {this.state.pieScroll}/>
-        </main>
+          <LazyLoad once>
+            <Article2 article2Main={this.state.article2Main}/>
+          </LazyLoad>
+          <LazyLoad once>
+            <Article3 article3Anim={this.state.article3Anim}
+                      article3Text={this.state.article3Text}
+                      pieScroll = {this.state.pieScroll}/>
+          </LazyLoad>
+          <LazyLoad once>
+            <Article4 article4Anim={this.state.article4Anim}
+                      article4Text={this.state.article4Text}
+                      pieScroll = {this.state.pieScroll}/>
+          </LazyLoad>
+        </Card>
         <div className="col s1 side-right">
-          <div className="side-nav-bar" />
-          <div className="side-article1" />
-          <div className="side-article2 auth" id="auth" />
-          <div className="side-article3" />
-          <div className="side-article4" />
-          <div className="side-article5" />
+        
         </div>
         <div
           className="space-between col s10 push-s1"
@@ -136,6 +156,59 @@ export default class Demo extends React.Component {
           <Article7 />
         </main>
         <Footer />
+        <Drawer
+          width={350}
+          docked={true}
+          openSecondary={false}
+          zDepth={15}
+          open={this.state.faqDisplay}
+          containerStyle={{
+            zIndex: "100000000",
+            backgroundColor: "white",
+
+          }}
+          style={{
+            zIndex: "100000000"
+          }}
+        >
+        <List>
+            <div onClick={()=>{this.handleFaq()}}>Cancel</div>
+            <ListItem primaryText="Sent mail" leftIcon={<ContentSend />} />
+            <ListItem primaryText="Drafts" leftIcon={<ContentDrafts />} />
+            <ListItem
+              primaryText="Inbox"
+              leftIcon={<ContentInbox />}
+              initiallyOpen={true}
+              primaryTogglesNestedList={true}
+              nestedItems={[
+                <ListItem
+                  key={1}
+                  primaryText="Starred"
+                  leftIcon={<ActionGrade />}
+                />,
+                <ListItem
+                  key={2}
+                  primaryText="Sent Mail"
+                  leftIcon={<ContentSend />}
+                  disabled={true}
+                  nestedItems={[
+                    <ListItem key={1} primaryText="Drafts" leftIcon={<ContentDrafts />} />,
+                  ]}
+                />,
+                <ListItem
+                  key={3}
+                  primaryText="Inbox"
+                  leftIcon={<ContentInbox />}
+                  open={this.state.open}
+                  onNestedListToggle={this.handleNestedListToggle}
+                  nestedItems={[
+                    <ListItem key={1} primaryText="Drafts" leftIcon={<ContentDrafts />} />,
+                  ]}
+                />,
+              ]}
+            />
+          </List>
+        </Drawer>
       </div>
     );
   }
