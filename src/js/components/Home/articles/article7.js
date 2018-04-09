@@ -10,7 +10,7 @@ import {
   CardText
 } from "material-ui/Card";
 
-export default class Arcticle8 extends React.Component {
+export default class Arcticle7 extends React.Component {
   handleExpandChange = expanded => {
     this.setState({ expanded: expanded });
   };
@@ -55,7 +55,7 @@ export default class Arcticle8 extends React.Component {
 
           }}
         >
-        <a
+        <div
           className="card-header row"
           href="#!"
           style={{
@@ -78,7 +78,7 @@ export default class Arcticle8 extends React.Component {
           }}
         >
           <a
-            className="arrow-down"
+            className="chevron-down"
             href="#!"
             style={{
               height: "25px",
@@ -163,7 +163,7 @@ export default class Arcticle8 extends React.Component {
               }}
             />
           </div>
-        </a>
+        </div>
           <CardText expandable={true}>
           <div className="article8-main">
             <div className="article8-main-header">A NEW REGIME</div>

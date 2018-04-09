@@ -46,7 +46,9 @@
       width: $spacer-xl
       z-index: $z-middle
       &.playing
-        width: $spacer-xs
+        background-color: white
+        box-shadow: 0 0 10px #000000
+        transition: box-shadow 1s
 
     .player-cover-image
       +flex(column, center, center)

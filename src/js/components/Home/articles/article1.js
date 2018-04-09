@@ -2,9 +2,6 @@ import React from "react";
 import Player from "../player/player";
 
 export default class Article1 extends React.Component {
-  componentDidMount() {
-    // grained("#article1", { grainOpacity: 0.05 });
-  }
 
   render() {
     return (
@@ -60,7 +57,16 @@ export default class Article1 extends React.Component {
             src={"./public/content/images/articles/article4-button.svg"}
             alt="Kiwi standing on oval"
           />
+          <div className="" style={{
+            width: "60%",
+            height: "100px",
+            position: "absolute",
+            top: "0",
+            right: "0",
+            backgroundColor: "black"
+          }}></div>
           <div className="dot-right" style={{zIndex:"1000000"}}/>
+          <div className="dot-left" style={{zIndex:"1000000", top: "-7px"}}/>
         </div>
 
         {this.props.article1Arrow && (
@@ -68,15 +74,8 @@ export default class Article1 extends React.Component {
             className="arrow-down"
             href="#!"
             style={{
-              height: "25px",
-              width: "25px",
               backgroundImage:
                 "url(./public/content/images/icons/arrow-down.svg)",
-              position: "fixed",
-              backgroundSize: "contain",
-              backgroundRepeat: "no-repeat",
-              bottom: "25px",
-              right: "14%"
             }}
           />
         )}

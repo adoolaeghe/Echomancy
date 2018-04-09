@@ -195,11 +195,6 @@ export default class Article5 extends React.Component {
     }
   }
 
-  componentDidMount() {
-    // grained("#article5left", { grainOpacity: 0.07 });
-    // returnArtcicle5Pie();
-  }
-
   render() {
     const { finished, loading, stepIndex } = this.state;
     const contentStyle = { margin: "0 16px" };
@@ -234,7 +229,7 @@ export default class Article5 extends React.Component {
               "url(./public/content/images/main/hash-background.svg)"
           }}
         >
-          <a
+          <div
             className="card-header row"
             href="#!"
             style={{
@@ -327,7 +322,7 @@ export default class Article5 extends React.Component {
               }}
             >
               <a
-                className="arrow-down"
+                className="chevron-down"
                 href="#!"
                 style={{
                   height: "25px",
@@ -342,7 +337,7 @@ export default class Article5 extends React.Component {
                03.
               </div>
             </div>
-          </a>
+          </div>
           <CardText expandable={true}>
             <div className="article5-main col s12 row">
               <div className="main-images col s12 row">

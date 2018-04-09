@@ -413,7 +413,7 @@ export default class Player extends React.Component {
         <div
           className={`player-wrapper ${this.props.size} `}
         >
-          <div id={`container${this.props.id}`} className="player-container" />
+          <div id={`container${this.props.id}`} className="player-container rotating" />
         </div>
         <div
           className={`player-cover ${this.props.size} ${this.state.playing}`}
@@ -423,9 +423,7 @@ export default class Player extends React.Component {
         >
           {this.props.size != "small" && (
             <div
-              className={`player-cover-image ${this.props.size} ${
-                this.state.playing
-              }`}
+              className={`player-cover-image ${this.props.size} ${this.state.playing}`}
             >
               <div className={`player-btn-icon ${this.state.playing}`} />
             </div>

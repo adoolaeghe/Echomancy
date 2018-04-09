@@ -16,7 +16,6 @@ import {
   CardTitle,
   CardText
 } from "material-ui/Card";
-// import Article6Pie from "../graph/article6Pie";
 
 /// SLIDER REFACTORING ///
 const min = 0;
@@ -216,7 +215,7 @@ export default class Article6 extends React.Component {
               "url(./public/content/images/main/hash-background.svg)"
           }}
         >
-        <a
+        <div
           className="card-header row"
           href="#!"
           style={{
@@ -309,7 +308,7 @@ export default class Article6 extends React.Component {
             }}
           >
             <a
-              className="arrow-down"
+              className="chevron-down"
               href="#!"
               style={{
                 height: "25px",
@@ -324,7 +323,7 @@ export default class Article6 extends React.Component {
              04.
             </div>
           </div>
-        </a>
+        </div>
           <CardText expandable={true}>
             <div
               className="top-info large col s12"

@@ -1,5 +1,8 @@
 .nav-menu
   position: fixed !important
+  display: flex
+  justify-content: center
+  align-items: center
   z-index: 100000
   height: 60px
   border-bottom: 1px solid lightgrey
@@ -8,18 +11,39 @@
 
   .menu-icon
     height: 70px !important
-    background-position: center !important
-    background-size: 50% !important
-    border-bottom: 1px solid $light-grey
+    width: 8.3vw
+    position: absolute
+    top: 0
+    display: flex
+    justify-content: center
+    align-items: center
   .menu
     z-index: 100000
     width: 50% !important
     margin-top: 70px !important
+
     .menu-item
       display: flex
       position: relative
       width: 8.3vw
+      left: 0
+      top: 75px
       justify-content: center
       align-items: center
       height: 90px
       border-bottom: 1px solid $light-grey
+      text-align: center
+      height: 50px
+      font-weight: 600
+      font-size: 18px
+
+      &.main-item
+        top: 0
+
+      &.no-border
+        border: none
+
+      button
+        height: 40px
+        width: 30px
+        background-size: cover

@@ -1,16 +1,12 @@
 import React from "react";
-import Player from "./player/player";
-import LazyLoad from 'react-lazyload';
-import Drawer from "material-ui/Drawer";
-import {List, ListItem} from 'material-ui/List';
-import ActionGrade from 'material-ui/svg-icons/action/grade';
-import ContentInbox from 'material-ui/svg-icons/content/inbox';
-import ContentDrafts from 'material-ui/svg-icons/content/drafts';
-import ContentSend from 'material-ui/svg-icons/content/send';
-import Subheader from 'material-ui/Subheader';
-import Toggle from 'material-ui/Toggle';
-import Card from 'material-ui/Card';
 
+import Card from 'material-ui/Card';
+import Drawer from "material-ui/Drawer";
+import LazyLoad from 'react-lazyload';
+import Player from "./player/player";
+import Toggle from 'material-ui/Toggle';
+
+import {List, ListItem} from 'material-ui/List';
 import {
   BrowserRouter as Router,
   Route,
@@ -25,9 +21,12 @@ import Article4 from "./articles/article4";
 import Article5 from "./articles/article5";
 import Article6 from "./articles/article6";
 import Article7 from "./articles/article7";
+import LoadingPage from "./articles/LoadingPage";
 import NavBar from "./articles/navBar";
 import Footer from "./articles/footer";
-import Menu from "./articles/menu";
+
+import Faq from "./menu/faq";
+import Menu from "./menu/menu";
 
 export default class Demo extends React.Component {
   constructor(props) {
@@ -46,8 +45,46 @@ export default class Demo extends React.Component {
       article1Arrow: true,
       article2Main: false,
       pieScroll: [],
-      faqDisplay: false
+      faqDisplay: false,
+      waitPage: true
     };
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll.bind(this));
+  }
+
+  componentDidMount() {
+    window.addEventListener("scroll", this.handleScroll.bind(this));
+  }
+
+  handleMenu() {
+    this.setState({
+      menuDisplay: !this.state.menuDisplay
+    })
+  }
+
+  handleFaqDrawer() {
+    this.setState({faqDisplay: !this.state.faqDisplay})
+  }
+
+
+  componentWillMount() {
+    setTimeout(() => {
+      this.setState({
+        waitPage: false
+      })
+    }, 2000);
+  }
+
+  handleMenu() {
+    this.setState({
+      menuDisplay: !this.state.menuDisplay
+    })
+  }
+
+  handleFaqDrawer() {
+    this.setState({faqDisplay: !this.state.faqDisplay})
   }
 
   switchAutoPlay() {
@@ -60,19 +97,6 @@ export default class Demo extends React.Component {
     this.setState({
       playingIndex: index
     });
-  }
-
-  browserRedirect(pathName) {
-    this.props.props.history.push(pathName);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("scroll", this.handleScroll.bind(this));
-  }
-
-  componentDidMount() {
-    window.addEventListener("scroll", this.handleScroll.bind(this));
-    grained('#menu', {grainOpacity: this.state.menuGrain})
   }
 
   handleScroll(event) {
@@ -101,26 +125,25 @@ export default class Demo extends React.Component {
     this.setState({pieScroll: scroll})
   }
 
-  handleMenu() {
-    this.setState({
-      menuDisplay: !this.state.menuDisplay
-    })
-  }
-
-  handleFaq() {
-    console.log("here")
-    this.setState({faqDisplay: !this.state.faqDisplay})
-  }
-
   render() {
-    const Details1 = () => <div> Hello World </div>;
+    if(this.state.waitPage) {
+      return(
+        <LoadingPage />
+      )
+    } else {
     return (
       <div className="row">
         <div className="col s1 side-right">
           <Menu menuDisplay= {this.state.menuDisplay}
                 handleMenu= {() => {this.handleMenu()}}
-                handleFaq = {() => {this.handleFaq()}}/>
+                handleFaq = {() => {this.handleFaqDrawer()}}
+          />
+          <Faq faqDisplay={this.state.faqDisplay}
+               handleFaq = {() => {this.handleFaqDrawer()}}
+               open = {this.state.open}
+          />
         </div>
+
         <Card className="col s10" style={{ zIndex: 100001 }}>
           <NavBar />
           <Article1 article1Arrow={this.state.article1Arrow} />
@@ -138,15 +161,9 @@ export default class Demo extends React.Component {
                       pieScroll = {this.state.pieScroll}/>
           </LazyLoad>
         </Card>
-        <div className="col s1 side-right">
-        
-        </div>
-        <div
-          className="space-between col s10 push-s1"
-          onClick={() => {
-            this.props.props.history.push("/details1");
-          }}
-        >
+
+        <div className="col s1 side-right"></div>
+        <div className="space-between col s10 push-s1">
           <div className="space-between-line" />
           <div className="playing-dot" />
         </div>
@@ -156,60 +173,7 @@ export default class Demo extends React.Component {
           <Article7 />
         </main>
         <Footer />
-        <Drawer
-          width={350}
-          docked={true}
-          openSecondary={false}
-          zDepth={15}
-          open={this.state.faqDisplay}
-          containerStyle={{
-            zIndex: "100000000",
-            backgroundColor: "white",
-
-          }}
-          style={{
-            zIndex: "100000000"
-          }}
-        >
-        <List>
-            <div onClick={()=>{this.handleFaq()}}>Cancel</div>
-            <ListItem primaryText="Sent mail" leftIcon={<ContentSend />} />
-            <ListItem primaryText="Drafts" leftIcon={<ContentDrafts />} />
-            <ListItem
-              primaryText="Inbox"
-              leftIcon={<ContentInbox />}
-              initiallyOpen={true}
-              primaryTogglesNestedList={true}
-              nestedItems={[
-                <ListItem
-                  key={1}
-                  primaryText="Starred"
-                  leftIcon={<ActionGrade />}
-                />,
-                <ListItem
-                  key={2}
-                  primaryText="Sent Mail"
-                  leftIcon={<ContentSend />}
-                  disabled={true}
-                  nestedItems={[
-                    <ListItem key={1} primaryText="Drafts" leftIcon={<ContentDrafts />} />,
-                  ]}
-                />,
-                <ListItem
-                  key={3}
-                  primaryText="Inbox"
-                  leftIcon={<ContentInbox />}
-                  open={this.state.open}
-                  onNestedListToggle={this.handleNestedListToggle}
-                  nestedItems={[
-                    <ListItem key={1} primaryText="Drafts" leftIcon={<ContentDrafts />} />,
-                  ]}
-                />,
-              ]}
-            />
-          </List>
-        </Drawer>
       </div>
     );
-  }
+  }}
 }
