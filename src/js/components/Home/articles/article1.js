@@ -14,8 +14,8 @@ export default class Article1 extends React.Component {
           backgroundSize: "cover"
         }}
       >
-        <div className="dot-left" id="6" />
-        <div className="dot-right" id="7" />
+        <div className="dot-left" />
+        <div className="dot-right" />
         <div className="article1-grid-left col s2" />
         <div className="article1-grid-center col s2" />
         <div className="article1-grid-right col s2" />
@@ -57,14 +57,8 @@ export default class Article1 extends React.Component {
             src={"./public/content/images/articles/article4-button.svg"}
             alt="Kiwi standing on oval"
           />
-          <div className="" style={{
-            width: "60%",
-            height: "100px",
-            position: "absolute",
-            top: "0",
-            right: "0",
-            backgroundColor: "black"
-          }}></div>
+          <div className="player-side-info">
+          </div>
           <div className="dot-right" style={{zIndex:"1000000"}}/>
           <div className="dot-left" style={{zIndex:"1000000", top: "-7px"}}/>
         </div>

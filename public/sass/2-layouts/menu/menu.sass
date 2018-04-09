@@ -17,33 +17,44 @@
     display: flex
     justify-content: center
     align-items: center
+    .dot-right
+      bottom: 0.20rem
+    &:hover
+      .dot-right
+        background-color: red
   .menu
     z-index: 100000
     width: 50% !important
-    margin-top: 70px !important
+    margin-top: 60px !important
 
     .menu-item
       display: flex
       position: relative
-      width: 8.3vw
+      width: 8.40vw
       left: 0
-      top: 75px
+      top: 90px
       justify-content: center
       align-items: center
       height: 90px
       border-bottom: 1px solid $light-grey
       text-align: center
-      height: 50px
+      height: 60px
       font-weight: 600
       font-size: 18px
 
       &.main-item
         top: 0
+        border-right: 3px lightgrey solid
+        .dot-right
+          right: -0.45rem
+        &:hover
+          text-decoration: underline
+          .dot-right
+            background-color: red
 
       &.no-border
         border: none
 
       button
         height: 40px
-        width: 30px
-        background-size: cover
+        background-size: contain !important

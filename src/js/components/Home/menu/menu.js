@@ -46,6 +46,7 @@ export default class Menu extends React.Component {
               this.props.handleMenu();
             }}>
               {this.returnAnimation(menuAnimOptionA, menuAnimOptionB)}
+              <div className="dot-right" />
           </div>
           <div>
             <ul className="menu row col s12">
@@ -64,7 +65,7 @@ export default class Menu extends React.Component {
         }
         <div className="menu-drawer">
           <Drawer
-            key={2}
+            key={3}
             width={240}
             openSecondary={false}
             zDepth={0}
@@ -77,31 +78,38 @@ export default class Menu extends React.Component {
               backgroundColor: "transparent"
             }}
           >
+          <div
+            className="menu-icon"
+            onClick={() => {
+              this.props.handleMenu();
+            }}>
+              {this.returnAnimation(menuAnimOptionA, menuAnimOptionB)}
+              <div className="dot-right" />
+          </div>
             <ul className="menu row col s12">
               <li className="menu-item main-item row col s12">
-                  <button onClick={this.props.handleFaq}
-                  style={{
-                    background:
-                      "url(./public/content/images/icons/paper.svg) no-repeat"
-                  }}></button>
+                <button
+                  onClick={this.props.handleFaq}>
+                  WHITE
+                </button>
+                <div className="dot-right small" />
               </li>
               <li className="menu-item main-item row col s12">
-                <button style={{
-                  background:
-                    "url(./public/content/images/icons/alerts.svg) no-repeat"
-                }}></button>
+                <button>
+                  ALERTS
+                </button>
+                <div className="dot-right small" />
               </li>
               <li className="menu-item main-item row col s12">
-                <button onClick={this.props.handleFaq}
-                style={{
-                  background:
-                    "url(./public/content/images/icons/info.svg) no-repeat"
-                }}></button>
+                <button
+                    onClick={this.props.handleFaq}>
+                  FAQ
+                </button>
+                <div className="dot-right small" />
               </li>
             </ul>
           </Drawer>
         </div>
-
       </Card>
     );
   }

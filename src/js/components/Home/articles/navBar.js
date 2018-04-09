@@ -12,7 +12,6 @@ export default class NavBar extends React.Component {
             backgroundImage: "url(./public/content/images/main/logo.svg)"
           }}
         />
-        <div className="dot-left" />
         <div className="dot-right" />
       </Card>
     );
