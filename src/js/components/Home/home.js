@@ -25,8 +25,8 @@ import LoadingPage from "./articles/LoadingPage";
 import NavBar from "./articles/navBar";
 import Footer from "./articles/footer";
 
-import Faq from "./menu/faq";
-import Menu from "./menu/menu";
+import Faq from "./drawer/faq";
+import Menu from "./drawer/menu";
 
 export default class Demo extends React.Component {
   constructor(props) {

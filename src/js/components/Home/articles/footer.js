@@ -3,8 +3,8 @@ import React from "react";
 export default class Footer extends React.Component {
   render() {
     return (
-      <section className="footer row col s12" style={{ height: "200px" }}>
-        <footer className="page-footer">
+      <section className="footer row col s12" style={{ height: "200px", backgroundColor: "red" }}>
+        <footer className="page-footer" style= {{backgroundColor: "#0637D8"}}>
           <div className="container">
             <div className="row">
               <div className="col l6 s12">

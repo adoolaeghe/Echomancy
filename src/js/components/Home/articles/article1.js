@@ -31,7 +31,7 @@ export default class Article1 extends React.Component {
           <div className="dot-left" id="8" />
         </div>
         <h4 className="row col s6">
-          <div className="" style={{ textAlign: "left", height: "10px", width: "70px", backgroundColor: "#8188E7", marginBottom: "20px" }}>
+          <div className="" style={{ textAlign: "left", height: "10px", width: "70px", backgroundColor: "#0637D8", marginBottom: "20px" }}>
           </div>
           <div className="col s12 header-word" style={{ textAlign: "left" }}>
             Publishing for Everyone

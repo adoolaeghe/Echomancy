@@ -78,8 +78,8 @@ export default class Article2 extends React.Component {
         >
             <button onClick={this.props.handleFaq}
             style={{
-              height: "40px",
-              width: "30px",
+              height: "65px",
+              width: "50px",
               background:
                 "url(./public/content/images/icons/paper.svg) no-repeat",
               backgroundSize: "cover"

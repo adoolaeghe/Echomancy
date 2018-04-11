@@ -18,17 +18,29 @@ button
   div
     width: 15% !important
 
-.loadingPage
+@keyframes fadein
+  from
+    opacity: 0
+  to
+    opacity: 1
+
+
+.loading-page-wrapper
+  width: 100vw
+  height: 100vh
+  background-color: black
+  animation: fadein 8s
+
+.react-bodymovin-container
   background-repeat: no-repeat
   background-size: 50px
   background-position: center
   background-color: white
   height: 90px
   margin-left: 35px
-  width: 90px
   border-radius: 0px 0px 5px 5px
   position: absolute
-  width: 300px
+  width: 300px !important
   height: 200px
   z-index: 15
   top: 50%

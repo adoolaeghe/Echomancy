@@ -54,172 +54,172 @@ export default class Player extends React.Component {
                   {
                       "name": "Chrome",
                       "y": 1,
-                      "color": "blue",
+                      "color": "#FA47A9",
                       "drilldown": "Chrome"
                   },
                   {
                       "name": "Chrome",
                       "y": 1,
-                      "color": "blue",
+                      "color": "#FA47A9",
                       "drilldown": "Chrome"
                   },
                   {
                       "name": "Firefox",
                       "y": 1,
-                      "color": "lightred",
+                      "color": "#6781FE",
                       "drilldown": "Firefox"
                   },
                   {
                       "name": "Firefox",
                       "y": 1,
-                      "color": "lightred",
+                      "color": "#6781FE",
                       "drilldown": "Firefox"
                   },
                   {
                       "name": "Firefox",
                       "y": 1,
-                      "color": "lightred",
+                      "color": "#6781FE",
                       "drilldown": "Firefox"
                   },
                   {
                       "name": "Firefox",
                       "y": 1,
-                      "color": "lightred",
+                      "color": "#6781FE",
                       "drilldown": "Firefox"
                   },
                   {
                       "name": "Internet Explorer",
                       "y": 1,
-                      "color": "green",
+                      "color": "#FFBF5D",
                       "drilldown": "Internet Explorer"
                   },
                   {
                       "name": "Internet Explorer",
                       "y": 1,
-                      "color": "green",
+                      "color": "#FFBF5D",
                       "drilldown": "Internet Explorer"
                   },
                   {
                       "name": "Internet Explorer",
                       "y": 1,
-                      "color": "green",
+                      "color": "#FFBF5D",
                       "drilldown": "Internet Explorer"
                   },
                   {
                       "name": "Internet Explorer",
                       "y": 1,
-                      "color": "green",
+                      "color": "#FFBF5D",
                       "drilldown": "Internet Explorer"
                   },
                   {
                       "name": "Internet Explorer",
                       "y": 1,
-                      "color": "green",
+                      "color": "#FFBF5D",
                       "drilldown": "Internet Explorer"
                   },
                   {
                       "name": "Internet Explorer",
                       "y": 1,
-                      "color": "green",
+                      "color": "#FFBF5D",
                       "drilldown": "Internet Explorer"
                   },
                   {
                       "name": "Internet Explorer",
                       "y": 1,
-                      "color": "green",
+                      "color": "#FFBF5D",
                       "drilldown": "Internet Explorer"
                   },
                   {
                       "name": "Internet Explorer",
                       "y": 1,
-                      "color": "green",
+                      "color": "#FFBF5D",
                       "drilldown": "Internet Explorer"
                   },
                   {
                       "name": "Safari",
                       "y": 1,
-                      "color": "brown",
+                      "color": "#0637D8",
                       "drilldown": "Safari"
                   },
                   {
                       "name": "Safari",
                       "y": 1,
-                      "color": "brown",
+                      "color": "#0637D8",
                       "drilldown": "Safari"
                   },{
                       "name": "Safari",
                       "y": 1,
-                      "color": "brown",
+                      "color": "#0637D8",
                       "drilldown": "Safari"
                   },{
                       "name": "Safari",
                       "y": 1,
-                      "color": "brown",
+                      "color": "#0637D8",
                       "drilldown": "Safari"
                   },{
                       "name": "Safari",
                       "y": 1,
-                      "color": "brown",
+                      "color": "#0637D8",
                       "drilldown": "Safari"
                   },{
                       "name": "Safari",
                       "y": 1,
-                      "color": "brown",
+                      "color": "#0637D8",
                       "drilldown": "Safari"
                   },{
                       "name": "Safari",
                       "y": 1,
-                      "color": "brown",
+                      "color": "#0637D8",
                       "drilldown": "Safari"
                   },{
                       "name": "Safari",
                       "y": 1,
-                      "color": "brown",
+                      "color": "#0637D8",
                       "drilldown": "Safari"
                   },{
                       "name": "Safari",
                       "y": 1,
-                      "color": "brown",
+                      "color": "#0637D8",
                       "drilldown": "Safari"
                   },{
                       "name": "Safari",
                       "y": 1,
-                      "color": "brown",
+                      "color": "#0637D8",
                       "drilldown": "Safari"
                   },{
                       "name": "Safari",
                       "y": 1,
-                      "color": "brown",
+                      "color": "#0637D8",
                       "drilldown": "Safari"
                   },{
                       "name": "Safari",
                       "y": 1,
-                      "color": "brown",
+                      "color": "#0637D8",
                       "drilldown": "Safari"
                   },{
                       "name": "Safari",
                       "y": 1,
-                      "color": "brown",
+                      "color": "#0637D8",
                       "drilldown": "Safari"
                   },{
                       "name": "Safari",
                       "y": 1,
-                      "color": "brown",
+                      "color": "#0637D8",
                       "drilldown": "Safari"
                   },{
                       "name": "Safari",
                       "y": 1,
-                      "color": "brown",
+                      "color": "#0637D8",
                       "drilldown": "Safari"
                   },{
                       "name": "Safari",
                       "y": 1,
-                      "color": "brown",
+                      "color": "#0637D8",
                       "drilldown": "Safari"
                   },{
                       "name": "Safari",
                       "y": 1,
-                      "color": "brown",
+                      "color": "#0637D8",
                       "drilldown": "Safari"
                   },
 
@@ -276,7 +276,7 @@ export default class Player extends React.Component {
                   "id": "Internet Explorer",
                   "data": [
                       [
-                          "v11.0",
+                          "#0637D8",
                           1
                       ],
                       [

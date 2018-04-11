@@ -3,27 +3,36 @@
   display: flex
   justify-content: center
   align-items: center
-  z-index: 100000
+  z-index: 1000
   height: 60px
   border-bottom: 1px solid lightgrey
   .react-bodymovin-container
     height: 100px
+  .menu-icon-media
+    position: fixed
+    bottom: 0
+    left: 2.5vw !important
+    li
+      height: 50px
 
   .menu-icon
     height: 70px !important
     width: 8.3vw
     position: absolute
     top: 0
+    left: 0
     display: flex
     justify-content: center
     align-items: center
+    z-index: 1000 !important
     .dot-right
       bottom: 0.20rem
+      z-index: 1000 !important
     &:hover
       .dot-right
         background-color: red
   .menu
-    z-index: 100000
+    z-index: 1000
     width: 50% !important
     margin-top: 60px !important
 
@@ -32,22 +41,26 @@
       position: relative
       width: 8.40vw
       left: 0
-      top: 90px
+      top: 80px
       justify-content: center
       align-items: center
       height: 90px
-      border-bottom: 1px solid $light-grey
       text-align: center
-      height: 60px
-      font-weight: 600
-      font-size: 18px
+      height: 45px
+      font-weight: 300
+      font-size: 14px
 
       &.main-item
+        padding-bottom: 1px !important
+        padding-right: 3px !important
+        background-size: 100% 5px
+        background: linear-gradient(to left, white 0%,rgba(83,0,30,1) 100%) no-repeat
         top: 0
-        border-right: 3px lightgrey solid
+        color: lightgrey
         .dot-right
-          right: -0.45rem
+          right: -0.35rem
         &:hover
+          color: black
           text-decoration: underline
           .dot-right
             background-color: red
@@ -57,4 +70,7 @@
 
       button
         height: 40px
-        background-size: contain !important
+        height: 100%
+        width: 100%
+
+        background: white
