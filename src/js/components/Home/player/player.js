@@ -54,13 +54,13 @@ export default class Player extends React.Component {
                   {
                       "name": "Chrome",
                       "y": 1,
-                      "color": "#FA47A9",
+                      "color": "#FE3C4A",
                       "drilldown": "Chrome"
                   },
                   {
                       "name": "Chrome",
                       "y": 1,
-                      "color": "#FA47A9",
+                      "color": "#FE3C4A",
                       "drilldown": "Chrome"
                   },
                   {
@@ -384,6 +384,7 @@ export default class Player extends React.Component {
 
   }
   handlePlayClick() {
+    this.props.playerClick();
     if (this.state.playing === "pause") {
       this.setState({
         playing: "playing"

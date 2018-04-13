@@ -21,9 +21,17 @@
       bottom: 0
       right: 0
     .player-side-info
-      +Position(absolute, 0, 0, 100px, 60%)
-      display: none
+      +Position(absolute, 0, null, 0px, 60%)
       background-color: black
+      right: 0
+      display: flex
+      justify-content: center
+      align-items: center
+      color: white
+      &.showPlayerSide
+        animation: showPlayerSide 1s ease forwards
+      &.hidePlayerSide
+        animation: hidePlayerSide 1s ease forwards
 
   .article1-grid-right,
   .article1-grid-center,

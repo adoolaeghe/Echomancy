@@ -10,7 +10,7 @@ export default class Article2 extends React.Component {
     return (
       <section className="article2 row">
         <div className="dot-left" id="12" />
-        <div className="dot-right" id="13" />
+        <div className="dot-right " id="13" />
           <div className="article2-main col s10 hash-background">
             <div className="article2-main-column col s3">
             {this.props.article2Main &&

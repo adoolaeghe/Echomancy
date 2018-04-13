@@ -1,0 +1,74 @@
+
+<svg width="165px" height="151px" viewBox="0 0 165 151" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M2,27 L14,27 C15.1045695,27 16,27.8954305 16,29 L16,47 C16,48.1045695 15.1045695,49 14,49 L2,49 C0.8954305,49 1.3527075e-16,48.1045695 0,47 L0,29 C-1.3527075e-16,27.8954305 0.8954305,27 2,27 L2,27 Z M3,60 L15,60 C16.1045695,60 17,60.8954305 17,62 L17,70 C17,71.1045695 16.1045695,72 15,72 L3,72 C1.8954305,72 1,71.1045695 1,70 L1,62 C1,60.8954305 1.8954305,60 3,60 L3,60 Z M124,42 L136,42 C137.104569,42 138,42.8954305 138,44 L138,62 C138,63.1045695 137.104569,64 136,64 L124,64 C122.895431,64 122,63.1045695 122,62 L122,44 C122,42.8954305 122.895431,42 124,42 Z M124,0 L136,0 C137.104569,-2.02906125e-16 138,0.8954305 138,2 L138,20 C138,21.1045695 137.104569,22 136,22 L124,22 C122.895431,22 122,21.1045695 122,20 L122,2 L122,2 C122,0.8954305 122.895431,2.02906125e-16 124,0 Z" id="path-1"></path>
+        <path d="M70,36 L70,33 C70,21.954305 61.045695,13 50,13 L50,13 L50,13 C38.954305,13 30,21.954305 30,33 L30,33 L30,36 L21,36 L21,36 C20.4477153,36 20,36.4477153 20,37 L20,51 C20,51.5522847 20.4477153,52 21,52 L79,52 C79.5522847,52 80,51.5522847 80,51 L80,37 C80,36.4477153 79.5522847,36 79,36 L70,36 Z" id="path-3"></path>
+        <path d="M12,0 L118,0 L118,0 C124.627417,-1.21743675e-15 130,5.372583 130,12 L130,82 L130,82 C130,102.98682 112.98682,120 92,120 L38,120 L38,120 C17.0131795,120 2.57014425e-15,102.98682 0,82 L0,12 L0,12 C-8.11624501e-16,5.372583 5.372583,1.21743675e-15 12,0 Z" id="path-5"></path>
+    </defs>
+    <g id="Intro" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-1462.000000, -126.000000)" id="Bots">
+            <g transform="translate(266.000000, 113.000000)">
+                <g id="Top" transform="translate(90.000000, 0.000000)">
+                    <g id="Bottt/Head" transform="translate(1100.000000, 0.000000)">
+                        <g id="Sides/Cables-02" transform="translate(0.000000, 66.000000)" stroke-width="1" fill-rule="evenodd">
+                            <g id="Cables-Left" opacity="0.9" transform="translate(8.000000, 5.000000)" stroke="#2A3544">
+                                <ellipse id="Cable" stroke-width="6" cx="24.5" cy="18" rx="16.5" ry="18"></ellipse>
+                                <path d="M18.8032032,36.4616969 C18.8032032,27.9012833 11.6397592,20.9616969 2.80320323,20.9616969" id="Cable" stroke-width="4" transform="translate(10.803203, 28.711697) scale(1, -1) rotate(-60.000000) translate(-10.803203, -28.711697) "></path>
+                                <path d="M20,62 C29.3888407,62 37,55.5081289 37,47.5 C37,39.4918711 29.3888407,33 20,33 C10.6111593,33 4,39.4918711 4,47.5 C4,55.5081289 10.6111593,62 20,62 Z" id="Cable" stroke-width="4"></path>
+                            </g>
+                            <g id="Cables-Right" opacity="0.9" transform="translate(132.000000, 7.000000)" stroke="#2A3544">
+                                <path d="M33.8032032,58.4616969 C33.8032032,49.9012833 26.6397592,42.9616969 17.8032032,42.9616969" id="Cable" stroke-width="4" transform="translate(25.803203, 50.711697) rotate(-30.000000) translate(-25.803203, -50.711697) "></path>
+                                <path d="M16,31 C25.3888407,31 33,24.0604136 33,15.5 C33,6.93958638 25.3888407,0 16,0 C6.61115925,0 0,6.93958638 0,15.5 C0,24.0604136 6.61115925,31 16,31 Z" id="Cable" stroke-width="6"></path>
+                            </g>
+                            <g id="Connectors" transform="translate(21.000000, 0.000000)">
+                                <mask id="mask-2" fill="white">
+                                    <use xlink:href="#path-1"></use>
+                                </mask>
+                                <use fill="#273951" xlink:href="#path-1"></use>
+                                <g id="Color/19-Blue-Grey/600" transform="translate(-21.000000, 0.000000)" fill="#546E7A">
+                                    <rect x="0" y="0" width="180" height="76"></rect>
+                                </g>
+                            </g>
+                        </g>
+                        <g id="Top/Bulb-01" transform="translate(41.000000, 0.000000)">
+                            <mask id="mask-4" fill="white">
+                                <use xlink:href="#path-3"></use>
+                            </mask>
+                            <use id="Bulb-Mask" fill="#59C4FF" fill-rule="evenodd" xlink:href="#path-3"></use>
+                            <g id="Color/05-Indigo/A200" fill-rule="evenodd" fill="#536DFE">
+                                <rect x="0" y="0" width="100" height="52"></rect>
+                            </g>
+                            <path d="M50,36 C52.209139,36 54,35.0279942 54,31.7142857 C54,28.4005772 52.209139,24 50,24 C47.790861,24 46,28.4005772 46,31.7142857 C46,35.0279942 47.790861,36 50,36 Z" id="Light" fill-opacity="0.6" fill="#FFFFFF" fill-rule="evenodd"></path>
+                            <rect id="Highlight" fill-opacity="0.4" fill="#FFFFFF" fill-rule="evenodd" x="20" y="13" width="60" height="23"></rect>
+                            <path d="M50,15.5 C54.9315485,15.5 59.3660426,17.6281427 62.4352098,21.0161556 M64.8733745,24.5107242 C65.5630474,25.8293043 66.0825179,27.2509729 66.4026217,28.7465657" id="Reflection" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"></path>
+                        </g>
+                        <g id="Face/Square-02" transform="translate(25.000000, 44.000000)">
+                            <mask id="mask-6" fill="white">
+                                <use xlink:href="#path-5"></use>
+                            </mask>
+                            <use id="Shape" fill="#0076DE" fill-rule="evenodd" xlink:href="#path-5"></use>
+                            <g id="Color/14-Amber/600" transform="translate(-2.000000, -2.000000)" fill-rule="evenodd" fill="#FFB300">
+                                <rect x="0" y="0" width="134" height="124"></rect>
+                            </g>
+                            <g id="Texture/-None" transform="translate(-1.000000, -1.000000)"></g>
+                        </g>
+                        <g id="Mouth/Diagram" transform="translate(52.000000, 124.000000)">
+                            <rect id="Kiss-The-Robot-Beep-Boop" fill-opacity="0.2" fill="#000000" fill-rule="evenodd" x="4" y="4" width="68" height="24" rx="5"></rect>
+                            <rect id="Kiss-The-Robot-Beep-Boop" fill-opacity="0.8" fill="#000000" fill-rule="evenodd" x="8" y="8" width="60" height="16" rx="2"></rect>
+                            <polyline id="Path-3" stroke="#4EFAC9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="9 17 20 17 22 13 25 20 29 12 31 21 34 10 37 20 40 17 55 17 58 13 60 20 63 17 67 17"></polyline>
+                        </g>
+                        <g id="Eyes/Eva" transform="translate(38.000000, 76.000000)" fill-rule="evenodd">
+                            <path d="M53,0 C87.746885,0 102.000559,17.474163 102,31 C101.999441,44.525837 82.4108252,48 53,48 C23.9528111,48 2,44.525837 2,31 C2,17.474163 17.1141791,3.17100737e-15 53,0 Z" id="Path-2" fill-opacity="0.8" fill="#000000"></path>
+                            <g id="EeeeVaaaa" stroke-width="1" transform="translate(18.000000, 16.000000)" fill="#25A6F5">
+                                <path d="M10.817693,18.6539934 C4.29096139,17.3000653 -0.41691297,12.312077 0.302361333,7.51300959 C1.02163564,2.7139422 6.89568406,-0.0788950027 13.4224157,1.2750331 C19.9491473,2.6289612 24.6570217,7.61694957 23.9377474,12.416017 C23.2184731,17.2150843 17.3444247,20.0079215 10.817693,18.6539934 Z" id="vaaaa"></path>
+                                <path d="M57.4224157,18.6539934 C50.8956841,20.0079215 45.0216356,17.2150843 44.3023613,12.416017 C43.583087,7.61694957 48.2909614,2.6289612 54.817693,1.2750331 C61.3444247,-0.0788950027 67.2184731,2.7139422 67.9377474,7.51300959 C68.6570217,12.312077 63.9491473,17.3000653 57.4224157,18.6539934 Z" id="eeee"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -26,7 +26,8 @@ export default class Article6 extends React.Component {
       expanded: false,
       cardShadow: 1,
       headerDisplay: true,
-      zIndex: false
+      zIndex: false,
+      cancel: false
     };
   }
 
@@ -63,22 +64,27 @@ export default class Article6 extends React.Component {
                 "url(./public/content/images/main/hash-background-reverse.svg)",
               zIndex: this.state.zIndex ? "1400" : "900"
             }}
-            onClick={()=> {this.setState({headerDisplay: !this.state.headerDisplay, zIndex: !this.state.zIndex})}}
           >
-              <FloatingActionButton zDepth={2} iconStyle={{width: "30px", height: "30px", backgroundColor: "white"}}>
-                <div style={{
-                  backgroundImage:
-                    "url(./public/content/images/icons/medium.svg)",
-                  backgroundSize: "100%",
-                  backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat"
-                }}></div>
-              </FloatingActionButton>
+            <div
+              className={`article5-demo-trigger btn-floating btn-large white ${this.state.cancel ? "cancel" : ''}`}
+              onClick={()=> {this.setState({headerDisplay: !this.state.headerDisplay, zIndex: !this.state.zIndex, cancel: !this.state.cancel})}}>
+              <i style={{
+                backgroundImage:"url(./public/content/images/main/logo-secondary.svg)",
+                backgroundSize: "100%",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                height: "60px"
+              }}></i>
+            </div>
             <span className="article5-number">
              03.
             </span>
           </a>
         </div>
+        <div className="dot-left top" />
+        <div className="dot-right top" />
+        <div className="dot-left" />
+        <div className="dot-right" />
       </section>
     );
   }

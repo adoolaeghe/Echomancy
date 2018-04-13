@@ -1,5 +1,6 @@
 import React from "react";
 import FlatButton from "material-ui/FlatButton";
+import FloatingActionButton from 'material-ui/FloatingActionButton';
 import Graph from "../graph/homeGraph";
 import {
   Card,
@@ -77,18 +78,16 @@ export default class Arcticle7 extends React.Component {
               "url(./public/content/images/main/hash-background-reverse.svg)"
           }}
         >
-          <a
-            className="chevron-down"
-            href="#!"
-            style={{
-              height: "25px",
-              width: "25px",
-              backgroundImage:
-                "url(./public/content/images/icons/chevron-down.svg)",
-              backgroundSize: "contain",
-              backgroundRepeat: "no-repeat"
-            }}
-          />
+          <div
+            className="article5-demo-trigger btn-large white btn-floating">
+            <i style={{
+              backgroundImage:"url(./public/content/images/main/logo-secondary.svg)",
+              backgroundSize: "100%",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              height: "60px"
+            }}></i>
+          </div>
         </div>
           <div
             id="article5main"

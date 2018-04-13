@@ -1,10 +1,18 @@
 .article5
   border-top: 1px solid $light-grey
-  border-left: 1px solid $light-grey
-  border-right: 1px solid $light-grey
   border-bottom: 1px solid $light-grey
   position: relative
   margin-bottom: 100px
+  .article5-demo-trigger
+    display: flex !important
+    justify-content: center
+    align-items: center
+    height: 55px
+    div
+      animation: buttonAddRotation 0.4s forwards
+    &.cancel
+      div
+        animation: buttonCancelRotation 0.4 s forwards
   .article7-main
     height: 100%
     border-right: 1px solid lightgrey
@@ -125,8 +133,8 @@
 
   .article5-number
     color: #8188E7
-    margin-top: 5px
-    +configFont(15px, bolder, null)
+    margin-top: 10px
+    +configFont(22px, bolder, null)
     writing-mode: vertical-lr
     position: absolute
     top: 0px
@@ -166,25 +174,34 @@
 
       div
         position: absolute
-        border-right: 1px solid #8188E7
-        padding-right: 20px
-        width: 400Px
+        border-right: 1px solid #0637D8
+        border-left: 1px solid #0637D8
         right: 0px
         height: 100%
         text-align: right
 
         .text-header-line
-          left: 77%
+          right: 20px
           position: absolute
           height: 5px
           width: 70px
-          background-color: #8188E7
+          background-color: #0637D8
           margin-bottom: 20px
+
+        h2
+          +configFont(2rem, 700, null)
+          font-family: 'Inter UI', sans-serif
+          border-bottom: 1px solid lightgrey
+          padding-right: 20px
+          padding-left: 20px
+          padding-bottom: 10px
 
         p
           background-color: white
           font-size: 1.25rem
           font-weight: lighter
+          padding-right: 20px
+          padding-left: 20px
     a
       display: flex
       justify-content: center

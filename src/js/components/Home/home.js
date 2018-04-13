@@ -5,7 +5,7 @@ import Drawer from "material-ui/Drawer";
 import LazyLoad from 'react-lazyload';
 import Player from "./player/player";
 import Toggle from 'material-ui/Toggle';
-
+import ReactTooltip from 'react-tooltip';
 import {List, ListItem} from 'material-ui/List';
 import {
   BrowserRouter as Router,
@@ -133,6 +133,7 @@ export default class Demo extends React.Component {
     } else {
     return (
       <div className="row">
+      
         <div className="col s1 side-right">
           <Menu menuDisplay= {this.state.menuDisplay}
                 handleMenu= {() => {this.handleMenu()}}
@@ -167,7 +168,7 @@ export default class Demo extends React.Component {
           <div className="space-between-line" />
           <div className="playing-dot" />
         </div>
-        <main className="col s10 push-s1">
+        <main className="col s10 push-s1 secondary-article">
           <Article5 />
           <Article6 />
           <Article7 />

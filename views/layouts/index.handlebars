@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/variable-pie.js"></script>
@@ -40,3 +41,15 @@
       <script src="../src/js/client.min.js"></script>
     </body>
   </html>
+  <script>
+  this.setTimeout(function() {
+    var elem = document.querySelector('.fixed-action-btn');
+    var instance = M.FloatingActionButton.init(elem, {
+      direction: 'left',
+      hoverEnabled: false
+    });
+
+    var elem1 = document.querySelector('.tooltipped');
+    var instance1 = M.Tooltip.init(elem1);
+  }, 4000)
+  </script>

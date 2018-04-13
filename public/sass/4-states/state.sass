@@ -18,3 +18,32 @@
 
   to
     +Position(absolute, 15px, null, 240px, 240px)
+
+@keyframes buttonCancelRotation
+  from
+    transform: rotate(0deg)
+
+  to
+    transform: rotate(-15deg)
+
+@keyframes buttonAddRotation
+  from
+    transform: rotate(-15deg)
+
+  to
+    transform: rotate(0deg)
+
+@keyframes showPlayerSide
+  from
+    height: 0px
+    opacity: 1
+  to
+    height: 100px
+
+@keyframes hidePlayerSide
+  from
+    height: 100px
+
+  to
+    height: 0px
+    opacity: 0

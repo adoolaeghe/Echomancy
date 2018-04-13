@@ -10,7 +10,13 @@ import ContentSend from 'material-ui/svg-icons/content/send';
 import {List, ListItem} from 'material-ui/List';
 
 export default class Faq extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {open: false};
+  }
+  handleToggle = () => this.setState({open: !this.state.open});
 
+  handleClose = () => this.setState({open: false});
   render() {
     return (
       <Drawer
@@ -23,47 +29,50 @@ export default class Faq extends React.Component {
           zIndex: "100000000",
           backgroundColor: "white",
         }}
+        onRequestChange={(open) => this.setState({open})}
         style={{
           zIndex: "100000000"
         }}
-        overlayStyle={{display: "none"}}
+        overlayStyle={{opacity: "0.1"}}
       >
       <List>
           <div onClick={()=>{this.props.handleFaq()}}>
             Cancel
           </div>
-          <ListItem primaryText="Sent mail" leftIcon={<ContentSend />} />
-          <ListItem primaryText="Drafts" leftIcon={<ContentDrafts />} />
           <ListItem
             primaryText="Inbox"
             leftIcon={<ContentInbox />}
-            initiallyOpen={true}
+            initiallyOpen={false}
             primaryTogglesNestedList={true}
-            nestedItems={[
-              <ListItem
-                key={1}
-                primaryText="Starred"
-                leftIcon={<ActionGrade />}
-              />,
-              <ListItem
-                key={2}
-                primaryText="Sent Mail"
-                leftIcon={<ContentSend />}
-                disabled={true}
-                nestedItems={[
-                  <ListItem key={1} primaryText="Drafts" leftIcon={<ContentDrafts />} />,
-                ]}
-              />,
-              <ListItem
-                key={3}
-                primaryText="Inbox"
-                leftIcon={<ContentInbox />}
-                open={this.props.open}
-                nestedItems={[
-                  <ListItem key={1} primaryText="Drafts" leftIcon={<ContentDrafts />} />,
-                ]}
-              />,
-            ]}
+            nestedItems={"heello"}
+          />
+          <ListItem
+            primaryText="Inbox"
+            leftIcon={<ContentInbox />}
+            initiallyOpen={false}
+            primaryTogglesNestedList={true}
+            nestedItems={"heello"}
+          />
+          <ListItem
+            primaryText="Inbox"
+            leftIcon={<ContentInbox />}
+            initiallyOpen={false}
+            primaryTogglesNestedList={true}
+            nestedItems={"heello"}
+          />
+          <ListItem
+            primaryText="Inbox"
+            leftIcon={<ContentInbox />}
+            initiallyOpen={false}
+            primaryTogglesNestedList={true}
+            nestedItems={"heello"}
+          />
+          <ListItem
+            primaryText="Inbox"
+            leftIcon={<ContentInbox />}
+            initiallyOpen={false}
+            primaryTogglesNestedList={true}
+            nestedItems={"heello"}
           />
         </List>
       </Drawer>

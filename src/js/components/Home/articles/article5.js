@@ -2,6 +2,7 @@ import React from "react";
 import Menu from "material-ui/Menu";
 import Drawer from "material-ui/Drawer";
 import FloatingActionButton from 'material-ui/FloatingActionButton';
+import ContentSend from 'material-ui/svg-icons/content/send';
 import {
   Card,
   CardActions,
@@ -30,7 +31,6 @@ export default class Article5 extends React.Component {
     };
   }
 
-
   render() {
     return (
       <section className="article5 row" id="article5">
@@ -38,13 +38,13 @@ export default class Article5 extends React.Component {
         <Article5Demo display={this.state.headerDisplay}/>
 
         <div className={`card-header row`} href="#!">
-          <div
-            className="col s5"
-            id="article5left"
-            style={{backgroundImage:"url(./public/content/images/main/hash-background.svg)"}}
-          >
+
+          <div className="col s5"
+               id="article5left"
+               style={{backgroundImage:"url(./public/content/images/main/hash-background.svg)"}}>
             <div style={{ backgroundImage:"url(./public/content/images/main/test.svg)",}}/>
           </div>
+
           <div id="article5main" className="col s5" style= {{zIndex: this.state.zIndex ? "1400" : "900"}}>
             <div>
               <div className="text-header-line"/>
@@ -56,29 +56,39 @@ export default class Article5 extends React.Component {
               </p>
             </div>
           </div>
-          <a
-            className="col s2"
-            style={{
-              backgroundImage:
-                "url(./public/content/images/main/hash-background-reverse.svg)",
-              zIndex: this.state.zIndex ? "1400" : "900"
-            }}
-            onClick={()=> {this.setState({headerDisplay: !this.state.headerDisplay, zIndex: !this.state.zIndex})}}
+
+          <a className="col s2"
+             style={{
+               backgroundImage:
+                 "url(./public/content/images/main/hash-background-reverse.svg)",
+               zIndex: this.state.zIndex ? "1400" : "900"
+
+             }}
+             onClick={()=> {
+               this.setState({headerDisplay: !this.state.headerDisplay, zIndex: !this.state.zIndex, cancel: !this.state.cancel})}
+
+             }
           >
-              <FloatingActionButton zDepth={2} iconStyle={{width: "30px", height: "30px", backgroundColor: "white"}}>
-                <div style={{
-                  backgroundImage:
-                    "url(./public/content/images/icons/medium.svg)",
-                  backgroundSize: "100%",
-                  backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat"
-                }}></div>
-              </FloatingActionButton>
+            <div
+              className="article5-demo-trigger btn-large white btn-floating">
+              <i style={{
+                backgroundImage:"url(./public/content/images/main/logo-secondary.svg)",
+                backgroundSize: "100%",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                height: "60px"
+              }}></i>
+            </div>
             <span className="article5-number">
              03.
             </span>
           </a>
+
         </div>
+        <div className="dot-left top" />
+        <div className="dot-right top" />
+        <div className="dot-left" />
+        <div className="dot-right" />
       </section>
     );
   }

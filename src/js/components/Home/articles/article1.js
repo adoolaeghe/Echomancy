@@ -3,6 +3,13 @@ import Player from "../player/player";
 
 export default class Article1 extends React.Component {
 
+  constructor() {
+    super()
+    this.state = {
+      showPlayerSide: false
+    }
+  }
+
   render() {
     return (
       <section
@@ -21,6 +28,7 @@ export default class Article1 extends React.Component {
         <div className="article1-grid-right col s2" />
         <div className="article1-main col s6">
           <Player
+            playerClick = {() => {this.setState({showPlayerSide: !this.state.showPlayerSide})}}
             rotation={"rotating"}
             size={"large"}
             key={0}
@@ -57,7 +65,8 @@ export default class Article1 extends React.Component {
             src={"./public/content/images/articles/article4-button.svg"}
             alt="Kiwi standing on oval"
           />
-          <div className="player-side-info">
+          <div className={`player-side-info ${this.state.showPlayerSide ? "showPlayerSide" : "hidePlayerSide"}`}>
+            This is a description of the the player
           </div>
           <div className="dot-right" style={{zIndex:"1000000"}}/>
           <div className="dot-left" style={{zIndex:"1000000", top: "-7px"}}/>
