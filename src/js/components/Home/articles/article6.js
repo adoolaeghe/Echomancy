@@ -44,7 +44,7 @@ export default class Article6 extends React.Component {
             id="article5left"
             style={{backgroundImage:"url(./public/content/images/main/hash-background.svg)"}}
           >
-            <div style={{ backgroundImage:"url(./public/content/images/main/test.svg)",}}/>
+            <div style={{ backgroundImage:"url(./public/content/images/acticles/article5-card-illustration.svg)",}}/>
           </div>
           <div id="article5main" className="col s5" style= {{zIndex: this.state.zIndex ? "1400" : "900"}}>
             <div>

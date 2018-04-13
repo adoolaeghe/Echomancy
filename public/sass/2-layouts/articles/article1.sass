@@ -14,7 +14,7 @@
 
   .article1-bottom
     +Position(absolute, 68%, 40%, 210px, 410px)
-    border-top: 1px solid grey
+    +border-top-light
     z-index: -1
     img
       +Position(absolute, null, null, 50px, 50px)
@@ -22,11 +22,9 @@
       right: 0
     .player-side-info
       +Position(absolute, 0, null, 0px, 60%)
+      +flex(null, center, center)
       background-color: black
       right: 0
-      display: flex
-      justify-content: center
-      align-items: center
       color: white
       &.showPlayerSide
         animation: showPlayerSide 1s ease forwards
@@ -43,9 +41,9 @@
   h4
     +configFont(60px, 700, null)
     +Position(absolute, 23%, 5%, null, 410px)
+    +primary-font-bold
     padding-left: 20px !important
     z-index: 999
-    font-family: 'Inter UI', sans-serif
 
     .header-word
       height: 100px
