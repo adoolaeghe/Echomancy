@@ -172,7 +172,7 @@ export default class Article6Demo extends React.Component {
     let key = 1;
     for (let i = 0; i < this.state.slider; i++) {
       to_return.push(
-        <div className="article7-info2-content-element" key={key} />
+        <div className="demo-info2-content-element" key={key} />
       );
       key++;
     }
@@ -201,15 +201,15 @@ export default class Article6Demo extends React.Component {
         overlayStyle={{opacity: "0.2"}}
       >
       <CardText expandable={true}>
-        <div className="article7-main col s12">
+        <div className="demo-main col s12">
         <div
-        className="article7-main-label col s12"
+        className="demo-main-label col s12"
         >
         <span>Artist Payout: </span>
 
         </div>
           <div
-            className="article7-main-visual row col s12"
+            className="demo-main-visual row col s12"
             style={{ position: "relative",backgroundImage:
               "url(./public/content/images/main/hash-background.svg)"  }}
           >
@@ -224,7 +224,7 @@ export default class Article6Demo extends React.Component {
             />
           </div>
           <div
-            className="article7-main-info1 col s12"
+            className="demo-main-info1 col s12"
             style={{ zIndex: "1" }}
           >
             <div className="col s4 info-content row">
@@ -237,7 +237,7 @@ export default class Article6Demo extends React.Component {
               <div className="col s12 info-label">Current Share Price</div>
             </div>
           </div>
-          <div className="article7-main-info3 col s12"
+          <div className="demo-main-info3 col s12"
             style={{ backgroundImage:
               "url(./public/content/images/main/hash-background.svg)"  }}
           >
@@ -251,8 +251,8 @@ export default class Article6Demo extends React.Component {
               <div className="col s12 info-label">3</div>
             </div>
           </div>
-          <div className="article7-main-info2 col s12">
-            <div className="article7-info2-content cols12">
+          <div className="demo-main-info2 col s12">
+            <div className="demo-info2-content cols12">
               {this.handleSongPartRender()}
             </div>
             <Slider
@@ -268,7 +268,7 @@ export default class Article6Demo extends React.Component {
               onChange={this.handleSlider}
             />
           </div>
-          <div className="article7-main-info3 col s12"
+          <div className="demo-main-info3 col s12"
             style={{ backgroundImage:
               "url(./public/content/images/main/hash-background.svg)"  }}
           >
@@ -282,7 +282,7 @@ export default class Article6Demo extends React.Component {
               <div className="col s12 info-label">3</div>
             </div>
           </div>
-          <div className="article7-main-info5 col s12 row">
+          <div className="demo-main-info5 col s12 row">
             <div className="col s3 options row">
               <div className="col s12 options-button">
                 <div className="col s6 options-button">

@@ -1,0 +1,52 @@
+.article2
+  height: 2 * $space-xxlarge
+
+  .article-main
+    +flex(null, center, center)
+    height: 100%
+
+    h3
+      +configFont(33px, 300, null)
+      +primary-font-light
+
+    .article-main-column
+      margin-left: $space-msmall
+      text-align: left
+
+    .article-main-content
+      &#article2-1
+        animation: .7s animShow
+      &#article2-2
+        animation: 1.2s animShow
+      &#article2-3
+        animation: 1.5s animShow
+      &#article2-4
+        animation: 1.9s animShow
+
+      .article-main-number
+        +configFont(15px, bolder, null)
+        animation: 1.9s animShowHeight
+        border-left: 1px solid $ryme-dark-blue
+        height: $space-xxlarge
+        width: 2 * $space-medium
+        writing-mode: vertical-lr
+
+      .article-main-title
+        +configFont($font-medsmall, bolder, null)
+        p
+          +configFont($font-medsmall, lighter, null)
+
+
+  .article-grid-right,
+  .article-grid-left
+    +Position(relative, null,null, 100%, 200px, $z-default !important)
+    +border-left-light
+    padding: 0
+
+  .article-grid-left
+    +flex(null, center, center)
+
+    .ryme-white-paper
+      height: 65px
+      width: 50px
+      background-size: cover !important

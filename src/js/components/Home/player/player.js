@@ -52,31 +52,31 @@ export default class Player extends React.Component {
               "data": [
 
                   {
-                      "name": "Chrome",
+                      "name": "rym1",
                       "y": 1,
                       "color": "#FE3C4A",
                       "drilldown": "Chrome"
                   },
                   {
-                      "name": "Chrome",
+                      "name": "rym2",
                       "y": 1,
                       "color": "#FE3C4A",
                       "drilldown": "Chrome"
                   },
                   {
-                      "name": "Firefox",
+                      "name": "rym3",
                       "y": 1,
                       "color": "#6781FE",
                       "drilldown": "Firefox"
                   },
                   {
-                      "name": "Firefox",
+                      "name": "rym4",
                       "y": 1,
                       "color": "#6781FE",
                       "drilldown": "Firefox"
                   },
                   {
-                      "name": "Firefox",
+                      "name": "rym2",
                       "y": 1,
                       "color": "#6781FE",
                       "drilldown": "Firefox"

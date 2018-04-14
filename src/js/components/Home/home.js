@@ -2,7 +2,7 @@ import React from "react";
 
 import Card from 'material-ui/Card';
 import Drawer from "material-ui/Drawer";
-import LazyLoad from 'react-lazyload';
+// import LazyLoad from 'react-lazyload';
 import Player from "./player/player";
 import Toggle from 'material-ui/Toggle';
 import ReactTooltip from 'react-tooltip';
@@ -14,13 +14,13 @@ import {
   Link
 } from "react-router-dom";
 
-import Article1 from "./articles/article1";
-import Article2 from "./articles/article2";
-import Article3 from "./articles/article3";
-import Article4 from "./articles/article4";
-import Article5 from "./articles/article5";
-import Article6 from "./articles/article6";
-import Article7 from "./articles/article7";
+import Article1 from "./articles/1";
+import Article2 from "./articles/2";
+import Article3 from "./articles/3";
+import Article4 from "./articles/4";
+import Article5 from "./articles/5";
+import Article6 from "./articles/6";
+import Article7 from "./articles/7";
 import LoadingPage from "./articles/LoadingPage";
 import NavBar from "./articles/navBar";
 import Footer from "./articles/footer";
@@ -133,7 +133,7 @@ export default class Demo extends React.Component {
     } else {
     return (
       <div className="row">
-      
+
         <div className="col s1 side-right">
           <Menu menuDisplay= {this.state.menuDisplay}
                 handleMenu= {() => {this.handleMenu()}}
@@ -148,19 +148,19 @@ export default class Demo extends React.Component {
         <Card className="col s10" style={{ zIndex: 100001 }}>
           <NavBar />
           <Article1 article1Arrow={this.state.article1Arrow} />
-          <LazyLoad once>
+
             <Article2 article2Main={this.state.article2Main}/>
-          </LazyLoad>
-          <LazyLoad once>
+
+
             <Article3 article3Anim={this.state.article3Anim}
                       article3Text={this.state.article3Text}
                       pieScroll = {this.state.pieScroll}/>
-          </LazyLoad>
-          <LazyLoad once>
+
+
             <Article4 article4Anim={this.state.article4Anim}
                       article4Text={this.state.article4Text}
                       pieScroll = {this.state.pieScroll}/>
-          </LazyLoad>
+
         </Card>
 
         <div className="col s1 side-right"></div>

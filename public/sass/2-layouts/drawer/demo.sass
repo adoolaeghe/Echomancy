@@ -1,0 +1,89 @@
+.demo-player
+  display: flex
+  justify-content: center
+  align-items: center
+  width: 100%
+  height: 60vh
+
+.demo-main
+  height: 100%
+  border-right: 1px solid lightgrey
+  border-left: 1px solid lightgrey
+  .demo-main-label
+    height: 70px
+    text-align: center
+    span
+      font-size: 25px
+    font-size: 50px
+    +primary-font-bold
+  .demo-main-visual
+    background-color: white
+    +flex(null, space-between, center)
+    height: 330px
+  .demo-main-info1
+    .info-label
+      +primary-font-light
+      +flex(null, center, center)
+      height: 50px
+      text-align: center
+    .info-val
+      +primary-font-bold
+      +flex(null, center, center)
+      font-size: 30px
+      border-top: 1px solid lightgrey
+      border-bottom: 1px solid lightgrey
+      height: 50px
+  .demo-main-info2
+    height: 50px
+    background-color: white
+    position: relative
+    .demo-info2-content
+      top: 0px
+      position: absolute
+      display: flex
+      flex-direction: row
+      height: 100%
+      width: 100%
+      .demo-info2-content-element
+        height: 100%
+        width: 100%
+        border-right: 1px solid grey
+  .demo-main-info3
+    height: 50px
+    .info-label
+      +primary-font-light
+      +flex(null, center, center)
+      height: 50px
+      text-align: center
+    .info-val
+      +primary-font-bold
+      +flex(null, center, center)
+      font-size: 30px
+      border-top: 1px solid lightgrey
+      border-bottom: 1px solid lightgrey
+      height: 50px
+  .demo-main-info4
+    height: 140px
+    background-color: white
+
+  .demo-main-info5
+    .options
+      .options-label
+        +flex(null, center, center)
+        height: 50px
+        background-color: white
+      .options-button
+        height: 90px
+        .options-button
+          border-right: 1px solid lightgrey
+          +flex(null, center, center)
+          .button-dot
+            border: 1px solid lightgrey
+            height: 30px
+            width: 30px
+            border-radius: 15px
+    .options-val
+      +flex(null, center, center)
+      background-color: white
+      border-right: 1px solid lightgrey
+      height: 90px

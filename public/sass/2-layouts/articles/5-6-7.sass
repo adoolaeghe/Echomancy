@@ -1,0 +1,81 @@
+.article5,
+.article6,
+.article7
+  +border-top-light
+  margin-bottom: 100px
+  background-size: cover !important
+
+  .article-demo-trigger
+    +flex(null, center, center)
+    height: 55px
+    i
+      height: 60px
+      background-size: 100% !important
+      background-position: center !important
+
+  .main-step-info
+    +Position(absolute, 15%, null, null, null)
+    +configFont(25px, bolder, null)
+    right: 10%
+
+  .article-number
+    +colors(null, $ryme-dark-blue)
+    +configFont(22px, bolder, null)
+    +Position(absolute, 0, 0, null, null)
+    +margin(10px, null, null, null)
+    writing-mode: vertical-lr
+
+  .card-header
+    +colors(transparent, black)
+    +configFont(88px, bolder, null)
+    height: 250px
+
+    #article5left
+      height: 250px
+      +flex(null, center, center)
+
+      div
+        +Position(absolute, null, 0, 250px, 42%)
+        background-size: 600px
+        background-position: center
+        background-repeat: no-repeat
+
+    #article5main
+      +colors(white, null)
+      text-align: right
+      height: 250px
+      position: relative
+
+      div
+        +Position(absolute, null, 0, 100%, null)
+        border-right: 1px solid $ryme-dark-blue
+        border-left: 1px solid $ryme-dark-blue
+        right: 0px
+        text-align: right
+
+        .text-header-line
+          +Position(absolute, null, 0, 5px, 70px)
+          +colors(#0637D8, null)
+          right: 20px
+          margin-bottom: 20px
+
+        h2
+          +configFont(2rem, 700, null)
+          +padding(null, 20px, 10px, 20px)
+          border-bottom: 1px solid lightgrey
+
+        p
+          +colors(white, null)
+          +configFont(1.25rem, lighter, null)
+          +padding(null, 20px, 20px, null)
+    a
+      +colors(white, null)
+      +flex(null, center, center)
+      +Position(relative, null, null, 250px, null)
+      align-items: center
+      background-color: white
+      cursor: pointer
+      span
+        +Position(null, null, null, 25px, 25px)
+        background-size: contain
+        background-repeat: no-repeat

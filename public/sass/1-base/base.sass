@@ -2,34 +2,34 @@ main
   font-family: 'Inter UI', sans-serif
   position: relative
 
+/// OVERWRITE MATERIALIZE CSS
 button
   outline: none
   background: none
   border: none
 
-.path:hover
-  opacity: 0.5
-
 .col
   padding: 0px !important
+
+.ryme-article
+  +border-bottom-light
+  +border-left-light
+  +border-right-light
+  position: relative
+
+.path:hover
+  opacity: 0.5
 
 .drawerRight
   border-left: 1px lightgrey
   div
     width: 15% !important
 
-@keyframes fadein
-  from
-    opacity: 0
-  to
-    opacity: 1
-
-
 .loading-page-wrapper
   width: 100vw
   height: 100vh
   background-color: black
-  animation: fadein 8s
+  animation: pageLoadFadeIn 8s
 
 .react-bodymovin-container
   background-repeat: no-repeat

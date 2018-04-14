@@ -4,12 +4,25 @@
   justify-content: $justify-content
   align-items: $align
 
-=Position($position, $top, $left, $height, $width)
+=Position($position, $top, $left, $height, $width, $z: null)
   position: $position
   top: $top
   left: $left
   height: $height
   width: $width
+  z-index: $z
+
+=margin($top, $right, $bottom, $left)
+  margin-top: $top
+  margin-right: $right
+  margin-bottom: $bottom
+  margin-left: $left
+
+=padding($top, $right, $bottom, $left)
+  padding-top: $top
+  padding-right: $right
+  padding-bottom: $bottom
+  padding-left: $left
 
 =borderAndRadius($width, $solid, $color, $radius)
   border: $solid $width $color
@@ -19,3 +32,37 @@
   font-size: $font-size
   font-weight: $font-weight
   font-family: $font-family
+
+=colors($bg, $c)
+  background-color: $bg
+  color: $c
+
+
+/// RYME BORDER SETTINGS
+=border-bottom-dark
+  border-bottom: 1px solid grey
+=border-bottom-light
+  border-bottom: 1px solid lightgrey
+=border-top-dark
+  border-top: 1px solid grey
+=border-top-light
+  border-top: 1px solid lightgrey
+=border-left-light
+  border-left: 1px solid lightgrey
+=border-right-light
+  border-right: 1px solid lightgrey
+
+=hardware($backface: true, $perspective: 1000)
+    @if $backface
+        backface-visibility: hidden
+    perspective: $perspective
+
+
+=hidden
+	display: none
+	visibility: hidden
+
+
+=visible($state: 'block')
+	display: unquote($state)
+	visibility: visible

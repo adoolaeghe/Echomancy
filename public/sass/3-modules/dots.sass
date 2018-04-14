@@ -1,34 +1,11 @@
-.dot-left
-  width: 14px
-  height: 14px
+.dot-right, .dot-left
+  +Position(absolute, null, null, 14px, 14px)
   border-radius: 10px
   background: white
   border: 1.3px solid grey
-  position: absolute
-  bottom: -0.45rem
-  left: -0.5rem
-  z-index: 9
-  &.small
-    width: 10px
-    height: 10px
-    border: 1.3px solid lightgrey
-    bottom: -0.35rem
-    left: -0.35rem
-  &.top
-    top: -0.35rem
-    bottom: none
-
-
-.dot-right
-  width: 14px
-  height: 14px
-  border-radius: 10px
-  background: white
-  border: 1.3px solid grey
-  position: absolute
   bottom: -0.45rem
   right: -0.5rem
-  z-index: $z-xtop
+  z-index: $z-above-cover
   &.small
     width: 10px
     height: 10px
@@ -38,3 +15,9 @@
   &.top
     top: -0.35rem
     bottom: none
+
+.dot-left
+  left: -0.5rem
+
+.dot-right
+  right: -0.5rem

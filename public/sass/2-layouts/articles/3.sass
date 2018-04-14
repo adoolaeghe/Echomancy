@@ -1,0 +1,67 @@
+.article3
+  background-size: cover !important
+  height: 700px
+
+  #container3
+    position: absolute
+
+  .article3-hash
+    +flex(null, center, center)
+    height: 700px
+
+    .article3-hash-line
+      +Position(absolute, 270px, null, null, 70%)
+      +border-top-dark
+      position: absolute
+
+    .redirect
+      +Position(absolute, 590px, 41.5%, null, null)
+      z-index: $z-xtop
+
+  .article3-content-background
+    +Position(absolute, 0px, 0px, 100%, 0px)
+    padding: 0px
+
+  .article3-text-content
+    +flex(null, center, center)
+    top: 0px
+
+  .article3-header
+    margin-top: 170px
+    position: relative
+    h1
+      +Position(absolute, 50px, 30px, 100%, auto)
+      +configFont(88px, bolder, null)
+      animation: .7s animShow
+      text-transform: uppercase
+    h2
+      +configFont(33px, 700, null)
+      +primary-font-bold
+      +Position(absolute, 0px, 30px, 100%, auto)
+      animation: 1.1s animShow
+      text-transform: uppercase
+    p
+      +configFont(1.25rem, 400, null)
+      +primary-font-light
+      +Position(absolute, 180px, 30px, 100%, 70%)
+      animation: 1.5s animShow
+    a
+      +configFont(1.25rem, 400, null)
+      +primary-font-light
+      +colors(null, $ryme-pale-blue)
+      +Position(absolute, 360px, 30px, 100%, 70%)
+      animation: 1.5s animShow
+      text-transform: uppercase
+
+    .text-block-color
+      +colors($ryme-dark-blue, null)
+      margin-left: 30px
+      text-align: left
+      height: 10px
+      width: 70px
+      margin-bottom: 20px
+
+  .text-background
+    margin-top: 120px
+    margin-left: 45%
+    position: absolute

@@ -1,0 +1,63 @@
+.article1
+  background-size: cover !important
+  margin-top: $space-xlarge + 20px
+  height: 650px
+
+  .article-main
+    +flex(null, center, center)
+    height: 100%
+
+  .article-bottom
+    +Position(absolute, 68%, 40%, 210px, 410px, $z-mid)
+    +border-top-light
+
+    img
+      +Position(absolute, null, null, $space-xlarge, $space-xlarge, $z-default)
+      bottom: 0
+      right: 0
+    .player-side-info
+      +Position(absolute, 0, null, 0px, 60%)
+      +flex(null, center, center)
+      +colors(black, white)
+      right: 0
+      &.showPlayerSide
+        animation: showPlayerSide 1s ease forwards
+      &.hidePlayerSide
+        animation: hidePlayerSide 1s ease forwards
+
+  .article-grid-right,
+  .article-grid-center,
+  .article-grid-left
+    +Position(relative, null, null, 100%, 2 * $space-xxlarge)
+    text-align: center
+
+  .article-main-text
+    +configFont(60px, 700, null)
+    +Position(absolute, 23%, 5%, null, 410px, $z-high)
+    +primary-font-bold
+    padding-left: $space-medium !important
+
+    .text-block-color
+      text-align: left
+      height: 10px
+      width: 70px
+      background-color: $ryme-dark-blue
+      margin-bottom: 20px
+
+    .header-word
+      +colors(null, $carbon)
+      font-size: 4rem
+      height: $space-xxlarge
+      margin-left: 20px
+      text-align: left
+
+    .sub-header-word
+      +configFont(1.75rem, 400, null)
+      +colors(null, $carbon)
+      margin-top: $space-xxlarge - 20px
+      height: $space-xxlarge
+      text-align: left
+
+      .sub-header-link
+        color: $carbon
+        border-bottom: 3px solid $ryme-orange

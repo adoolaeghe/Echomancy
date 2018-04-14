@@ -10,7 +10,7 @@ import RaisedButton from "material-ui/RaisedButton";
 import FlatButton from "material-ui/FlatButton";
 import Paper from "material-ui/Paper";
 import FloatingActionButton from 'material-ui/FloatingActionButton';
-import animation from "../../../../../public/content/animation/data.json";
+
 import { Step, Stepper, StepLabel } from "material-ui/Stepper";
 import {
   CardActions,
@@ -97,6 +97,7 @@ export default class article5DemO extends React.Component {
       </div>
     );
   }
+  
   renderContent() {
     const { finished, stepIndex } = this.state;
     const contentStyle = { margin: "0 16px", overflow: "hidden" };
@@ -204,8 +205,8 @@ export default class article5DemO extends React.Component {
         overlayStyle={{opacity: "0.2"}}
       >
           <CardText expandable={true} style={{padding: "0px"}}>
-            <div className="article5-demo col s12 row">
-              <div className="article5-demo-player">
+            <div className="demo col s12 row">
+              <div className="demo-player">
                 <Player
                   rotation={"rotating"}
                   size={"large"}

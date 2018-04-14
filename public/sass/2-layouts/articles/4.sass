@@ -1,0 +1,96 @@
+.article4
+  background-size: cover !important
+  background-repeat: no-repeat !important
+  height: 700px
+
+  #container4
+    position: absolute
+
+  .article4-slider
+    +Position(absolute, null, null, 100%, null)
+    right: 0px
+
+    &.small
+      height: 85%
+
+  .slider-button
+    +Position(absolute, 440px, null, 48%, null)
+    right: 0
+
+  .text-background
+    +Position(absolute, 25%, 35%, null, null)
+
+  .article4-text-content
+    padding-left: 20px
+    margin-left: 20px
+    position: relative
+
+    .text-block-color
+      +margin(null, null, 20px, 30px)
+      background-color: $ryme-dark-blue
+      text-align: left
+      height: 10px
+      width: 70px
+
+
+  .article4-slider
+    +Position(absolute, -80px, null, 780px, 58.5%)
+    +flex(null, center, center)
+
+  .article4-header
+    +margin(120px, 20px, null, 20px)
+    text-align: left
+
+  .article4-sub-header
+    +margin(120px, 20px, null, 20px)
+    z-index: 900
+
+  .article4-content
+    +margin(null, 20px, null, 20px)
+    width: 80%
+
+  .article4-link
+    +margin(null, 20px, null, 20px)
+  .header-line-left
+    +margin(18%, null, null, null)
+    +colors($light-grey, null)
+    height: 1px
+
+  img
+    width: 100px
+  .slider-btn
+    +flex(null, center, center)
+    +Position(absolute, 450px, null, null, 100px)
+    background: none
+    border: none
+    box-shadow: none
+    color: white
+    font-size: 90px
+    right: 0px
+    z-index: 9999
+    p
+      margin-top: 70px
+
+
+  h1
+    +configFont(88px, bolder, null)
+    text-transform: uppercase
+    animation: .7s animShow
+
+  h2
+    +configFont(44px, 700, null)
+    +primary-font-bold
+    text-transform: uppercase
+    animation: 1.1s animShow
+
+  p
+    +configFont(1.25rem, 400, null)
+    +primary-font-bold
+    animation: 1.5s animShow
+
+  a
+    +configFont(1.25rem, 400, null)
+    +primary-font-light
+    +colors(null, $ryme-pale-blue)
+    animation: 1.9s animShow
+    text-transform: uppercase
