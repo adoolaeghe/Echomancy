@@ -1,4 +1,4 @@
-export default function returnArtcicle3Pie(scroll) {
+export default function returnPie3(scroll) {
   let pieScroll = [];
   for(var x = 0; x < scroll/50; x++) {
     pieScroll.push(1)

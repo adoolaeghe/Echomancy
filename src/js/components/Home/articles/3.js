@@ -28,21 +28,21 @@ export default class Article3 extends React.Component {
   render() {
     return (
       <section
-        className="ryme-article article3 row"
+        className="ryme-article article3 hoverable row"
         style={bgConfig.noRepeat('articles/3/background.svg')}
       >
         <div
-          className="article3-hash col s5"
+          className="article3-hash col m12 l5"
           style={bgConfig.noRepeat('main/hash-background.svg')}
         >
-        <div id="container3" />
+          <div id="container3" />
           <img
             className="redirect"
-            src={"./public/content/images/articles/article3-button.svg"}
+            src={"./public/content/images/articles/3/button.svg"}
             alt="Kiwi standing on oval"
           />
         </div>
-        <div className="acticle3-text-content col s7">
+        <div className="acticle3-text-content col m12 l7">
         {this.props.article3Text &&
           <div className={`article3-header ${this.state.animation ? "animation" : ""}`}>
             <div className="text-block-color"></div>

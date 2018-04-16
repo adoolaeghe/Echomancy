@@ -9,8 +9,8 @@ export default class Article2 extends React.Component {
       <section className="ryme-article article2 row">
         <div className="dot-left" />
         <div className="dot-right" />
-          <div className="article-main col s10">
-            <div className="article-main-column col s3">
+          <div className="article-main row col m6 l10">
+            <div className="article-main-column col m12 l3">
             {this.props.article2Main &&
               <div className="article-main-content"
                    id="article2-1">
@@ -24,7 +24,7 @@ export default class Article2 extends React.Component {
               </div>
             }
             </div>
-            <div className="article-main-column col s3">
+            <div className="article-main-column col m12 l3">
             {this.props.article2Main &&
               <div className="article-main-content"
                    id="article2-2">
@@ -38,7 +38,7 @@ export default class Article2 extends React.Component {
               </div>
             }
             </div>
-            <div className="article-main-column col s3">
+            <div className="article-main-column col m12 l3">
             {this.props.article2Main &&
               <div className="article-main-content"
                    id="article2-3">
@@ -52,7 +52,7 @@ export default class Article2 extends React.Component {
               </div>
             }
             </div>
-            <div className="article-main-column col s3">
+            <div className="article-main-column col m12 l3">
             {this.props.article2Main &&
               <div className="article-main-content"
                    id="article2-4">
@@ -67,7 +67,7 @@ export default class Article2 extends React.Component {
             }
             </div>
           </div>
-        <Card className="article-grid-left col s2 gradient-animation">
+        <Card className="article-grid-left col m6 l2 gradient-animation">
           <button onClick={this.props.handleFaq}
                   className='ryme-white-paper'
                   style={bgConfig.noRepeat('icons/paper.svg')}>

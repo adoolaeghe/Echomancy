@@ -1,8 +1,5 @@
-export default function returnArtcicle4Pie(scroll) {
+export default function returnPie4(scroll) {
   let pieScroll = [1,1,1,1];
-  // for(var x = 0; x < scroll/50; x++) {
-  //   pieScroll.push(1)
-  // }
   Highcharts.chart(`container4`, {
     chart: {
       plotBackgroundColor: null,

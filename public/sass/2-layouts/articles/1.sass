@@ -2,6 +2,8 @@
   background-size: cover !important
   margin-top: $space-xlarge + 20px
   height: 650px
+  @media #{$medium-and-down}
+    height: 800px
 
   .article-main
     +flex(null, center, center)
@@ -48,7 +50,6 @@
       +colors(null, $carbon)
       font-size: 4rem
       height: $space-xxlarge
-      margin-left: 20px
       text-align: left
 
     .sub-header-word

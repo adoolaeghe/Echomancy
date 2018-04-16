@@ -3,7 +3,7 @@ import Popover from "material-ui/Popover/Popover";
 import { Modal, Button } from "react-materialize";
 import ReactBodymovin from "react-bodymovin";
 import animation from "../../../../../public/content/animation/data1.json";
-import returnArtcicle4Pie from "../graph/article4Pie";
+import pieData from "../graph/pie4";
 import bgConfig from "../../ryme-helpers/ryme-background";
 
 export default class Article4 extends React.Component {
@@ -23,19 +23,18 @@ export default class Article4 extends React.Component {
   }
 
   componentDidMount() {
-    returnArtcicle4Pie(this.props.pieScroll);
+    pieData(this.props.pieScroll);
   }
 
 
   render() {
-
     return (
       <section
-        className="ryme-article article4 row"
+        className="ryme-article article4  hoverable row"
         style={bgConfig.noRepeat('articles/4/background.svg')}
       >
       {this.props.article4Text &&
-        <div className="article4-text-content row col s5">
+        <div className="article4-text-content row col s12 m12 l5">
           <div className="text-block-color"></div>
           <h1 className="article4-header">Reveal</h1>
           <h2 className="article4-sub-header">New songs</h2>
@@ -46,25 +45,25 @@ export default class Article4 extends React.Component {
             to create a more equitable distribution of resources.
           </p>
           <a className="article4-link">Read this link</a>
+        </div>
+      }
+        <div
+          className="article4-slider col s12 m12 l7"
+          style={bgConfig.repeat('main/hash-background.svg')}
+        >
+          <div className="" id="bm" />
+          <div id="container4" />
           <img
             className="slider-button"
             src={"./public/content/images/articles/4/button.svg"}
             alt="Kiwi standing on oval"
           />
         </div>
-      }
-        <div
-          className="article4-slider"
-          style={bgConfig.repeat('main/hash-background.svg')}
-        >
-        <div className="" style={{ width: "300px" }} id="bm" />
-          <div id="container4" />
-        </div>
         <div className="dot-left" id="21" />
         <div className="dot-right" id="22" />
         <div
-          className="bottom-info col s12"
-          style={bgConfig.repeat('main/hash-background.svg')}
+          className="bottom-info col m5"
+          style={bgConfig.repeat('main/hash-background-reverse.svg')}
         >
           <div className="bottom-info-content" />
         </div>

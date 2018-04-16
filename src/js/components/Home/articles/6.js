@@ -11,7 +11,7 @@ import {
   CardText
 } from "material-ui/Card";
 import Toggle from "material-ui/Toggle";
-import Article6Demo from "../drawer/article6Demo";
+import Demo6 from "../drawer/demo6";
 
 export default class Article6 extends React.Component {
   constructor(props) {
@@ -36,17 +36,17 @@ export default class Article6 extends React.Component {
     return (
       <section className="ryme-article article6 row" id="article5">
 
-        <Article6Demo display={this.state.headerDisplay}/>
+        <Demo6 display={this.state.headerDisplay}/>
 
         <div className={`card-header row`} href="#!">
           <div
-            className="col s5"
+            className="col m3 l5"
             id="article5left"
             style={{backgroundImage:"url(./public/content/images/main/hash-background.svg)"}}
           >
             <div style={{ backgroundImage:"url(./public/content/images/articles/5/illustration.svg)",}}/>
           </div>
-          <div id="article5main" className="col s5" style= {{zIndex: this.state.zIndex ? "1400" : "900"}}>
+          <div id="article5main" className="col m6 l5" style= {{zIndex: this.state.zIndex ? "1400" : "900"}}>
             <div>
               <div className="text-header-line"/>
               <h2>SECTION</h2>
@@ -58,7 +58,7 @@ export default class Article6 extends React.Component {
             </div>
           </div>
           <a
-            className="col s2"
+            className="col m3 l2"
             style={{
               backgroundImage:
                 "url(./public/content/images/main/hash-background-reverse.svg)",

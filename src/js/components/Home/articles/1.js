@@ -14,15 +14,15 @@ export default class Article1 extends React.Component {
   render() {
     return (
       <section
-        className="ryme-article article1 row"
+        className="ryme-article article1  row"
         id="article1"
         style={bgConfig.noRepeat('articles/1/background.svg')}
       >
-        <div className="article-grid-left col s2" />
-        <div className="article-grid-center col s2" />
-        <div className="article-grid-right col s2" />
+        <div className="article-grid-left col s2 hide-on-med-and-down" />
+        <div className="article-grid-center col s2 hide-on-med-and-down" />
+        <div className="article-grid-right col s2 hide-on-med-and-down" />
 
-        <div className="article-main col s6">
+        <div className="article-main col m12 l6">
           <Player
             playerClick = {() => {this.setState({showPlayerSide: !this.state.showPlayerSide})}}
             rotation={"rotating"}
@@ -35,7 +35,7 @@ export default class Article1 extends React.Component {
           <div className="dot-left" id="8" />
         </div>
 
-        <div className="article-main-text row col s6">
+        <div className="article-main-text row col m12 l6">
           <div className="text-block-color"></div>
           <div className="col s12 header-word" style={{ textAlign: "left" }}>
             Publishing for Everyone
@@ -49,19 +49,18 @@ export default class Article1 extends React.Component {
           </div>
         </div>
         <div
-          className="article-bottom col s10 hash-background"
+          className="article-bottom col s10 hash-background hide-on-med-and-down"
           style={bgConfig.repeat('main/hash-background.svg')}
         >
           <img
             className="slider-button"
-            src={"./public/content/images/articles/article4-button.svg"}
+            src={"./public/content/images/articles/1/button.svg"}
             alt="Kiwi standing on oval"
           />
           <div className={`player-side-info ${this.state.showPlayerSide ? "showPlayerSide" : "hidePlayerSide"}`}>
             This is a description of the the player
           </div>
           <div className="dot-right"/>
-          <div className="dot-left"/>
         </div>
 
         {this.props.article1Arrow && (

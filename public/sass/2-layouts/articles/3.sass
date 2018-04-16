@@ -8,6 +8,8 @@
   .article3-hash
     +flex(null, center, center)
     height: 700px
+    @media #{$medium-and-down}
+      height: 300px
 
     .article3-hash-line
       +Position(absolute, 270px, null, null, 70%)
@@ -16,6 +18,7 @@
 
     .redirect
       +Position(absolute, 590px, 41.5%, null, null)
+      transform: rotate(90deg)
       z-index: $z-xtop
 
   .article3-content-background
@@ -29,11 +32,19 @@
   .article3-header
     margin-top: 170px
     position: relative
+    @media #{$medium-and-down}
+      margin-top: 0
     h1
       +Position(absolute, 50px, 30px, 100%, auto)
-      +configFont(88px, bolder, null)
       animation: .7s animShow
       text-transform: uppercase
+      @media #{$large-and-up} 
+        +configFont(68px, bolder, null)
+
+      @media #{$extra-large-and-up}
+        +configFont(88px, bolder, null)
+
+
     h2
       +configFont(33px, 700, null)
       +primary-font-bold

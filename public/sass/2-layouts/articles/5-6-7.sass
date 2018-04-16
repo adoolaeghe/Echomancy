@@ -36,9 +36,9 @@
 
       div
         +Position(absolute, null, 0, 250px, 42%)
-        background-size: 600px
-        background-position: center
-        background-repeat: no-repeat
+        background-size: 600px !important
+        background-position: center !important
+        background-repeat: no-repeat !important
 
     #article5main
       +colors(white, null)
@@ -47,14 +47,14 @@
       position: relative
 
       div
-        +Position(absolute, null, 0, 100%, null)
+        +Position(absolute, null, null, 100%, null)
         border-right: 1px solid $ryme-dark-blue
         border-left: 1px solid $ryme-dark-blue
         right: 0px
         text-align: right
 
         .text-header-line
-          +Position(absolute, null, 0, 5px, 70px)
+          +Position(absolute, null, null, 5px, 70px)
           +colors(#0637D8, null)
           right: 20px
           margin-bottom: 20px
@@ -65,7 +65,6 @@
           border-bottom: 1px solid lightgrey
 
         p
-          +colors(white, null)
           +configFont(1.25rem, lighter, null)
           +padding(null, 20px, 20px, null)
     a
