@@ -1,4 +1,4 @@
-export default function returnPiePlayer() {
+export default function returnPiePlayer(data) {
   return {
     chart: {
       plotBackgroundColor: null,
@@ -34,34 +34,7 @@ export default function returnPiePlayer() {
         {
             "name": "hello",
             "colorByPoint": true,
-            "data": [
-
-                {
-                    "name": "rym1",
-                    "y": 1,
-                    "color": "#FE3C4A",
-                    "drilldown": "Chrome"
-                },
-                {
-                    "name": "rym2",
-                    "y": 1,
-                    "color": "#FE3C4A",
-                    "drilldown": "Chrome"
-                },
-                {
-                    "name": "rym3",
-                    "y": 1,
-                    "color": "#6781FE",
-                    "drilldown": "Firefox"
-                },
-                {
-                    "name": "rym4",
-                    "y": 1,
-                    "color": "#6781FE",
-                    "drilldown": "Firefox"
-                }
-
-            ]
+            "data": data
         }
     ],
     "drilldown": {

@@ -1,0 +1,68 @@
+.article1
+  +border-bottom-light
+  margin-top: 70px
+  border-left: 1px solid $light-grey
+  border-right: 1px solid $light-grey
+  position: relative
+  height: 650px
+
+  .article1-main
+    align-items: center
+    display: flex
+    height: 100%
+    justify-content: center
+
+  .article1-bottom
+    +Position(absolute, 68%, 40%, 210px, 410px)
+    +border-top-light
+    z-index: -1
+    img
+      +Position(absolute, null, null, 50px, 50px)
+      bottom: 0
+      right: 0
+    .player-side-info
+      +Position(absolute, 0, null, 0px, 60%)
+      +flex(null, center, center)
+      background-color: black
+      right: 0
+      color: white
+      &.showPlayerSide
+        animation: showPlayerSide 1s ease forwards
+      &.hidePlayerSide
+        animation: hidePlayerSide 1s ease forwards
+
+  .article1-grid-right,
+  .article1-grid-center,
+  .article1-grid-left
+    height: 100%
+    position: relative
+    text-align: center
+    width: 200px
+  h4
+    +configFont(60px, 700, null)
+    +Position(absolute, 23%, 5%, null, 410px)
+    +primary-font-bold
+    padding-left: 20px !important
+    z-index: 999
+
+    .header-word
+      height: 100px
+      color: #333
+      margin-left: 20px
+      font-size: 4rem
+      text-align: left
+
+    .sub-header-word
+      height: 100px
+      color: #333
+      +configFont(1.75rem, 400, null)
+      text-align: left
+      line-height: 1.75
+      margin-top: 30px
+
+      .sub-header-link
+        color: #333
+        border-bottom: 3px solid #FFBF5D
+
+.arrow-down
+  animation: .7s down  infinite alternate

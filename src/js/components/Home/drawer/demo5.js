@@ -10,6 +10,8 @@ import RaisedButton from "material-ui/RaisedButton";
 import FlatButton from "material-ui/FlatButton";
 import Paper from "material-ui/Paper";
 import FloatingActionButton from 'material-ui/FloatingActionButton';
+import WarningIcon from 'material-ui/svg-icons/alert/warning';
+import Avatar from 'material-ui/Avatar';
 
 import { Step, Stepper, StepLabel } from "material-ui/Stepper";
 import {
@@ -40,13 +42,40 @@ export default class article5DemO extends React.Component {
       stepIndex: 0,
       expanded: false,
       cardShadow: 1,
-      headerDisplay: true
+      headerDisplay: true,
+      playerData: [
+          {
+              "name": "rym1",
+              "y": 1,
+              "color": "#FE3C4A",
+              "drilldown": "Chrome"
+          },
+          {
+              "name": "rym2",
+              "y": 1,
+              "selected": true,
+              "color": "#FE3C4A",
+              "drilldown": "Chrome"
+          }
+      ]
     };
   }
 
   handleNext = () => {
     const { stepIndex } = this.state;
     if (!this.state.loading) {
+      let playerData = this.state.playerData;
+      playerData.push({
+          "name": "rym2",
+          "y": 1,
+          "color": "#FE3C4A",
+          "drilldown": "Chrome"
+      });
+
+      this.setState({
+        playerData: playerData
+      });
+
       this.dummyAsync(() =>
         this.setState({
           loading: false,
@@ -59,6 +88,14 @@ export default class article5DemO extends React.Component {
 
   handlePrev = () => {
     const { stepIndex } = this.state;
+
+    let playerData = this.state.playerData;
+    playerData.pop();
+
+    this.setState({
+      playerData: playerData
+    });
+
     if (!this.state.loading) {
       this.dummyAsync(() =>
         this.setState({
@@ -74,14 +111,13 @@ export default class article5DemO extends React.Component {
     return (
       <div style={{ margin: "12px 0" }}>
         <RaisedButton
+          backgroundColor= "#6884FB"
           label={stepIndex === 3 ? "Finish" : "Next"}
           disableTouchRipple={true}
           disableFocusRipple={true}
-          primary={true}
           onClick={() => {
             this.handleNext();
           }}
-          style={{ marginRight: 12 }}
         />
         {step > 0 && (
           <FlatButton
@@ -131,8 +167,9 @@ export default class article5DemO extends React.Component {
             style={{ marginRight: 12 }}
           />
           <RaisedButton
+            backgroundColor= {stepIndex === 2 ? "#6884FB" : "#0F3FD5"}
+            labelColor="white"
             label={stepIndex === 2 ? "Finish" : "Next"}
-            primary={true}
             onClick={this.handleNext}
           />
         </div>
@@ -140,57 +177,98 @@ export default class article5DemO extends React.Component {
     );
   }
 
-
-    getStepContent(stepIndex) {
-      switch (stepIndex) {
-        case 0:
-          return (
-            <div className='demo-description'>
-              <p>Buy one or more bits of the song</p>
-              <img
-                className="demo-illustration"
-                src={"./public/content/images/main/wave-test.png"}
-                alt="Kiwi standing on oval"
-              />
-            </div>
-          );
-        case 1:
-          return (
-            <div className='demo-description'>
-              <p>New comers may buy the parts that you've recently revealed</p>
-              <img
-                className="demo-illustration"
-                src={"./public/content/images/main/wave-test1.png"}
-                alt="Kiwi standing on oval"
-              />
-            </div>
-          );
-        case 2:
-          return (
-            <div className='demo-description'>
-              <p>Description</p>
-              <img
-                className="demo-illustration"
-                src={"./public/content/images/main/wave-test2.png"}
-                alt="Kiwi standing on oval"
-              />
-            </div>
-          );
-        case 3:
-          return (
-            <div className='demo-description'>
-              <p>Song Length</p>
-              <img
-                className="demo-illustration"
-                src={"./public/content/images/main/wave-test.png"}
-                alt="Kiwi standing on oval"
-              />
-            </div>
-          );
-        default:
-          return "You're a long way from home sonny jim!";
-      }
+  handleAvatar(stepIndex) {
+    switch(stepIndex) {
+      case 0:
+        return (
+          <Avatar style={{width: "30px", height: "30px", border: "3px solid white", position: "absolute", top: "47%", left: "0"}}
+                  className='rotating-reverse' src="./public/content/images/main/avatar.jpg"/>
+        )
+      case 1:
+        return(
+          <div>
+            <Avatar style={{width: "30px", height: "30px", border: "3px solid white", position: "absolute", top: "26%", left: "5%"}}
+                    className='rotating-reverse' src="./public/content/images/main/avatar.jpg"/>
+            <Avatar style={{width: "30px", height: "30px", border: "3px solid white", position: "absolute", top: "25%", left: "86%"}}
+                    className='rotating-reverse' src="./public/content/images/main/avatar.jpg"/>
+          </div>
+        )
+      case 2:
+        return(
+          <div>
+            <Avatar style={{width: "30px", height: "30px", border: "3px solid white", position: "absolute", top: "12%", left: "13%"}}
+                    className='rotating-reverse' src="./public/content/images/main/avatar.jpg"/>
+            <Avatar style={{width: "30px", height: "30px", border: "3px solid white", position: "absolute", top: "12%", right: "13%"}}
+                    className='rotating-reverse' src="./public/content/images/main/avatar.jpg"/>
+            <Avatar style={{width: "30px", height: "30px", border: "3px solid white", position: "absolute", bottom: "12%", left: "13%"}}
+                    className='rotating-reverse' src="./public/content/images/main/avatar.jpg"/>
+          </div>
+        )
+      case 3:
+        return(
+          <div>
+            <Avatar style={{width: "30px", height: "30px", border: "3px solid white", position: "absolute", top: "12%", left: "13%"}}
+                    className='rotating-reverse' src="./public/content/images/main/avatar.jpg"/>
+            <Avatar style={{width: "30px", height: "30px", border: "3px solid white", position: "absolute", top: "8%", right: "21%"}}
+                    className='rotating-reverse' src="./public/content/images/main/avatar.jpg"/>
+            <Avatar style={{width: "30px", height: "30px", border: "3px solid white", position: "absolute", bottom: "1%", left: "48%"}}
+                    className='rotating-reverse' src="./public/content/images/main/avatar.jpg"/>
+          </div>
+        )
     }
+  }
+
+
+  getStepContent(stepIndex) {
+    switch (stepIndex) {
+      case 0:
+        return (
+          <div className='demo-description'>
+            <p>Buy one or more bits of the song</p>
+            <img
+              className="demo-illustration"
+              src={"./public/content/images/articles/5/wave1.svg"}
+              alt="Kiwi standing on oval"
+            />
+          </div>
+        );
+      case 1:
+        return (
+          <div className='demo-description'>
+            <p>New comers may buy the parts that youve recently revealed</p>
+            <img
+              className="demo-illustration"
+              src={"./public/content/images/articles/5/wave2.svg"}
+              alt="Kiwi standing on oval"
+            />
+          </div>
+        );
+      case 2:
+        return (
+          <div className='demo-description'>
+            <p>Description</p>
+            <img
+              className="demo-illustration"
+              src={"./public/content/images/articles/5/wave3.svg"}
+              alt="Kiwi standing on oval"
+            />
+          </div>
+        );
+      case 3:
+        return (
+          <div className='demo-description'>
+            <p>Song Length</p>
+            <img
+              className="demo-illustration"
+              src={"./public/content/images/main/wave-test.png"}
+              alt="Kiwi standing on oval"
+            />
+          </div>
+        );
+      default:
+        return "You're a long way from home sonny jim!";
+    }
+  }
 
   dummyAsync = cb => {
     this.setState({ loading: true }, () => {
@@ -224,8 +302,8 @@ export default class article5DemO extends React.Component {
                   size={"large"}
                   key={2}
                   id={2}
-                  slices={[1, 1, 1, 1, 1, 1]}
-                  slices1={[1]}
+                  handleAvatar = {this.handleAvatar(stepIndex)}
+                  playerData = {this.state.playerData}
                 />
               </div>
               <div className="main-options col s12 row">

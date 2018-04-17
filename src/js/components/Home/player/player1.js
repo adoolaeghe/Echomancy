@@ -6,17 +6,24 @@ import Avatar from 'material-ui/Avatar';
 createPlayer.crossOrigin = "anonymous";
 
 export default class Player extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
       playing: "pause",
-      audio: createPlayer("public/content/images/songs/daft_punk.mp3")
+      audio: createPlayer("public/content/images/songs/daft_punk.mp3"),
+      playerData: this.props.playerData
     };
   }
-  componentDidMount() {
-    Highcharts.chart(`container${this.props.id}`, pieData())
 
+  componentDidMount() {
+    Highcharts.chart(`container${this.props.id}`, pieData(this.props.playerData));
   }
+
+  componentWillReceiveProps(nextProps) {
+    Highcharts.chart(`container${this.props.id}`, pieData(nextProps.playerData));
+  }
+
   handlePlayClick() {
     this.props.playerClick();
     if (this.state.playing === "pause") {
@@ -59,9 +66,10 @@ export default class Player extends React.Component {
           {this.props.size != "small" && (
             <div
               className={`player-cover-image ${this.props.size} ${this.state.playing}`}
+              style={{opacity: "1"}}
             >
-              <div className='rotating' style={{width: "260px", opacity: "1", height: "260px", position: 'absolute'}}>
-                <Avatar src="./public/content/images/main/avatar.jpg"/>
+              <div className='rotating' style={{width: "340px", opacity: "1", height: "340px", position: 'absolute'}}>
+                {this.props.handleAvatar}
               </div>
               <div className={`player-btn-icon ${this.state.playing}`} />
             </div>
