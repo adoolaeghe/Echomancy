@@ -3,6 +3,13 @@ import Card from 'material-ui/Card';
 import bgConfig from "../../ryme-helpers/ryme-background";
 
 export default class Article2 extends React.Component {
+  
+  shouldComponentUpdate(nextProps) {
+    if(this.props != nextProps) {
+      return true;
+    }
+    return false
+  }
 
   render() {
     return (

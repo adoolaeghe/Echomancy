@@ -5,13 +5,22 @@ import ReactBodymovin from "react-bodymovin";
 import animation from "../../../../../public/content/animation/data1.json";
 import pieData from "../graph/pie4";
 import bgConfig from "../../ryme-helpers/ryme-background";
+import {Doughnut} from 'react-chartjs-2';
 
 export default class Article4 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      animation: false
+      animation: false,
+      data: pieData()
     };
+  }
+
+  shouldComponentUpdate(nextProps) {
+    if(this.props != nextProps) {
+      return true;
+    }
+    return false
   }
 
   returnAnimation(a, b) {
@@ -22,15 +31,23 @@ export default class Article4 extends React.Component {
     }
   }
 
-  componentDidMount() {
-    pieData(this.props.pieScroll);
-  }
-
 
   render() {
+    const legend = {
+      display: false
+    }
+
+    const option = {
+      options: {
+        cutoutPercentage: 80,
+        animation: {
+          animateScale: true
+        }
+      }
+    }
     return (
       <section
-        className="ryme-article article4  hoverable row"
+        className="ryme-article article4 row"
         style={bgConfig.noRepeat('articles/4/background.svg')}
       >
       {this.props.article4Text &&
@@ -52,7 +69,7 @@ export default class Article4 extends React.Component {
           style={bgConfig.repeat('main/hash-background.svg')}
         >
           <div className="" id="bm" />
-          <div id="container4" />
+          <Doughnut option={option} data={this.state.data} legend={legend} />
           <img
             className="slider-button"
             src={"./public/content/images/articles/4/button.svg"}

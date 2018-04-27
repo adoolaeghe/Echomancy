@@ -3,6 +3,7 @@ import pieData from "../graph/piePlayer1";
 import FloatingActionButton from "material-ui/FloatingActionButton";
 var createPlayer = require("web-audio-player");
 import Avatar from 'material-ui/Avatar';
+import {Doughnut} from 'react-chartjs-2';
 createPlayer.crossOrigin = "anonymous";
 
 export default class Player extends React.Component {
@@ -12,16 +13,9 @@ export default class Player extends React.Component {
     this.state = {
       playing: "pause",
       audio: createPlayer("public/content/images/songs/daft_punk.mp3"),
-      playerData: this.props.playerData
+      playerData: this.props.playerData,
+      data: pieData()
     };
-  }
-
-  componentDidMount() {
-    Highcharts.chart(`container${this.props.id}`, pieData(this.props.playerData));
-  }
-
-  componentWillReceiveProps(nextProps) {
-    Highcharts.chart(`container${this.props.id}`, pieData(nextProps.playerData));
   }
 
   handlePlayClick() {
@@ -49,13 +43,15 @@ export default class Player extends React.Component {
   }
 
   render() {
+    const legend = {
+      display: false
+    }
     return (
       <div className={`player player-wrapper ${this.props.size}`}>
         <div
-          className={`player-wrapper ${this.props.size} `}
+          className={`player-wrapper rotating ${this.props.size} `}
         >
-          <div id={`container${this.props.id}`} className="player-container rotating">
-          </div>
+          <Doughnut data={this.state.data} legend={legend} width={370} height={370} />
         </div>
         <div
           className={`player-cover ${this.props.size} ${this.state.playing}`}

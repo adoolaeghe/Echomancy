@@ -1,20 +1,22 @@
 import React from "react";
 import Player from "../player/player";
 import bgConfig from "../../ryme-helpers/ryme-background";
+import Chip from 'material-ui/Chip';
+import Avatar from 'material-ui/Avatar';
 
 export default class Article1 extends React.Component {
 
   constructor() {
     super()
     this.state = {
-      showPlayerSide: false
+      showPlayerSide: true
     }
   }
 
   render() {
     return (
       <section
-        className="ryme-article article1  row"
+        className="ryme-article article1 row"
         id="article1"
         style={bgConfig.noRepeat('articles/1/background.svg')}
       >
@@ -58,7 +60,23 @@ export default class Article1 extends React.Component {
             alt="Kiwi standing on oval"
           />
           <div className={`player-side-info ${this.state.showPlayerSide ? "showPlayerSide" : "hidePlayerSide"}`}>
-            This is a description of the the player
+             <Chip style={{ margin: "10px"}} backgroundColor={"#6884FB"} labelColor={"white"}>
+               <Avatar src="./public/content/images/main/avatar.jpg" />
+               Bob 1.3
+             </Chip>
+             <Chip style={{ margin: "10px"}} backgroundColor={"#0F3FD5"} labelColor={"white"}>
+               <Avatar src="./public/content/images/main/avatar.jpg" />
+               Bob 1.3
+             </Chip>
+             <Chip style={{ margin: "10px"}} backgroundColor={"#FEBE65"} labelColor={"white"}>
+               <Avatar src="./public/content/images/main/avatar.jpg" />
+               Bob 1.3
+             </Chip>
+            <img
+              className="slider-button"
+              src={"./public/content/images/articles/1/button.svg"}
+              alt="Kiwi standing on oval"
+            />
           </div>
           <div className="dot-right"/>
         </div>

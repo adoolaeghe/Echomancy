@@ -27,7 +27,8 @@ export default class Article6 extends React.Component {
       cardShadow: 1,
       headerDisplay: true,
       zIndex: false,
-      cancel: false
+      cancel: false,
+      active: false
     };
   }
 
@@ -44,11 +45,11 @@ export default class Article6 extends React.Component {
             id="article5left"
             style={{backgroundImage:"url(./public/content/images/main/hash-background.svg)"}}
           >
-            <div style={{ backgroundImage:"url(./public/content/images/articles/5/illustration.svg)",}}/>
+            <div style={{ backgroundImage:"url(./public/content/images/articles/6/illustration.svg)",}}/>
           </div>
-          <div id="article5main" className="col m6 l5" style= {{zIndex: this.state.zIndex ? "1400" : "900"}}>
+          <div id="article5main" className="col m6 l5  number-4" style= {{zIndex: this.state.zIndex ? "1400" : "900"}}>
             <div>
-              <div className="text-header-line"/>
+              <div className="text-header-line number-4"/>
               <h2>SECTION</h2>
               <p>
                 Eco is a global currency not controlled by any single
@@ -64,20 +65,19 @@ export default class Article6 extends React.Component {
                 "url(./public/content/images/main/hash-background-reverse.svg)",
               zIndex: this.state.zIndex ? "1400" : "900"
             }}
+            onClick={()=> {this.setState({headerDisplay: !this.state.headerDisplay, zIndex: !this.state.zIndex, cancel: !this.state.cancel, active: !this.state.active})}}
           >
             <div
-              className={`article5-demo-trigger btn-floating btn-large white ${this.state.cancel ? "cancel" : ''}`}
-              onClick={()=> {this.setState({headerDisplay: !this.state.headerDisplay, zIndex: !this.state.zIndex, cancel: !this.state.cancel})}}>
+              className={`article-demo-trigger number-4 btn-large white btn-floating ${this.state.active ? "active" : ""}`}>
               <i style={{
                 backgroundImage:"url(./public/content/images/main/logo-secondary.svg)",
-                backgroundSize: "100%",
+                backgroundSize: "50%",
                 backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-                height: "60px"
+                backgroundRepeat: "no-repeat"
               }}></i>
             </div>
-            <span className="article-number">
-             03.
+            <span className="article-number number-4">
+             05.
             </span>
           </a>
         </div>

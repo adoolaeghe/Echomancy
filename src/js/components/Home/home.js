@@ -2,7 +2,7 @@ import React from "react";
 
 import Card from 'material-ui/Card';
 import Drawer from "material-ui/Drawer";
-// import LazyLoad from 'react-lazyload';
+import LazyLoad from 'react-lazyload';
 import Player from "./player/player";
 import Toggle from 'material-ui/Toggle';
 import ReactTooltip from 'react-tooltip';
@@ -74,7 +74,7 @@ export default class Demo extends React.Component {
       this.setState({
         waitPage: false
       })
-    }, 2000);
+    }, 3000);
   }
 
   handleMenu() {
@@ -132,34 +132,23 @@ export default class Demo extends React.Component {
       )
     } else {
     return (
-      <div className="row">
+      <div className="row" style={{cursor: "url(./public/content/images/main/avatar.jpg) 4 12, auto"}}>
 
         <div className="col s1 side-right">
-          <Menu menuDisplay= {this.state.menuDisplay}
-                handleMenu= {() => {this.handleMenu()}}
-                handleFaq = {() => {this.handleFaqDrawer()}}
-          />
-          <Faq faqDisplay={this.state.faqDisplay}
-               handleFaq = {() => {this.handleFaqDrawer()}}
-               open = {this.state.open}
-          />
+
         </div>
 
         <Card className="col s10" style={{ zIndex: 100001 }}>
           <NavBar />
+
           <Article1 article1Arrow={this.state.article1Arrow} />
-
-            <Article2 article2Main={this.state.article2Main}/>
-
-
-            <Article3 article3Anim={this.state.article3Anim}
+          <Article2 article2Main={this.state.article2Main}/>
+          <Article3 article3Anim={this.state.article3Anim}
                       article3Text={this.state.article3Text}
                       pieScroll = {this.state.pieScroll}/>
-
-
-            <Article4 article4Anim={this.state.article4Anim}
-                      article4Text={this.state.article4Text}
-                      pieScroll = {this.state.pieScroll}/>
+          <Article4 article4Anim={this.state.article4Anim}
+                    article4Text={this.state.article4Text}
+                    pieScroll = {this.state.pieScroll}/>
 
         </Card>
 

@@ -1,18 +1,15 @@
 import React from "react";
 import ReactBodymovin from "react-bodymovin";
-import menuAnimDataA from "../../../../../public/content/animation/loadingAnimData.json";
+import bgConfig from "../../ryme-helpers/ryme-background";
 
 export default class LoadingPage extends React.Component {
   render() {
-    const menuAnimOptionA = {
-      loop: true,
-      autoplay: true,
-      prerender: false,
-      animationData: menuAnimDataA
-    };
     return (
       <div className="loading-page-wrapper">
-        <ReactBodymovin className="loadingPage" style={{width: "70px"}} key={1} options={menuAnimOptionA} />
+        <div className="loading-page-logo rotating large"
+             style={{backgroundImage:"url(./public/content/images/articles/loadingPage/logo1.svg"}}></div>
+        <div className="loading-page-logo rotating-reverse small"
+             style={{backgroundImage:"url(./public/content/images/articles/loadingPage/logo1.svg"}}></div>
       </div>
     );
   }

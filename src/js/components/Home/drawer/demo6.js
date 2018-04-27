@@ -1,4 +1,5 @@
 import React from "react";
+import animation from "../../../../../public/content/animation/data.json";
 import Player from "../player/player";
 import FloatingActionButton from "material-ui/FloatingActionButton";
 import ContentAdd from "material-ui/svg-icons/content/add";
@@ -7,7 +8,9 @@ import Slider from "material-ui/Slider";
 import FlatButton from "material-ui/FlatButton";
 import Drawer from "material-ui/Drawer";
 import ReactBodymovin from "react-bodymovin";
-import animation from "../../../../../public/content/animation/data.json";
+import Graph from "../graph/graph6";
+import {Line} from 'react-chartjs-2';
+
 import {
   Card,
   CardActions,
@@ -68,8 +71,89 @@ export default class Article6Demo extends React.Component {
       crtSharePrice: 0,
       slider: 4,
       expanded: false,
-      cardShadow: 1
+      cardShadow: 1,
+      data: {
+        labels: this.handleLabel(),
+        datasets: [
+          {
+            label: "Data3",
+            data: this.handlePlotLine(),
+            borderColor: "red",
+            pointRadius: 0,
+            color: "rgba(255,255,255,0)"
+          },
+          {
+            label: "Data1",
+            data: this.handleRymeData1(),
+            borderColor: "red",
+            fill: false
+          },
+          {
+            label: "Data2",
+            data: this.handleRymeData(),
+            borderColor: "#FEBE65",
+            fill: false
+          },
+       ]
+      }
     };
+  }
+
+
+  handleLabel() {
+    let to_return = [];
+    for(var x = 0; x<67; x++) {
+      to_return.push(x)
+    }
+    return to_return;
+  }
+
+  handleRymeData() {
+    let to_return = [];
+    let price = 1;
+    let totNbShare = 1;
+    let totPrice = 1;
+    let avgPrice = 1;
+    for(var x = 0; x<67; x++) {
+      to_return.push(avgPrice)
+      avgPrice = totPrice/totNbShare;
+      totNbShare++
+      price = avgPrice + 1;
+      if (x === 14 || x === 19 || x === 40 || x === 60) {
+        totPrice = totPrice - price;
+      } else {
+        totPrice = totPrice + price;
+      }
+    }
+    return to_return;
+  }
+
+  handlePlotLine() {
+    let to_return = [];
+    for(var x = 0; x<67; x++) {
+      to_return.push(2)
+    }
+    return to_return;
+  }
+
+  handleRymeData1() {
+    let to_return = [];
+    let price = 1;
+    let totNbShare = 1;
+    let totPrice = 1;
+    let avgPrice = 1;
+    for(var x = 0; x<67; x++) {
+      to_return.push(price)
+      avgPrice = totPrice/totNbShare;
+      totNbShare++
+      price = avgPrice + 1;
+      if (x === 14 || x === 19 || x === 40 || x === 60) {
+        totPrice = totPrice - price;
+      } else {
+        totPrice = totPrice + price;
+      }
+    }
+    return to_return;
   }
 
   handleCrtShare(
@@ -162,7 +246,7 @@ export default class Article6Demo extends React.Component {
       this.state.priceIncrementor,
       this.state.initialNbOfShare,
       this.state.initialSharePrice,
-      value
+
     );
   };
 
@@ -183,9 +267,28 @@ export default class Article6Demo extends React.Component {
     let shareIncrementor = this.state.shareIncrementor;
     let priceIncrementor = this.state.priceIncrementor;
     let initialSharePrice = this.state.initialSharePrice;
+    const option =
+    {
+        legend: {
+          display: false
+        },
+
+        scales:
+        {
+            xAxes: [{
+              display: false
+            }],
+            yAxes: [{
+              ticks: {
+                  display: false
+              }
+            }]
+        }
+    }
+    this.handleRymeData()
     return (
       <Drawer
-        width={$(window).width()*0.439}
+        width={(document.documentElement.clientWidth)*0.439}
         docked={false}
         openSecondary={false}
         zDepth={1}
@@ -194,30 +297,22 @@ export default class Article6Demo extends React.Component {
           zIndex: "1401",
           backgroundColor: "white",
         }}
-        style={{
-          zIndex: "1401"
-        }}
+        style={{zIndex: "1401"}}
         overlayStyle={{opacity: "0.2"}}
       >
+
       <CardText expandable={true}>
         <div className="demo-main col s12">
-        <div
-        className="demo-main-label col s12"
-        >
-        <span>Artist Payout: </span>
-
-        </div>
-          <div
-            className="demo-main-visual row col s12"
-            style={{ position: "relative",backgroundImage:
-              "url(./public/content/images/main/hash-background.svg)"  }}
-          >
-
+          <div className="demo-main-visual row col s12"
+               style={{ position: "relative", height: "340px"}}>
+            <div className="demo-chart-title">hello</div>
+            <Line data={this.state.data} ref='chart' options={option}
+                width="600" height="320"/>
           </div>
-          <div
-            className="demo-main-info1 col s12"
-            style={{ zIndex: "1" }}
-          >
+
+          <div className="demo-main-info1 col s12"
+               style={{ zIndex: "1" }}>
+
             <div className="col s4 info-content row">
               <div className="col s12 info-label">Total Amount</div>
             </div>
@@ -227,21 +322,27 @@ export default class Article6Demo extends React.Component {
             <div className="col s4 info-content row">
               <div className="col s12 info-label">Current Share Price</div>
             </div>
+
           </div>
           <div className="demo-main-info3 col s12"
             style={{ backgroundImage:
-              "url(./public/content/images/main/hash-background.svg)"  }}
-          >
+              "url(./public/content/images/main/hash-background.svg)"  }}>
+
             <div className="col s4 info-content row">
-              <div className="col s12 info-label">1</div>
+              <div className="col s12 info-label info-left">
+                1
+              </div>
             </div>
+
             <div className="col s4 info-content row">
-              <div className="col s12 info-label">2</div>
+              <div className="col s12 info-label info-center">2</div>
             </div>
+
             <div className="col s4 info-content row">
-              <div className="col s12 info-label">3</div>
+              <div className="col s12 info-label info-right">3</div>
             </div>
           </div>
+
           <div className="demo-main-info2 col s12">
             <div className="demo-info2-content cols12">
               {this.handleSongPartRender()}
@@ -255,135 +356,55 @@ export default class Article6Demo extends React.Component {
                 initialNbOfShare,
                 initialSharePrice
               )}
+              sliderStyle={{
+                marginTop: "18px"
+              }}
+              defaultValue = {40}
               step={max / 100}
               onChange={this.handleSlider}
             />
           </div>
+
+          <div className="demo-main-info1 col s12"
+               style={{ zIndex: "1" }}>
+            <div className="col s4 info-content row">
+              <div className="col s12 info-label">Share Sold</div>
+            </div>
+
+            <div className="col s4 info-content row">
+              <div className="col s12 info-label">Current Share Price</div>
+            </div>
+
+            <div className="col s4 info-content row">
+              <div className="col s12 info-label">Current Share Price</div>
+            </div>
+          </div>
+
           <div className="demo-main-info3 col s12"
             style={{ backgroundImage:
-              "url(./public/content/images/main/hash-background.svg)"  }}
-          >
+              "url(./public/content/images/main/hash-background.svg)"  }}>
+
             <div className="col s4 info-content row">
-              <div className="col s12 info-label">1</div>
-            </div>
-            <div className="col s4 info-content row">
-              <div className="col s12 info-label">2</div>
-            </div>
-            <div className="col s4 info-content row">
-              <div className="col s12 info-label">3</div>
-            </div>
-          </div>
-          <div className="demo-main-info5 col s12 row">
-            <div className="col s3 options row">
-              <div className="col s12 options-button">
-                <div className="col s6 options-button">
-                  <FloatingActionButton
-                    mini={true}
-                    backgroundColor="#eae4e1"
-                    iconStyle={{width: "30px", height: "30px"}}
-                    disabled={initialNbOfShare < 1 ? true : false}
-                    onClick={() => {
-                      this.setState({
-                        initialNbOfShare: initialNbOfShare - 1
-                      });
-                    }}
-                  >
-                    <ContentRemove />
-                  </FloatingActionButton>
-                </div>
-                <div className="col s6 options-button">
-                  <FloatingActionButton
-                    mini={true}
-                    backgroundColor="#eae4e1"
-                    iconStyle={{width: "30px", height: "30px"}}
-                    disabled={initialNbOfShare > 9 ? true : false}
-                    onClick={() => {
-                      this.setState({
-                        initialNbOfShare: initialNbOfShare + 1
-                      });
-                    }}
-                  >
-                    <ContentAdd />
-                  </FloatingActionButton>
-                </div>
+              <div className="col s12 info-label info-left">
+                0
               </div>
             </div>
-            <div className="col s1 options-val">{initialNbOfShare}</div>
-            <div className="col s3 options">
-              <div className="col s12 options-button">
-                <div className="col s6 options-button">
-                  <FloatingActionButton
-                    mini={true}
-                    backgroundColor="#eae4e1"
-                    iconStyle={{width: "30px", height: "30px"}}
-                    disabled={initialSharePrice < 1 ? true : false}
-                    onClick={() => {
-                      this.setState({
-                        initialSharePrice: initialSharePrice - 1
-                      });
-                    }}
-                  >
-                    <ContentRemove />
-                  </FloatingActionButton>
-                </div>
-                <div className="col s6 options-button">
-                  <FloatingActionButton
-                    mini={true}
-                    backgroundColor="#eae4e1"
-                    iconStyle={{width: "30px", height: "30px"}}
-                    disabled={initialSharePrice > 4 ? true : false}
-                    onClick={() => {
-                      this.setState({
-                        initialSharePrice: initialSharePrice + 1
-                      });
-                    }}
-                  >
-                    <ContentAdd />
-                  </FloatingActionButton>
-                </div>
+
+            <div className="col s4 info-content row">
+              <div className="col s12 info-label info-center">
+                {initialSharePrice}
               </div>
             </div>
-            <div className="col s1 options-val">{initialSharePrice}</div>
-            <div className="col s3 options">
-              <div className="col s12 options-button">
-                <div className="col s6 options-button">
-                  <FloatingActionButton
-                    mini={true}
-                    backgroundColor="#eae4e1"
-                    iconStyle={{width: "30px", height: "30px"}}
-                    disabled={initialSharePrice < 1 ? true : false}
-                    onClick={() => {
-                      this.setState({
-                        initialSharePrice: initialSharePrice - 1
-                      });
-                    }}
-                  >
-                    <ContentRemove />
-                  </FloatingActionButton>
-                </div>
-                <div className="col s6 options-button">
-                  <FloatingActionButton
-                    mini={true}
-                    iconStyle={{width: "30px", height: "30px"}}
-                    backgroundColor="#eae4e1"
-                    disabled={initialSharePrice > 4 ? true : false}
-                    onClick={() => {
-                      this.setState({
-                        initialSharePrice: initialSharePrice + 1
-                      });
-                    }}
-                  >
-                    <ContentAdd />
-                  </FloatingActionButton>
-                </div>
+
+            <div className="col s4 info-content row">
+              <div className="col s12 info-label info-right">
+                {initialSharePrice}
               </div>
             </div>
-            <div className="col s1 options-val">{initialSharePrice}</div>
           </div>
         </div>
-
       </CardText>
-      </Drawer>
+    </Drawer>
     );
   }
 }

@@ -1,10 +1,10 @@
-.fixed-action-btn
-  position: fixed
+.action-btn
   border-radius: 0px
-  top: 0px
+  display: block
   left: 0
-  width: 10%
+  top: 0
   z-index: 10000000000
+  text-align: center
   .menu-btn
     height: 60px !important
     width: 8.3vw
@@ -22,10 +22,12 @@
     cursor: pointer
     z-index: 1000 !important
   ul
-    text-align: left
+    text-align: center
     left: 2.4vw
     top: 80px
-    width: 5%
+    width: 9vw
+    li
+      margin: 15px
 .nav-menu
   position: fixed !important
   display: flex
@@ -39,7 +41,8 @@
   .menu-icon-media
     position: fixed
     bottom: 0
-    left: 2.5vw !important
+    right: 2.5vw !important
+    width: 40px !important
     li
       height: 50px
     .menu-item-icon

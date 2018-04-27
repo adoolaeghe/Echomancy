@@ -1,8 +1,9 @@
 import React from "react";
-
+import Badge from 'material-ui/Badge';
 import Drawer from "material-ui/Drawer";
 import Card from "material-ui/Card";
 import Menu from "material-ui/Menu";
+import Chip from 'material-ui/Chip';
 import MenuItem from "material-ui/MenuItem";
 import Player from "../player/player1";
 import ExpandTransition from "material-ui/internal/ExpandTransition";
@@ -65,6 +66,7 @@ export default class article5DemO extends React.Component {
     const { stepIndex } = this.state;
     if (!this.state.loading) {
       let playerData = this.state.playerData;
+
       playerData.push({
           "name": "rym2",
           "y": 1,
@@ -88,7 +90,6 @@ export default class article5DemO extends React.Component {
 
   handlePrev = () => {
     const { stepIndex } = this.state;
-
     let playerData = this.state.playerData;
     playerData.pop();
 
@@ -181,42 +182,42 @@ export default class article5DemO extends React.Component {
     switch(stepIndex) {
       case 0:
         return (
-          <Avatar style={{width: "30px", height: "30px", border: "3px solid white", position: "absolute", top: "47%", left: "0"}}
-                  className='rotating-reverse' src="./public/content/images/main/avatar.jpg"/>
+            <Avatar className='demo-avatar rotating-reverse'
+                    src="./public/content/images/main/avatar.jpg"/>
         )
       case 1:
         return(
           <div>
-            <Avatar style={{width: "30px", height: "30px", border: "3px solid white", position: "absolute", top: "26%", left: "5%"}}
-                    className='rotating-reverse' src="./public/content/images/main/avatar.jpg"/>
-            <Avatar style={{width: "30px", height: "30px", border: "3px solid white", position: "absolute", top: "25%", left: "86%"}}
-                    className='rotating-reverse' src="./public/content/images/main/avatar.jpg"/>
+            <Avatar className='demo-avatar rotating-reverse'
+                    src="./public/content/images/main/avatar.jpg"/>
+            <Avatar className='demo-avatar rotating-reverse'
+                    src="./public/content/images/main/avatar.jpg"/>
           </div>
         )
       case 2:
         return(
           <div>
-            <Avatar style={{width: "30px", height: "30px", border: "3px solid white", position: "absolute", top: "12%", left: "13%"}}
-                    className='rotating-reverse' src="./public/content/images/main/avatar.jpg"/>
-            <Avatar style={{width: "30px", height: "30px", border: "3px solid white", position: "absolute", top: "12%", right: "13%"}}
-                    className='rotating-reverse' src="./public/content/images/main/avatar.jpg"/>
-            <Avatar style={{width: "30px", height: "30px", border: "3px solid white", position: "absolute", bottom: "12%", left: "13%"}}
-                    className='rotating-reverse' src="./public/content/images/main/avatar.jpg"/>
+            <Avatar className='demo-avatar rotating-reverse'
+                    src="./public/content/images/main/avatar.jpg"/>
+            <Avatar className='demo-avatar rotating-reverse'
+                    src="./public/content/images/main/avatar.jpg"/>
+            <Avatar className='demo-avatar rotating-reverse'
+                    src="./public/content/images/main/avatar.jpg"/>
           </div>
         )
       case 3:
         return(
           <div>
-            <Avatar style={{width: "30px", height: "30px", border: "3px solid white", position: "absolute", top: "12%", left: "13%"}}
-                    className='rotating-reverse' src="./public/content/images/main/avatar.jpg"/>
-            <Avatar style={{width: "30px", height: "30px", border: "3px solid white", position: "absolute", top: "8%", right: "21%"}}
-                    className='rotating-reverse' src="./public/content/images/main/avatar.jpg"/>
-            <Avatar style={{width: "30px", height: "30px", border: "3px solid white", position: "absolute", bottom: "1%", left: "48%"}}
-                    className='rotating-reverse' src="./public/content/images/main/avatar.jpg"/>
+            <Avatar className='demo-avatar rotating-reverse'
+                    src="./public/content/images/main/avatar.jpg"/>
+            <Avatar className='demo-avatar rotating-reverse'
+                    src="./public/content/images/main/avatar.jpg"/>
+            <Avatar className='demo-avatar rotating-reverse'
+                    src="./public/content/images/main/avatar.jpg"/>
           </div>
         )
+      }
     }
-  }
 
 
   getStepContent(stepIndex) {
@@ -224,45 +225,77 @@ export default class article5DemO extends React.Component {
       case 0:
         return (
           <div className='demo-description'>
-            <p>Buy one or more bits of the song</p>
-            <img
-              className="demo-illustration"
-              src={"./public/content/images/articles/5/wave1.svg"}
-              alt="Kiwi standing on oval"
-            />
+            <p>At first, Bob has bought the first share of the song.</p>
           </div>
         );
       case 1:
         return (
           <div className='demo-description'>
             <p>New comers may buy the parts that youve recently revealed</p>
-            <img
-              className="demo-illustration"
-              src={"./public/content/images/articles/5/wave2.svg"}
-              alt="Kiwi standing on oval"
-            />
           </div>
         );
       case 2:
         return (
           <div className='demo-description'>
             <p>Description</p>
-            <img
-              className="demo-illustration"
-              src={"./public/content/images/articles/5/wave3.svg"}
-              alt="Kiwi standing on oval"
-            />
           </div>
         );
       case 3:
         return (
           <div className='demo-description'>
             <p>Song Length</p>
-            <img
-              className="demo-illustration"
-              src={"./public/content/images/main/wave-test.png"}
-              alt="Kiwi standing on oval"
-            />
+          </div>
+        );
+      default:
+        return "This is the default song length";
+    }
+  }
+
+  getBagesContent(stepIndex) {
+    switch (stepIndex) {
+      case 0:
+        return (
+          <div className="demo-badges">
+            <Chip style={{ margin: "10px" }}>
+              <Avatar src="./public/content/images/main/avatar.jpg" />
+              Bob 1.3
+            </Chip>
+          </div>
+        );
+      case 1:
+        return (
+          <div className="demo-badges">
+            <Chip style={{ margin: "10px" }}>
+              <Avatar src="./public/content/images/main/avatar.jpg" />
+              Bob 1.3
+            </Chip>
+            <Chip style={{ margin: "10px" }}>
+              <Avatar src="./public/content/images/main/avatar.jpg" />
+              Bob 1.3
+            </Chip>
+          </div>
+        );
+      case 2:
+        return (
+          <div className="demo-badges">
+            <Chip style={{ margin: "10px" }}>
+              <Avatar src="./public/content/images/main/avatar.jpg" />
+              Bob 1.3
+            </Chip>
+            <Chip style={{ margin: "10px" }}>
+              <Avatar src="./public/content/images/main/avatar.jpg" />
+              Bob 1.3
+            </Chip>
+            <Chip style={{ margin: "10px" }}>
+              <Avatar src="./public/content/images/main/avatar.jpg" />
+              Bob 1.3
+            </Chip>
+          </div>
+        );
+      case 3:
+        return (
+          <div className='demo-description'>
+            <p>Song Length</p>
           </div>
         );
       default:
@@ -280,7 +313,7 @@ export default class article5DemO extends React.Component {
     const { finished, loading, stepIndex } = this.state;
     return (
       <Drawer
-        width={$(window).width()*0.439}
+        width={(document.documentElement.clientWidth)*0.439}
         docked={false}
         openSecondary={false}
         zDepth={1}
@@ -306,6 +339,7 @@ export default class article5DemO extends React.Component {
                   playerData = {this.state.playerData}
                 />
               </div>
+              {this.getBagesContent(stepIndex)}
               <div className="main-options col s12 row">
                 <Stepper className="main-options-steps" activeStep={stepIndex}>
                   <Step>

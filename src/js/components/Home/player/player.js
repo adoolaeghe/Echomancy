@@ -3,19 +3,19 @@ import pieData from "../graph/piePlayer";
 import FloatingActionButton from "material-ui/FloatingActionButton";
 var createPlayer = require("web-audio-player");
 createPlayer.crossOrigin = "anonymous";
+import {Doughnut} from 'react-chartjs-2';
+import bgConfig from "../../ryme-helpers/ryme-background";
 
 export default class Player extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       playing: "pause",
-      audio: createPlayer("public/content/images/songs/daft_punk.mp3")
+      audio: createPlayer("public/content/images/songs/daft_punk.mp3"),
+      data: pieData()
     };
   }
-  componentDidMount() {
-    Highcharts.chart(`container${this.props.id}`, pieData())
 
-  }
   handlePlayClick() {
     this.props.playerClick();
     if (this.state.playing === "pause") {
@@ -41,24 +41,24 @@ export default class Player extends React.Component {
   }
 
   render() {
+    const legend = {
+      display: false
+    }
+
     return (
       <div className={`player player-wrapper ${this.props.size}`}>
-        <div
-          className={`player-wrapper ${this.props.size} `}
-        >
-          <div id={`container${this.props.id}`} className="player-container rotating" />
+        <div className={`player-wrapper rotating ${this.props.size} `}>
+          <Doughnut data={this.state.data} legend={legend} width={370} height={370} />
         </div>
         <div
           className={`player-cover ${this.props.size} ${this.state.playing}`}
           onClick={() => {
             this.handlePlayClick();
-          }}
-        >
+          }}>
           {this.props.size != "small" && (
-            <div
-              className={`player-cover-image ${this.props.size} ${this.state.playing}`}
-            >
-              <div className={`player-btn-icon ${this.state.playing}`} />
+            <div className={`player-cover-image ${this.props.size} ${this.state.playing}`}>
+              <div className={`player-btn-icon ${this.state.playing}`}
+                   style={bgConfig.noRepeat('main/play.svg')}/>
             </div>
           )}
         </div>

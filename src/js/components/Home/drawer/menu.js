@@ -41,15 +41,11 @@ export default class Menu extends React.Component {
     };
     return (
 
-      <Card style={{zIndex:"1000"}} className="nav-menu col s1" href="#!">
+      <Card style={{zIndex:"1002", height: "180px", position: "fixed", width: "8.3%"}} className="nav-menu col s1" href="#!">
       <ReactTooltip place="left" effect="solid"/>
-      <div className="fixed-action-btn">
-        <a className="menu-btn" data-position="bottom" data-tooltip="I am a tooltip">
-          MENU
-          <div className="dot-right" />
-        </a>
+      <div className="action-btn">
         <ul>
-          <li onClick= {this.props.handleFaq}>
+          <li onClick= {this.props.handleFaq} data-tip={"White Paper"}>
             <a className="btn-floating white"
             style={{
               background:
@@ -59,7 +55,7 @@ export default class Menu extends React.Component {
             }}>
             </a>
           </li>
-          <li onClick= {this.props.handleFaq}>
+          <li onClick= {this.props.handleFaq} data-tip={"Contacts"}>
             <a className="btn-floating white"
             style={{
               background:
@@ -69,7 +65,7 @@ export default class Menu extends React.Component {
             }}>
             </a>
           </li>
-          <li onClick= {this.props.handleFaq}>
+          <li onClick= {this.props.handleFaq} data-tip={"Faq"}>
             <a className="btn-floating white"
             style={{
               background:

@@ -5,6 +5,16 @@
   width: 100%
   height: 60vh
 
+  .demo-avatar
+    width: 30px
+    height: 30px
+    border: 3px solid white
+    position: absolute
+    top: 26%
+    left: 5%
+
+.demo-badges
+  display: flex
 
 .main-options
   +border-top-light
@@ -12,20 +22,20 @@
   .main-options-steps
     +border-bottom-light
   .demo-description
-    height: 15vh
+    height: 5vh
     text-align: center
   .demo-btn
     text-align: center
   .demo-illustration
     width: 100%
-    height: 70px
+    height: 40px
 
 .demo-main
   height: 100%
   border-right: 1px solid lightgrey
   border-left: 1px solid lightgrey
   .demo-main-label
-    height: 70px
+    height: 40px
     text-align: center
     span
       font-size: 25px
@@ -34,7 +44,9 @@
   .demo-main-visual
     background-color: white
     +flex(null, space-between, center)
-    height: 330px
+    .demo-chart-title
+      +Position(absolute, 270Px, null, null, 100%)
+      text-align: center
   .demo-main-info1
     .info-label
       +primary-font-light
@@ -62,14 +74,31 @@
       .demo-info2-content-element
         height: 100%
         width: 100%
-        border-right: 1px solid grey
+        border-right: 1px solid lightgrey
+        border-bottom: 1px solid lightgrey
   .demo-main-info3
     height: 50px
+    text-align: center
     .info-label
       +primary-font-light
       +flex(null, center, center)
+      +configFont(20px, 700, null)
+      width: 50%
+      margin-left: 25%
       height: 50px
       text-align: center
+      &.info-left
+        color: $ryme-dark-blue
+        border-top: 3px solid $ryme-dark-blue
+        border-bottom: 3px solid $ryme-dark-blue
+      &.info-center
+        color: $ryme-pale-blue
+        border-top: 3px solid $ryme-pale-blue
+        border-bottom: 3px solid $ryme-pale-blue
+      &.info-right
+        color: $ryme-red
+        border-top: 3px solid $ryme-red
+        border-bottom: 3px solid $ryme-red
     .info-val
       +primary-font-bold
       +flex(null, center, center)
@@ -88,8 +117,9 @@
         height: 50px
         background-color: white
       .options-button
-        height: 90px
+        height: 70px
         .options-button
+          border-top: 1px solid lightgrey
           border-right: 1px solid lightgrey
           +flex(null, center, center)
           .button-dot

@@ -29,7 +29,8 @@ export default class Article5 extends React.Component {
       expanded: false,
       cardShadow: 1,
       headerDisplay: true,
-      zIndex: false
+      zIndex: false,
+      active: false
     };
   }
 
@@ -39,7 +40,7 @@ export default class Article5 extends React.Component {
 
         <Demo5 display={this.state.headerDisplay}/>
 
-        <div className={`card-header hoverable row`}>
+        <div className={`card-header row`}>
 
           <div className="col m3 l5"
                id="article5left"
@@ -47,9 +48,9 @@ export default class Article5 extends React.Component {
             <div style={bgConfig.noRepeat('articles/5/illustration.svg')}/>
           </div>
 
-          <div id="article5main" className="col m6 l5" style= {{zIndex: this.state.zIndex ? "1400" : "900"}}>
+          <div id="article5main" className="col m6 l5  number-3" style= {{zIndex: this.state.zIndex ? "1400" : "900"}}>
             <div>
-              <div className="text-header-line"/>
+              <div className="text-header-line number-3"/>
               <h2>SECTION</h2>
               <p>
                 Eco is a global currency not controlled by any single
@@ -69,15 +70,21 @@ export default class Article5 extends React.Component {
                this.setState({
                  headerDisplay: !this.state.headerDisplay,
                  zIndex: !this.state.zIndex,
-                 cancel: !this.state.cancel
+                 cancel: !this.state.cancel,
+                 active: !this.state.active
                })
              }}
           >
             <div
-              className="article-demo-trigger btn-large white btn-floating">
-              <i style={bgConfig.noRepeat('main/logo-secondary')}></i>
+              className={`article-demo-trigger number-3 btn-large white btn-floating ${this.state.active ? "active" : ""}`}>
+              <i style={{
+                backgroundImage:"url(./public/content/images/main/logo-secondary.svg)",
+                backgroundSize: "50%",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat"
+              }}></i>
             </div>
-            <span className="article-number">
+            <span className="article-number number-3">
              03.
             </span>
           </a>

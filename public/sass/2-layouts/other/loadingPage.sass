@@ -1,0 +1,18 @@
+.loading-page-wrapper
+  +flex(null, center, center)
+  width: 100vw
+  height: 100vh
+  background-color: $ryme-dark-blue
+  animation: pageLoadFadeIn 3s
+
+  .loading-page-logo
+    position: absolute
+    background-size: cover
+
+    &.small
+      width: 70px
+      height: 70px
+
+    &.large
+      width: 100px
+      height: 100px

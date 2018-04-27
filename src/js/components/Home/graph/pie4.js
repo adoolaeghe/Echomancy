@@ -1,72 +1,29 @@
 export default function returnPie4(scroll) {
-  let pieScroll = [1,1,1,1];
-  Highcharts.chart(`container4`, {
-    chart: {
-      plotBackgroundColor: null,
-      plotBorderWidth: null,
-      plotShadow: false,
-      height: "400px",
-      backgroundColor: "transparent",
-      type: "pie",
-      animation: Highcharts.svg, // don't animate in old IE
-      marginRight: 10,
-      events: {
-          load: function () {
-
-              // set up the updating of the chart each second
-              var series = this.series[0];
-              var i = 0;
-              setInterval(function () {
-                  var y =  Math.floor(Math.random() * Math.floor(10000));
-                  if(i < 10){series.addPoint([y], true, false, {duration: 4000})};
-                  i++
-              }, 1000);
-          }
-      }
+  return {
+    datasets: [{
+        label: "1",
+        data: [10, 20, 30],
+        backgroundColor: ["#6884FB", "#FEBE65", "#0F3FD5"],
     },
-    title: {
-      text: ""
+    {
+        label: "2",
+        data: [13, 20, 23, 12, 34, 23],
+        backgroundColor: ["#6884FB", "#FEBE65", "#0F3FD5", "#6884FB", "#FEBE65", "#0F3FD5"],
     },
-    tooltip: {
-      pointFormat: "{series.name}: <b>{point.percentage:.1f}%</b>"
+    {
+        label: "3",
+        data: [5, 10, 33, 12, 34, 23],
+        backgroundColor: ["#6884FB", "#FEBE65", "#0F3FD5", "#6884FB", "#FEBE65", "#0F3FD5"],
     },
-    plotOptions: {
-      pie: {
-        allowPointSelect: true,
-        cursor: "pointer",
-        size: 320,
-        dataLabels: {
-          enabled: true,
-          format: "",
-          style: {
-            color:
-              (Highcharts.theme && Highcharts.theme.contrastTextColor) ||
-              "black"
-          }
-        }
-      }
+    {
+        label: "4",
+        data: [13, 20, 23, 12, 34, 23],
+        backgroundColor: ["#6884FB", "#FEBE65", "#0F3FD5", "#6884FB", "#FEBE65", "#0F3FD5"],
     },
-    "series": [
-        {
-            "name": "hello",
-            "innerSize": "90%",
-            "colorByPoint": true,
-            "animation": false,
-            "data": (function () {
-            // generate an array of random data
-            var data = [],
-                time = (new Date()).getTime(),
-                i;
-
-            for (i = -19; i <= 0; i += 1) {
-                data.push({
-                    x: time + i * 1000,
-                    y: Math.random()
-                });
-            }
-            return data;
-        }())
-        }
-    ]
-  })
+    {
+        label: "5",
+        data: [13],
+        backgroundColor: ["#6884FB"],
+    }]
+  };
 }

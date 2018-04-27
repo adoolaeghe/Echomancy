@@ -8,10 +8,22 @@
   .article-demo-trigger
     +flex(null, center, center)
     height: 55px
+    &.demo
+      height: 40px
     i
-      height: 60px
-      background-size: 100% !important
-      background-position: center !important
+      height: 57px !important
+
+    &.active
+      transform: rotate(45deg)
+
+    &.number-3
+      border: 1px solid $ryme-red
+
+    &.number-4
+      border: 1px solid $ryme-pale-blue
+
+    &.number-5
+      border: 1px solid $ryme-dark-blue
 
   .main-step-info
     +Position(absolute, 15%, null, null, null)
@@ -24,6 +36,15 @@
     +Position(absolute, 0, 0, null, null)
     +margin(10px, null, null, null)
     writing-mode: vertical-lr
+
+    &.number-3
+      color: $ryme-orange
+
+    &.number-4
+      color: $ryme-dark-blue
+
+    &.number-5
+      color : $ryme-red
 
   .card-header
     +colors(transparent, black)
@@ -46,10 +67,20 @@
       height: 250px
       position: relative
 
+      &.number-3
+        border-left: 1px solid $ryme-red
+        border-right: 1px solid $ryme-orange
+
+      &.number-4
+        border-right: 1px solid $ryme-dark-blue
+        border-left: 1px solid $ryme-pale-blue
+
+      &.number-5
+        border-left: 1px solid $ryme-dark-blue
+        border-right: 1px solid $ryme-red
+
       div
         +Position(absolute, null, null, 100%, null)
-        border-right: 1px solid $ryme-dark-blue
-        border-left: 1px solid $ryme-dark-blue
         right: 0px
         text-align: right
 
@@ -58,6 +89,15 @@
           +colors(#0637D8, null)
           right: 20px
           margin-bottom: 20px
+
+          &.number-3
+            +colors($ryme-orange, null)
+
+          &.number-4
+            +colors($ryme-dark-blue, null)
+
+          &.number-5
+            +colors($ryme-red, null)
 
         h2
           +configFont(2rem, 700, null)

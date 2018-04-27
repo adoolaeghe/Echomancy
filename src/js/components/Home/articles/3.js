@@ -1,14 +1,17 @@
 import React from "react";
 import ReactBodymovin from "react-bodymovin";
-import animation from "../../../../../public/content/animation/data.json";
+import animation from "../../../../../public/content/animation/datatest.json";
 import pieData from "../graph/pie3";
 import bgConfig from "../../ryme-helpers/ryme-background";
+import Avatar from 'material-ui/Avatar';
+import {Doughnut} from 'react-chartjs-2';
 
 export default class Article3 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      animation: false
+      animation: false,
+      data: pieData()
     };
   }
 
@@ -24,18 +27,40 @@ export default class Article3 extends React.Component {
     pieData(this.props.pieScroll);
   }
 
-
   render() {
+    const legend = {
+      display: false
+    }
+
+    const option = {
+
+      responsive: false,
+      cutoutPercentage: 80,
+      config: {
+        animation: {
+          animateScale: true
+        }
+      }
+    }
     return (
       <section
-        className="ryme-article article3 hoverable row"
+        className="ryme-article article3 row"
         style={bgConfig.noRepeat('articles/3/background.svg')}
       >
         <div
           className="article3-hash col m12 l5"
           style={bgConfig.noRepeat('main/hash-background.svg')}
         >
-          <div id="container3" />
+          <Doughnut options={option} data={this.state.data} legend={legend} width="300" height="300"/>
+          <a className="btn-floating pulse article3-avatar number-1">
+            <Avatar style={{width: "26px", height: "26px"}} src="./public/content/images/main/avatar.jpg"/>
+          </a>
+          <a className="btn-floating pulse article3-avatar number-2">
+            <Avatar style={{width: "26px", height: "26px"}} src="./public/content/images/main/avatar.jpg"/>
+          </a>
+          <a className="btn-floating pulse article3-avatar number-3">
+            <Avatar style={{width: "26px", height: "26px"}} src="./public/content/images/main/avatar.jpg"/>
+          </a>
           <img
             className="redirect"
             src={"./public/content/images/articles/3/button.svg"}
@@ -58,8 +83,8 @@ export default class Article3 extends React.Component {
           </div>
         }
         </div>
-        <div className="dot-left" id="19" />
-        <div className="dot-right" id="20" />
+        <div className="dot-left" />
+        <div className="dot-right" />
       </section>
     );
   }

@@ -20,12 +20,18 @@
     .player-side-info
       +Position(absolute, 0, null, 0px, 60%)
       +flex(null, center, center)
-      +colors(black, white)
+      background-color: white !important
+      padding-right: 100px
       right: 0
       &.showPlayerSide
         animation: showPlayerSide 1s ease forwards
       &.hidePlayerSide
         animation: hidePlayerSide 1s ease forwards
+      .slider-button
+        +Position(absolute, null, null, null, null)
+        bottom: 0
+        left: 0
+        transform: rotate(-270deg)
 
   .article-grid-right,
   .article-grid-center,

@@ -2,8 +2,21 @@
   background-size: cover !important
   height: 700px
 
-  #container3
-    position: absolute
+
+  .article3-avatar
+    +Position(absolute !important, 27%, null, 30px, 30px)
+    +flex(null, center, center)
+    background-color: #6884FB
+    border: 3px solid white
+    &.number-3
+      top: 243px
+      left: 10vw
+    &.number-2
+      top: 458px
+      left: 90px
+    &.number-1
+      top: 213px
+      left: 18vw
 
   .article3-hash
     +flex(null, center, center)
@@ -38,7 +51,7 @@
       +Position(absolute, 50px, 30px, 100%, auto)
       animation: .7s animShow
       text-transform: uppercase
-      @media #{$large-and-up} 
+      @media #{$large-and-up}
         +configFont(68px, bolder, null)
 
       @media #{$extra-large-and-up}
