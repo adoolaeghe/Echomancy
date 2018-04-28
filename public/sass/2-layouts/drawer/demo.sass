@@ -12,6 +12,13 @@
     position: absolute
     top: 26%
     left: 5%
+  .player-wrapper
+    top: 0
+    left: 0
+
+    .player-cover
+      top: 25px
+      left: 19px
 
 .demo-badges
   display: flex
@@ -48,6 +55,7 @@
       +Position(absolute, 270Px, null, null, 100%)
       text-align: center
   .demo-main-info1
+    z-index: 1
     .info-label
       +primary-font-light
       +flex(null, center, center)

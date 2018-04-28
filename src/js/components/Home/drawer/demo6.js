@@ -1,14 +1,7 @@
 import React from "react";
-import animation from "../../../../../public/content/animation/data.json";
-import Player from "../player/player";
-import FloatingActionButton from "material-ui/FloatingActionButton";
-import ContentAdd from "material-ui/svg-icons/content/add";
-import ContentRemove from "material-ui/svg-icons/content/remove";
+
 import Slider from "material-ui/Slider";
-import FlatButton from "material-ui/FlatButton";
 import Drawer from "material-ui/Drawer";
-import ReactBodymovin from "react-bodymovin";
-import Graph from "../graph/graph6";
 import {Line} from 'react-chartjs-2';
 
 import {
@@ -34,21 +27,6 @@ function reverse(value) {
 }
 
 export default class Article6Demo extends React.Component {
-  handleExpandChange = expanded => {
-    this.setState({ expanded: expanded });
-  };
-
-  handleToggle = (event, toggle) => {
-    this.setState({ expanded: toggle });
-  };
-
-  handleExpand = () => {
-    this.setState({ expanded: true });
-  };
-
-  handleReduce = () => {
-    this.setState({ expanded: false });
-  };
 
   dummyAsync = cb => {
     this.setState({ loading: true }, () => {
@@ -58,20 +36,14 @@ export default class Article6Demo extends React.Component {
 
   constructor(props) {
     super(props);
+
+    let rymeData = this.handleRymeData;
     this.state = {
-      totalNbShares: 4,
-      crtSharePrice: 1,
-      crtNbOfShare: 4,
-      crtShareValue: 1,
-      totalValue: 4,
-      initialNbOfShare: 4,
-      initialSharePrice: 1,
-      priceIncrementor: 2,
-      shareIncrementor: 2,
-      crtSharePrice: 0,
       slider: 4,
       expanded: false,
       cardShadow: 1,
+      rymePrice: [],
+      rymeAvgPrice: [],
       data: {
         labels: this.handleLabel(),
         datasets: [
@@ -83,14 +55,14 @@ export default class Article6Demo extends React.Component {
             color: "rgba(255,255,255,0)"
           },
           {
-            label: "Data1",
-            data: this.handleRymeData1(),
+            label: "Ryme Price",
+            data: rymeData.rymeAvgPrice,
             borderColor: "red",
             fill: false
           },
           {
-            label: "Data2",
-            data: this.handleRymeData(),
+            label: "Ryme Average Price",
+            data: rymeData.rymePrice,
             borderColor: "#FEBE65",
             fill: false
           },
@@ -99,31 +71,10 @@ export default class Article6Demo extends React.Component {
     };
   }
 
-
   handleLabel() {
     let to_return = [];
     for(var x = 0; x<67; x++) {
       to_return.push(x)
-    }
-    return to_return;
-  }
-
-  handleRymeData() {
-    let to_return = [];
-    let price = 1;
-    let totNbShare = 1;
-    let totPrice = 1;
-    let avgPrice = 1;
-    for(var x = 0; x<67; x++) {
-      to_return.push(avgPrice)
-      avgPrice = totPrice/totNbShare;
-      totNbShare++
-      price = avgPrice + 1;
-      if (x === 14 || x === 19 || x === 40 || x === 60) {
-        totPrice = totPrice - price;
-      } else {
-        totPrice = totPrice + price;
-      }
     }
     return to_return;
   }
@@ -136,106 +87,31 @@ export default class Article6Demo extends React.Component {
     return to_return;
   }
 
-  handleRymeData1() {
-    let to_return = [];
-    let price = 1;
-    let totNbShare = 1;
-    let totPrice = 1;
-    let avgPrice = 1;
-    for(var x = 0; x<67; x++) {
-      to_return.push(price)
+  handleRymeData() {
+    let RymePrice = [];
+    let RymeAvgPrice = [];
+    let price, totNbShare, totPrice, avgPrice = 1;
+
+    for(var rym = 0; rym < 67; rym++) {
+      RymeAvgPrice.push(avgPrice);
+      RymePrice.push(price);
+
       avgPrice = totPrice/totNbShare;
       totNbShare++
       price = avgPrice + 1;
-      if (x === 14 || x === 19 || x === 40 || x === 60) {
+
+      // SELLS A GIVEN TIME THE ONE A MORE SHARE
+      if (rym === 14 || rym === 19 || rym === 40 || rym === 60) {
         totPrice = totPrice - price;
       } else {
         totPrice = totPrice + price;
       }
     }
-    return to_return;
-  }
 
-  handleCrtShare(
-    layerNb,
-    shareIncrementor,
-    priceIncrementor,
-    nbOfShare,
-    price,
-    crtShare
-  ) {
-    let totNote = 4;
-
-    for (var i = 0; i < layerNb; i++) {
-      for (var j = 0; j < nbOfShare; j++) {
-        totNote++;
-        if (totNote === crtShare) {
-          this.setState({
-            crtNbOfShare: totNote,
-            crtSharePrice: price
-          });
-        }
-      }
-      price = price * priceIncrementor;
-      nbOfShare = nbOfShare * shareIncrementor;
+    return {
+      rymePrice: RymePrice,
+      rymeAvgPrice: RymeAvgPrice
     }
-  }
-
-  handleTotPayout(
-    layerNb,
-    shareIncrementor,
-    priceIncrementor,
-    NbOfShare,
-    price
-  ) {
-    let to_return = 0;
-    let totVal = 4 * price;
-    for (var i = 0; i < layerNb; i++) {
-      if (i === layerNb - 1) {
-        to_return = totVal / 2;
-      }
-      for (var j = 0; j < NbOfShare; j++) {
-        totVal = totVal + price;
-      }
-      price = price * priceIncrementor;
-      NbOfShare = NbOfShare * shareIncrementor;
-    }
-    return to_return;
-  }
-
-  handleTotValue(
-    layerNb,
-    shareIncrementor,
-    priceIncrementor,
-    nbOfShare,
-    price
-  ) {
-    let totVal = 4 * price;
-    for (var i = 0; i < layerNb; i++) {
-      for (var j = 0; j < nbOfShare; j++) {
-        totVal = totVal + price;
-      }
-      price = price * priceIncrementor;
-      nbOfShare = nbOfShare * shareIncrementor;
-    }
-    return totVal;
-  }
-
-  handleTotShare(
-    layerNb,
-    shareIncrementor,
-    priceIncrementor,
-    nbOfShare,
-    price
-  ) {
-    let totNote = 4;
-    for (var i = 0; i < layerNb; i++) {
-      for (var j = 0; j < nbOfShare; j++) {
-        totNote++;
-      }
-      nbOfShare = nbOfShare * shareIncrementor;
-    }
-    return totNote;
   }
 
   handleSlider = (event, value) => {
@@ -246,7 +122,6 @@ export default class Article6Demo extends React.Component {
       this.state.priceIncrementor,
       this.state.initialNbOfShare,
       this.state.initialSharePrice,
-
     );
   };
 
@@ -263,10 +138,10 @@ export default class Article6Demo extends React.Component {
   }
 
   render() {
-    let initialNbOfShare = this.state.initialNbOfShare
-    let shareIncrementor = this.state.shareIncrementor;
-    let priceIncrementor = this.state.priceIncrementor;
-    let initialSharePrice = this.state.initialSharePrice;
+    let initialNbOfShare = "1";
+    let shareIncrementor = "1";
+    let priceIncrementor = "1";
+    let initialSharePrice = "1";
     const option =
     {
         legend: {
@@ -302,36 +177,32 @@ export default class Article6Demo extends React.Component {
       >
 
       <CardText expandable={true}>
-        <div className="demo-main col s12">
-          <div className="demo-main-visual row col s12"
+        <article className="demo-main col s12">
+
+          <section className="demo-main-visual row col s12"
                style={{ position: "relative", height: "340px"}}>
-            <div className="demo-chart-title">hello</div>
+            <p className="demo-chart-title">hello</p>
+
             <Line data={this.state.data} ref='chart' options={option}
-                width="600" height="320"/>
-          </div>
+                  width={600} height={320} />
+          </section>
 
-          <div className="demo-main-info1 col s12"
-               style={{ zIndex: "1" }}>
-
+          <section className="demo-main-info1 col s12">
             <div className="col s4 info-content row">
-              <div className="col s12 info-label">Total Amount</div>
+              <p className="col s12 info-label">Total Amount</p>
             </div>
             <div className="col s4 info-content row">
-              <div className="col s12 info-label">Current Share Price</div>
+              <p className="col s12 info-label">Current Share Price</p>
             </div>
             <div className="col s4 info-content row">
-              <div className="col s12 info-label">Current Share Price</div>
+              <p className="col s12 info-label">Current Share Price</p>
             </div>
+          </section>
 
-          </div>
-          <div className="demo-main-info3 col s12"
-            style={{ backgroundImage:
-              "url(./public/content/images/main/hash-background.svg)"  }}>
-
+          <section className="demo-main-info3 col s12"
+                   style={{ backgroundImage:"url(./public/content/images/main/hash-background.svg)"}}>
             <div className="col s4 info-content row">
-              <div className="col s12 info-label info-left">
-                1
-              </div>
+              <p className="col s12 info-label info-left">1</p>
             </div>
 
             <div className="col s4 info-content row">
@@ -341,21 +212,15 @@ export default class Article6Demo extends React.Component {
             <div className="col s4 info-content row">
               <div className="col s12 info-label info-right">3</div>
             </div>
-          </div>
+          </section>
 
-          <div className="demo-main-info2 col s12">
+          <section className="demo-main-info2 col s12">
             <div className="demo-info2-content cols12">
               {this.handleSongPartRender()}
             </div>
             <Slider
               min={initialNbOfShare}
-              max={this.handleTotShare(
-                initialNbOfShare,
-                shareIncrementor,
-                priceIncrementor,
-                initialNbOfShare,
-                initialSharePrice
-              )}
+              max={10}
               sliderStyle={{
                 marginTop: "18px"
               }}
@@ -363,46 +228,44 @@ export default class Article6Demo extends React.Component {
               step={max / 100}
               onChange={this.handleSlider}
             />
-          </div>
+          </section>
 
-          <div className="demo-main-info1 col s12"
+          <section className="demo-main-info1 col s12"
                style={{ zIndex: "1" }}>
             <div className="col s4 info-content row">
-              <div className="col s12 info-label">Share Sold</div>
+              <p className="col s12 info-label">Share Sold</p>
             </div>
 
             <div className="col s4 info-content row">
-              <div className="col s12 info-label">Current Share Price</div>
+              <p className="col s12 info-label">Current Share Price</p>
             </div>
 
             <div className="col s4 info-content row">
-              <div className="col s12 info-label">Current Share Price</div>
+              <p className="col s12 info-label">Current Share Price</p>
             </div>
-          </div>
+          </section>
 
-          <div className="demo-main-info3 col s12"
+          <section className="demo-main-info3 col s12"
             style={{ backgroundImage:
               "url(./public/content/images/main/hash-background.svg)"  }}>
 
             <div className="col s4 info-content row">
-              <div className="col s12 info-label info-left">
-                0
-              </div>
+              <p className="col s12 info-label info-left">0</p>
             </div>
 
             <div className="col s4 info-content row">
-              <div className="col s12 info-label info-center">
+              <p className="col s12 info-label info-center">
                 {initialSharePrice}
-              </div>
+              </p>
             </div>
 
             <div className="col s4 info-content row">
-              <div className="col s12 info-label info-right">
+              <p className="col s12 info-label info-right">
                 {initialSharePrice}
-              </div>
+              </p>
             </div>
-          </div>
-        </div>
+          </section>
+        </article>
       </CardText>
     </Drawer>
     );

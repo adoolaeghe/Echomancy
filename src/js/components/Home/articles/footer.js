@@ -8,64 +8,28 @@ export default class Footer extends React.Component {
       <section className="footer row col s12"
                style={{ height: "800px", width: "100%", bottom: "-3480px", position: "absolute", backgroundImage: "url(./public/content/images/articles/footer/footer.svg)"}}>
         <FloatingActionButton backgroundColor="white" style={{position:"absolute", right: "48%", top: "41%"}}/>
-        <div style={{backgroundImage: "url(./public/content/images/articles/footer/WIP.svg)", position: "absolute", backgroundRepeat: "no-repeat", bottom: "0", right: "100px", width: "300px", backgroundSize: "contain", height: "300px"}}></div>
-        <div className="row col s12" style={{height: "200px", marginTop: "440px" }}>
-          <div className='col s1'></div>
-          <div className='col s4' style={{height: "100px"}}>
-            <div className='col s12'>
-              <TextField
-              fullWidth = {true}
-              hintText="Styled Hint Text"
-              />
+        <article className="col s12" style= {{position: "absolute", bottom: "0", height: "200px", width:"100%"}}>
+          <div className="col s1"></div>
+          <div className="col s10" style= {{display: "flex", justifyContent: "column"}}>
+            <div className="" style= {{paddingRight: "50px", width: "23%",}}>
+              <div style= {{backgroundColor: "white", height: "200px"}}>
+              SOME BIEUTIFUL ANIM
+              </div>
             </div>
-            <div className='col s12'>
-            <a className="btn-floating white"
-            style={{
-              margin: "20px",
-              background:
-                "url(./public/content/images/icons/paper.svg) no-repeat",
-              backgroundSize: "50%",
-              backgroundPosition: "center"
-            }}>
-            </a><a className="btn-floating white"
-            style={{
-              margin: "20px",
-              background:
-                "url(./public/content/images/icons/paper.svg) no-repeat",
-              backgroundSize: "50%",
-              backgroundPosition: "center"
-            }}>
-            </a>
-            <a className="btn-floating white"
-            style={{
-              margin: "20px",
-              background:
-                "url(./public/content/images/icons/paper.svg) no-repeat",
-              backgroundSize: "50%",
-              backgroundPosition: "center"
-            }}>
-            </a>
-            <a className="btn-floating white"
-            style={{
-              margin: "20px",
-              background:
-                "url(./public/content/images/icons/paper.svg) no-repeat",
-              backgroundSize: "50%",
-              backgroundPosition: "center"
-            }}>
-            </a>
-            <a className="btn-floating white"
-            style={{
-              margin: "20px",
-              background:
-                "url(./public/content/images/icons/paper.svg) no-repeat",
-              backgroundSize: "50%",
-              backgroundPosition: "center"
-            }}>
-            </a>
+            <div className="" style= {{paddingRight: "50px", width: "53%",}}>
+              <div style= {{backgroundColor: "white", height: "200px"}}>
+              EMAIL
+              </div>
+            </div>
+            <div className="" style= {{width: "23%"}}>
+              <div style= {{backgroundColor: "white", height: "200px"}}>
+                VOTE FOR OUR ROADMAP pulse.red
+                SOCIAL MEDIA
+              </div>
             </div>
           </div>
-        </div>
+          <div className="col s1"></div>
+        </article>
       </section>
     );
   }

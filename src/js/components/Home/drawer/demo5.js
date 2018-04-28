@@ -182,8 +182,8 @@ export default class article5DemO extends React.Component {
     switch(stepIndex) {
       case 0:
         return (
-            <Avatar className='demo-avatar rotating-reverse'
-                    src="./public/content/images/main/avatar.jpg"/>
+          <Avatar className='demo-avatar rotating-reverse'
+                  src="./public/content/images/main/avatar.jpg"/>
         )
       case 1:
         return(
@@ -327,40 +327,40 @@ export default class article5DemO extends React.Component {
         }}
         overlayStyle={{opacity: "0.2"}}
       >
-          <CardText expandable={true} style={{padding: "0px"}}>
-            <div className="demo col s12 row">
-              <div className="demo-player">
-                <Player
-                  rotation={"rotating"}
-                  size={"large"}
-                  key={2}
-                  id={2}
-                  handleAvatar = {this.handleAvatar(stepIndex)}
-                  playerData = {this.state.playerData}
-                />
-              </div>
-              {this.getBagesContent(stepIndex)}
-              <div className="main-options col s12 row">
-                <Stepper className="main-options-steps" activeStep={stepIndex}>
-                  <Step>
-                    <StepLabel>1</StepLabel>
-                  </Step>
-                  <Step>
-                    <StepLabel>2</StepLabel>
-                  </Step>
-                  <Step>
-                    <StepLabel>3</StepLabel>
-                  </Step>
-                  <Step>
-                    <StepLabel>4</StepLabel>
-                  </Step>
-                </Stepper>
-                <ExpandTransition loading={loading} open={true}>
-                  {this.renderContent()}
-                </ExpandTransition>
-              </div>
-            </div>
-          </CardText>
+        <CardText expandable={true} style={{padding: "0px"}}>
+          <section className="demo col s12 row">
+            <section className="demo-player">
+              <Player
+                rotation={"rotating"}
+                size={"large"}
+                key={2}
+                id={2}
+                handleAvatar = {this.handleAvatar(stepIndex)}
+                playerData = {this.state.playerData}
+              />
+            </section>
+            {this.getBagesContent(stepIndex)}
+            <section className="main-options col s12 row">
+              <Stepper className="main-options-steps" activeStep={stepIndex}>
+                <Step>
+                  <StepLabel>1</StepLabel>
+                </Step>
+                <Step>
+                  <StepLabel>2</StepLabel>
+                </Step>
+                <Step>
+                  <StepLabel>3</StepLabel>
+                </Step>
+                <Step>
+                  <StepLabel>4</StepLabel>
+                </Step>
+              </Stepper>
+              <ExpandTransition loading={loading} open={true}>
+                {this.renderContent()}
+              </ExpandTransition>
+            </section>
+          </section>
+        </CardText>
       </Drawer>
     );
   }

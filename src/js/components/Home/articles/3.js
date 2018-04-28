@@ -51,7 +51,7 @@ export default class Article3 extends React.Component {
           className="article3-hash col m12 l5"
           style={bgConfig.noRepeat('main/hash-background.svg')}
         >
-          <Doughnut options={option} data={this.state.data} legend={legend} width="300" height="300"/>
+          <Doughnut options={option} data={this.state.data} legend={legend} width={300} height={300} />
           <a className="btn-floating pulse article3-avatar number-1">
             <Avatar style={{width: "26px", height: "26px"}} src="./public/content/images/main/avatar.jpg"/>
           </a>
