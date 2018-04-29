@@ -1,5 +1,4 @@
 var synth = new Tone.Synth().toMaster();
-
 // synth.triggerAttackRelease("C2", "8n");
 var sampler = new Tone.Player({url: "src/js/models/animation/AA.mp3",
   loop  : true,
@@ -10,7 +9,6 @@ var sampler = new Tone.Player({url: "src/js/models/animation/AA.mp3",
 }).toMaster();
 
 //// TONE FILTER VOLUME LOOP
-
 Tone.Buffer.on('load', function() {
   var x = 0;
   window.setInterval(function(){
@@ -29,8 +27,3 @@ Tone.Buffer.on('load', function() {
     }
   }, 1000);
 })
-
-
-
-//// WHO
-////

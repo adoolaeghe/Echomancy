@@ -46,7 +46,8 @@ export default class Demo extends React.Component {
       article2Main: false,
       pieScroll: [],
       faqDisplay: false,
-      waitPage: true
+      waitPage: true,
+      navColor: "blue"
     };
   }
 
@@ -105,21 +106,24 @@ export default class Demo extends React.Component {
     if (scroll > 200) {
       this.setState({
         article1Arrow: false,
-        article2Main: true
+        article2Main: true,
+        navColor: "green"
       });
     }
 
     if (scroll > 500) {
       this.setState({
         article3Anim: true,
-        article3Text: true
+        article3Text: true,
+        navColor: "red"
       });
     }
 
     if (scroll > 1100) {
       this.setState({
         article4Anim: true,
-        article4Text: true
+        article4Text: true,
+        navColor: "blue"
       });
     }
     this.setState({pieScroll: scroll})
@@ -134,12 +138,12 @@ export default class Demo extends React.Component {
     return (
       <div className="row" style={{cursor: "url(./public/content/images/main/avatar.jpg) 4 12, auto"}}>
 
-        <div className="col s1 side-right">
-
+        <div className="col s1 side-right" style={{fontSize: "25px", textAlign: "center", marginTop: "13px"}}>
+          Ryme.
         </div>
 
         <Card className="col s10" style={{ zIndex: 100001 }}>
-          <NavBar />
+          <NavBar navColor={this.state.navColor}/>
 
           <Article1 article1Arrow={this.state.article1Arrow} />
           <Article2 article2Main={this.state.article2Main}/>

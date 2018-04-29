@@ -3,13 +3,15 @@ import Player from "../player/player";
 import bgConfig from "../../ryme-helpers/ryme-background";
 import Chip from 'material-ui/Chip';
 import Avatar from 'material-ui/Avatar';
+import moment from 'moment'
 
 export default class Article1 extends React.Component {
 
   constructor() {
-    super()
+    super();
     this.state = {
-      showPlayerSide: true
+      showPlayerSide: true,
+      time: 0
     }
   }
 
@@ -40,7 +42,7 @@ export default class Article1 extends React.Component {
         <div className="article-main-text row col m12 l6">
           <div className="text-block-color"></div>
           <div className="col s12 header-word" style={{ textAlign: "left" }}>
-            Publishing for Everyone
+            Publishing for Everyone.
           </div>
           <div className="col s12 sub-header-word">
             Murmur is a platform of{" "}
@@ -59,7 +61,7 @@ export default class Article1 extends React.Component {
             src={"./public/content/images/articles/1/button.svg"}
             alt="Kiwi standing on oval"
           />
-          <div className={`player-side-info ${this.state.showPlayerSide ? "showPlayerSide" : "hidePlayerSide"}`}>
+          <div className="player-side-info showPlayerSide">
              <Chip style={{ margin: "10px"}} backgroundColor={"#6884FB"} labelColor={"white"}>
                <Avatar src="./public/content/images/main/avatar.jpg" />
                Bob 1.3
@@ -72,6 +74,9 @@ export default class Article1 extends React.Component {
                <Avatar src="./public/content/images/main/avatar.jpg" />
                Bob 1.3
              </Chip>
+             <p className="article-1-time">
+              {this.state.time}|10
+             </p>
             <img
               className="slider-button"
               src={"./public/content/images/articles/1/button.svg"}

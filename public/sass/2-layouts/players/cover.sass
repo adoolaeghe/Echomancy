@@ -58,10 +58,16 @@
       background-color: grey
       opacity: 0.3
       z-index: $z-low
+
+      .player-btn-icon
+        +flex(column, center, center)
+        &.playing
+          background-color: white !important
       &:hover
         .player-btn-icon
           box-shadow: 0 0 10px #000000
           transition: box-shadow 1s
+
         opacity: 0.4
         transition: opacity 0.2s
       &.large
