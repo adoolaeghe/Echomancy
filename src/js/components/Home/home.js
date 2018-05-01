@@ -47,7 +47,8 @@ export default class Demo extends React.Component {
       pieScroll: [],
       faqDisplay: false,
       waitPage: true,
-      navColor: "blue"
+      navColor: "blue",
+      logoUrl: "url(./public/content/images/main/logo.svg)"
     };
   }
 
@@ -107,7 +108,8 @@ export default class Demo extends React.Component {
       this.setState({
         article1Arrow: false,
         article2Main: true,
-        navColor: "green"
+        navColor: "#0F3FD5",
+        logoUrl: "url(./public/content/images/main/logo.svg)"
       });
     }
 
@@ -115,7 +117,8 @@ export default class Demo extends React.Component {
       this.setState({
         article3Anim: true,
         article3Text: true,
-        navColor: "red"
+        navColor: "#FB3F4F",
+        logoUrl: "url(./public/content/images/main/logo_red.svg)"
       });
     }
 
@@ -123,7 +126,14 @@ export default class Demo extends React.Component {
       this.setState({
         article4Anim: true,
         article4Text: true,
-        navColor: "blue"
+        navColor: "#FEBE65",
+        logoUrl: "url(./public/content/images/main/logo_orange.svg)"
+      });
+    }
+    if (scroll > 1900) {
+      this.setState({
+        navColor: "#6884FB",
+        logoUrl: "url(./public/content/images/main/logo_pale_blue.svg)"
       });
     }
     this.setState({pieScroll: scroll})
@@ -143,7 +153,8 @@ export default class Demo extends React.Component {
         </div>
 
         <Card className="col s10" style={{ zIndex: 100001 }}>
-          <NavBar navColor={this.state.navColor}/>
+          <NavBar logoUrl={this.state.logoUrl}
+                  navColor={this.state.navColor}/>
 
           <Article1 article1Arrow={this.state.article1Arrow} />
           <Article2 article2Main={this.state.article2Main}/>
@@ -157,11 +168,7 @@ export default class Demo extends React.Component {
         </Card>
 
         <div className="col s1 side-right"></div>
-        <div className="space-between col s10 push-s1">
-          <div className="space-between-line" />
-          <div className="playing-dot" />
-        </div>
-        <main className="col s10 push-s1 secondary-article">
+        <main style={{marginTop: "120px"}} className="col s10 push-s1 secondary-article">
           <Article5 />
           <Article6 />
           <Article7 />

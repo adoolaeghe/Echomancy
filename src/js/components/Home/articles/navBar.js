@@ -8,7 +8,7 @@ export default class NavBar extends React.Component {
         <a
           className="navBar-logo-title wave-effect waves-light btn z-depth-1 push-s4"
           style={{
-            backgroundImage: "url(./public/content/images/main/logo.svg)"
+            backgroundImage: this.props.logoUrl
           }}
         />
         <div className="dot-right" />

@@ -5,27 +5,14 @@ import Tone from "tone";
 import {Doughnut} from 'react-chartjs-2';
 import bgConfig from "../../ryme-helpers/ryme-background";
 
-var chorus = new Tone.Chorus(4, 2.5, 0.5);
-
-var audio = new Tone.Player({url: "public/content/images/songs/daft_punk.mp3",
-  loop  : true,
-  loopStart : 70,
-  loopEnd : 77,
-  autostart: true,
-  volume: -60
-}).toMaster();
-
-var chorus= new Tone.Freeverb(4, 2.5).toMaster();
-
-audio.connect(chorus);
-
 
 export default class Player extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       playing: "pause",
-      data: pieData()
+      showPlayBtn: false,
+      data: pieData(),
     };
   }
 
@@ -62,23 +49,39 @@ export default class Player extends React.Component {
   handlePlayClick() {
     this.props.playerClick();
     if (this.state.playing === "pause") {
-        this.setState({
-          playing: "playing"
-        })
-        audio.start();
+      this.setState({
+        playing: "playing",
+        showPlayBtn: true
+      })
+      this.state.audio.start();
     } else {
       this.setState({
         playing: "pause"
       });
-      audio.stop();
+      this.state.audio.stop();
     }
   }
 
-  componentDidMount() {
-    this.softFilter();
+  componentWillMount() {
+    this.setState({
+      audio: new Tone.Player({url: "public/content/images/songs/daft_punk.mp3",
+        loop  : true,
+        loopStart : 70,
+        loopEnd : 77,
+        autostart: false,
+        retrigger: true,
+        volume: 0
+      }).toMaster()
+    })
+  }
+
+  componentDidMount(){
+
   }
 
   render() {
+    this.state.audio.context.resume();
+
     const legend = {
       display: false
     }
@@ -88,8 +91,17 @@ export default class Player extends React.Component {
         <div className={`player-wrapper rotating ${this.props.size} `}>
           <Doughnut data={this.state.data} legend={legend} width={370} height={370} />
         </div>
-        {this.state.playing === "playing" && (
-          <div style={{height: "60px", width: "60px",borderRadius: "50px", backgroundColor: "black", position: "fixed", bottom: "100px", right: "23px"}}></div>
+        {this.state.showPlayBtn && (
+          <div className= "row"style={{borderTop: "1px solid lightgrey",width: "100%", height: "60px", left: "0", position: "fixed", backgroundColor: "white", bottom: "0px"}}>
+            <div className="col row s2" style={{height: "100%", display: "flex", justifyContent: "space-between", flexDirection: "row", alignItems: "center"}}>
+              <div style={{height: "30px", cursor: "pointer", width: "30px",borderRadius: "50px", backgroundColor: "black"}}
+                   onClick={() => {this.handlePlayClick()}}></div>
+              <div style={{height: "40px", cursor: "pointer", width: "40px",borderRadius: "50px", backgroundColor: "black"}}
+                   onClick={() => {this.handlePlayClick()}}></div>
+              <div style={{height: "30px", cursor: "pointer", width: "30px",borderRadius: "50px", backgroundColor: "black"}}
+                   onClick={() => {this.handlePlayClick()}}></div>
+            </div>
+          </div>
         )}
         <div
           className={`player-cover ${this.props.size} ${this.state.playing}`}
@@ -101,7 +113,7 @@ export default class Player extends React.Component {
               <div className={`player-btn-icon ${this.state.playing}`}
                    style={bgConfig.noRepeat('main/play.svg')}>
                 {this.state.playing === "playing" && (
-                  <div style={{border: "2px solid red",borderRadius: "50px", width: "30px", height: "30px"}}></div>
+                  <div style={{border: "1px solid red",borderRadius: "50px", width: "73px", height: "73px"}}></div>
                 )}
               </div>
             </div>

@@ -1,5 +1,6 @@
 var debug = process.env.NODE_ENV !== "production";
 var webpack = require('webpack');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
   context: __dirname,
@@ -27,6 +28,10 @@ module.exports = {
       {
         test: /\.scss$/,
         loader: 'style-loader!css-loader!sass-loader'
+      },
+      {
+        test: /\.less$/,
+        loader: 'less-loader'
       }
     ]
   },
@@ -36,7 +41,6 @@ module.exports = {
   },
   plugins: debug ? [] : [
     new webpack.ProvidePlugin({noUiSlider: 'nouislider'}),
-    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),

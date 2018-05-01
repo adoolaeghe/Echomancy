@@ -62,17 +62,17 @@ export default class Article1 extends React.Component {
             alt="Kiwi standing on oval"
           />
           <div className="player-side-info showPlayerSide">
-             <Chip style={{ margin: "10px"}} backgroundColor={"#6884FB"} labelColor={"white"}>
+             <Chip style={{ margin: "10px", paddingRight: "15px"}} backgroundColor={"#6884FB"} labelColor={"white"}>
                <Avatar src="./public/content/images/main/avatar.jpg" />
-               Bob 1.3
+               Bob
              </Chip>
-             <Chip style={{ margin: "10px"}} backgroundColor={"#0F3FD5"} labelColor={"white"}>
+             <Chip style={{ margin: "10px", paddingRight: "50px"}} backgroundColor={"#0F3FD5"} labelColor={"white"}>
                <Avatar src="./public/content/images/main/avatar.jpg" />
-               Bob 1.3
+               Mary
              </Chip>
-             <Chip style={{ margin: "10px"}} backgroundColor={"#FEBE65"} labelColor={"white"}>
+             <Chip style={{ margin: "10px", paddingRight: "25px"}} backgroundColor={"#FEBE65"} labelColor={"white"}>
                <Avatar src="./public/content/images/main/avatar.jpg" />
-               Bob 1.3
+               Steve
              </Chip>
              <p className="article-1-time">
               {this.state.time}|10

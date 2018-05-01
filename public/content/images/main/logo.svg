@@ -1,43 +1,12 @@
 
-<svg width="709px" height="711px" viewBox="0 0 709 711" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="553px" height="556px" viewBox="0 0 553 556" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="logo-down" transform="translate(-797.000000, -600.000000)">
-            <g id="Group-2" transform="translate(797.000000, 600.000000)">
-                <circle id="Oval" fill="#000000" cx="355.5" cy="354.5" r="353.5"></circle>
-                <rect id="Rectangle" fill="#FFFFFF" transform="translate(674.061954, 317.594383) rotate(-6.000000) translate(-674.061954, -317.594383) " x="640.561954" y="310.462635" width="67" height="14.2634961"></rect>
-                <rect id="Rectangle" fill="#FFFFFF" transform="translate(34.061954, 317.594383) scale(-1, 1) rotate(-6.000000) translate(-34.061954, -317.594383) " x="0.561954159" y="310.462635" width="67" height="14.2634961"></rect>
-                <rect id="Rectangle" fill="#FFFFFF" transform="translate(674.061954, 393.594383) scale(-1, 1) rotate(-6.000000) translate(-674.061954, -393.594383) " x="640.561954" y="386.462635" width="67" height="14.2634961"></rect>
-                <rect id="Rectangle" fill="#FFFFFF" transform="translate(35.061954, 393.594383) rotate(-6.000000) translate(-35.061954, -393.594383) " x="1.56195416" y="386.462635" width="67" height="14.2634961"></rect>
-                <rect id="Rectangle" fill="#FFFFFF" transform="translate(657.918904, 242.159326) rotate(-20.000000) translate(-657.918904, -242.159326) " x="624.418904" y="235.027578" width="67" height="14.2634961"></rect>
-                <rect id="Rectangle" fill="#FFFFFF" transform="translate(50.918904, 242.159326) scale(-1, 1) rotate(-20.000000) translate(-50.918904, -242.159326) " x="17.4189043" y="235.027578" width="67" height="14.2634961"></rect>
-                <rect id="Rectangle" fill="#FFFFFF" transform="translate(656.918904, 469.159326) scale(1, -1) rotate(-20.000000) translate(-656.918904, -469.159326) " x="623.418904" y="462.027578" width="67" height="14.2634961"></rect>
-                <rect id="Rectangle" fill="#FFFFFF" transform="translate(51.918904, 469.159326) scale(-1, -1) rotate(-20.000000) translate(-51.918904, -469.159326) " x="18.4189043" y="462.027578" width="67" height="14.2634961"></rect>
-                <rect id="Rectangle" fill="#FFFFFF" transform="translate(620.760782, 173.645449) rotate(-34.000000) translate(-620.760782, -173.645449) " x="587.260782" y="166.513701" width="67" height="14.2634961"></rect>
-                <rect id="Rectangle" fill="#FFFFFF" transform="translate(87.760782, 173.645449) scale(-1, 1) rotate(-34.000000) translate(-87.760782, -173.645449) " x="54.2607816" y="166.513701" width="67" height="14.2634961"></rect>
-                <rect id="Rectangle" fill="#FFFFFF" transform="translate(620.760782, 538.645449) scale(1, -1) rotate(-34.000000) translate(-620.760782, -538.645449) " x="587.260782" y="531.513701" width="67" height="14.2634961"></rect>
-                <rect id="Rectangle" fill="#FFFFFF" transform="translate(88.760782, 538.645449) scale(-1, -1) rotate(-34.000000) translate(-88.760782, -538.645449) " x="55.2607816" y="531.513701" width="67" height="14.2634961"></rect>
-                <rect id="Rectangle" fill="#FFFFFF" transform="translate(569.715797, 115.667423) rotate(-48.000000) translate(-569.715797, -115.667423) " x="536.215797" y="108.535675" width="67" height="14.2634961"></rect>
-                <rect id="Rectangle" fill="#FFFFFF" transform="translate(569.715797, 115.667423) rotate(-48.000000) translate(-569.715797, -115.667423) " x="536.215797" y="108.535675" width="67" height="14.2634961"></rect>
-                <rect id="Rectangle" fill="#FFFFFF" transform="translate(139.715797, 114.667423) scale(-1, 1) rotate(-48.000000) translate(-139.715797, -114.667423) " x="106.215797" y="107.535675" width="67" height="14.2634961"></rect>
-                <rect id="Rectangle" fill="#FFFFFF" transform="translate(569.715797, 596.667423) scale(1, -1) rotate(-48.000000) translate(-569.715797, -596.667423) " x="536.215797" y="589.535675" width="67" height="14.2634961"></rect>
-                <rect id="Rectangle" fill="#FFFFFF" transform="translate(138.715797, 596.667423) scale(-1, -1) rotate(-48.000000) translate(-138.715797, -596.667423) " x="105.215797" y="589.535675" width="67" height="14.2634961"></rect>
-                <rect id="Rectangle" fill="#FFFFFF" transform="translate(505.478690, 70.757300) rotate(-61.000000) translate(-505.478690, -70.757300) " x="471.97869" y="63.6255522" width="67" height="14.2634961"></rect>
-                <rect id="Rectangle" fill="#FFFFFF" transform="translate(204.478690, 70.757300) scale(-1, 1) rotate(-61.000000) translate(-204.478690, -70.757300) " x="170.97869" y="63.6255522" width="67" height="14.2634961"></rect>
-                <rect id="Rectangle" fill="#FFFFFF" transform="translate(505.478690, 640.757300) scale(1, -1) rotate(-61.000000) translate(-505.478690, -640.757300) " x="471.97869" y="633.625552" width="67" height="14.2634961"></rect>
-                <rect id="Rectangle" fill="#FFFFFF" transform="translate(205.478690, 640.757300) scale(-1, -1) rotate(-61.000000) translate(-205.478690, -640.757300) " x="171.97869" y="633.625552" width="67" height="14.2634961"></rect>
-                <rect id="Rectangle" fill="#FFFFFF" transform="translate(434.484822, 43.245691) rotate(-77.000000) translate(-434.484822, -43.245691) " x="400.984822" y="36.1139434" width="67" height="14.2634961"></rect>
-                <rect id="Rectangle" fill="#FFFFFF" transform="translate(279.484822, 43.245691) scale(-1, 1) rotate(-77.000000) translate(-279.484822, -43.245691) " x="245.984822" y="36.1139434" width="67" height="14.2634961"></rect>
-                <circle id="Oval-2" fill="#FFFFFF" cx="354.5" cy="352.5" r="294.5"></circle>
-                <rect id="Rectangle" fill="#FFFFFF" transform="translate(434.484822, 669.245691) scale(1, -1) rotate(-77.000000) translate(-434.484822, -669.245691) " x="400.984822" y="662.113943" width="67" height="14.2634961"></rect>
-                <rect id="Rectangle" fill="#FFFFFF" transform="translate(278.484822, 669.245691) scale(-1, -1) rotate(-77.000000) translate(-278.484822, -669.245691) " x="244.984822" y="662.113943" width="67" height="14.2634961"></rect>
-                <rect id="Rectangle" fill="#FFFFFF" transform="translate(354.715317, 33.619364) rotate(-91.000000) translate(-354.715317, -33.619364) " x="321.215317" y="26.4876159" width="67" height="14.2634961"></rect>
-                <rect id="Rectangle" fill="#FFFFFF" transform="translate(354.715317, 676.619364) rotate(-91.000000) translate(-354.715317, -676.619364) " x="321.215317" y="669.487616" width="67" height="14.2634961"></rect>
-            </g>
-            <g id="Group" transform="translate(875.000000, 676.000000)">
-                <circle id="Oval-12" fill="#000000" cx="276.5" cy="277.5" r="276.5"></circle>
+        <g id="logo-down" transform="translate(-959.000000, -666.000000)">
+            <g id="Group" transform="translate(959.000000, 666.000000)">
+                <circle id="Oval-12" fill="#133BB4" cx="276.5" cy="277.5" r="276.5"></circle>
                 <rect id="Rectangle" fill="#FFFFFF" transform="translate(466.698273, 126.076547) rotate(-39.000000) translate(-466.698273, -126.076547) " x="433.198273" y="117.076547" width="67" height="18"></rect>
                 <rect id="Rectangle" fill="#FFFFFF" transform="translate(466.698273, 429.076547) scale(1, -1) rotate(-39.000000) translate(-466.698273, -429.076547) " x="433.198273" y="420.076547" width="67" height="18"></rect>
                 <rect id="Rectangle" fill="#FFFFFF" transform="translate(85.698273, 126.076547) scale(-1, 1) rotate(-39.000000) translate(-85.698273, -126.076547) " x="52.1982732" y="117.076547" width="67" height="18"></rect>
@@ -53,6 +22,24 @@
                 <rect id="Rectangle" fill="#FFFFFF" transform="translate(277.314482, 34.164875) rotate(-90.000000) translate(-277.314482, -34.164875) " x="243.814482" y="25.1648752" width="67" height="18"></rect>
                 <rect id="Rectangle" fill="#FFFFFF" transform="translate(277.314482, 522.164875) rotate(-90.000000) translate(-277.314482, -522.164875) " x="243.814482" y="513.164875" width="67" height="18"></rect>
                 <circle id="Oval-13" fill="#FFFFFF" cx="275.5" cy="276.5" r="222.5"></circle>
+            </g>
+            <g id="Group" transform="translate(1235.501274, 943.271510) rotate(-12.000000) translate(-1235.501274, -943.271510) translate(1027.001274, 733.771510)">
+                <circle id="Oval-12" fill-opacity="0.410269475" fill="#133BB4" cx="208.5" cy="209.5" r="208.5"></circle>
+                <rect id="Rectangle" fill="#FFFFFF" transform="translate(352.500000, 95.000000) rotate(-39.000000) translate(-352.500000, -95.000000) " x="327" y="88" width="51" height="14"></rect>
+                <rect id="Rectangle" fill="#FFFFFF" transform="translate(352.500000, 324.000000) scale(1, -1) rotate(-39.000000) translate(-352.500000, -324.000000) " x="327" y="317" width="51" height="14"></rect>
+                <rect id="Rectangle" fill="#FFFFFF" transform="translate(64.500000, 95.000000) scale(-1, 1) rotate(-39.000000) translate(-64.500000, -95.000000) " x="39" y="88" width="51" height="14"></rect>
+                <rect id="Rectangle" fill="#FFFFFF" transform="translate(63.500000, 322.000000) scale(-1, -1) rotate(-39.000000) translate(-63.500000, -322.000000) " x="38" y="315" width="51" height="14"></rect>
+                <rect id="Rectangle" fill="#FFFFFF" transform="translate(29.500000, 167.000000) scale(-1, 1) rotate(-13.000000) translate(-29.500000, -167.000000) " x="4" y="160" width="51" height="14"></rect>
+                <rect id="Rectangle" fill="#FFFFFF" transform="translate(28.500000, 249.000000) scale(-1, -1) rotate(-13.000000) translate(-28.500000, -249.000000) " x="3" y="242" width="51" height="14"></rect>
+                <rect id="Rectangle" fill="#FFFFFF" transform="translate(388.500000, 167.000000) rotate(-13.000000) translate(-388.500000, -167.000000) " x="363" y="160" width="51" height="14"></rect>
+                <rect id="Rectangle" fill="#FFFFFF" transform="translate(388.500000, 251.000000) scale(1, -1) rotate(-13.000000) translate(-388.500000, -251.000000) " x="363" y="244" width="51" height="14"></rect>
+                <rect id="Rectangle" fill="#FFFFFF" transform="translate(288.500000, 43.000000) rotate(-65.000000) translate(-288.500000, -43.000000) " x="263" y="36" width="51" height="14"></rect>
+                <rect id="Rectangle" fill="#FFFFFF" transform="translate(288.500000, 375.000000) scale(1, -1) rotate(-65.000000) translate(-288.500000, -375.000000) " x="263" y="368" width="51" height="14"></rect>
+                <rect id="Rectangle" fill="#FFFFFF" transform="translate(129.500000, 43.000000) scale(-1, 1) rotate(-65.000000) translate(-129.500000, -43.000000) " x="104" y="36" width="51" height="14"></rect>
+                <rect id="Rectangle" fill="#FFFFFF" transform="translate(129.500000, 375.000000) scale(-1, -1) rotate(-65.000000) translate(-129.500000, -375.000000) " x="104" y="368" width="51" height="14"></rect>
+                <rect id="Rectangle" fill="#FFFFFF" transform="translate(209.500000, 26.000000) rotate(-90.000000) translate(-209.500000, -26.000000) " x="184" y="19" width="51" height="14"></rect>
+                <rect id="Rectangle" fill="#FFFFFF" transform="translate(209.500000, 393.000000) rotate(-90.000000) translate(-209.500000, -393.000000) " x="184" y="386" width="51" height="14"></rect>
+                <circle id="Oval-13" fill="#FFFFFF" cx="206.5" cy="207.5" r="167.5"></circle>
             </g>
         </g>
     </g>
