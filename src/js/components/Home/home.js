@@ -102,7 +102,8 @@ export default class Demo extends React.Component {
   }
 
   handleScroll(event) {
-    const scroll = $(window).scrollTop();
+    // const scroll = $(window).scrollTop();
+    const scroll = 10;
 
     if (scroll > 200) {
       this.setState({
