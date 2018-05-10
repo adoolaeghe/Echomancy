@@ -30,7 +30,8 @@ export default class Article3 extends React.Component {
 		sr.reveal('.article3-header1');
 		sr.reveal('.article3-header-content');
 		sr.reveal('.article3-header-link');
-    pieData(this.props.pieScroll);
+		sr.reveal('.article3-doughnut', {delay: 400});
+		sr.reveal('.article3-avatar', {delay: 800});
   }
 
   render() {
@@ -57,16 +58,15 @@ export default class Article3 extends React.Component {
           style={bgConfig.noRepeat('main/hash-background.svg')}
 					id="article3-pie"
         >
-          <Doughnut options={option} data={this.state.data} legend={legend} width={300} height={300} />
-          <a className="btn-floating pulse article3-avatar number-1">
-            <Avatar style={{width: "26px", height: "26px"}} src="./public/content/images/main/avatar.jpg"/>
-          </a>
-          <a className="btn-floating pulse article3-avatar number-2">
-            <Avatar style={{width: "26px", height: "26px"}} src="./public/content/images/main/avatar.jpg"/>
-          </a>
-          <a className="btn-floating pulse article3-avatar number-3">
-            <Avatar style={{width: "26px", height: "26px"}} src="./public/content/images/main/avatar.jpg"/>
-          </a>
+					<div className="article3-doughnut">
+          	<Doughnut options={option} data={this.state.data} legend={legend} width={300} height={300} />
+						<a className="btn-floating pulse article3-avatar number-1">
+							<Avatar style={{width: "26px", height: "26px"}} src="./public/content/images/main/avatar.jpg"/>
+						</a>
+						<a className="btn-floating pulse article3-avatar number-2">
+							<Avatar style={{width: "26px", height: "26px"}} src="./public/content/images/main/avatar.jpg"/>
+						</a>
+					</div>
         </div>
         <div className="acticle3-text-content col m12 l7">
           <div className={`article3-header ${this.state.animation ? "animation" : ""}`}>

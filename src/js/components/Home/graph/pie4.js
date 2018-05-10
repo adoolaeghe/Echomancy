@@ -1,23 +1,25 @@
-export default function returnPie4(scroll) {
+export default function returnPie4() {
+	let hello = function(){return(Math.floor(Math.random() * Math.floor(10)))};
+	console.log('here',hello(), hello(), hello())
   return {
     datasets: [{
         label: "1",
-        data: [10, 20, 30],
+        data: [hello(), hello(), hello()],
         backgroundColor: ["#6884FB", "#FEBE65", "#0F3FD5"],
     },
     {
         label: "2",
-        data: [13, 20, 23, 12, 34, 23],
+        data: [hello(), hello(), hello(), hello(), hello(), hello()],
         backgroundColor: ["#6884FB", "#FEBE65", "#0F3FD5", "#6884FB", "#FEBE65", "#0F3FD5"],
     },
     {
         label: "3",
-        data: [5, 10, 33, 12, 34, 23],
+        data: [hello(), hello(), hello(), hello(), hello(), hello()],
         backgroundColor: ["#6884FB", "#FEBE65", "#0F3FD5", "#6884FB", "#FEBE65", "#0F3FD5"],
     },
     {
         label: "4",
-        data: [13, 20, 23, 12, 34, 23],
+        data: [hello(), hello(), hello(), hello(), hello(), hello()],
         backgroundColor: ["#6884FB", "#FEBE65", "#0F3FD5", "#6884FB", "#FEBE65", "#0F3FD5"],
     },
     {

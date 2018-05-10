@@ -104,28 +104,21 @@ export default class Demo extends React.Component {
 
   handleScroll(event) {
     const scroll = $(window).scrollTop();
-    // const scroll = 10;
 
     if (190 < scroll < 200 && !this.state.article2Main) {
       this.setState({
-        article1Arrow: false,
-        article2Main: true,
         navColor: "#0F3FD5",
       });
     }
 
     if (490 < scroll < 500 && !this.state.article3Anim) {
       this.setState({
-        article3Anim: true,
-        article3Text: true,
         navColor: "#FB3F4F",
       });
     }
 
     if (1090 < scroll < 1100 && !this.state.article4Anim) {
       this.setState({
-        article4Anim: true,
-        article4Text: true,
         navColor: "#FEBE65",
       });
     }

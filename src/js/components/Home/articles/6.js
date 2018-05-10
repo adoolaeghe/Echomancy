@@ -36,6 +36,7 @@ export default class Article6 extends React.Component {
 		sr.reveal('.article6', {scale: 1, opacity: 0.2});
 		sr.reveal('.article6-text-header');
 		sr.reveal('.article6-text-content');
+		sr.reveal('.article6-demo-button', {delay: 300});
 	}
 
   render() {
@@ -64,7 +65,7 @@ export default class Article6 extends React.Component {
             </div>
           </div>
           <a
-            className="col m3 l2"
+            className="article6-demo-button col m3 l2"
             style={{
               backgroundImage:
                 "url(./public/content/images/main/hash-background-reverse.svg)",

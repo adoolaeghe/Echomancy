@@ -38,6 +38,7 @@ export default class Article5 extends React.Component {
 		sr.reveal('.article5', {scale: 1, opacity: 0.2});
 		sr.reveal('.article5-text-header');
 		sr.reveal('.article5-text-content');
+		sr.reveal('.article5-demo-button', {delay: 300});
 	}
 
   render() {
@@ -66,7 +67,7 @@ export default class Article5 extends React.Component {
             </div>
           </div>
 
-          <a className="col m3 l2"
+          <a className="article5-demo-button col m3 l2"
              style={{
                backgroundImage:
                  "url(./public/content/images/main/hash-background-reverse.svg)",

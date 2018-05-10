@@ -18,11 +18,13 @@ export default class Article4 extends React.Component {
   }
 
 	componentDidMount() {
+		this.pieDataInterval()
 		sr.reveal('.article4-header');
 		sr.reveal('.article4-sub-header');
 		sr.reveal('.article4-content');
 		sr.reveal('.article4-link');
 		sr.reveal('.article4-slider');
+		sr.reveal('.article4-doughnut', {delay: 400});
 	}
 
   shouldComponentUpdate(nextProps) {
@@ -39,6 +41,15 @@ export default class Article4 extends React.Component {
       return <ReactBodymovin key={2} options={a} />
     }
   }
+
+	pieDataInterval() {console.log(pieData())
+		setInterval(() => {
+			this.setState({
+				data: pieData()
+			})
+			this.forceUpdate()
+		}, 3000)
+	}
 
 
   render() {
@@ -75,8 +86,9 @@ export default class Article4 extends React.Component {
           className="article4-slider col s12 m12 l7"
           style={bgConfig.repeat('main/hash-background.svg')}
         >
-          <div className="" id="bm" />
-          <Doughnut option={option} data={this.state.data} legend={legend} />
+					<div className="article4-doughnut" style={{width: "100%"}}>
+						<Doughnut option={option} data={this.state.data} legend={legend} />
+					</div>
         </div>
         <div className="dot-left" id="21" />
         <div className="dot-right" id="22" />

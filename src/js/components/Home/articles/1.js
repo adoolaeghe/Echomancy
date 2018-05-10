@@ -18,7 +18,10 @@ export default class Article1 extends React.Component {
 
 	componentDidMount() {
 		window.sr = ScrollReveal({reset: true});
-		sr.reveal('.article1');
+		sr.reveal('.header-word');
+		sr.reveal('.sub-header-word');
+		sr.reveal('.player-side-info', {delay: 300});
+		sr.reveal('.sub-header-link', {delay: 500});
 	}
 
   render() {
@@ -68,7 +71,7 @@ export default class Article1 extends React.Component {
             src={"./public/content/images/articles/1/button.svg"}
             alt="Kiwi standing on oval"
           />
-          <div className="player-side-info showPlayerSide">
+          <div className="player-side-info">
              <Chip style={{ margin: "10px", paddingRight: "15px"}} backgroundColor={"#6884FB"} labelColor={"white"}>
                <Avatar src="./public/content/images/main/avatar.jpg" />
                Bob
@@ -84,11 +87,6 @@ export default class Article1 extends React.Component {
              <p className="article-1-time">
               {this.state.time}|10
              </p>
-            <img
-              className="slider-button"
-              src={"./public/content/images/articles/1/button.svg"}
-              alt="Kiwi standing on oval"
-            />
           </div>
           <div className="dot-right"/>
         </div>
