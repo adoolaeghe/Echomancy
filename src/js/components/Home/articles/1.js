@@ -3,7 +3,8 @@ import Player from "../player/player";
 import bgConfig from "../../ryme-helpers/ryme-background";
 import Chip from 'material-ui/Chip';
 import Avatar from 'material-ui/Avatar';
-import moment from 'moment'
+import moment from 'moment';
+import ScrollReveal from 'scrollReveal';
 
 export default class Article1 extends React.Component {
 
@@ -14,6 +15,11 @@ export default class Article1 extends React.Component {
       time: 0
     }
   }
+
+	componentDidMount() {
+		window.sr = ScrollReveal({reset: true});
+		sr.reveal('.article1');
+	}
 
   render() {
     return (
@@ -36,6 +42,7 @@ export default class Article1 extends React.Component {
             slices={[1, 1, 1, 1, 1, 1]}
             slices1={[1]}
           />
+
           <div className="dot-left" id="8" />
         </div>
 

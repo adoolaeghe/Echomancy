@@ -8,220 +8,202 @@ import bgConfig from "../../ryme-helpers/ryme-background";
 import {Doughnut} from 'react-chartjs-2';
 import smoothfade from 'smoothfade';
 import CircularProgress from 'material-ui/CircularProgress';
+import BufferLoader from './bufferLoader';
 
-var audioCtx = new AudioContext();
-var source = audioCtx.createBufferSource();
-var request = new XMLHttpRequest();
+let audioCtx = new AudioContext();
+let source = audioCtx.createBufferSource();
+let request = new XMLHttpRequest();
+let gainNodes = [];
+let sources = [];
+let smoothfades = [];
+let urlList = [
+	'public/content/images/songs/Ants.m4a',
+	'public/content/images/songs/Dean-Martin.mp3',
+	'public/content/images/songs/gorillaz.mp3',
+]
 
-request.open('GET', 'public/content/images/songs/daft_punk.mp3', true);
-
-request.responseType = 'arraybuffer';
-
-request.onload = function() {
-  var audioData = request.response;
-
-  audioCtx.decodeAudioData(audioData, function(buffer) {
-    var myBuffer = buffer;
-    var gainNode = audioCtx.createGain();
-    var x = 0;
-
-    gainNode.gain.value = 1;
-    gainNode.connect(audioCtx.destination);
-
-    source.buffer = myBuffer;
-    source.loop = true;
-    source.loopStart = 34;
-    source.loopEnd = 44;
-    source.start(0,34);
-    source.connect(gainNode);
-    var sm = smoothfade(audioCtx, gainNode, {fadeLength: 3})
-    sm.fadeIn();
-
-  },
-  function(e){"Error with decoding audio data" + e.err});
-}
-request.send();
-
+// Define a new buffer
+let bufferLoader = new BufferLoader(audioCtx, urlList);
+bufferLoader.load();
 
 export default class Player extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      playing: "pause",
-      showPlayBtn: false,
-      data: pieData(),
-      trackPosition: 0,
-      trackPosition1: 0,
-      trackPosition2: 0,
-      track1: 1,
-      zIndex1: 3,
-      zIndex2: 2,
-      zIndex3: 1,
-    };
-  }
+	constructor(props) {
+		super(props);
+		this.state = {
+			playing: "pause",
+			showPlayBtn: false,
+			data: pieData(),
+			angles: [0, 0, 0],
+			track1: 1,
+			zIndexs: [3, 2, 1],
+			currentNode: 1,
+		};
+	}
 
-  //// TONE FILTER VOLUME LOOP
-  softFilter() {
-      var x = 0;
-      window.setInterval(function(){
-        if(x === 70) {
-          x = 0;
-        } else if (x < 5) {
-          audio.volume.value += 10;
-          x += 1;
-        } else if (x < 10) {
-          audio.volume.value += 5;
-          x += 1;
-        } else if (x === 10) {
-          audio.volume.value += 5;
-          x += 1;
-        } else if (x === 60) {
-          audio.volume.value -= 10;
-          x += 1;
-        } else if (x < 60) {
-          x += 1;
-        } else if (x < 65) {
-          audio.volume.value -= 5;
-          x += 1;
-        } else {
-          audio.volume.value -= 10;
-          x += 1;
-        }
-      }, 100);
-  }
+	componentWillMount() {
+		audioCtx.resume();
+		this.finishedLoading(bufferLoader);
+		setInterval(() => {
+			switch(this.state.track1) {
+				case 1:
+					this.handleLoop(0, 2, [2, 1, 3], [this.state.angles[0]+1, this.state.angles[1],this.state.angles[2]], [this.state.angles[0], this.state.angles[1],0]);
+					break;
+				case 2:
+					this.handleLoop(1, 3, [3, 2, 1], [this.state.angles[0], this.state.angles[1]+1, this.state.angles[2]], [0, this.state.angles[1], this.state.angles[2]]);
+					break;
+				case 3:
+					this.handleLoop(2, 1, [1, 3, 2], [this.state.angles[0], this.state.angles[1], this.state.angles[2]+1], [this.state.angles[0], 0, this.state.angles[2]]);
+					break;
+			}
+		}, 150)
+	}
 
-  handlePlayClick() {
-    this.props.playerClick();
-    if (this.state.playing === "pause") {
-      this.setState({
-        playing: "playing",
-        showPlayBtn: true
-      })
-      this.state.audio.start();
-    } else {
-      this.setState({
-        playing: "pause"
-      });
-      this.state.audio.stop();
-    }
-  }
+	handleLoop(i, track, zIndex, angles, angles1) {
+		if(this.state.angles[i]  < 100){
+			this.setState({
+				angles: angles
+			})
+		} else {
+			this.setState({
+				angles: angles1,
+				track1: track,
+				zIndexs: zIndex
+			})
+		}
+	}
 
-  componentWillMount() {
-    setInterval(() => {
-    if(this.state.track1 === 1){
-      if(this.state.trackPosition < 100){
-        this.setState({
-          trackPosition: this.state.trackPosition + 1,
-        })
-      } else {
-        this.setState({
-          trackPosition2: 0,
-          track1: 2,
-          zIndex1: 2,
-          zIndex2: 1,
-          zIndex3: 3,
-        })
-      }
-    } else if (this.state.track1 === 2) {
-      if(this.state.trackPosition1 < 100){
-        this.setState({
-          trackPosition1: this.state.trackPosition1 + 1
-        })
-      } else {
-        this.setState({
-          trackPosition: 0,
-          track1: 3,
-          zIndex1: 1,
-          zIndex2: 3,
-          zIndex3: 2,
-        })
-      }
-    } else if (this.state.track1 === 3) {
-      if(this.state.trackPosition2 < 100){
-        this.setState({
-          trackPosition2: this.state.trackPosition2 + 1
-        })
-      } else {
-        this.setState({
-          trackPosition1: 0,
-          track1: 1,
-          zIndex1: 3,
-          zIndex2: 2,
-          zIndex3: 1,
-        })
-      }
-    }
-  }, 150)
-  }
+	renderCircularProgress(num) {
+		let circularProgress = [];
+		let colors = ["#0F3FD5", "#FEBE65", "#6884FB"]
+		for (var i = 0; i <= num; i++) {
+			circularProgress.push(
+				<CircularProgress
+					style={{position: "absolute", zIndex: this.state.zIndexs[i]}}
+					mode="determinate"
+					value={this.state.angles[i]}
+					size={90}
+					key={i}
+					color={colors[i]}
+					thickness={5}
+				/>
+			);
+		}
+		return (
+			<div className={`progress-circles`}>
+				{circularProgress}
+			</div>
+		)
+	}
 
+	finishedLoading(bufferList) {
+		audioCtx.resume();
+		console.log(urlList)
+		for(let i = 0; i <= urlList.length; i++) {
+			// Set the nodes fot all urls.
+			gainNodes[i] = audioCtx.createGain();
+			gainNodes[i].gain.value = 0;
+			gainNodes[i].connect(audioCtx.destination);
+			smoothfades[i] = smoothfade(audioCtx, gainNodes[i]);
 
-  render() {
-    // this.state.audio.fadeOut;
-    // this.state.audio.fadeIn;
-    // this.state.audio.context.resume();
-    // console.log(this.state.audio.playbackRate,this.state.audio.position,this.state.audio.fadeOut,this.state.audio.fadeIn);
-    const legend = {
-      display: false
-    }
+			// Set the sources fot all urls.
+			sources[i] = audioCtx.createBufferSource();
+			sources[i].buffer = bufferList.bufferList[i];
+			sources[i].loop = true;
+			sources[i].loopStart = 100;
+			sources[i].loopEnd = 115;
+			sources[i].connect(gainNodes[i]);
+			sources[i].start(0, 100);
+		}
+	}
 
-    return (
-      <div className={`player player-wrapper ${this.props.size}`}>
-        <div className={`player-wrapper rotating ${this.props.size} `}>
-          <Doughnut data={this.state.data} legend={legend} width={370} height={370} />
-        </div>
-        {this.state.showPlayBtn && (
-          <div className= "row"style={{border: "1px solid lightgrey", backgroundColor: "blue", width: "25.2%", height: "100px", left: "8.3%", position: "fixed", bottom: "0px"}}>
-            <div className="" style={{height: "100%", display: "flex", justifyContent: "center", flexDirection: "row", alignItems: "center"}}>
-              <div style={{height: "30px", cursor: "pointer", width: "30px",borderRadius: "50px",backgroundColor: "white", border: "1px solid lightgrey", margin: "10px"}}
-                   onClick={() => {this.handlePlayClick()}}></div>
-              <div style={{height: "40px", cursor: "pointer", width: "40px",borderRadius: "50px",backgroundColor: "white", border: "1px solid red", margin: "10px"}}
-                   onClick={() => {this.handlePlayClick()}}></div>
-              <div style={{height: "30px", cursor: "pointer", width: "30px",borderRadius: "50px",backgroundColor: "white", border: "1px solid lightgrey", margin: "10px"}}
-                   onClick={() => {this.handlePlayClick()}}></div>
+	//// NEED TO HANDLE FILTER IN A NEW LOOP 
+	controlPlay(control) {
+		audioCtx.resume();
+		for(let i = 0; i <= urlList.length; i++) {
+			if(gainNodes[i].gain.value != 0) {
+				gainNodes[i].gain.value = 0;
+				if(control === 'next') {
+					gainNodes[i+1].gain.value = 1;
+					this.setState({
+						currentNode: this.state.currentNode + 1
+					})
+				} else {
+					gainNodes[i-1].gain.value = 1;
+					this.setState({
+						currentNode: this.state.currentNode - 1
+					})
+				}
+				return;
+			}
+		}
+	}
 
-            </div>
-          </div>
-        )}
-        <div
-          className={`player-cover ${this.props.size} ${this.state.playing}`}
-          onClick={() => {
-            this.handlePlayClick();
-          }}>
-          {this.props.size != "small" && (
-            <div className={`player-cover-image ${this.props.size} ${this.state.playing}`}>
-              <div className={`player-btn-icon ${this.state.playing}`}
-                   style={bgConfig.noRepeat('main/play.svg')}>
-                {this.state.playing === "playing" && (
-                  <div style={{borderRadius: "50px", width: "73px", height: "73px"}}></div>
-                )}
-              </div>
-              <CircularProgress
-                style={{position: "absolute", zIndex: this.state.zIndex1}}
-                mode="determinate"
-                value={this.state.trackPosition}
-                size={90}
-                key={1}
-                color={"#0F3FD5"}
-                thickness={5}
-              />
-              <CircularProgress
-                style={{position: "absolute", zIndex: this.state.zIndex2}}
-                mode="determinate"
-                value={this.state.trackPosition2}
-                size={90}
-                key={2}
-                color={"#FEBE65"}
-                thickness={5}
-              />
-              <CircularProgress
-                style={{position: "absolute", zIndex: this.state.zIndex3}}
-                mode="determinate"
-                value={this.state.trackPosition1}
-                size={90}
-                key={3}
-                color={"#6884FB"}
-                thickness={5}
-              />
+	handlePlayClick() {
+		this.props.playerClick();
+		if (this.state.playing === "pause") {
+			this.play();
+			this.setState({
+				playing: "playing",
+				showPlayBtn: true
+			})
+		} else {
+			this.pause();
+			this.setState({
+				playing: "pause"
+			});
+		}
+	}
+
+	play() {
+		audioCtx.resume();
+		gainNodes[this.state.currentNode].gain.value = 1;
+	}
+
+	pause() {
+		audioCtx.resume();
+		gainNodes[this.state.currentNode].gain.value = 0;
+	}
+
+	render() {
+		const legend = {
+			display: false
+		}
+
+		return (
+			<div className={`player player-wrapper ${this.props.size}`}>
+				<div className={`player-wrapper rotating ${this.props.size} `}>
+					<Doughnut data={this.state.data} legend={legend} width={370} height={370} />
+				</div>
+				{this.state.showPlayBtn && (
+					<div className= "row"style={{border: "1px solid lightgrey", backgroundColor: "blue", width: "25.2%", height: "100px", left: "8.3%", position: "fixed", bottom: "0px"}}>
+						<div className="" style={{height: "100%", display: "flex", justifyContent: "center", flexDirection: "row", alignItems: "center"}}>
+							{this.state.currentNode > 0 && (
+								<div style={{height: "30px", cursor: "pointer", width: "30px",borderRadius: "50px",backgroundColor: "white", border: "1px solid lightgrey", margin: "10px"}}
+										 onClick={() => {this.controlPlay("back")}}></div>
+							 )}
+							 <div style={{height: "40px", cursor: "pointer", width: "40px",borderRadius: "50px",backgroundColor: "white", border: "1px solid red", margin: "10px"}}
+										onClick={() => {this.handlePlayClick()}}></div>
+								{this.state.currentNode < 2 && (
+									<div style={{height: "30px", cursor: "pointer", width: "30px",borderRadius: "50px",backgroundColor: "white", border: "1px solid lightgrey", margin: "10px"}}
+											 onClick={() => {this.controlPlay("next")}}></div>
+							)}
+						</div>
+					</div>
+				)}
+				<div
+					className={`player-cover ${this.props.size} ${this.state.playing}`}
+					onClick={() => {
+						this.handlePlayClick();
+					}}>
+					{this.props.size != "small" && (
+						<div className={`player-cover-image ${this.props.size} ${this.state.playing}`}>
+							<div className={`player-btn-icon ${this.state.playing}`}
+									 style={bgConfig.noRepeat('main/play.svg')}>
+									{this.state.playing === "playing" && (
+										<div style={{borderRadius: "50px", width: "73px", height: "73px"}}></div>
+									)}
+							</div>
+							{this.renderCircularProgress(2)}
             </div>
           )}
         </div>

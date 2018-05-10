@@ -31,6 +31,11 @@ export default class Article7 extends React.Component {
     };
   }
 
+	componentDidMount() {
+		sr.reveal('.article7', {scale: 1, opacity: 0.2});
+		sr.reveal('.article7-text-header');
+		sr.reveal('.article7-text-content');
+	}
 
   render() {
     return (
@@ -49,8 +54,8 @@ export default class Article7 extends React.Component {
           <div id="article5main" className="col m6 l5 number-5" style= {{zIndex: this.state.zIndex ? "1400" : "900"}}>
             <div>
               <div className="text-header-line number-5"/>
-              <h2>SECTION</h2>
-              <p>
+              <h2 className="article7-text-header">SECTION</h2>
+              <p className="article7-text-content">
                 Eco is a global currency not controlled by any single
                 individual, organization, or nation. Our mission is to
                 distribute the majority of

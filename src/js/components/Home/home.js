@@ -24,6 +24,7 @@ import Article7 from "./articles/7";
 import LoadingPage from "./articles/LoadingPage";
 import NavBar from "./articles/navBar";
 import Footer from "./articles/footer";
+import ScrollReveal from 'scrollReveal'
 
 import Faq from "./drawer/faq";
 import Menu from "./drawer/menu";
@@ -102,39 +103,35 @@ export default class Demo extends React.Component {
   }
 
   handleScroll(event) {
-    // const scroll = $(window).scrollTop();
-    const scroll = 10;
+    const scroll = $(window).scrollTop();
+    // const scroll = 10;
 
-    if (scroll > 200) {
+    if (190 < scroll < 200 && !this.state.article2Main) {
       this.setState({
         article1Arrow: false,
         article2Main: true,
         navColor: "#0F3FD5",
-        logoUrl: "url(./public/content/images/main/logo.svg)"
       });
     }
 
-    if (scroll > 500) {
+    if (490 < scroll < 500 && !this.state.article3Anim) {
       this.setState({
         article3Anim: true,
         article3Text: true,
         navColor: "#FB3F4F",
-        logoUrl: "url(./public/content/images/main/logo_red.svg)"
       });
     }
 
-    if (scroll > 1100) {
+    if (1090 < scroll < 1100 && !this.state.article4Anim) {
       this.setState({
         article4Anim: true,
         article4Text: true,
         navColor: "#FEBE65",
-        logoUrl: "url(./public/content/images/main/logo_orange.svg)"
       });
     }
-    if (scroll > 1900) {
+    if (scroll === 1900) {
       this.setState({
         navColor: "#6884FB",
-        logoUrl: "url(./public/content/images/main/logo_pale_blue.svg)"
       });
     }
     this.setState({pieScroll: scroll})

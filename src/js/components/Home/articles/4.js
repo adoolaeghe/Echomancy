@@ -6,6 +6,7 @@ import animation from "../../../../../public/content/animation/data1.json";
 import pieData from "../graph/pie4";
 import bgConfig from "../../ryme-helpers/ryme-background";
 import {Doughnut} from 'react-chartjs-2';
+import ScrollReveal from 'scrollReveal';
 
 export default class Article4 extends React.Component {
   constructor(props) {
@@ -15,6 +16,14 @@ export default class Article4 extends React.Component {
       data: pieData()
     };
   }
+
+	componentDidMount() {
+		sr.reveal('.article4-header');
+		sr.reveal('.article4-sub-header');
+		sr.reveal('.article4-content');
+		sr.reveal('.article4-link');
+		sr.reveal('.article4-slider');
+	}
 
   shouldComponentUpdate(nextProps) {
     if(this.props != nextProps) {
@@ -50,11 +59,10 @@ export default class Article4 extends React.Component {
         className="ryme-article article4 row"
         style={bgConfig.noRepeat('articles/4/background.svg')}
       >
-      {this.props.article4Text &&
         <div className="article4-text-content row col s12 m12 l5">
           <div className="text-block-color"></div>
-          <h1 className="article4-header">Reveal</h1>
-          <h2 className="article4-sub-header">New songs</h2>
+          <h2 className="article4-header">Reveal New</h2>
+          <h1 className="article4-sub-header">Songs.</h1>
           <p className="article4-content">
             Eco is a global currency not controlled by any single individual,
             organization, or nation. Our mission is to distribute the majority
@@ -63,18 +71,12 @@ export default class Article4 extends React.Component {
           </p>
           <a className="article4-link">Read this link</a>
         </div>
-      }
         <div
           className="article4-slider col s12 m12 l7"
           style={bgConfig.repeat('main/hash-background.svg')}
         >
           <div className="" id="bm" />
           <Doughnut option={option} data={this.state.data} legend={legend} />
-          <img
-            className="slider-button"
-            src={"./public/content/images/articles/4/button.svg"}
-            alt="Kiwi standing on oval"
-          />
         </div>
         <div className="dot-left" id="21" />
         <div className="dot-right" id="22" />

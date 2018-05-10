@@ -2,14 +2,22 @@ import React from "react";
 import Card from 'material-ui/Card';
 import bgConfig from "../../ryme-helpers/ryme-background";
 
+
 export default class Article2 extends React.Component {
-  
+
   shouldComponentUpdate(nextProps) {
     if(this.props != nextProps) {
       return true;
     }
     return false
   }
+
+	componentDidMount() {
+		sr.reveal('#article2-1', {delay: 100});
+		sr.reveal('#article2-2', {delay: 200});
+		sr.reveal('#article2-3', {delay: 300});
+		sr.reveal('#article2-4', {delay: 400});
+	}
 
   render() {
     return (
@@ -18,7 +26,6 @@ export default class Article2 extends React.Component {
         <div className="dot-right" />
           <div className="article-main row col m6 l10">
             <div className="article-main-column col m12 l3">
-            {this.props.article2Main &&
               <div className="article-main-content"
                    id="article2-1">
                 <div className="col s3 article-main-number">
@@ -29,10 +36,8 @@ export default class Article2 extends React.Component {
                   <p>Some text</p>
                 </div>
               </div>
-            }
             </div>
             <div className="article-main-column col m12 l3">
-            {this.props.article2Main &&
               <div className="article-main-content"
                    id="article2-2">
                 <div className="col s3 article-main-number">
@@ -43,10 +48,8 @@ export default class Article2 extends React.Component {
                   <p>Some text</p>
                 </div>
               </div>
-            }
             </div>
             <div className="article-main-column col m12 l3">
-            {this.props.article2Main &&
               <div className="article-main-content"
                    id="article2-3">
                 <div className="col s3 article-main-number">
@@ -57,10 +60,8 @@ export default class Article2 extends React.Component {
                   <p>Some text</p>
                 </div>
               </div>
-            }
             </div>
             <div className="article-main-column col m12 l3">
-            {this.props.article2Main &&
               <div className="article-main-content"
                    id="article2-4">
                 <div className="col s3 article-main-number">
@@ -71,7 +72,6 @@ export default class Article2 extends React.Component {
                   <p>Some text</p>
                 </div>
               </div>
-            }
             </div>
           </div>
         <Card className="article-grid-left col m6 l2 gradient-animation">
