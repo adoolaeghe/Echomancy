@@ -1,7 +1,8 @@
 .article1
   background-size: cover !important
   margin-top: $space-xlarge + 20px
-  height: 650px
+  height: 92vh
+  min-height: 650px
   @media #{$medium-and-down}
     height: 800px
 
@@ -10,7 +11,7 @@
     height: 100%
 
   .article-bottom
-    +Position(absolute, 68%, 40%, 210px, 410px, $z-mid)
+    +Position(absolute, 68%, 40%, 32%, 410px, $z-mid)
     +border-top-light
 
     img

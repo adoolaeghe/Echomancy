@@ -40,57 +40,57 @@ export default class Article7 extends React.Component {
 
   render() {
     return (
-      <section className="ryme-article article7 row" id="article5">
-
-        <Article6Demo display={this.state.headerDisplay}/>
-
-        <div className={`card-header row`} href="#!">
-          <div
-            className="col m3 l5"
-            id="article5left"
-            style={{backgroundImage:"url(./public/content/images/main/hash-background.svg)"}}
-          >
-            <div style={{ backgroundImage:"url(./public/content/images/articles/7/illustration.svg)",}}/>
-          </div>
-          <div id="article5main" className="col m6 l5 number-5" style= {{zIndex: this.state.zIndex ? "1400" : "900"}}>
-            <div>
-              <div className="text-header-line number-5"/>
-              <h2 className="article7-text-header">SECTION</h2>
-              <p className="article7-text-content">
-                Eco is a global currency not controlled by any single
-                individual, organization, or nation. Our mission is to
-                distribute the majority of
-              </p>
-            </div>
-          </div>
-          <a
-            className="article7-demo-button col m3 l2"
-            style={{
-              backgroundImage:
-                "url(./public/content/images/main/hash-background-reverse.svg)",
-              zIndex: this.state.zIndex ? "1400" : "900"
-            }}
-          >
-            <div
-              className={`article5-demo-trigger number-5 btn-floating btn-large white ${this.state.cancel ? "cancel" : ''}`}
-              onClick={()=> {this.setState({headerDisplay: !this.state.headerDisplay, zIndex: !this.state.zIndex, cancel: !this.state.cancel})}}>
-              <i style={{
-                backgroundImage:"url(./public/content/images/main/logo-secondary.svg)",
-                backgroundSize: "70%",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-              }}></i>
-            </div>
-            <span className="article-number number-5">
-             05.
-            </span>
-          </a>
-        </div>
-        <div className="dot-left top" />
-        <div className="dot-right top" />
-        <div className="dot-left" />
-        <div className="dot-right" />
-      </section>
+			<div>
+				<Article6Demo display={this.state.headerDisplay}/>
+	      <section className="ryme-article article7 row" id="article5">
+	        <div className={`card-header row`} href="#!">
+	          <div
+	            className="col m3 l5"
+	            id="article5left"
+	            style={{backgroundImage:"url(./public/content/images/main/hash-background.svg)"}}
+	          >
+	            <div style={{ backgroundImage:"url(./public/content/images/articles/7/illustration.svg)",}}/>
+	          </div>
+	          <div id="article5main" className="col m6 l5 number-5" style= {{zIndex: this.state.zIndex ? "1400" : "900"}}>
+	            <div>
+	              <div className="text-header-line number-5"/>
+	              <h2 className="article7-text-header">SECTION</h2>
+	              <p className="article7-text-content">
+	                Eco is a global currency not controlled by any single
+	                individual, organization, or nation. Our mission is to
+	                distribute the majority of
+	              </p>
+	            </div>
+	          </div>
+	          <a
+	            className="article7-demo-button col m3 l2"
+	            style={{
+	              backgroundImage:
+	                "url(./public/content/images/main/hash-background-reverse.svg)",
+	              zIndex: this.state.zIndex ? "1400" : "900"
+	            }}
+	          >
+	            <div
+	              className={`article5-demo-trigger number-5 btn-floating btn-large white ${this.state.cancel ? "cancel" : ''}`}
+	              onClick={()=> {this.setState({headerDisplay: !this.state.headerDisplay, zIndex: !this.state.zIndex, cancel: !this.state.cancel})}}>
+	              <i style={{
+	                backgroundImage:"url(./public/content/images/main/logo-secondary.svg)",
+	                backgroundSize: "70%",
+	                backgroundPosition: "center",
+	                backgroundRepeat: "no-repeat",
+	              }}></i>
+	            </div>
+	            <span className="article-number number-5">
+	             05.
+	            </span>
+	          </a>
+	        </div>
+	        <div className="dot-left top" />
+	        <div className="dot-right top" />
+	        <div className="dot-left" />
+	        <div className="dot-right" />
+	      </section>
+			</div>
     );
   }
 }

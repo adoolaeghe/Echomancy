@@ -25,6 +25,7 @@ export default class Article4 extends React.Component {
 		sr.reveal('.article4-link');
 		sr.reveal('.article4-slider');
 		sr.reveal('.article4-doughnut', {delay: 400});
+		sr.reveal('.article4-dot', {delay: 200});
 	}
 
   shouldComponentUpdate(nextProps) {
@@ -48,7 +49,7 @@ export default class Article4 extends React.Component {
 				data: pieData()
 			})
 			this.forceUpdate()
-		}, 3000)
+		}, 5000)
 	}
 
 
@@ -72,8 +73,8 @@ export default class Article4 extends React.Component {
       >
         <div className="article4-text-content row col s12 m12 l5">
           <div className="text-block-color"></div>
-          <h2 className="article4-header">Reveal New</h2>
-          <h1 className="article4-sub-header">Songs.</h1>
+          <h2 className="article4-header">Earn from your</h2>
+          <h1 className="article4-sub-header">Discoveries.</h1>
           <p className="article4-content">
             Eco is a global currency not controlled by any single individual,
             organization, or nation. Our mission is to distribute the majority
@@ -90,8 +91,8 @@ export default class Article4 extends React.Component {
 						<Doughnut option={option} data={this.state.data} legend={legend} />
 					</div>
         </div>
-        <div className="dot-left" id="21" />
-        <div className="dot-right" id="22" />
+        <div className="article4-dot dot-left" id="21" />
+        <div className="article4-dot dot-right" id="22" />
         <div
           className="bottom-info col m5"
           style={bgConfig.repeat('main/hash-background-reverse.svg')}

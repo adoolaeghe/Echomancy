@@ -47,7 +47,6 @@ export default class Demo extends React.Component {
       article2Main: false,
       pieScroll: [],
       faqDisplay: false,
-      waitPage: true,
       navColor: "blue",
       logoUrl: "url(./public/content/images/main/logo.svg)"
     };
@@ -69,15 +68,6 @@ export default class Demo extends React.Component {
 
   handleFaqDrawer() {
     this.setState({faqDisplay: !this.state.faqDisplay})
-  }
-
-
-  componentWillMount() {
-    setTimeout(() => {
-      this.setState({
-        waitPage: false
-      })
-    }, 3000);
   }
 
   handleMenu() {
@@ -131,11 +121,6 @@ export default class Demo extends React.Component {
   }
 
   render() {
-    if(this.state.waitPage) {
-      return(
-        <LoadingPage />
-      )
-    } else {
     return (
       <div className="row" style={{cursor: "url(./public/content/images/main/avatar.jpg) 4 12, auto"}}>
 
@@ -167,5 +152,5 @@ export default class Demo extends React.Component {
         <Footer />
       </div>
     );
-  }}
+	}
 }

@@ -53,6 +53,7 @@
     "node-sass": "^4.6.0",
     "nouislider": "^11.0.3",
     "path": "^0.12.7",
+    "plumin.js": "^1.10.7",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-bodymovin": "^1.1.1",

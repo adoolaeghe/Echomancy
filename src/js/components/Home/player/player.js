@@ -89,7 +89,7 @@ export default class Player extends React.Component {
 			);
 		}
 		return (
-			<div className={`progress-circles`}>
+			<div className={`progress-circles ${this.state.playing}`}>
 				{circularProgress}
 			</div>
 		)
@@ -116,7 +116,7 @@ export default class Player extends React.Component {
 		}
 	}
 
-	//// NEED TO HANDLE FILTER IN A NEW LOOP 
+	//// NEED TO HANDLE FILTER IN A NEW LOOP
 	controlPlay(control) {
 		audioCtx.resume();
 		for(let i = 0; i <= urlList.length; i++) {
@@ -175,7 +175,7 @@ export default class Player extends React.Component {
 					<Doughnut data={this.state.data} legend={legend} width={370} height={370} />
 				</div>
 				{this.state.showPlayBtn && (
-					<div className= "row"style={{border: "1px solid lightgrey", backgroundColor: "blue", width: "25.2%", height: "100px", left: "8.3%", position: "fixed", bottom: "0px"}}>
+					<Card className="row" zDepth={5} style={{borderTop: "4px solid blue", backgroundColor: "white", width: "42.8%", height: "100px", left: "0", position: "fixed", bottom: "0px"}}>
 						<div className="" style={{height: "100%", display: "flex", justifyContent: "center", flexDirection: "row", alignItems: "center"}}>
 							{this.state.currentNode > 0 && (
 								<div style={{height: "30px", cursor: "pointer", width: "30px",borderRadius: "50px",backgroundColor: "white", border: "1px solid lightgrey", margin: "10px"}}
@@ -187,8 +187,12 @@ export default class Player extends React.Component {
 									<div style={{height: "30px", cursor: "pointer", width: "30px",borderRadius: "50px",backgroundColor: "white", border: "1px solid lightgrey", margin: "10px"}}
 											 onClick={() => {this.controlPlay("next")}}></div>
 							)}
+							<div>
+								<p>artist name</p>
+								<p>song Name</p>
+							</div>
 						</div>
-					</div>
+					</Card>
 				)}
 				<div
 					className={`player-cover ${this.props.size} ${this.state.playing}`}
@@ -196,14 +200,15 @@ export default class Player extends React.Component {
 						this.handlePlayClick();
 					}}>
 					{this.props.size != "small" && (
-						<div className={`player-cover-image ${this.props.size} ${this.state.playing}`}>
+						<div className={`player-cover-image ${this.props.size} ${this.state.playing}`}
+								 style={{backgroundImage: 'url(./public/content/images/album-cover.jpg	)', backgroundSize:"100%"}}>
 							<div className={`player-btn-icon ${this.state.playing}`}
 									 style={bgConfig.noRepeat('main/play.svg')}>
 									{this.state.playing === "playing" && (
 										<div style={{borderRadius: "50px", width: "73px", height: "73px"}}></div>
 									)}
+									{this.renderCircularProgress(2)}
 							</div>
-							{this.renderCircularProgress(2)}
             </div>
           )}
         </div>

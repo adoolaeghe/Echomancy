@@ -71,22 +71,22 @@ export default class Article1 extends React.Component {
             src={"./public/content/images/articles/1/button.svg"}
             alt="Kiwi standing on oval"
           />
-          <div className="player-side-info">
-             <Chip style={{ margin: "10px", paddingRight: "15px"}} backgroundColor={"#6884FB"} labelColor={"white"}>
-               <Avatar src="./public/content/images/main/avatar.jpg" />
-               Bob
-             </Chip>
-             <Chip style={{ margin: "10px", paddingRight: "50px"}} backgroundColor={"#0F3FD5"} labelColor={"white"}>
-               <Avatar src="./public/content/images/main/avatar.jpg" />
-               Mary
-             </Chip>
-             <Chip style={{ margin: "10px", paddingRight: "25px"}} backgroundColor={"#FEBE65"} labelColor={"white"}>
-               <Avatar src="./public/content/images/main/avatar.jpg" />
-               Steve
-             </Chip>
-             <p className="article-1-time">
-              {this.state.time}|10
-             </p>
+				<div className="player-side-info" style={{borderBottom: "4px solid red"}}>
+           <Chip style={{ margin: "10px", paddingRight: "15px"}} backgroundColor={"#6884FB"} labelColor={"white"}>
+             <Avatar src="./public/content/images/main/avatar.jpg" />
+             Bob
+           </Chip>
+           <Chip style={{ margin: "10px", paddingRight: "50px"}} backgroundColor={"#0F3FD5"} labelColor={"white"}>
+             <Avatar src="./public/content/images/main/avatar.jpg" />
+             Mary
+           </Chip>
+           <Chip style={{ margin: "10px", paddingRight: "25px"}} backgroundColor={"#FEBE65"} labelColor={"white"}>
+             <Avatar src="./public/content/images/main/avatar.jpg" />
+             Steve
+           </Chip>
+           <p className="article-1-time">
+            {this.state.time}|10
+           </p>
           </div>
           <div className="dot-right"/>
         </div>

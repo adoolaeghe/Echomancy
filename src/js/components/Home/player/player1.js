@@ -62,7 +62,7 @@ export default class Player extends React.Component {
           {this.props.size != "small" && (
             <div
               className={`player-cover-image ${this.props.size} ${this.state.playing}`}
-              style={{opacity: "1"}}
+              style={{backgroundImage: 'url(./public/content/images/album-cover.jpg	)', opacity: "1", backgroundSize:"100%"}}>
             >
               <div className='rotating' style={{width: "340px", opacity: "1", height: "340px", position: 'absolute'}}>
                 {this.props.handleAvatar}
