@@ -2,6 +2,7 @@ import React from "react";
 import Home from "./Home/home"
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { ConnectedRouter } from 'connected-react-router';
 
 import {
   BrowserRouter as Router,
@@ -12,7 +13,7 @@ import {
   Switch
 } from 'react-router-dom'
 import { Provider } from 'react-redux';
-import store, { history } from 'store';
+import store, { history } from '../store/store';
 
 export default class Main extends React.Component {
 
@@ -35,13 +36,11 @@ export default class Main extends React.Component {
 
     return (
       <Provider store={store}>
-        <BrowserRouter>
+        <ConnectedRouter history={history}>
           <MuiThemeProvider>
-            <Switch>
-              <Route exact path="/" render={props => <HomePage {...props} />} />
-            </Switch>
+            <Route exact path="/" render={props => <HomePage {...props} />} />
           </MuiThemeProvider>
-        </BrowserRouter>
+        </ConnectedRouter>
       </Provider>
     );
   }

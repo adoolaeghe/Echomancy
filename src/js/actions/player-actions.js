@@ -1,4 +1,3 @@
-import { history } from '../store/store';
 
 import {
   AUTH_HEADER,

@@ -30,7 +30,7 @@ let urlList = [
 let bufferLoader = new BufferLoader(audioCtx, urlList);
 bufferLoader.load();
 
-export default class Player extends React.Component {
+export class Player extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -220,3 +220,13 @@ export default class Player extends React.Component {
     );
   }
 }
+
+
+function MapStateToProps(state){
+	console.log(state);
+	return {
+		currentLocation: "hello"
+	};
+}
+
+export default connect(MapStateToProps, actions)(Player);

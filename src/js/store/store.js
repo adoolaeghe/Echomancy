@@ -14,12 +14,5 @@ import reducers from '../reducer/index';
 export const history = createBrowserHistory();
 
 
-const store = compose(
-  // Enables your middleware:
-  // applyMiddleware(thunk), // any Redux middleware, e.g. redux-thunk
-  applyMiddleware(routerMiddleware(history), thunkMiddleware),
-  // Provides support for DevTools via Chrome extension
-  window.devToolsExtension ? window.devToolsExtension() : f => f
-)(createStore)(connectRouter(history)(reducers));
-
+const store = createStore(reducers, ['Use Redux'])
 export default store;
