@@ -11,6 +11,8 @@ import {
   BrowserRouter,
   Switch
 } from 'react-router-dom'
+import { Provider } from 'react-redux';
+import store, { history } from 'store';
 
 export default class Main extends React.Component {
 
@@ -32,13 +34,15 @@ export default class Main extends React.Component {
     )
 
     return (
-      <BrowserRouter>
-        <MuiThemeProvider>
-          <Switch>
-            <Route exact path="/" render={props => <HomePage {...props} />} />
-          </Switch>
-        </MuiThemeProvider>
-      </BrowserRouter>
+      <Provider store={store}>
+        <BrowserRouter>
+          <MuiThemeProvider>
+            <Switch>
+              <Route exact path="/" render={props => <HomePage {...props} />} />
+            </Switch>
+          </MuiThemeProvider>
+        </BrowserRouter>
+      </Provider>
     );
   }
 }

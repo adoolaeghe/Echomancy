@@ -1,7 +1,6 @@
 import React from "react";
 import pieData from "../graph/piePlayer";
 import FloatingActionButton from "material-ui/FloatingActionButton";
-import Tone from "tone";
 import Card from "material-ui/Card";
 import Slider from "material-ui/Slider";
 import bgConfig from "../../ryme-helpers/ryme-background";
@@ -9,6 +8,11 @@ import {Doughnut} from 'react-chartjs-2';
 import smoothfade from 'smoothfade';
 import CircularProgress from 'material-ui/CircularProgress';
 import BufferLoader from './bufferLoader';
+
+import { connect } from 'react-redux';
+import { Router, Route, IndexRoute } from 'react-router';
+import { history } from '../../../store/store';
+import * as actions from '../../../actions/player-actions';
 
 let audioCtx = new AudioContext();
 let source = audioCtx.createBufferSource();

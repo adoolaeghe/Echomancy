@@ -1,5 +1,5 @@
 googleCloud
-node_modules
+./node_modules
 ./webpack.config.js
 ./package.json
 ./firebase.json
