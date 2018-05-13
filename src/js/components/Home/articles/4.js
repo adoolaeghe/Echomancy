@@ -43,7 +43,7 @@ export default class Article4 extends React.Component {
     }
   }
 
-	pieDataInterval() {console.log(pieData())
+	pieDataInterval() {
 		setInterval(() => {
 			this.setState({
 				data: pieData()

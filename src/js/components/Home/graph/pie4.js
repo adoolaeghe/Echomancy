@@ -1,6 +1,5 @@
 export default function returnPie4() {
 	let hello = function(){return(Math.floor(Math.random() * Math.floor(10)))};
-	console.log('here',hello(), hello(), hello())
   return {
     datasets: [{
         label: "1",

@@ -8,11 +8,11 @@ import thunkMiddleware from 'redux-thunk';
 // Import all reducers
 import reducers from '../reducer/index';
 
-// Configure reducer to store state at state.router
-// You can store it elsewhere by specifying a custom `routerStateSelector`
-// in the store enhancer below
 export const history = createBrowserHistory();
 
+const store = compose(
+  applyMiddleware(routerMiddleware(history), thunkMiddleware),
+  window.devToolsExtension ? window.devToolsExtension() : f => f
+)(createStore)(connectRouter(history)(reducers));
 
-const store = createStore(reducers, ['Use Redux'])
 export default store;

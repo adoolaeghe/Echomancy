@@ -138,7 +138,7 @@ export default class Article6Demo extends React.Component {
   }
 
   render() {
-    let initialNbOfShare = "1";
+    let initialNbOfShare = 1;
     let shareIncrementor = "1";
     let priceIncrementor = "1";
     let initialSharePrice = "1";
@@ -224,7 +224,7 @@ export default class Article6Demo extends React.Component {
               sliderStyle={{
                 marginTop: "18px"
               }}
-              defaultValue = {40}
+              defaultValue = {4}
               step={max / 100}
               onChange={this.handleSlider}
             />

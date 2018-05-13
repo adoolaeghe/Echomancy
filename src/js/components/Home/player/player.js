@@ -14,39 +14,31 @@ import { Router, Route, IndexRoute } from 'react-router';
 import { history } from '../../../store/store';
 import * as actions from '../../../actions/player-actions';
 
-let audioCtx = new AudioContext();
-let source = audioCtx.createBufferSource();
-let request = new XMLHttpRequest();
 let gainNodes = [];
 let sources = [];
 let smoothfades = [];
-let urlList = [
-	'public/content/images/songs/Ants.m4a',
-	'public/content/images/songs/Dean-Martin.mp3',
-	'public/content/images/songs/gorillaz.mp3',
-]
 
-// Define a new buffer
-let bufferLoader = new BufferLoader(audioCtx, urlList);
-bufferLoader.load();
 
 export class Player extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			data: pieData(),
+			currentNode: 1,
 			playing: "pause",
 			showPlayBtn: false,
-			data: pieData(),
 			angles: [0, 0, 0],
 			track1: 1,
 			zIndexs: [3, 2, 1],
-			currentNode: 1,
+			bufferLoader: new BufferLoader(this.props.audioCtx, this.props.urlList)
 		};
 	}
 
 	componentWillMount() {
-		audioCtx.resume();
-		this.finishedLoading(bufferLoader);
+		this.props.audioCtx.resume();
+		this.state.bufferLoader.load();
+
+		this.finishedLoading(this.state.bufferLoader);
 		setInterval(() => {
 			switch(this.state.track1) {
 				case 1:
@@ -100,30 +92,30 @@ export class Player extends React.Component {
 	}
 
 	finishedLoading(bufferList) {
-		audioCtx.resume();
-		console.log(urlList)
-		for(let i = 0; i <= urlList.length; i++) {
-			// Set the nodes fot all urls.
-			gainNodes[i] = audioCtx.createGain();
-			gainNodes[i].gain.value = 0;
-			gainNodes[i].connect(audioCtx.destination);
-			smoothfades[i] = smoothfade(audioCtx, gainNodes[i]);
-
-			// Set the sources fot all urls.
-			sources[i] = audioCtx.createBufferSource();
-			sources[i].buffer = bufferList.bufferList[i];
-			sources[i].loop = true;
-			sources[i].loopStart = 100;
-			sources[i].loopEnd = 115;
-			sources[i].connect(gainNodes[i]);
-			sources[i].start(0, 100);
-		}
+		this.props.audioCtx.resume();
+		setTimeout(() => {
+			for(let i = 0; i <= this.props.urlList.length; i++) {
+				// Set the nodes fot all urls.
+				this.props.gainNodes[i] = this.props.audioCtx.createGain();
+				this.props.gainNodes[i].gain.value = 0;
+				this.props.gainNodes[i].connect(this.props.audioCtx.destination);
+				smoothfades[i] = smoothfade(this.props.audioCtx, this.props.gainNodes[i]);
+				// Set the sources fot all urls.
+				this.props.sources[i] = this.props.audioCtx.createBufferSource();
+				this.props.sources[i].buffer = bufferList.bufferList[i];
+				this.props.sources[i].loop = true;
+				this.props.sources[i].loopStart = 100;
+				this.props.sources[i].loopEnd = 115;
+				this.props.sources[i].connect(this.props.gainNodes[i]);
+				this.props.sources[i].start(0, 100);
+			}
+		}, 5000)
 	}
 
 	//// NEED TO HANDLE FILTER IN A NEW LOOP
 	controlPlay(control) {
-		audioCtx.resume();
-		for(let i = 0; i <= urlList.length; i++) {
+		this.props.audioCtx.resume();
+		for(let i = 0; i <= this.props.urlList.length; i++) {
 			if(gainNodes[i].gain.value != 0) {
 				gainNodes[i].gain.value = 0;
 				if(control === 'next') {
@@ -159,13 +151,13 @@ export class Player extends React.Component {
 	}
 
 	play() {
-		audioCtx.resume();
-		gainNodes[this.state.currentNode].gain.value = 1;
+		this.props.audioCtx.resume();
+		this.props.gainNodes[this.state.currentNode].gain.value = 1;
 	}
 
 	pause() {
-		audioCtx.resume();
-		gainNodes[this.state.currentNode].gain.value = 0;
+		this.props.audioCtx.resume();
+		this.props.gainNodes[this.state.currentNode].gain.value = 0;
 	}
 
 	render() {
@@ -213,19 +205,29 @@ export class Player extends React.Component {
 									)}
 									{this.renderCircularProgress(2)}
 							</div>
-            </div>
-          )}
-        </div>
-      </div>
-    );
-  }
+						</div>
+					)}
+				</div>
+			</div>
+		);
+	}
 }
 
 
 function MapStateToProps(state){
-	console.log(state);
 	return {
-		currentLocation: "hello"
+		audioCtx: state.player.audioCtx,
+		urlList: state.player.urlList,
+		playing: state.player.playing,
+		currentNode: state.player.currentNode,
+		playing: state.player.playing,
+		showPlayBtn: state.player.showPlayBtn,
+		angles: state.player.angles,
+		track1: state.player.track1,
+		zIndexs: state.player.zIndexs,
+		gainNodes : state.player.gainNodes,
+		sources : state.player.sources,
+		smoothfades : state.player.smoothfades
 	};
 }
 
